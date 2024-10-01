@@ -33,7 +33,7 @@ $config['panel']="panel";
 $config['subdir']=$config_sub_dir;
 }
 
-$ssl=$config_ssl
+$ssl=$config_ssl;
 $http=$ssl?'https':'http';
 //URL 
 $config['host']=$_SERVER['HTTP_HOST'];
