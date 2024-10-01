@@ -117,6 +117,7 @@ Class Login
 
 	function send_email($emailto,$subject,$message,$emailfrom="",$namefrom="",$attach=array())
 	{
+		global $mail_host,$mail_port,$mail_smtp_auth,$mail_username,$mail_password,$mail_smtp_secure,$mail_smptp_debug;
 	   // var_dump("$emailto,$subject,$message,$emailfrom,$namefrom");
 	
 /*	
@@ -140,23 +141,16 @@ Class Login
 		
         $mail->IsSMTP();  // send via SMTP
         $mail->Mailer = "mail";
-        $mail->SMTPSecure = "ssl";
-        $mail->SMTPDebug = 2;
+        $mail->SMTPSecure = $mail_smtp_secure;
+        $mail->SMTPDebug = $mail_smptp_debug;
             
         $mail->SetLanguage("en");
 
-		/*
-			mail.bizkit.id
-			SMTP Port: 465 
-			email: noreply@bizkit.id
-			pass: X[o_R-bnxnfb
-		*/
-
-        $mail->Host     = "mail.bizkit.id"; // SMTP servers 25/587 / POP 110
-        $mail->Port     = "465"; // SMTP servers 25/587 / POP 110
-        $mail->SMTPAuth = true;     // turn on SMTP authentication
-        $mail->Username = "noreply@bizkit.id";  // SMTP username
-        $mail->Password = "X[o_R-bnxnfb"; // SMTP password
+		$mail->Host     = $mail_host; // SMTP servers 25/587 / POP 110
+        $mail->Port     = $mail_port; // SMTP servers 25/587 / POP 110
+        $mail->SMTPAuth = $mail_smtp_auth;     // turn on SMTP authentication
+        $mail->Username = $mail_username;  // SMTP username
+        $mail->Password = $mail_password; // SMTP password
         
         /*
         $mail->IsSMTP();  // send via SMTP

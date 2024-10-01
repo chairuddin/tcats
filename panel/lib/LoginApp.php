@@ -37,6 +37,7 @@ Class Login
 	function  send_email($emailto,$subject,$message,$emailfrom="",$namefrom="",$attach=array())
 	{
 	
+	global $mail_host,$mail_port,$mail_smtp_auth,$mail_username,$mail_password;
         /*
 
     $headers = 'From: noreply@wifiukai.com'       . "\r\n" .
@@ -54,17 +55,18 @@ Class Login
 		
         
         // setting
-        $mail->IsSMTP();  // send via SMTP
+         $mail->IsSMTP();  // send via SMTP
         $mail->Mailer = "mail";
-        $mail->SMTPSecure = "tls";
-        $mail->SMTPDebug = 2;
+        $mail->SMTPSecure = $mail_smtp_secure;
+        $mail->SMTPDebug = $mail_smptp_debug;
             
         $mail->SetLanguage("en");
-        $mail->Host     = "mail.wifiukai.com"; // SMTP servers 25/587 / POP 110
-        $mail->Port     = "587"; // SMTP servers 25/587 / POP 110
-        $mail->SMTPAuth = true;     // turn on SMTP authentication
-        $mail->Username = "noreply@wifiukai.com";  // SMTP username
-        $mail->Password = "mTudfn0EjV"; // SMTP password    
+
+		$mail->Host     = $mail_host; // SMTP servers 25/587 / POP 110
+        $mail->Port     = $mail_port; // SMTP servers 25/587 / POP 110
+        $mail->SMTPAuth = $mail_smtp_auth;     // turn on SMTP authentication
+        $mail->Username = $mail_username;  // SMTP username
+        $mail->Password = $mail_password; // SMTP password 
 		$emailfrom=$emailfrom==""?$mail->Username:$emailfrom;						
 		$namefrom=$namefrom==""?$mail->Username:$namefrom;						
 		

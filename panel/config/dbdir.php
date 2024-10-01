@@ -1,10 +1,11 @@
 <?php
+include "configuration.php";
 
 $host[$_SERVER['HTTP_HOST']]=array(
-"db_host"=>"127.0.0.1",
-"db_user"=>"generik",
-"db_pass"=>"generik",
-"db_name"=>"ukomggf",
+"db_host"=>$db_host,
+"db_user"=>$db_user,
+"db_pass"=>$db_pass,
+"db_name"=>$db_name,
 "dir"=>"quiz",
 "online"=>"1",
 "memcached"=>"0"

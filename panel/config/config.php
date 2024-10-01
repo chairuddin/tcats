@@ -25,15 +25,15 @@ $_d=$host[$config['userid']];
 if($_d['online'])
 {
 $config['panel']="panel";
-$config['subdir']="ukomggf";
+$config['subdir']=$config_sub_dir;
 }
 else
 {
 $config['panel']="panel";
-$config['subdir']="ukomggf";
+$config['subdir']=$config_sub_dir;
 }
 
-$ssl=false;
+$ssl=$config_ssl
 $http=$ssl?'https':'http';
 //URL 
 $config['host']=$_SERVER['HTTP_HOST'];

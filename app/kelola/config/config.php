@@ -26,21 +26,20 @@ $_d=$host[$config['userid']];
 
 if($_d['online'])
 {
-$config['panel']="kelola";
-$config['subdir']="ukomggf/app";
+	$config['panel']="kelola";
+	$config['subdir']=($config_sub_dir!=''?"$config_sub_dir/":'')."app";
 }
 else
 {
-$config['panel']="kelola";
-$config['subdir']="ukomggf/app";
+	$config['panel']="kelola";
+	$config['subdir']=($config_sub_dir!=''?"$config_sub_dir/":'')."app";
 }
 
 //URL 
 $config['host']=$_SERVER['HTTP_HOST'];
-$ssl=false;
+$ssl=$config_ssl
 $http=$ssl==true?"https://":"http://";
 $config['backendurl']=$http.$_SERVER['HTTP_HOST']."/".($config['subdir']!=""?$config['subdir']."/":"").$config['panel'];
-
 $config['tinyurl']=$http.$_SERVER['HTTP_HOST'].($config['subdir']!=""?"/".$config['subdir']:"");
 $config['urlfiles']=$http.$_SERVER['HTTP_HOST']."/".($config['subdir']!=""?$config['subdir']."/":"")."userfiles/file/".$_d['dir'];
 $config['urlbackend']=$http.$_SERVER['HTTP_HOST']."/".($config['subdir']!=""?$config['subdir']."/":"")."userfiles/backend";
