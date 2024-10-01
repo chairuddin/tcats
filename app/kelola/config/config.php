@@ -37,7 +37,7 @@ else
 
 //URL 
 $config['host']=$_SERVER['HTTP_HOST'];
-$ssl=$config_ssl
+$ssl=$config_ssl;
 $http=$ssl==true?"https://":"http://";
 $config['backendurl']=$http.$_SERVER['HTTP_HOST']."/".($config['subdir']!=""?$config['subdir']."/":"").$config['panel'];
 $config['tinyurl']=$http.$_SERVER['HTTP_HOST'].($config['subdir']!=""?"/".$config['subdir']:"");
