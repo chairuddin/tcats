@@ -91,7 +91,7 @@ foreach ($controller_files as $file) {
 }
 
 
-$kUrl=$http.$_SERVER['HTTP_HOST'].($config_sub_dir!='')?"/$config_sub_dir":'';
+$kUrl=$http.$_SERVER['HTTP_HOST'].(($config_sub_dir!='')?"/$config_sub_dir":'');
 
 $api_login="$kUrl/api/login";
 $api_kInfoUrl="$kUrl/api/info_awal";
