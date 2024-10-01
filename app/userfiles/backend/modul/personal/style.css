@@ -1,0 +1,30 @@
+.dt-body-right{
+text-align:right;
+}
+.read-only  input, .read-only  select, .read-only  textarea,.read-only  .select2-container--default .select2-selection--single{
+    border:none !important;
+    outline:none !important;
+    box-shadow: none !important;
+}
+
+.read-only select {
+    /* Remove default styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+.read-only textarea {
+resize:none;
+} 
+
+.readonly .select2-selection__arrow{
+    display: none !important;
+  }
+  
+
+
+  .spinner-border {
+    width: 5rem;
+    height: 5rem;
+    border-width: 0.5em;
+  }

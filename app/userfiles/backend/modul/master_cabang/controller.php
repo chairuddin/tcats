@@ -1,0 +1,2 @@
+<?php
+b_auto_load_css();b_auto_load_js();b_load_lib("YonaForm");$validation = new YonaValidation();$form = new YonaForm();include "function.php";include "model.php";include "view.php";$form->release_data();?>

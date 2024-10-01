@@ -1,0 +1,11 @@
+.dt-body-right{
+text-align:right;
+}
+
+.loading-gif {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('<?php echo fileurl("asset/loading.gif")?>') no-repeat center center;
+    background-size: cover;
+}

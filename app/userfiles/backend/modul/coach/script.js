@@ -1,0 +1,49 @@
+$(document).ready(function(){
+	
+		
+	// datatables
+		$('#datalist').DataTable({
+		
+			"pageLength": 100,
+			'lengthChange': false,
+			'searching'   : true,
+			'ordering'    : true,
+			'info'        : false,
+			'responsive'  : true,
+			'processing'  : true,
+			'serverSide'  : true,
+			"ajax": {
+				"url": '<?php echo backendurl("$modul/data")?>',
+				"type": "POST"
+			},
+			
+			"columnDefs": [
+				{ "width": "5%", "targets": 0 },
+				{ "width": "15%", "targets": 1 },
+				{ "width": "10%", "targets": 2 },
+				{ "width": "10%", "targets": 3 },
+				{ "width": "10%", "targets": 4 },
+				{ "width": "10%", "targets": 5 }
+			  ]
+			
+			
+		});
+			/*
+			responsive: {
+				details: false
+			},
+
+			"columnDefs": [
+				{ 
+					"targets": [0,2], //first column / numbering column
+					"orderable": false, //set not orderable
+				}
+			],
+			*/
+		$('.min-date').bootstrapMaterialDatePicker({
+			format: 'DD/MM/YYYY',
+			time: false,
+			minDate: '01/01/2022'
+		});
+		
+	});

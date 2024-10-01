@@ -1,0 +1,7 @@
+<?php
+/*DEFINISIKAN CLASS*/
+
+
+
+
+?>

@@ -1,0 +1,1 @@
+<?phpinclude "dbdir.php";$_d=$host[$config['userid']];$db_host=$_d['db_host'];$db_user=$_d['db_user'];$db_pass=$_d['db_pass'];$db_name=$_d['db_name'];include "mysql.php";$mysql=new Mysqli_db($db_host,$db_user,$db_pass,$db_name);?>

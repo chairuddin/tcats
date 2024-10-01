@@ -1,0 +1,144 @@
+/*********************************************************************************
+
+	Template Name: Boighor Bookshop Responsive Bootstrap4 Template  
+	Description: Template description
+	Version: 1.0
+	Note: This is custom css. All custom styles (user styles) declare here.
+
+**********************************************************************************/
+
+header#wn__header {
+    background-color: white;
+}
+.mean-container a.meanmenu-reveal {
+color:white !important;
+}
+.mainmenu__nav .meninmenu li a {
+color:white !important;
+}
+.mean-container a.meanmenu-reveal span {
+    display: block;
+    background: white none repeat scroll 0 0 !important;
+    height: 2px;
+    margin-top: 5px;
+    width: 100%;
+}
+.meninmenu li.drop .megamenu .item li a{
+	color:#333 !important;
+}
+.tombol {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 2px solid #333;
+    box-shadow: none;
+    color: #333;
+    display: inline-block;
+    font-family: Poppins,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 34px;
+    padding: 2px 20px 0;
+    text-shadow: none;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
+}
+
+.form__box input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 80px;
+    width: 100%;
+    outline: none;
+}
+.form__box button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    font-size: 18px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+}
+.form__box {
+    max-width: 100%;
+}
+.form__box {
+    border: 2px solid #222;
+    border-radius:30px;
+    height: 50px;
+    margin: 30px auto 0;
+    max-width: 60%;
+    position: relative;
+}
+.list__view {
+    display: flex;
+    margin-bottom: 60px !important;
+}
+
+.is-sticky .mean-container .mean-bar {
+	top:0px !important;
+}
+.header__area.sticky__header.is-sticky > .mobile-menu > div.judul-apps-sekunder {
+    font-size: 12pt;
+    color: white;
+    position: absolute;
+    top: 10% !important;
+    left: 104px;
+}
+.header__area.sticky__header.is-sticky > .mobile-menu > div.judul-apps-primer {
+    font-size: 14pt;
+    color: white;
+    position: absolute;
+    top: 10% !important;
+    left: 104px;
+}
+.mobile-menu > div.judul-apps-sekunder {
+    font-size: 12pt;
+    color: white;
+    position: absolute;
+    top: 26%;
+    left: 91px;
+}
+.mobile-menu > div.judul-apps-primer {
+    font-size: 14pt;
+    color: white;
+    position: absolute;
+    top: 54%;
+    left: 91px;
+}
+.desktop-title > div.judul-apps-sekunder {
+    font-size: 12pt;
+    color: white;
+    position: absolute;
+    top: 26%;
+    left: 1%;
+}
+.desktop-title > div.judul-apps-primer {
+    font-size: 14pt;
+    color: white;
+    position: absolute;
+    top: 54%;
+    left: 1%;
+}
+.logo img {
+   
+   max-width:none !important;
+ 
+}
+
+.header__absolute.sticky__header > .logo img {
+   
+   max-width:none !important;
+   height:100%;
+}
+
+header#wn__header {
+    background-color: white;
+    height: 85px;
+}
+
+.sticky__header.is-sticky .mainmenu__nav {
+height: 80px !important;
+}

@@ -1,0 +1,2 @@
+<?php
+b_auto_load_css();b_auto_load_js();b_load_lib("YonaForm");$large_pic=$config['userfiles']."/{$modul}/large";$small_pic=$config['userfiles']."/{$modul}/small";$small_url=$config['urlfiles']."/{$modul}/small";$large_url=$config['urlfiles']."/{$modul}/large";$maxfilesize = 5000000;$max_width = 900;$large_width = 900;$thumb_width = 360;$validation = new YonaValidation();$form = new YonaForm();include "function.php";include "model.php";include "view.php";$form->release_data();?>
