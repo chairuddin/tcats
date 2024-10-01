@@ -1,5 +1,6 @@
 <?php
-include "configuration.php";
+
+require_once  __DIR__."/../../configuration.php";
 
 $host[$_SERVER['HTTP_HOST']]=array(
 "db_host"=>$db_host,
