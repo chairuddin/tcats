@@ -89,8 +89,10 @@ $controller_files = glob($controller_path . '/*.php');
 foreach ($controller_files as $file) {
     include_once $file;
 }
-//$kUrl='https://wifiukai.com/cbt';
+
+
 $kUrl=$http.$_SERVER['HTTP_HOST'].$config_sub_dir!=''?"/$config_sub_dir":'';
+die($kUrl);
 $api_login="$kUrl/api/login";
 $api_kInfoUrl="$kUrl/api/info_awal";
 $api_kInfoUrl="$kUrl/api/info_awal";
