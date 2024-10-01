@@ -1,0 +1,87 @@
+
+.participant-table-statistic > table tr td:nth-child(1){	width:30px; text-align:center;}
+.participant-table-statistic > table tr td:nth-child(2){	width:80px; text-align:left;}
+.participant-table-statistic > table tr td:nth-child(3){	width:250px !important; text-align:left;}
+.participant-table-statistic > table tr td:nth-child(4){	width:60px; text-align:left;}
+.participant-table-statistic > table tr td:last-child{	width:50px;	text-align:center;}
+.participant-table-statistic table{
+border-top:1px solid;
+}
+.participant-table-statistic {
+}
+.kotak_laporan {
+  width: 100%;
+  overflow:scroll; 
+  padding:20px;
+}
+.kolom_jawab{
+padding:2px !important;
+font-size:11px;
+}
+
+.view-table tr td:nth-child(1){	width:30px; text-align:center;}
+.view-table tr td:nth-child(2){	width:100px;	text-align:left;}
+.view-table tr td:nth-child(3){	width:300px;	text-align:left;}
+.view-table tr td:last-child{	width:155px;	text-align:center;}
+.upload_jadwal {
+  border: 1px solid;
+  display: block;
+  padding: 6px;
+  width: 266px;
+  margin-top: 6px;
+}
+.upload_jadwal button {
+  margin-top: 13px;
+}
+.today_schedule {
+  background-color: yellowgreen;
+}
+.btn.btn-filter > img {
+  padding-right: 7px;
+}
+.box_answer_wrong {
+
+  background-color: #FE99FE !important;
+  }
+.box_answer_oke {
+  background-color: #9BFF67  !important;
+}
+
+.block_abjad {
+  display: block;
+  height: 20px;
+  line-height: 25px;
+  padding: 2px;
+  text-align: center;
+  width: 12px;
+}
+.block_nomor {
+  display: block;
+  font-size: 10px;
+  height: 9px;
+  line-height: 19px;
+  padding: 2px;
+  text-align: center;
+  width: 12px;
+}
+
+.button_download_excel {
+	margin-right: 5px;
+}
+/*Graph*/
+
+/*End Graph*/
+.tanggal_ujian_inline {
+  display: block;
+  line-height: 18px;
+}
+.tanggal_ujian i,.tanggal_ujian_inline i {
+  padding-right: 5px;
+}
+.waktu_ujian{
+ padding-right: 5px;
+ padding-left: 7px;
+ }
+.waktu_ujian_inline{
+ padding-right: 5px;
+ } 

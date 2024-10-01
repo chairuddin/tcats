@@ -1,0 +1,1 @@
+<?phpb_load_lib("PFBC/Form");b_load_css();b_load_lib("PHPWord/src/PhpWord/Autoloader");$phpWord = new \PhpOffice\PhpWord\PhpWord();include "function.php";include "model.php";include "view.php";?>

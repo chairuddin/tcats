@@ -1,0 +1,9 @@
+<?php
+$host[$_SERVER['HTTP_HOST']]=array(
+"db_host"=>"localhost",
+"db_user"=>"websuka_quiz",
+"db_pass"=>"W3bs11k4",
+"db_name"=>"websuka_quiz",
+"dir"=>"quiz",
+"online"=>"1");
+?>

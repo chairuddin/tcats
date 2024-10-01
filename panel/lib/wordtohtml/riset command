@@ -1,0 +1,1 @@
+libreoffice --headless  --convert-to "html:XHTML Writer File:UTF8" /var/www/html/quizroomubknew/panel/lib/doctohtml/sample.docx --outdir /var/www/html/quizroomubknew/panel/lib/doctohtml/tmp/a.html

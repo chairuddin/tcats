@@ -1,0 +1,80 @@
+.brand_thumbnail img{	max-width:100px;}
+.view-table tr td:nth-child(1){	width:20px; text-align:center;vertical-align:top;font-weight:bold}
+.view-table tr td:nth-child(2){	width:500px;	text-align:left;}
+.view-table tr td:last-child{	width:100px;	text-align:center;}
+
+#printsoal.view-table tr td:nth-child(1){text-align:left;vertical-align:top;font-weight:bold}
+#printsoal.view-table tr td:last-child{width:700px;text-align:left;}
+#printsoal,#printsoal.view-table tr td{
+border:none !important;
+}
+#printsoal.view-table tr td p{
+padding:0;
+margin:0;
+text-align:justify;
+}
+#printsoal.view-table tr td .pilihan_jawaban li{
+border:none;
+}
+.jawaban{
+background-color:greenyellow;
+}
+.pilihan_jawaban{padding:0;margin:0}
+.pilihan_jawaban li
+{
+border-bottom: 1px solid #ccc;
+min-height: 28px;
+list-style:none;	
+padding:5px;
+display:flex;
+}
+.point_jawaban {
+  width: 19px;
+  float: left;
+  border: 1px solid ;
+  padding: 0 0px 1px 7px ;
+  margin-right: 5px;
+}
+
+.view-table table 
+{
+width:auto !important;
+}
+.view-table table tr td:last-child{
+text-align:left;
+}
+.view-table table tr td
+{
+font-weight: normal !important;
+width:auto !important;
+text-align:left !important;
+border:none !important;
+vertical-align:top !important;
+width:auto !important;
+
+}
+.table.table-hover tr:hover>td{background:white !important;}
+#updatequiz_detail .control-group > label {
+  font-size: 17px !important;
+  font-weight: bold;
+}
+#updatequiz_detail .control-group{
+  border: 1px solid #CACACA;
+  padding: 15px;
+}
+
+.control-group{
+  border: 1px solid hsl(0, 0%, 78%);
+  padding: 9px;
+}
+.labelTANYA{
+font-size:17pt;
+display: block;
+float:left;
+}
+.labelA,.labelB,.labelC,.labelD,.labelE {
+  font-size: 30pt;
+  text-align: left;
+  display: block;
+  padding: 10px;
+}

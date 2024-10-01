@@ -1,0 +1,57 @@
+<?php 
+if($d_template['isboxed']==1)
+{?>
+@media (min-width: 768px) {
+.boxed {
+  margin: auto;
+  width: 750px;
+}
+.boxed .container {  width: 750px;}
+
+}
+@media (min-width: 992px) {
+.boxed {
+  margin: auto;
+  width: 970px;
+}
+.boxed .container {  width: 970px;}
+}
+@media (min-width: 1200px) {
+.boxed {
+  margin: auto;
+  width: 1170px;
+}
+.boxed .container {  width: 1170px;}
+}
+<?php 
+}else{
+?>
+
+<?php
+}
+?>
+@media (max-width:583px){
+	.col-md-10, .col-md-2 {
+	padding: 0;
+	}
+	.item_description{display:none;}
+	.div-form-login{
+	padding-top:1px !important;
+	margin-top:0px !important;
+	}
+	.biodata-left{
+	width:100%;
+	}
+	#divwaktu_ujian {
+	  position: fixed;
+	  right: 17px;
+	  top: 3px;
+	  z-index: 100;
+	}
+	#divbiodata{
+	height:77px !important;
+	}
+	.biodata-left > span{
+	display:block;
+	}
+}

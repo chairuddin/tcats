@@ -1,0 +1,2 @@
+<?php
+b_auto_load_css();b_auto_load_js();b_load_lib("YonaForm");b_load_lib("PHPExcel/Classes/PHPExcel");/*populate otomatis* /for ($char = 'A'; $char <= 'H'; $char++) {    for($i=1;$i<=4;$i++) {		//echo "INSERT INTO quiz_grade SET nama='$char$i'; <br/>";		$q = $mysql->query("INSERT INTO quiz_grade SET nama='$char$i'");	} }/*end populate otomatis*/$validation = new YonaValidation();$form = new YonaForm();include "function.php";include "model.php";include "view.php";$form->release_data();?>

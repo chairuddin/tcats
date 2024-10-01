@@ -1,0 +1,9 @@
+.dt-body-right{
+text-align:right;
+}
+.dt-body-center{
+text-align:center;
+}
+table#table-mutasi tr td label {
+    display: none !important;
+}

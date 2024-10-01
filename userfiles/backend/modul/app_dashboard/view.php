@@ -1,0 +1,1 @@
+<?phpif($action=="") {    include "view_index.php";}?>

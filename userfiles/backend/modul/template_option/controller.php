@@ -1,0 +1,1 @@
+<?phpb_load_css();b_load_lib("PFBC/Form");$path_template=$config['userdir']."/front/template";include "model.php";include "view.php";?>

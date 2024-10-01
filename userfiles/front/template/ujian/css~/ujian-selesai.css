@@ -1,0 +1,57 @@
+div#middle-block .container {
+    display: flex;
+	overflow:hidden;
+    /* height: calc(100vh - 130px); */
+    align-items: center;
+    justify-content: center;
+	margin-bottom:20px;
+}
+#tes-selesai {
+    position: relative;
+    width: 360px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-width: 90%;
+	margin:0 auto;
+}
+#tes-selesai h1 {
+    font-size: 13pt;
+    background: #eee;
+    margin: 0;
+	border-bottom: 1px solid #ccc;
+    padding: 17px 20px;
+    border-radius: 3px 3px 0 0;
+    font-weight: bold;
+}
+#tes-selesai .form-group {
+    padding: 20px 20px;
+    margin: 0;
+}
+.btn-success {
+    padding:8px 42px;
+	border-radius:0;
+}
+#tes-selesai td:first-child {
+    padding-right: 10px;
+}
+#tes-selesai a.show-password i {
+    background: transparent;
+    width: 15px;
+	font-size:9pt;
+}
+a.show-password {
+    position: absolute;
+	display:none;
+    left: 100%;
+    top: 0;
+    color: #555;
+}
+#footer-section{
+	padding:10px 20px;
+	border-top: 1px solid #ccc;
+	text-align:center
+}
+@media(max-width:767px){
+
+}

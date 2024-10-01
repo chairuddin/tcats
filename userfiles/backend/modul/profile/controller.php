@@ -1,0 +1,1 @@
+<?php//b_load_lib("PFBC/Form");b_load_lib("YonaForm");$validation = new YonaValidation();$form = new YonaForm();include "model.php";include "view.php";?>

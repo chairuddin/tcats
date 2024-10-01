@@ -1,0 +1,36 @@
+.brand_thumbnail img{	max-width:100px;}
+.view-table tr td:nth-child(1){	width:20px; text-align:center;}
+.view-table tr td:nth-child(2){	width:20px;	text-align:left;}
+.view-table tr td:nth-child(3){	width:20px;	text-align:left;}
+.view-table tr td:nth-child(4){	width:20px;	text-align:left;}
+.view-table tr td:nth-child(5){	width:250px;	text-align:left;}
+.view-table tr td:nth-child(6){	width:80px;	text-align:left;}
+.view-table tr td:nth-child(7){	width:130px;	text-align:right;}
+.view-table tr td:last-child{	width:	px;	text-align:center;}
+.pilih_kelas {
+  margin: 0;
+}
+.pilih_kelas > li {
+  list-style: outside none none;
+  padding: 0;
+}
+.upload_jadwal {
+  border: 1px solid;
+  display: block;
+  padding: 6px;
+  width: 266px;
+  margin-top: 6px;
+}
+.upload_jadwal button {
+  margin-top: 13px;
+}
+.today_schedule {
+  background-color: yellowgreen !important;
+}
+.color-time1 {
+  background-color: yellowgreen !important;
+}
+.btn.btn-filter > img {
+  padding-right: 7px;
+}
+

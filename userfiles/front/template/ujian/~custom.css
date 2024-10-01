@@ -1,0 +1,315 @@
+<?php
+$forecolor=$colorscheme->setForeColor($d_template['color'],"#FFFFFF","#555555");	
+$template_color=$d_template['color'];
+echo <<<END
+nav a:hover{color:$template_color !important;}
+nav a{color:$forecolor !important;}
+/*
+.block-title > h2{color:$forecolor	}
+*/
+.breadcrumb a{color:$template_color !important;}
+.contact-info  a{color:$template_color !important;}
+END;
+?>
+/*end cek custom color from template*/
+header {
+  background-color:<?php echo $color_1;?>;  
+}
+
+body{
+background-color:<?php echo $color_1;?>;
+ color: #333;
+  font-family:"Template","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing:0;
+}
+
+img{max-width:100%;height: auto;}
+.light {
+  font-weight: bold;
+}
+.block-title{text-align:center;}
+footer .block-title{text-align:left;}
+.block-title > h1{
+font-family:"Template","Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size:29px;
+font-weight:600;
+
+}
+.block-title > h2 {
+
+  font-family: "Template","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 17pt;
+  padding: 3px;
+  line-height:1.3em;
+}
+
+/*MENU*/
+.navbar-nav li a
+{
+text-transform:uppercase; 
+}
+.navbar
+{
+margin:0;
+}
+.header_midle .navbar {
+    background-color: <?php echo $color_2;?>;
+    border: medium none;
+    border-radius: 0;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus,.navbar-default .navbar-toggle {
+background-color: #ddd;
+}
+@media (max-width:980px){
+#divbiodata  {
+   height:68px !important;
+}
+/*
+#divbiodata > span {
+  color: <?php echo $color_2_white?>;
+  left: -12px;
+  padding: 2px 5px 0 8px;
+  position: absolute;
+  top: 48px;
+  z-index: 5;
+}
+*/ 
+
+
+}
+@media (max-width:380px){
+.quiz_navigation { margin-right: 5px;}
+}
+@media (min-width:381px){
+.quiz_navigation { margin-right: 20px;}
+}
+@media (max-width:767px){
+
+.navbar-nav .open .dropdown-menu{
+	background-color:#fff;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+	background-color:<?php echo $color_2_dark;?>;
+	color: #fff;
+}
+.item_control_left{text-align:center;margin-bottom:6px;}
+.item_control_right{text-align:center;}
+}
+@media (min-width:769px){
+.header_midle .nav {
+	margin-top:-1px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-nav > li {
+    display: inline-block;
+    float: none;
+}
+}
+.navbar-default .navbar-nav > li > a ,.navbar-default .navbar-nav > li > a  span{
+    color: #fff;
+	font-weight:600;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: transparent;
+    color: #fff;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus,.header_midle .navbar-default .navbar-nav li a:hover{background-color:<?php echo $color_2_dark;?>;color:#fff;}
+.header_midle .navbar-default .navbar-nav li .search-icon a {
+    color: #fff;
+}
+.header_midle .navbar-default .navbar-nav li .search-icon a:hover {
+	background-color:transparent;
+	color:<?php echo $color_2_dark;?>;
+}
+.header_midle .dropdown-menu {
+	background:<?php echo $color_2;?>;
+    border: 0 none;
+    border-radius: 0;
+    padding: 0;
+}
+.header_midle .dropdown-menu > li > a{
+	padding:8px 15px;
+	color:#fff;
+}
+.header_midle .dropdown-menu .caret-right{
+	border-left-color:#fff;
+}
+/* END MENU */
+
+/*Trik untuk slide supaya auto wide*/
+.container.alma-container-body > .row > .col-sm-12 .owl-slide-show.owl-carousel.owl-theme {
+  margin-left: -15px;
+  width: calc(100% + 30px);
+}
+.container-fluid.alma-container-body >.container> .row > .col-sm-12 .owl-slide-show.owl-carousel.owl-theme {
+  margin-left: -110px;
+  width: calc(100% + 220px);
+}
+/*Trik untuk slide supaya auto wide*/
+
+
+/*BUTTON*/
+button:hover,
+button.btn-default:hover{background-color:<?php echo $color_button_hover;?>;}
+button.btn-default,
+button
+{
+background-color: <?php echo $color_button;?>;
+border: 0 none;
+color: #fff;
+padding: 5px;
+border-radius: 0px;
+}
+/*FOOTER */
+.alma-container-bottom{
+padding-bottom:15px;
+}
+.alma-container-body
+{
+}
+.footer p{
+font-size:8pt;	
+}
+.footer a{
+color:<?php echo $color_v6;?>;
+
+}
+.footer{
+
+padding-top:0px;
+padding-bottom:15px;
+}
+/*FOOTER END*/
+
+.btn-login
+{
+background-color:<?php echo $color_2;?>;
+width:100%;
+border:none;
+color:white;
+padding:7px 0px 7px 0px;
+}
+.panel_logo {
+  
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+/*end special top navbar*/
+
+
+#divbiodata {
+  width:100%;
+  height:44px;
+  background-color:<?php echo $color_2;?>;
+  color:<?php echo $color_2_white;?>;
+  /*
+  -webkit-marquee: left medium infinite scroll slow; 
+  overflow-x: -webkit-marquee;
+  */
+  overflow-y: hidden;
+  
+}
+#formulir_ujian {
+  background-color: white;
+  border: 2px solid <?php echo $color_2;?>;
+}
+.quiz_navigation {
+  background-color: <?php echo $color_2;?>;
+  border: medium none <?php echo $color_2;?>;
+  color: white;
+}
+#formulir_ujian a.quiz_navigation:focus,#formulir_ujian a.quiz_navigation:hover{
+color:<?php echo $color_2_white;?> !important;
+}
+#formulir_ujian a.quiz_navigation:hover,#formulir_ujian a.quiz_navigation:focus{
+background-color:<?php echo $color_v1;?>;
+}
+.panel_answer {
+  border: 2px solid <?php echo $color_2;?>;
+}
+
+.div-form-login {
+    background-color: #FFF;
+     min-height: calc(100vh - 5vh ) !important;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 19px;
+}
+.block-title.login-form > h1{
+padding-top:30px;
+}
+
+#clockdiv{
+padding-bottom:10px;
+}
+#clockdiv > h3{
+color:white;
+}
+.form-baris{
+border-bottom:1px solid #cecece;
+margin-bottom:0;
+}
+.label-isi {
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 5px;
+  max-width: 100%;
+}
+.form-isi {
+  background-image: none;
+  color: #555;
+  font-size: 14px;
+  height: 34px;
+  line-height: 1.42857;
+  padding: 0;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  width: 100%;
+}
+.form-isi:before {
+  content: ":";
+  padding-right: 5px;
+}
+
+.subtitle_quiz {
+  color: <?php echo $color_2;?>;
+  font-weight: bold;
+  margin-top:22px;
+  background-color: lightgray;
+  padding: 5px;
+}
+.pilihan_ganda.horizontal {
+  display: block;
+  min-height: 60px;
+}
+.cek_pilihan_ganda {
+    margin-bottom: 15px;
+}
+.cek_pilihan_essay {
+	display: block;
+    clear: both;
+}
+.logo-instansi-footer{
+	padding-bottom:10px;
+}
+.container.alma-container{
+	padding:0;
+}
+.koneksi_bermasalah {
+    position: fixed;
+    height: 6vh;
+    width: 100vw;
+    z-index: 120;
+    background-color: beige;
+    text-align: center;
+    background-color: burlywood;
+    padding-top: 5px;
+    bottom: 5px;
+}
+	<?php 
+/*Jangan dihapus*/
+include "responsive.css";
+?>	

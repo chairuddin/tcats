@@ -1,0 +1,1 @@
+<?phpdefine(_TITLEUPLOAD,"Upload soal document *.docx");define(_UPLOAD,"Upload");define(_DOWNLOAD_TEMPLATE,"Download template(*.docx)");define(_PERTANYAAN,"Pertanyaan");?>

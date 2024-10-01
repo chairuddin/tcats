@@ -1,0 +1,46 @@
+div#middle-block .container .row {
+    display: flex;
+    min-height: calc(100vh - 130px);
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-top: 50px;
+}
+form#form-konfirmasi {
+    position: relative;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-width: 100%;
+}
+form#form-konfirmasi h1 {
+    font-size: 16pt;
+    text-align: left;
+	font-weight:bold;
+    background: #eee;
+    margin: 0;
+    padding: 22px 20px;
+    border-radius: 3px 3px 0 0;
+}
+.form-group:last-child{
+	text-align:right
+}
+.form-group{
+	margin:0;
+	border-top: 1px solid #ccc;
+	padding:10px 20px;
+}
+label{margin-bottom:0}
+form#form-konfirmasi input {
+    font-size: 9pt;
+	width:auto
+}
+.btn{padding:7px 42px}
+@media(max-width:767px){
+	div#middle-block .container .row{display:block}
+div#middle-block .container .row {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+}

@@ -1,0 +1,70 @@
+.brand_thumbnail img{	max-width:100px;}
+.view-table tr td:nth-child(1){	width:20px; text-align:center;vertical-align:top;}
+.view-table tr td:nth-child(2){	width:20px;	text-align:left;vertical-align:top;}
+.view-table tr td:nth-child(3){	width:100px;	text-align:left;vertical-align:top;}
+.view-table tr td:nth-child(4){	width:300px;	text-align:left;vertical-align:top;}
+
+
+.view-table tr td:last-child{	width:70px;	text-align:center;vertical-align:top;}
+.pilih_kelas {
+  margin: 0;
+}
+.pilih_kelas > li {
+  list-style: outside none none;
+  padding: 0;
+}
+.upload_jadwal {
+  border: 1px solid;
+  display: block;
+  padding: 6px;
+  width: 266px;
+  margin-top: 6px;
+}
+.upload_jadwal button {
+  margin-top: 13px;
+}
+.today_schedule {
+  background-color: yellowgreen !important;
+}
+.color-time1 {
+  background-color: yellowgreen !important;
+}
+.btn.btn-filter > img {
+  padding-right: 7px;
+}
+
+.tanggal_ujian_inline {
+  display: block;
+  line-height: 18px;
+}
+.tanggal_ujian i,.tanggal_ujian_inline i {
+  padding-right: 5px;
+}
+.waktu_ujian{
+ padding-right: 5px;
+ padding-left: 7px;
+ }
+.waktu_ujian_inline{
+ padding-right: 5px;
+ } 
+
+
+.button_download_excel {
+	margin-right: 5px;
+}
+.del_confirm {
+  border: 1px solid hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
+  padding: 0;
+  width: 359px;
+}
+.del_confirm_title {
+  background-color: hsl(0, 77%, 56%);
+  padding: 10px;
+}
+.del_confirm_button {
+  padding: 11px;
+}
+.del_confirm_button a:last-child {
+  float: right;
+}

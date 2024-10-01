@@ -1,0 +1,17 @@
+.template_thumbnail {
+  float: left;
+  padding: 3px;
+  
+}
+.template_thumbnail img {
+  max-width: 243px;
+  height:auto;
+ }
+.template_thumbnail > div {
+  text-align: center;
+  padding-top:5px;
+}
+
+.template_thumbnail.selected {
+  border:2px solid red;
+}

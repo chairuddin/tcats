@@ -1,0 +1,2 @@
+<?php
+b_auto_load_css();b_auto_load_js();b_load_lib("YonaForm");b_load_lib("PHPExcel/Classes/PHPExcel");b_load_lib("PHPWord/src/PhpWord/Autoloader");$phpWord = new \PhpOffice\PhpWord\PhpWord();$validation = new YonaValidation();$form = new YonaForm();$mode_algoritma=1;include "function.php";include "model.php";include "view.php";$form->release_data();?>

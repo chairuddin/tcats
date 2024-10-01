@@ -1,0 +1,48 @@
+[01-Jun-2022 20:56:55 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined method Login::search_user_by_token() in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php:113
+Stack trace:
+#0 /home2/wifiukaicom/public_html/cbt/userfiles/front/index.php(218): include()
+#1 /home2/wifiukaicom/public_html/cbt/index.php(17): include('/home2/wifiukai...')
+#2 {main}
+  thrown in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php on line 113
+[01-Jun-2022 21:00:36 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined method Login::search_user_by_token() in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php:113
+Stack trace:
+#0 /home2/wifiukaicom/public_html/cbt/userfiles/front/index.php(218): include()
+#1 /home2/wifiukaicom/public_html/cbt/index.php(17): include('/home2/wifiukai...')
+#2 {main}
+  thrown in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php on line 113
+[01-Jun-2022 21:01:40 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined method Mysqli_db::sql_get_assoc() in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php:11
+Stack trace:
+#0 /home2/wifiukaicom/public_html/cbt/userfiles/front/index.php(218): include()
+#1 /home2/wifiukaicom/public_html/cbt/index.php(17): include('/home2/wifiukai...')
+#2 {main}
+  thrown in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php on line 11
+[01-Jun-2022 21:02:42 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined method Login::search_user_by_token() in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php:113
+Stack trace:
+#0 /home2/wifiukaicom/public_html/cbt/userfiles/front/index.php(218): include()
+#1 /home2/wifiukaicom/public_html/cbt/index.php(17): include('/home2/wifiukai...')
+#2 {main}
+  thrown in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php on line 113
+[01-Jun-2022 21:04:27 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined method Login::search_user_by_token() in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php:113
+Stack trace:
+#0 /home2/wifiukaicom/public_html/cbt/userfiles/front/index.php(218): include()
+#1 /home2/wifiukaicom/public_html/cbt/index.php(17): include('/home2/wifiukai...')
+#2 {main}
+  thrown in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php on line 113
+[01-Jun-2022 21:04:59 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined method Login::search_user_by_token() in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php:113
+Stack trace:
+#0 /home2/wifiukaicom/public_html/cbt/userfiles/front/index.php(218): include()
+#1 /home2/wifiukaicom/public_html/cbt/index.php(17): include('/home2/wifiukai...')
+#2 {main}
+  thrown in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php on line 113
+[01-Jun-2022 21:05:01 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'Login' not found in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php:112
+Stack trace:
+#0 /home2/wifiukaicom/public_html/cbt/userfiles/front/index.php(218): include()
+#1 /home2/wifiukaicom/public_html/cbt/index.php(17): include('/home2/wifiukai...')
+#2 {main}
+  thrown in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api/view.php on line 112
+[01-Jun-2022 21:45:17 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'Midtrans\Config' not found in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api_payment_snap/view.php:6
+Stack trace:
+#0 /home2/wifiukaicom/public_html/cbt/userfiles/front/index.php(218): include()
+#1 /home2/wifiukaicom/public_html/cbt/index.php(17): include('/home2/wifiukai...')
+#2 {main}
+  thrown in /home2/wifiukaicom/public_html/cbt/userfiles/front/modul/api_payment_snap/view.php on line 6

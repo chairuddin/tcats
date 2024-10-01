@@ -1,0 +1,1 @@
+<?phpb_load_lib("PFBC/Form");b_load_css();$keyword="";$orderurl="";$large_path=$config['userfiles']."/slide_show";$large_url=$config['urlfiles']."/slide_show";include "model.php";include "view.php";?>

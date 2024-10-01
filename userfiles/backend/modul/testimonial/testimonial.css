@@ -1,0 +1,5 @@
+.brand_thumbnail img{	max-width:100px;}
+.view-table tr td:nth-child(1){	width:20px; text-align:center;}
+.view-table tr td:nth-child(2){	width:20px;	text-align:center;}
+.view-table tr td:nth-child(3){	width:100px;	text-align:center;}
+.view-table tr td:last-child{	width:100px;	text-align:center;}

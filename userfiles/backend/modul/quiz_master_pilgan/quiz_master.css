@@ -1,0 +1,28 @@
+.del_confirm {
+  border: 1px solid hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
+  padding: 0;
+  width: 359px;
+}
+.del_confirm_title {
+  background-color: hsl(0, 77%, 56%);
+  padding: 10px;
+}
+.del_confirm_button {
+  padding: 11px;
+}
+.del_confirm_button a:last-child {
+  float: right;
+}
+.soal_baru{
+background-color:#9BF48A;	
+}
+
+span.upload_master {
+    background-color: #eee;
+    display: block;
+    width: 418px;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

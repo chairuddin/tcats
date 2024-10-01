@@ -1,0 +1,40 @@
+http://localhost/quizroom2020/soal.sync/wp-content/uploads/2020/05/052020_0422_mbaru1-9.png
+/quizroom2020/soal.sync/wp-content/uploads/2020/05/052020_0422_mbaru1-9.png,|/var/www/html/quizroom2020new/userfiles/file/quiz/media/source/roemly@gmail.com/dir_18/xyz052020_0422_mbaru1-9.pngarray(1) {
+  [0]=>
+  string(75) "/quizroom2020/soal.sync/wp-content/uploads/2020/05/052020_0422_mbaru1-9.png"
+}
+Array
+(
+    [1] => Array
+        (
+            [PERTANYAAN] => <p><span style="font-family:Arial; font-size:10pt">Ini coba saja</span></p>
+            [A] => <p><span style="font-family:Arial; font-size:10pt">Asdf</span></p>
+            [B] => <p><span style="font-family:Arial; font-size:10pt">Asdfasdfasdf</span></p>
+            [C] => <p><span style="font-family:Arial; font-size:10pt">Dsfgd</span></p>
+            [D] => <p><span style="font-family:Arial; font-size:10pt">Fhdgfghdfgh</span></p>
+            [E] => <p><span style="font-family:Arial; font-size:10pt">Dfghdfghdfh</span></p>
+            [F] => <p><span style="font-family:Arial; font-size:10pt">-dfghdfghdfh</span></p>
+            [G] => <p><span style="font-family:Arial; font-size:10pt">-dfghgfhjf</span></p>
+            [H] => <p><span style="font-family:Arial; font-size:10pt">-jfghjfgj</span></p>
+            [I] => <p><span style="font-family:Arial; font-size:10pt">-fgjfghj</span></p>
+            [J] => <p><span style="font-family:Arial; font-size:10pt">-fgj</span></p>
+            [KUNCI] => A
+        )
+
+    [2] => Array
+        (
+            [PERTANYAAN] => <p><img alt="" src="/quizroom2020new/userfiles/file/quiz/media/source/roemly@gmail.com/dir_18/xyz052020_0422_mbaru1-9.png"></img></p>
+            [A] => <p><span style="font-family:Arial; font-size:10pt">A</span></p>
+            [B] => <p><span style="font-family:Arial; font-size:10pt">B</span></p>
+            [C] => <p><span style="font-family:Arial; font-size:10pt">C</span></p>
+            [D] => <p><span style="font-family:Arial; font-size:10pt">D</span></p>
+            [E] => <p><span style="font-family:Arial; font-size:10pt">E</span></p>
+            [F] => <p><span style="font-family:Arial; font-size:10pt">-F</span></p>
+            [G] => <p><span style="font-family:Arial; font-size:10pt">-G</span></p>
+            [H] => <p><span style="font-family:Arial; font-size:10pt">-H</span></p>
+            [I] => <p><span style="font-family:Arial; font-size:10pt">-I</span></p>
+            [J] => -
+            [KUNCI] => I
+        )
+
+)

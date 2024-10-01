@@ -1,0 +1,1000 @@
+ 1068  ls
+ 1069  cd riset
+ 1070  ls
+ 1071  chmod -R 777 *
+ 1072  ls
+ 1073  cd CameraTutorial/
+ 1074  ls
+ 1075  yarn add react-native-camera
+ 1076  ls
+ 1077  cd ..
+ 1078  react-native init ImagePicker
+ 1079  ls
+ 1080  cd ImagePicker/
+ 1081  yarn add react-native-image-picker@latest
+ 1082  react-native link
+ 1083  cd ..
+ 1084  chmod -R 777 *
+ 1085  react-native run android
+ 1086  ls
+ 1087  cd ImagePicker/
+ 1088  react-native run-android
+ 1089  react-native run-android --stacktrace
+ 1090  cd android/
+ 1091  cd ..
+ 1092  cd android && ./gradlew clea
+ 1093  cd ..
+ 1094  cd android && ./gradlew clean
+ 1095  cd ..
+ 1096  react-native run-android 
+ 1097  cd ..
+ 1098  react-native init ImagePickerExample
+ 1099  yarn add react-native-image-picker@latest
+ 1100  ls
+ 1101  rm yarn.lock 
+ 1102  rm -r node_modules
+ 1103  rm package.json 
+ 1104  ls
+ 1105  chmod -R 777 ImagePickerExample/
+ 1106  cd ImagePickerExample/
+ 1107  ls
+ 1108  cd ..
+ 1109  ls
+ 1110  cd ImagePickerExample/
+ 1111  ls
+ 1112  yarn add react-native-image-picker@latest
+ 1113  react-native link
+ 1114  react-native run-android
+ 1115  cd android && ./gradlew clean
+ 1116  cd ..
+ 1117  react-native run-android
+ 1118  cd /opt
+ 1119  ls
+ 1120  cd android-studio31/
+ 1121  cd bin
+ 1122  ls
+ 1123  sh studio.sh
+ 1124  ls
+ 1125  cd riset
+ 1126  ls
+ 1127  cd ImagePicker
+ 1128  cd ..
+ 1129  cd ImagePickerExample/
+ 1130  ls
+ 1131  react-native run-android
+ 1132  ls
+ 1133  react-native run-android
+ 1134  ls
+ 1135  cd ..
+ 1136  ls
+ 1137  chmod -R 777 ImagePickerExample
+ 1138  cd ImagePickerExample/
+ 1139  ls
+ 1140  cd android && ./gradlew clean
+ 1141  cd ..
+ 1142  react-native run-android
+ 1143  npm install
+ 1144  react-native run-android
+ 1145  nodejs -v
+ 1146  node -v
+ 1147  nvm
+ 1148  nvm -v
+ 1149  nvm version
+ 1150  nvm use 8.11.3
+ 1151  react-native run-android
+ 1152  nano /home/roemly/.bash_profile 
+ 1153  nano /root/.bash_profile 
+ 1154  react-native run-android
+ 1155  exit
+ 1156  yarn add rn-fetch-blob
+ 1157  react-native link
+ 1158  ls
+ 1159  rm -r node_modules
+ 1160  rm package.json
+ 1161  rm yarn.lock 
+ 1162  cd riset
+ 1163  ls
+ 1164  cd ImagePickerExample/
+ 1165  yarn add rn-fetch-blob
+ 1166  node -v
+ 1167  nvm use 8.11.3
+ 1168  yarn add rn-fetch-blob
+ 1169  react-native link
+ 1170  RNFB_ANDROID_PERMISSIONS=true react-native link
+ 1171  react-native run-android
+ 1172  nvm use 8.11.3
+ 1173  react-native run-android
+ 1174  react-native run-android --info
+ 1175  react-native run-android
+ 1176  adb kill-server
+ 1177  adb start-server
+ 1178  react-native run-android
+ 1179  adb devices
+ 1180  react-native run-android
+ 1181  react-native link
+ 1182  react-native run-android
+ 1183  nvm -v
+ 1184  nodejs -v
+ 1185  nvm use 8.11.3
+ 1186  nodejs -v
+ 1187  nvm
+ 1188  react-native run-android
+ 1189  yarn add react-native-image-picker@latest --save
+ 1190  yarn add react-native-image-picker@latest
+ 1191  react-native link
+ 1192  react-native run-android
+ 1193  cd android && ./gradlew clean
+ 1194  cd ..
+ 1195  react-native run-android
+ 1196  cd android && ./gradlew clean
+ 1197  cd ..
+ 1198  react-native run-android
+ 1199  cd android && ./gradlew clean
+ 1200  cd ..
+ 1201  react-native run-android
+ 1202  cd android && ./gradlew clean
+ 1203  cd ..
+ 1204  react-native run-android
+ 1205  ls
+ 1206  rm -r upload
+ 1207  cd /opt
+ 1208  cd android-studio31/
+ 1209  cd bin/
+ 1210  sh studio.sh
+ 1211  cd android-studio31/
+ 1212  sh studio.sh
+ 1213  free -m
+ 1214  adb devices
+ 1215  free -m
+ 1216  adb devices
+ 1217  adb services
+ 1218  adb remount
+ 1219  adb root
+ 1220  adb tcpip
+ 1221  adb kill-server
+ 1222  adb start-server
+ 1223  adb services
+ 1224  adb devices
+ 1225  adb start-server
+ 1226  adb devices
+ 1227  adb start-server
+ 1228  adb devices
+ 1229  adb kill-server
+ 1230  adb devices
+ 1231  adb start-server
+ 1232  adb devices
+ 1233  cat /proc/sys/fs/inotify/max_user_watches
+ 1234  sudo sysctl -p
+ 1235  chmod -R 777 *
+ 1236  top
+ 1237  ps -aux
+ 1238  ls
+ 1239  cd riset/
+ 1240  ls
+ 1241  cd ImagePickerExample/
+ 1242  ls
+ 1243  react-native run-android
+ 1244  ls
+ 1245  react-native run-android
+ 1246  nvm use 8.11.3
+ 1247  react-native run-android
+ 1248  adb devices
+ 1249  adb start-server
+ 1250  adb devices
+ 1251  adb kill-server
+ 1252  adb start-server
+ 1253  adb devices
+ 1254  react-native run-android
+ 1255  ls
+ 1256  npm install native-base --save
+ 1257  react-native link
+ 1258  ls
+ 1259  react-native link
+ 1260  history>history.txt
+ 1261  nano history.txt
+ 1262  react-native link
+ 1263  react-native run-android
+ 1264  npm install
+ 1265  react-native link
+ 1266  react-native run-android
+ 1267  cd android && ./gradlew clean
+ 1268  cd ..
+ 1269  react-native run-android
+ 1270  RNFB_ANDROID_PERMISSIONS=true react-native link
+ 1271  react-native run-android
+ 1272  cd ..
+ 1273  ls
+ 1274  cd KelolaApps
+ 1275  ls
+ 1276  react-native run-android
+ 1277  JAVA_HOM
+ 1278  nano /root/.bash_profile 
+ 1279  ANDROID_HOME
+ 1280  cat /usr/bin/java
+ 1281  /usr/bin/java
+ 1282  /usr/bin/javac
+ 1283  /usr/bin/java_home
+ 1284  nano /root/.bash_profile 
+ 1285  emulator -avd pixel2api23
+ 1286  cd /
+ 1287  emulator -avd pixel2api23
+ 1288  cd /home/roemly
+ 1289  cd Android
+ 1290  ls
+ 1291  cd Sdk/
+ 1292  ls
+ 1293  emulator -avd pixel2api23
+ 1294  cd emulator/
+ 1295  emulator -avd pixel2api23
+ 1296  netstat -tulpn|grep 5554
+ 1297  emulator -avd pixel2api23
+ 1298  cd /opt/android-studio31/
+ 1299  ls
+ 1300  cd bin
+ 1301  sh studio.sh
+ 1302  ls
+ 1303  sh studio.sh
+ 1304  adb devices
+ 1305  sh studio.sh
+ 1306  ls
+ 1307  cd public_html
+ 1308  ls
+ 1309  cd /opt/
+ 1310  ls
+ 1311  cd android-studio31/
+ 1312  ls
+ 1313  cd bin
+ 1314  ls
+ 1315  sh studio.sh
+ 1316  nvm use 8.11.3
+ 1317  react-native init FiestoApps
+ 1318  react-native run-android
+ 1319  ls
+ 1320  cd FiestoApps/
+ 1321  ls
+ 1322  cd ..
+ 1323  chmod -R 777 *
+ 1324  chmod -R 777 FiestoApps
+ 1325  cd FiestoApps/
+ 1326  ls
+ 1327  react-native run-android
+ 1328  ..cd
+ 1329  cd ..
+ 1330  cd react_native/
+ 1331  git clone https://github.com/react-navigation/react-navigation.git
+ 1332  ls
+ 1333  cd FiestoApps/
+ 1334  ls
+ 1335  nvm use 8.11.3
+ 1336  cd FiestoApps/
+ 1337  react-native run-android
+ 1338  yarn add react-navigation
+ 1339  react-native run-android
+ 1340  react-native link
+ 1341  react-native run-android
+ 1342  cd /opt/android-studio31/
+ 1343  cd bin
+ 1344  sh studio.sh
+ 1345  nvm use 8.11.3
+ 1346  ls
+ 1347  cd FiestoApps/
+ 1348  ls
+ 1349  react-native run-android
+ 1350  adb devices
+ 1351  react-native run-android
+ 1352  chmod -R 777 *
+ 1353  php info
+ 1354  php phpinfo()
+ 1355  php phpinfo();
+ 1356  php
+ 1357  php -v
+ 1358  chmod -R 777 *
+ 1359  sendmailconfig
+ 1360  /etc/init.d/apache2 restart
+ 1361  apt-get remove sendmail
+ 1362  ls
+ 1363  rm *
+ 1364  ls
+ 1365  rm -r 2018
+ 1366  chmod -R 777 *
+ 1367  ping google.com
+ 1368  chmod -R 777 *
+ 1369  ls
+ 1370  rm -r dir_32
+ 1371  chmod -R 777 sitemap
+ 1372  apt-get install php-curl
+ 1373  sudo dpkg --configure -a
+ 1374  sudo dpkg -r sendmail
+ 1375  apt-get install php-curl
+ 1376  sudo dpkg -r sendmail
+ 1377  apt-get install php-curl
+ 1378  sudo dpkg -r sendmail
+ 1379  apt-get install php-curl
+ 1380  sudo apt autoremove
+ 1381  sudo dpkg --configure -a
+ 1382  sudo dpkg -r sendmail
+ 1383  apt autoremove
+ 1384  ls
+ 1385  sudo find /var/www/html/thtregistrasi -type d -exec chmod 644 {} \;
+ 1386  find /var/www/html/thtregistrasi -type d -exec chmod 755 {} \;
+ 1387  ls -la
+ 1388  ls -l
+ 1389  ls
+ 1390  find /var/www/html/thtregistrasi/ -type d -exec chmod 644 {} \;
+ 1391  ls -la
+ 1392  find -type d -exec chmod 644 {} \;
+ 1393  find  -type d -exec chmod 755 {} \;
+ 1394  find  -type f -exec chmod 755 {} \;
+ 1395  find  -type d -exec chmod 755 {} \;
+ 1396  find  -type f -exec chmod 644 {} \;
+ 1397  ls -la
+ 1398  find  -type d -exec chmod 755 {} \;
+ 1399  ls -la
+ 1400  cd /etc/mail/tls
+ 1401  sudo openssl dsaparam -out sendmail-common.prm 2048
+ 1402  sudo chown root:smmsp sendmail-common.prm
+ 1403  sudo chmod 0640 sendmail-common.prm
+ 1404  sudo dpkg --configure -a
+ 1405  dkpg --reconfigure -a
+ 1406  dpkg --reconfigure -a
+ 1407  dpkg --reconfigure -a
+ 1408  apt dist-upgrade
+ 1409  do-release-upgrade
+ 1410  apt update
+ 1411  apt upgrade
+ 1412  apt dist-upgrade
+ 1413  dpkg --configure -a
+ 1414  apt dist-upgrade
+ 1415  apt --fix-broken install
+ 1416  apt dist-upgrade
+ 1417  reboot
+ 1418  apt autoremove
+ 1419  apt install update-manager-core
+ 1420  do-release-upgrade
+ 1421  nano /etc/apt/sources.list
+ 1422  /etc/init.d/apache2 restart
+ 1423  php -v
+ 1424  a2enmod php7.0
+ 1425  systemctl restart apache2
+ 1426  php -v
+ 1427  a2enmod php7.0
+ 1428  sudo service apache2 restart
+ 1429  sudo a2dismod php5.6
+ 1430  a2enmod php7.0
+ 1431  sudo service apache2 restart
+ 1432  /etc/init.d/apache2 restart
+ 1433  systemctl status apache2.service
+ 1434  nano /etc/apache2/apache2.conf:
+ 1435  nano /etc/apache2/apache2.conf
+ 1436  gedit /etc/apache2/apache2.conf
+ 1437  vim /etc/apache2/apache2.conf
+ 1438  geany /etc/apache2/apache2.conf
+ 1439  sudo a2dismod php7.0
+ 1440  a2enmod php5.6
+ 1441  a2enmod php5
+ 1442  systemctl resstart apache2
+ 1443  systemctl restart apache2
+ 1444  nano /etc/php5/apache2/php.ini
+ 1445  apt-get install php-mbstring
+ 1446  systemctl restart apache2
+ 1447  udo phpenmod mbstring
+ 1448  phpenmod mbstring
+ 1449  php -v
+ 1450  apt-get install php5.6-mbstring
+ 1451  systemctl restart apache2
+ 1452  apt-file update
+ 1453  apt list --upgradable
+ 1454  apt list --upgradable -a
+ 1455  apt dist-upgrade
+ 1456  apt-get install php7.0-mbstring
+ 1457  a2dismod php5.6
+ 1458  a2enmod php7.0
+ 1459  a2dismod php5
+ 1460  a2enmod php7.0
+ 1461  systemctl restart apache2
+ 1462  a2dismod php7.0
+ 1463  a2enmod php5
+ 1464  apt-get install php5-mbstring
+ 1465  php -v
+ 1466  systemctl restart apache2
+ 1467  a2dismod php7.0
+ 1468  a2enmod php5
+ 1469  systemctl restart apache2
+ 1470  systemctl status apache2.service
+ 1471  apt-get install libapache2-mod-php5
+ 1472  a2dismod php5
+ 1473  a2enmod php7
+ 1474  a2enmod php7.0
+ 1475  systemctl restart apache2
+ 1476  apt-get install libapache2-mod-php7
+ 1477  apt-get install libapache2-mod-php7.0
+ 1478  systemctl status apache2.service
+ 1479  apt-get install apache2-mpm-prefork
+ 1480  systemctl status apache2.service
+ 1481  nano /etc/apache2/mods-enabled/php7.0.load
+ 1482  ls /usr/lib/apache2/modules
+ 1483  nano /etc/apache2/mods-enabled/php7.0.load
+ 1484  systemctl restart apache2
+ 1485  systemctl status apache2.service
+ 1486  nano /etc/apache2/mods-enabled/php7.0.load
+ 1487  systemctl status apache2.service
+ 1488  systemctl restart apache2
+ 1489  apt-get install php-mbstring
+ 1490  apt-get install php5-mbstring
+ 1491  sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
+ 1492  apt-get install php5-mbstring
+ 1493  apt-get install php7-mbstring
+ 1494  apt-get install php-mbstring
+ 1495  ls
+ 1496  apt-get install php-mbstring
+ 1497  apt-get install php7.0-mbstring
+ 1498  /etc/init.d/apache2 restart
+ 1499  a2dismod php5
+ 1500  a2enmod php7.0
+ 1501  /etc/init.d/apache2 restart
+ 1502  ls
+ 1503  phpenmod mbstring
+ 1504  apachectl graceful
+ 1505  apt get install  php7.0-mbstring
+ 1506  apt-get install  php7.0-mbstring
+ 1507  apt-get install php-mbstring php7.0-mbstring php-gettext libapache2-mod-php7.0
+ 1508  sudo apt-get install python-software-properties
+ 1509  sudo add-apt-repository ppa:ondrej/php
+ 1510  sudo apt-get install -y php5.6
+ 1511  a2dismod php7.0
+ 1512  a2enmod php5.6
+ 1513  systemctl restart apache2
+ 1514  php -v
+ 1515  sudo apt-get install -y php7.2
+ 1516  php -v
+ 1517  a2dismod php7.0
+ 1518  a2enmod php7.2
+ 1519  systemctl restart apache2
+ 1520  systemctl status apache2.service
+ 1521  apt-get install ppa-purge
+ 1522  ppa-purge ppa:ondrej/php-7.0
+ 1523  php -v
+ 1524  sudo apt-get purge php7.0-common
+ 1525  php -v
+ 1526  /etc/init.d/apache2 restart
+ 1527  a2enmod php7.2
+ 1528  sudo apt-get purge php7.*
+ 1529  php -v
+ 1530  a2enmod php5.6
+ 1531  sudo apt-get purge php5.6
+ 1532  php -v
+ 1533  a2enmod php5.6
+ 1534  /etc/init.d/apache2 restart
+ 1535  apt-get install phpmyadmin
+ 1536  /etc/init.d/apache2 restart
+ 1537  php -v
+ 1538  a2enmod php7.2
+ 1539  sudo apt-get purge php5
+ 1540  apt autoremove
+ 1541  php -v
+ 1542  /etc/init.d/apache2 restart
+ 1543  sudo apt-get purge php7.2
+ 1544  php -v
+ 1545  sudo apt-get install -y php7.2
+ 1546  apt-get install phpmyadmin
+ 1547  /etc/init.d/apache2 restart
+ 1548  a2enmod php7.2
+ 1549  /etc/init.d/apache2 restart
+ 1550  mysql -u root
+ 1551  mysql -u root -p
+ 1552  sudo a2dismod mpm_prefork
+ 1553  sudo a2dismod mpm_worker
+ 1554  sudo a2dismod mpm_event
+ 1555  a2enmod php7.2
+ 1556  /etc/init.d/apache2 restart
+ 1557  reboot
+ 1558  apt-get remove php5
+ 1559  php -v
+ 1560  apt-get remove php7.2
+ 1561  apt-get install php5.6-mbstring php5.6-mcrypt php5.6-mysql php5.6-xml
+ 1562  php -v
+ 1563  sudo a2dismod php7.2
+ 1564  sudo a2dismod php5.6
+ 1565  sudo a2enmod php5.6
+ 1566  systemctl restart apache2
+ 1567  /etc/init.d/apache2 restart
+ 1568  systemctl restart apache2
+ 1569  ls
+ 1570  php -v
+ 1571  a2enmod php5.6
+ 1572  sudo apt-get purge php5
+ 1573  apt autoremove
+ 1574  php -v
+ 1575  sudo apt-get purge php5
+ 1576  a2enmod php5.6
+ 1577  php -v
+ 1578  apt 
+ 1579  apt autoremove
+ 1580  php -v
+ 1581  sudo apt-get purge php5
+ 1582  a2enmod php5.6
+ 1583  php -v
+ 1584  sudo apt-get purge php5.6
+ 1585  a2enmod php5.6
+ 1586  apt-get remove --purge php-fpm
+ 1587  apt-get autoremove --purge php-fpm
+ 1588  apt-get clean
+ 1589  apt-get autoclean
+ 1590  apt-get autoremove
+ 1591  apt-get remove -y --purge php7.0*
+ 1592  apt-get remove -y --purge php5*
+ 1593  apt-get autoremove
+ 1594  apt-get install php7.0 php5.6 php5.6-mysql php-gettext php5.6-mbstring php-xdebug libapache2-mod-php5.6 libapache2-mod-php7.0
+ 1595  /etc/init.d/apache2 restart
+ 1596  apt-get install phpmyadmin
+ 1597  /etc/init.d/apache2 restart
+ 1598  apt install php-mbstring php-gettext
+ 1599  phpenmod mbstring
+ 1600  apt install php-mbstring php-gettext
+ 1601  /etc/init.d/apache2 restart
+ 1602  yarn start
+ 1603  react-native run-android
+ 1604  node -v
+ 1605  nvm use 8.11.3
+ 1606  react-native run-android
+ 1607  ls
+ 1608  react-native run
+ 1609  react-native start
+ 1610  history>history.txt
+ 1611  nano history.txt
+ 1612  cd ..
+ 1613  cd KelolaAppsZero/
+ 1614  ls
+ 1615  reac-native run-android
+ 1616  react-native run-android
+ 1617  cd\
+ 1618  cd ..
+ 1619  cd FiestoApps/
+ 1620  ls
+ 1621  react-native run-android
+ 1622  javac -version
+ 1623  JAVA_HOME
+ 1624  echo JAVA_HOME
+ 1625  cd ..
+ 1626  ls
+ 1627  cd /root
+ 1628  nano .bash_profile 
+ 1629  echo ANDROID_HOME
+ 1630  ANDROID_HOME
+ 1631  nano .bash_profile 
+ 1632  ls
+ 1633  nano .bash_profile
+ 1634  ls
+ 1635  pwd
+ 1636  cd /home/roemly
+ 1637  nano .bash_profile 
+ 1638  javac -version
+ 1639  java -version
+ 1640  cd public_html
+ 1641  ls
+ 1642  cd react-native
+ 1643  ls
+ 1644  cd react native
+ 1645  cd react_native
+ 1646  ls
+ 1647  cd FiestoApps/
+ 1648  ls
+ 1649  react-native run-android
+ 1650  ls
+ 1651  react-native run-android
+ 1652  ~distributionUrl=https\://services.gradle.org/distributions/gradle-4.4-all.zip
+ 1653  react-native run-android
+ 1654  npm install
+ 1655  yarn
+ 1656  yarn start
+ 1657  react-native run-android
+ 1658  ls
+ 1659  react-native run-android
+ 1660  ps -ef
+ 1661  adb version
+ 1662  ps -ef | grep 5037
+ 1663  cd /home/roemly/Android/Sdk/platform-tools
+ 1664  ./adb version
+ 1665  cp adb /usr/local/bin
+ 1666  cd /home/roemly/public_html/react_native/
+ 1667  rea
+ 1668  cd FiestoApps/
+ 1669  ls
+ 1670  react-native run-android
+ 1671  cd /usr/bin
+ 1672  adb
+ 1673  adb version
+ 1674  cd /
+ 1675  adb version
+ 1676  cd /opt/
+ 1677  ls
+ 1678  cd android-studio31/
+ 1679  ls
+ 1680  cd bin
+ 1681  sh studio.sh
+ 1682  gradle -v
+ 1683  adb devices
+ 1684  ifconfig
+ 1685  adb devices
+ 1686  ifconfig
+ 1687  adb devices
+ 1688  clear
+ 1689  adb devices
+ 1690  adb
+ 1691  adb start-server
+ 1692  adb kill-server
+ 1693  adb start-server
+ 1694  adb devices
+ 1695  adb reverse tcp:8081
+ 1696  adb reverse tcp:8081 tcp:8081
+ 1697  adb devices
+ 1698  adb reverse tcp:8081 tcp:8081
+ 1699  adb devices
+ 1700  adb start-server
+ 1701  adb devices
+ 1702  adb start-server
+ 1703  adb devices
+ 1704  cd /root
+ 1705  ls
+ 1706  nano .bash_profile 
+ 1707  adb version
+ 1708  cd /home/roemly/
+ 1709  ls
+ 1710  cd Android
+ 1711  cd Sdk/
+ 1712  cd adb
+ 1713  ls
+ 1714  cd platform
+ 1715  ls
+ 1716  cd platforms/
+ 1717  ls
+ 1718  adb version
+ 1719  /.adb version
+ 1720  ./adb version
+ 1721  adb
+ 1722  adb version
+ 1723  cd ..
+ 1724  adb version
+ 1725  /usr/local/bin/adb
+ 1726  adb kill-server
+ 1727  adb version
+ 1728  ls
+ 1729  cd platform
+ 1730  cd platforms
+ 1731  ls
+ 1732  cd platforms
+ 1733  find /home -iname "*adb"|grep -i android
+ 1734  ls
+ 1735  cd /opt
+ 1736  cd android-studio31/
+ 1737  ls
+ 1738  cd bin
+ 1739  ls
+ 1740  sh studio.sh
+ 1741  adb devices
+ 1742  yarn start
+ 1743  react-native eject
+ 1744  ls
+ 1745  react-native eject
+ 1746  react-native run-android
+ 1747  cd /opt/
+ 1748  ls
+ 1749  cd android-studio31/
+ 1750  ls
+ 1751  cd bin
+ 1752  ls
+ 1753  sh studio.sh
+ 1754  ls
+ 1755  react-native run-android
+ 1756  nvm use 8.11.3
+ 1757  react-native run-android
+ 1758  react-native upgrade
+ 1759  react-native run-android
+ 1760  update-alternatives --config java
+ 1761  cd ..
+ 1762  mkdir AppsKelola
+ 1763  cd AppsKelola
+ 1764  ls
+ 1765  cd ..
+ 1766  chmod -R 777 AppsKelola
+ 1767  cd AppsKelola/
+ 1768  npm install -g react-native-cli
+ 1769  ls
+ 1770  ls -la
+ 1771  cd ..
+ 1772  rm AppsKelola
+ 1773  rm -r AppsKelola
+ 1774  react-native init AppsKelola
+ 1775  rm -r AppsKelola
+ 1776  ls
+ 1777  react-native init AppsKelola
+ 1778  ls
+ 1779  ls -la
+ 1780  chmod -R 777 AppsKelola
+ 1781  cd AppsKelola/
+ 1782  ls
+ 1783  react-native run-android
+ 1784  react-navigation
+ 1785  yarn add react-navigation
+ 1786  react-native run-android
+ 1787  sudo apt install virtualbox-ext-pack
+ 1788  cd /opt
+ 1789  cd android-studio31/
+ 1790  cd bin
+ 1791  ls
+ 1792  sh studio.sh
+ 1793  cd /opt
+ 1794  cd android-studio31/
+ 1795  d~~gu8y4qs~dyjksmlkklumlldlkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkklklkk8y *OM)9
+ 1796  cd bin
+ 1797  ls
+ 1798  sh studio.sh
+ 1799  react-native run-android
+ 1800  nvm use 8.11.3
+ 1801  react-native run-android
+ 1802  ssh 192.168.111.2
+ 1803  react-native run-android
+ 1804  nvm use 8.11.3
+ 1805  react-native run-android
+ 1806  cd public_html
+ 1807  ls
+ 1808  cd /opt
+ 1809  cd android-studio31/
+ 1810  cd bin
+ 1811  ls
+ 1812  sh studio.sh
+ 1813  git clone https://github.com/Bittrex/bittrex.github.io.git
+ 1814  apt-get install curl
+ 1815  sudo apt install php-curl
+ 1816  sudo apt install php56-curl
+ 1817  sudo apt install php5.6-curl
+ 1818  /etc/init.d/apache2 restart
+ 1819  apt list --upgradable
+ 1820  apt-get install traceroute
+ 1821  nano /etc/php5/apache2/php.ini
+ 1822  cat /var/log/php_errors.log 
+ 1823  cat /var/log/apache2/error.log
+ 1824  tail -f /var/log/apache2/error.log
+ 1825  apt-get install php5.6-gd
+ 1826  /etc/init.d/apache2 restart
+ 1827  tail -f /var/log/apache2/error.log
+ 1828  cd public_html/quiz/userfiles/backend/modul/quiz_upload_wordx/backup/
+ 1829  ls
+ 1830  cd ..
+ 1831  ls
+ 1832  tail -f /var/log/apache2/error.log
+ 1833  tail -f /var/log/php_errors.log 
+ 1834  ls
+ 1835  la -la
+ 1836  apa-get install php5.6-zip
+ 1837  apt-get install php5.6-zip
+ 1838  /etc/init.d/apache2 restart
+ 1839  apt-get install php5.6-xml
+ 1840  /etc/init.d/apache2 restart
+ 1841  tail -f /var/log/php_errors.log 
+ 1842  tail -f /var/log/apache2/error.log
+ 1843  /etc/init.d/apache2 restart
+ 1844  tail -f /var/log/apache2/error.log
+ 1845  cat /var/log/apache2/error.log
+ 1846  rm /var/log/apache2/error.log
+ 1847  clear
+ 1848  tail -f /var/log/apache2/error.log
+ 1849  cd public_html
+ 1850  cd quiz
+ 1851  cd userfiles/
+ 1852  cd file
+ 1853  cd quiz/
+ 1854  cd media
+ 1855  cd source/
+ 1856  cd admin/
+ 1857  cd dir_3
+ 1858  rm *
+ 1859  ls
+ 1860  clear
+ 1861  cd dir_37
+ 1862  ls
+ 1863  rm *.*
+ 1864  ls
+ 1865  cd public_html
+ 1866  cd quiz_tatag/
+ 1867  cd userfiles/
+ 1868  cd file/
+ 1869  ls
+ 1870  cd qui
+ 1871  cd quiz
+ 1872  ls
+ 1873  chmod -R 777 db_member
+ 1874  chmod -R 777 db_question
+ 1875  ssh 192.168.111.2
+ 1876  ls
+ 1877  cd telegram
+ 1878  ls
+ 1879  cd ..
+ 1880  ls
+ 1881  gcloud compute copy-files /home/roemly/telegram quizlampp-vm:/var/www/html
+ 1882  gcloud auth login
+ 1883  exit
+ 1884  gcloud compute ssh quizlampp-vm --zone us-central1-f
+ 1885  exit
+ 1886  cd public_html
+ 1887  cd vihara
+ 1888  cd userfiles/
+ 1889  ls
+ 1890  cd file
+ 1891  ls
+ 1892  c vihara/
+ 1893  ls
+ 1894  cd vihara/
+ 1895  ls
+ 1896  ls -la
+ 1897  chmod 
+ 1898  chmod 775 qrcode
+ 1899  ls -la
+ 1900  apt-get install php5.6curl
+ 1901  apt-get install php5.6-curl
+ 1902  cat /var/log/apache2/error.log
+ 1903  cat /var/log/apache2/access.log
+ 1904  cd public_html
+ 1905  ls
+ 1906  cd bitcoin
+ 1907  ls
+ 1908  cd userfiles/
+ 1909  ls
+ 1910  cd file
+ 1911  ls -la
+ 1912  cd bitcoin
+ 1913  ls
+ 1914  ls -la
+ 1915  cd /var/www/html
+ 1916  cd /var/www/html/bitcoin/userfiles/file/bitcoin/decoration/
+ 1917  ls 
+ 1918  cd public_html
+ 1919  ls
+ 1920  cd bitcoin
+ 1921  ls
+ 1922  cd userfiles
+ 1923  ls
+ 1924  cd file
+ 1925  ls
+ 1926  cd bitcoin/
+ 1927  ls
+ 1928  ls -la
+ 1929  chmod -r 775 decoration
+ 1930  chmod  775 decoration
+ 1931  chmod  777 decoration
+ 1932  nano .bashrc
+ 1933  source .bashrc
+ 1934  source /.bashrc
+ 1935  echo $GOPATH
+ 1936  nano .bash_profile 
+ 1937  echo $GOPATH
+ 1938  $GOPATH
+ 1939  exit
+ 1940  apt-get install nginx
+ 1941  nano /etc/nginx/sites-available/default 
+ 1942  service nginx start
+ 1943  nano /etc/nginx/sites-available/default 
+ 1944  nano /etc/hosts
+ 1945  nano /etc/nginx/sites-available/default 
+ 1946  service nginx restart
+ 1947  service nginx start
+ 1948  sysytemctl status nginx.service
+ 1949  jounalctl -xe
+ 1950  ls
+ 1951  nano /etc/nginx/sites-available/default 
+ 1952  service nginx start
+ 1953  service nginx restart
+ 1954  nano /etc/nginx/sites-available/default 
+ 1955  service nginx restart
+ 1956  nano /etc/nginx/sites-available/default 
+ 1957  service nginx restart
+ 1958  nano /etc/nginx/sites-available/default 
+ 1959  service nginx restart
+ 1960  sysytemctl status nginx.service
+ 1961  apt install systemctl
+ 1962  /etc/init.d/nginx restart
+ 1963  journalctl -xe
+ 1964  apt-get install php5-fpm
+ 1965  apt-get install php5.6-fpm
+ 1966  /etc/init.d/nginx restart
+ 1967  journalctl -xe
+ 1968  nano /etc/nginx/sites-available/default 
+ 1969  /etc/init.d/nginx restart
+ 1970  nano /etc/nginx/sites-available/default 
+ 1971  /etc/init.d/nginx restart
+ 1972  journalctl -xe
+ 1973  nano /etc/nginx/sites-available/default 
+ 1974  /etc/init.d/nginx restart
+ 1975  journalctl -xe
+ 1976  /etc/init.d/nginx restart
+ 1977  nano /etc/nginx/sites-available/default 
+ 1978  /etc/init.d/nginx restart
+ 1979  nano /etc/nginx/sites-available/default 
+ 1980  /etc/init.d/nginx restart
+ 1981  nano /etc/nginx/sites-available/default 
+ 1982  /etc/init.d/nginx restart
+ 1983  nano /etc/nginx/sites-available/default 
+ 1984  nano /etc/php/5.6/fpm/php.ini 
+ 1985  service php5.6-fpm restart
+ 1986  nano /etc/php/5.6/fpm/pool.d/www.conf 
+ 1987  cd /run/
+ 1988  nano /etc/php/5.6/fpm/pool.d/www.conf 
+ 1989  nano /etc/nginx/sites-available/default 
+ 1990  /etc/init.d/nginx restart
+ 1991  nano /etc/nginx/sites-available/default 
+ 1992  /etc/init.d/nginx restart
+ 1993  nano /etc/nginx/sites-available/default 
+ 1994  /etc/init.d/nginx restart
+ 1995  cd public_html
+ 1996  ls
+ 1997  cd quiz
+ 1998  ls
+ 1999  nano .htaccess 
+ 2000  nano /etc/nginx/sites-available/default 
+ 2001  /etc/init.d/nginx restart
+ 2002  nano /etc/nginx/sites-available/default 
+ 2003  /etc/init.d/nginx restart
+ 2004  nano /etc/nginx/sites-available/default 
+ 2005  /etc/init.d/nginx restart
+ 2006  nano /etc/nginx/sites-available/default 
+ 2007  /etc/init.d/nginx restart
+ 2008  nano /etc/nginx/sites-available/default 
+ 2009  /etc/init.d/nginx restart
+ 2010  nano /etc/nginx/sites-available/default 
+ 2011  /etc/init.d/nginx restart
+ 2012  nano /etc/nginx/sites-available/default 
+ 2013  /etc/init.d/nginx restart
+ 2014  nano /etc/nginx/sites-available/default 
+ 2015  /etc/init.d/nginx restart
+ 2016  nano /etc/nginx/sites-available/default 
+ 2017  /etc/init.d/nginx restart
+ 2018  nano /etc/nginx/sites-available/default 
+ 2019  /etc/init.d/nginx restart
+ 2020  nano /etc/nginx/sites-available/default 
+ 2021  /etc/init.d/nginx restart
+ 2022  nano /etc/nginx/sites-available/default 
+ 2023  /etc/init.d/nginx restart
+ 2024  nano /etc/nginx/sites-available/default 
+ 2025  /etc/init.d/nginx restart
+ 2026  nano /etc/nginx/sites-available/default 
+ 2027  /etc/init.d/nginx restart
+ 2028  nano /etc/nginx/sites-available/default 
+ 2029  /etc/init.d/nginx restart
+ 2030  nano /etc/nginx/sites-available/default 
+ 2031  /etc/init.d/nginx restart
+ 2032  journalctl -xe
+ 2033  /etc/init.d/nginx restart
+ 2034  nano /etc/nginx/sites-available/default 
+ 2035  /etc/init.d/nginx restart
+ 2036  nano /etc/nginx/sites-available/default 
+ 2037  /etc/init.d/nginx restart
+ 2038  nano /etc/nginx/sites-available/default 
+ 2039  /etc/init.d/nginx restart
+ 2040  nano /etc/nginx/sites-available/default 
+ 2041  /etc/init.d/nginx restart
+ 2042  nano /etc/nginx/sites-available/default 
+ 2043  /etc/init.d/nginx restart
+ 2044  nano /etc/nginx/sites-available/default 
+ 2045  /etc/init.d/nginx restart
+ 2046  nano /etc/nginx/sites-available/default 
+ 2047  /etc/init.d/nginx restart
+ 2048  nano /etc/nginx/sites-available/default 
+ 2049  /etc/init.d/nginx restart
+ 2050  nano /etc/nginx/sites-available/default 
+ 2051  /etc/init.d/nginx restart
+ 2052  nano /etc/nginx/sites-available/default 
+ 2053  /etc/init.d/nginx restart
+ 2054  journalctl -xe
+ 2055  nano /etc/nginx/sites-available/default 
+ 2056  /etc/init.d/nginx restart
+ 2057  journalctl -xe
+ 2058  nano /etc/nginx/sites-available/default 
+ 2059  journalctl -xe
+ 2060  /etc/init.d/nginx restart
+ 2061  nano /etc/nginx/sites-available/default 
+ 2062  /etc/init.d/nginx restart
+ 2063  nano /etc/nginx/sites-available/default 
+ 2064  /etc/init.d/nginx restart
+ 2065  nano /etc/nginx/sites-available/default 
+ 2066  /etc/init.d/nginx restart
+ 2067  history>nginx.txt

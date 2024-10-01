@@ -1,0 +1,32 @@
+.view-table tr td:nth-child(1){	width:20px;}
+.view-table tr td:nth-child(1){	width:20px; text-align:center;vertical-align:top;font-weight:bold}
+.view-table tr td:nth-child(2){	width:500px;	text-align:left;}
+.view-table tr td:last-child{	width:150px;	text-align:center;}
+
+
+.view-table .inner_jadwal.table{border-top:1px solid #7A7272;}
+.view-table .inner_jadwal{width:750px;}
+.view-table .inner_jadwal.table tr th{font-weight:bold !important; }
+.view-table .inner_jadwal tr td:nth-child(1){	width:400px !important;text-align:left;font-weight:normal; }
+.view-table .inner_jadwal tr td:nth-child(2){	width:150px;	text-align:left;}
+.view-table .inner_jadwal tr td:nth-child(3){	width:150px;	text-align:left;}
+.view-table .inner_jadwal tr td:last-child{	width:100px;	text-align:left;}
+.view-table .inner_jadwal tr:hover > th{background-color:#4C4C4C;color:white;}
+.tdaction{
+position:relative;
+}
+.menu-atas {
+  
+  display: block;
+  min-height: 34px;
+  position: absolute;
+  top: 15px;
+  right:0;
+}
+.menu-bawah {
+  display: block;
+  min-height: 34px;
+  position:absolute;
+  bottom:20px;
+  right:0;
+}

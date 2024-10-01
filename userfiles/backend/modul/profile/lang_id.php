@@ -1,0 +1,1 @@
+<?phpdefine(_EMAILLOGIN,"Username");define(_PASSWORD,"Password");define(_BERHASILUBAHPROFILE,"Ubah profil berhasil");define(_GAGALUBAHPROFILE,"Ubah profil gagal");?>
