@@ -28,7 +28,7 @@ exit();
 <link href="<<<TEMPLATE_URL>>>/css/bootstrap.min.css" rel="stylesheet"> 
 <!-- <link href="<<<TEMPLATE_URL>>>/js/jquery-ui.min.css" rel="stylesheet"> -->
 <link href="<<<TEMPLATE_URL>>>/css/support.css" rel="stylesheet"> 
-<link href="<<<TEMPLATE_URL>>>/css/basic.css?v=2" rel="stylesheet">
+<link href="<<<TEMPLATE_URL>>>/css/basic.css?v=<?=rand();?>" rel="stylesheet">
 
 <style>
 <?php

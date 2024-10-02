@@ -1,26 +1,32 @@
   <main class="wrapper">
-      <div class="d-flex justify-content-center">
-        <div class="search-box input-group mb-3 w-75">
-          <span class="input-group-text" id="basic-addon1"
-            ><i class="fa-solid fa-magnifying-glass" style="color: #000000"></i
-          ></span>
+    <div class="container">
+      <form class="search-kompetensi d-flex justify-content-center" action="">
+        <div class="search-box input-group">
           <input
             type="text"
             class="form-control"
-            placeholder="Search..."
+            placeholder="Cari kompetensi"
             aria-label="Username"
             aria-describedby="basic-addon1"
           />
+          <button type="submit" class="input-group-text" id="basic-addon1"
+            >Search</i
+          ></button>
         </div>
+      </form>
+      <div class="row">
+          <?php foreach($course_sub as $cs => $data): ?>
+            <div class="col-12 col-lg-4 mb-4">
+              <div class="kompetensi wrap mx-auto d-flex flex-column justify-content-center" onclick="window.location.href='<?php echo fronturl("kompetensi/".md5($data['id']));?>'">
+                <img src="<?=$data['image']?>" alt="" class="gambar" />
+                <div class="title-kompetensi">
+                   <h6 class="mb-0"><?=$data['title']?></h6>
+                </div>
+              </div>
+            </div>
+          <?php endforeach;?>
       </div>
-      <?php foreach($course_sub as $cs => $data): ?>
-      <div class="kompetensi wrap w-75 mx-auto d-flex flex-column justify-content-center" onclick="window.location.href='<?php echo fronturl("kompetensi/".md5($data['id']));?>'">
-        <img src="<?=$data['image']?>" alt="" class="gambar" />
-        <div class="d-flex flex-row mt-2 mb-5">
-           <h6 class=""><?=$data['title']?></h6>
-        </div>
-      </div>
-      <?php endforeach;?>
-    </main>
+  </div>
+</main>
 
     <?php $config_top_bar=1; ?>

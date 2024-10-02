@@ -6,7 +6,7 @@ $host[$_SERVER['HTTP_HOST']]=array(
 "db_user"=>$db_user,
 "db_pass"=>$db_pass,
 "db_name"=>$db_name,
-"dir"=>"quiz",
+"dir"=>"data",
 "online"=>"1",
 "memcached"=>"0"
 );

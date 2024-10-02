@@ -4,18 +4,22 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body{
+    font-family: "Noto Sans", sans-serif;
+    background: #f7f7f7;
+}
 .wrapper {
   margin-bottom: 60px;
 }
 
 .bungkusan {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  width: 100%;
-  height: 60px;
-  z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+    height: 60px;
+    z-index: 9999;
+    background: #2b765d !important;
 }
 
 .text-header {
@@ -28,8 +32,6 @@
 }
 
 .gambar {
-  width: 100%;
-  height: 450px;
 }
 
 
@@ -79,19 +81,39 @@
   width: 50%;
   height: auto;
 }
-
+.list-kompetensi {
+    width: 100%;
+}
+.name-profile {
+    font-weight: bold;
+}
 .text-header {
-  font-size: 16px;
-  font-weight: bold;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.6;
 }
 
+.profile-block img {
+    background: #fff;
+    border-radius: 50px;
+}
+
+.profile-block {
+    background: #1f684f;
+    padding: 7px 15px 7px 10px;
+    border-radius: 40px;
+}
+img.white-logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
 @media screen and (min-width: 765px) {
   .image-header {
     width: 25%;
   }
 
   .text-header {
-    font-size: 24px;
   }
 }
 .btn-take {
@@ -102,9 +124,164 @@
   border-radius: 5px;
   text-decoration: none;
 }
-body{
-  padding-top:80px;
+body {
+    padding-top: 80px;
+    background: #f7f7f7;
+}
+.kompetensi {
+    background: #fff;
+    box-shadow: 0px 4px 63px 0px #0000000D;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.title-kompetensi {
+    padding: 18px 20px;
 }
 .kompetensi:hover {
     cursor:pointer;
+}
+form.search-kompetensi {
+    background: #fff;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 6px;
+    box-shadow: 0px 4px 63px 0px #0000000D;
+}
+form.search-kompetensi input.form-control {
+    border-radius: 50px;
+    border: 0;
+    padding-left: 25px;
+    font-size: 15px;
+}
+
+form.search-kompetensi input.form-control::placeholder {
+  color: #C4D7D180;
+  opacity: 1; /* Firefox */
+}
+
+form.search-kompetensi input.form-control::-ms-input-placeholder { /* Edge 12 -18 */
+  color: #C4D7D180;
+}
+form.search-kompetensi button {
+    border-radius: 10px !important;
+    border: 0;
+    background: linear-gradient(290.32deg, #a6cc39 0%, #00873f 100.66%);
+    color: #fff;
+    padding: 8px 25px;
+}
+.card {
+    border: 0;
+    box-shadow: 0px 4px 63px 0px #0000000D;
+    border-radius: 15px;
+    padding: 20px;
+}
+.card-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #2b765d;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 22px;
+}
+img.img-detail {
+    float: right;
+    max-width: 50%;
+    border: 1px solid #eee;
+    padding: 9px;
+    border-radius: 6px;
+    background: #fff;
+}
+a.btn.btn-info {
+    background: #3196d4;
+    color: #fff;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 10px;
+}
+a.btn.btn-success{
+    border-radius: 10px !important;
+    padding: 10px 20px;
+    border: 0;
+    background: linear-gradient(290.32deg, #a6cc39 0%, #00873f 100.66%);
+}
+.footer-detail {
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+    margin-top: 40px !important;
+}
+.kompetensi-box {
+    border-bottom: 1px solid #eee;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    padding-left: 40px;
+    padding-right: 20px;
+}
+.kompetensi-box h5:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 12px solid #2b765d;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    left: -30px;
+    top: 5px;
+}
+.kompetensi-box p {
+    color: #777;
+    font-weight: 300;
+}
+.kompetensi-box h5 {
+    position: relative;
+}
+@media(min-width:1200px){
+    .container{
+        width: 1140px;
+    }
+}
+@media(max-width:767px){
+    .footer-detail a{
+        width: 100%;
+    }
+    .card-body {
+        border: 0;
+        padding: 5px;
+    }
+    .card-title {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 30px;
+        font-size: 21px;
+        color: #2b765d;
+        text-transform: uppercase;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 22px;
+    }
+    img.img-detail{
+        max-width: 100%;
+        float: none;
+        padding: 0px;
+    }
+    .kompetensi-box h5 {
+        position: relative;
+        font-size: 18px;
+    }
+    .kompetensi-box h5:before {
+        content: "";
+        display: block;
+        position: absolute;
+        border-left: 10px solid #2b765d;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        left: -25px;
+        top: 4px;
+    }
+    .kompetensi-box {
+        border-bottom: 1px solid #eee;
+        padding-top: 15px;
+        padding-bottom: 0px;
+        padding-left: 30px;
+        padding-right: 10px;
+    }
 }

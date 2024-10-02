@@ -1,20 +1,24 @@
-<div class="container">
-      <h1 class="text-center mb-2">Competency Gap</h1>
-      <div class="row justify-content-center">
-        <canvas id="myChart" class="w-100 h-25"></canvas>
-      </div>
-    </div>
-    <section class=" mx-4 mt-3" >
-      <?php foreach($data_kd as $x =>$kd) : ?>
-      <div>
-        <h5>Competency <?=$x+1?></h5>
-        <p><?=$kd['nama']?></p>
-      </div>
-      <?php endforeach; ?>
-      <
-    </section>
-    <div class="m-3" style="display:none;">
-      <button class="btn btn-primary w-100" onclick="history.back();">Back</button>
+    <div class="container">
+        <div class="card mb-4 mb-lg-5">
+            <div class="card-body">
+                <h5 class="card-title">Competency Gap</h5>
+                  <div class="row justify-content-center mb-4">
+                      <div class="col-lg-9">
+                            <canvas id="myChart" class="w-100"></canvas>
+                      </div>
+                  </div>
+                <div class="list-kompetensi" >
+                  <?php foreach($data_kd as $x =>$kd) : ?>
+                  <div class="kompetensi-box">
+                    <h5>Competency <?=$x+1?></h5>
+                    <p><?=$kd['nama']?></p>
+                  </div>
+                  <?php endforeach; ?>
+                </section>
+                <div class="m-3" style="display:none;">
+                  <button class="btn btn-primary w-100" onclick="history.back();">Back</button>
+            </div>
+        </div>
     </div>
     <!-- </section> -->
 

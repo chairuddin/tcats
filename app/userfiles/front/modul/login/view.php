@@ -5,46 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="favicon.ico"/>
     <title>Login Form</title>
-      <link rel="stylesheet" href="<?=fronturl();?>/userfiles/front/template/elearning/login/css/style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?=fronturl();?>/userfiles/front/template/elearning/asset/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<?=fronturl();?>/userfiles/front/template/elearning/login/css/style.css?v=<?php echo rand(); ?>" />
   </head>
-  <body>
-    <p class="text-center mt-3 mb-1">
-    <img src="<?=$kUrl.'/logo.png'?>" />
-
-    </p>
-    <p class="fw-bold text-center m-0"></p>
-     <div id="response"></div>
-    <form class="mx-3" method="post">
-      <div class="mb-3">
-        <label for="username" class="form-label fw-bold">Email</label><br>
-        <input
-          type="email"
-          class="form-input bg-success-subtle bg-opacity-25 border border-0"
-          id="username" name="username"
-          aria-describedby="emailHelp"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label fw-bold">Password</label><br>
-        <input
-          type="password" name="password"
-          class="form-input bg-success-subtle bg-opacity-25 border border-0"
-          id="password"
-        />
-      </div>
-      <button type="button"  onclick="submitLogin()" class="btn-submit rounded p-2 w-100 text-white">Login</button>
-    </form>
-    <div class="d-flex justify-content-between mx-3">
-        <a href="<?=fronturl('register')?>" class="text-dark text-decoration-none fw-medium">Daftar Sekarang</a>
-        <a href="<?=fronturl('reset-password')?>" class="text-dark text-decoration-none fw-medium">Lupa password?</a>
+  <body id="login-page">
+    <div class="login-wrapper">
+        <img src="<?=$kUrl.'/logo.png'?>" class="logo-login"/>
+        <div class="form-wrapper">
+            <div id="response"></div>
+            <form class="" method="post">
+              <div class="mb-3">
+                <label for="username" class="form-label fw-bold">Email</label><br>
+                <input
+                  type="email"
+                  class="form-input bg-success-subtle bg-opacity-25 border border-0"
+                  id="username" name="username"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label fw-bold">Password</label><br>
+                <input
+                  type="password" name="password"
+                  class="form-input bg-success-subtle bg-opacity-25 border border-0"
+                  id="password"
+                />
+              </div>
+              <button type="button"  onclick="submitLogin()" class="btn-submit rounded p-2 w-100 text-white">Login</button>
+            </form>
+            <div class="d-flex justify-content-between">
+                <a href="<?=fronturl('register')?>" class="text-dark text-decoration-none fw-medium">Daftar Sekarang</a>
+                <a href="<?=fronturl('reset-password')?>" class="text-dark text-decoration-none fw-medium">Lupa password?</a>
+            </div>
+        </div>
     </div>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

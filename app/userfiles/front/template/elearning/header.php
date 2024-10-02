@@ -4,20 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uji Kompetensi GGF</title>
-    <link rel="stylesheet" href="<<<TEMPLATE_URL>>>/asset/css/style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
     <link rel="shortcut icon" href="favicon.ico"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?=fronturl();?>/userfiles/front/template/elearning/asset/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<?=fronturl();?>/userfiles/front/template/elearning/asset/css/style.css?v=<?php echo rand(); ?>" />
     <style>
       .nav-link {
         border-bottom: 2px solid transparent;
@@ -37,29 +29,47 @@
   </head>
   <body>
   <?php if($config_top_bar==1) :?> 
-  <header class="bungkusan bg-primary position-fixed top-0">
-     
-      <div class="d-flex flex-row pt-1">
-        <img onclick="window.location.href='<?=fronturl('profil')?>'"
-          src="https://clipground.com/images/icon-orang-png-6.png "
-          alt=""
-          width="px"
-          height="27px"
-          class=""
-        />
-        <p class="text-header text-white" style="font-size:17px"  onclick="window.location.href='<?=fronturl('profil')?>'"><?php echo $auth_data['username'];?></p>
-      </div>
-      <i class="fa-solid fa-bars fs-4 px-2 pt-2" style="color: #ffffff"></i>
+  <header class="bungkusan bg-primary position-fixed top-0 align-items-center">
+      <img 
+              src="<?=fileurl('asset/logo-white.png')?>"
+              alt=""
+              width="px"
+              height="40px"
+              class="white-logo"
+            />
+     <div class="container d-flex justify-content-between align-items-center">
+          <div class="d-flex flex-row profile-block">
+            <img onclick="window.location.href='<?=fronturl('profil')?>'"
+              src="<?=fileurl('asset/icon-orang-png-6.png')?>"
+              alt=""
+              width="px"
+              height="27px"
+              class=""
+            />
+            <p class="text-header text-white ms-2 mb-0" onclick="window.location.href='<?=fronturl('profil')?>'"><?php echo $auth_data['username'];?></p>
+          </div>
+          <i class="fa-solid fa-bars fs-4 px-2 py-2" style="color: #ffffff"></i>
+     </div>
     </header>
   <?php endif;?>
 
   <?php if($config_top_bar==2) :?> 
   <header class="bungkusan bg-primary position-fixed top-0">
-    <a href="<?=fronturl('');?>" class="d-flex align-items-center text-white text-decoration-none gap-2">
-        <i class="fa-solid fa-chevron-left"></i>
-        <p class="m-0 fs-5 fw-medium">&nbsp;&nbsp;&nbsp;&nbsp;</p>
-      </a>
-      <i class="fa-solid fa-bars fs-4 px-2 pt-2" style="color: #ffffff"></i>
+      <img 
+          src="<?=fileurl('asset/logo-white.png')?>"
+          alt=""
+          width="px"
+          height="40px"
+          class="white-logo"
+        />
+     <div class="container d-flex justify-content-between align-items-center">
+            <a href="<?=fronturl('');?>" class="d-flex align-items-center text-white text-decoration-none gap-2 ms-3">
+                <i class="fa-solid fa-chevron-left"></i>
+                <p class="m-0 fs-5 fw-medium">&nbsp;&nbsp;&nbsp;&nbsp;</p>
+              </a>
+              <i class="fa-solid fa-bars fs-4 px-2 py-2" style="color: #ffffff"></i>
+        </div>
+    
     </header>
   <?php endif;?>
 
