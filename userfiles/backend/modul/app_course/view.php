@@ -26,7 +26,7 @@ $label_action=$action=="add"?"Tambah":"Edit";
 $option_category=$mysql->get_assoc('id','title','app_category',"title"); 
 
 $form_title=$form->element_Textbox("Judul","title");
-$form_content=$form->element_Textarea("Isi","content",array('class'=>'usetiny'));
+//$form_content=$form->element_Textarea("Isi","content",array('class'=>'usetiny'));
 //$form_category=$form->element_Select("Category","category_id",$option_category);
 $form_category=$form->element_Hidden("category_id","$category_id");
 
@@ -73,6 +73,7 @@ END;
 if($action=="view" or $action=="")
 {
 $btn_tambah=button_add("$modul/add?category_id=$category_id");
+
 echo <<<END
 <div class="card card-navy">
 		<div class="card-header">
