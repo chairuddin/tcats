@@ -387,6 +387,7 @@ cfg_tiny_url="<?php echo $config['tinyurl'];?>";
 <script src="<?php echo $config['backendurl'];?>/template2/plugins/gijgo/dist/modular/js/timepicker.js" type="text/javascript"></script>
 <script src="<?php echo $config['backendurl'];?>/template2/plugins/gijgo/dist/modular/js/datepicker.js" type="text/javascript"></script>
 <script src="<?php echo $config['backendurl'];?>/template2/plugins/chart.js/Chart.min.js" type="text/javascript"></script>
+<script src="<?php echo $config['backendurl'];?>/template2/plugins/html5-qrcode/html5-qrcode.min.js" type="text/javascript"></script>
 
 
 <!-- AdminLTE App -->
