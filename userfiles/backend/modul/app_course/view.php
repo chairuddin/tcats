@@ -1,4 +1,5 @@
 <?php
+$url_image="#";
 if($action=="add" OR $action=="edit")
 {
 
@@ -8,12 +9,15 @@ if($action=='edit') {
 		id,
 		title,
 		content,
-		category_id
+		category_id,
+		thumbnail
 	FROM
 		app_course WHERE id=$id
 	");
 	$d=$mysql->assoc($q);
-	
+	if($d['thumbnail']!='') {
+		$url_image=fileurl("$modul/".$d['thumbnail']);
+	}
 	foreach($d as $field => $value) {
 		$_POST[$field]=$_POST[$field]==''?$value:$_POST[$field];
 	}
@@ -40,7 +44,13 @@ echo <<<END
               <form role="form" method="POST" id="form-member"  class="form-member yona-validation" action="$do_action"  novalidate enctype="multipart/form-data">
 				<input type="hidden" name="id" value="$id" />
                 <div class="card-body">
-              
+             		<div class="form-group">
+						<label for="imageUpload">Choose an image</label>
+						<input type="file" class="form-control-file" id="imageUpload" name="thumbnail" accept="image/*">
+					</div>
+					 <div class="form-group">
+                		<img id="imagePreview" src="$url_image" alt="Image Preview" class="img-thumbnail" style="max-width: 300px;">
+          			  </div>
                   <div class="form-group">
                     $form_category                
                   </div>
@@ -62,13 +72,21 @@ $script_js=<<<END
 <script>
 $(document).ready(function(){
 
-		
-		new GijgoDatePicker(document.getElementById("tanggal"), { keyboardNavigation: true, modal: true, header: true, footer: true, format: 'dd/mm/yyyy' });
-		new GijgoDatePicker(document.getElementById("tanggal_expired"), { keyboardNavigation: true, modal: true, header: true, footer: true, format: 'dd/mm/yyyy' });
-							
+			
+		 $('#imageUpload').change(function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#imagePreview').attr('src', e.target.result).show();
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
 });
 </script>
 END;
+
 }
 if($action=="view" or $action=="")
 {

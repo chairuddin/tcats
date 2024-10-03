@@ -135,6 +135,7 @@ cfg_tiny_url="<?php echo $config['tinyurl'];?>";
 				//DROP DOWN MENU
 				$menu=new MenuLeft2("app_dashboard","Dashboard",0,"");
 				$menu=new MenuLeft2("app_course","Kompetensi",0,"");
+				$menu=new MenuLeft2("app_scan","Scan",0,"");
 
 			//	if($level_user==2 ) 
 				{
