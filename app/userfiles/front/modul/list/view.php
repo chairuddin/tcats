@@ -29,4 +29,4 @@
   </div>
 </main>
 
-    <?php $config_top_bar=1; ?>
+    <?php $config_top_bar=2; ?>
