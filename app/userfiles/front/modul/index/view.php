@@ -17,9 +17,12 @@
       </form>
 -->
       <div class="row">
+          <div class="col-12 mb-4">
+              <h1 class="title-header">Kategori kompetensi</h1>
+          </div>
           <?php foreach($courses as $cs => $data): ?>
             <div class="col-12 col-lg-4 mb-4">
-              <div class="kompetensi wrap mx-auto d-flex flex-column justify-content-center" onclick="window.location.href='<?php echo fronturl("list/".md5($data['id']));?>'">
+              <div class="kompetensi kategori-kompetensi wrap mx-auto d-flex flex-column justify-content-center" onclick="window.location.href='<?php echo fronturl("list/".md5($data['id']));?>'">
                 <img src="<?=$data['thumbnail']?>" alt="" class="gambar" />
                 <div class="title-kompetensi">
                    <h6 class="mb-0"><?=$data['title']?></h6>

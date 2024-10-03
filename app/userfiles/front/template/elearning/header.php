@@ -72,10 +72,23 @@
           class="white-logo"
         />
      <div class="container d-flex justify-content-between align-items-center">
+         <div class="d-flex align-items-center">
+             
             <a href="<?=fronturl('');?>" class="d-flex align-items-center text-white text-decoration-none gap-2 ms-3">
                 <i class="fa-solid fa-chevron-left"></i>
                 <p class="m-0 fs-5 fw-medium">&nbsp;&nbsp;&nbsp;&nbsp;</p>
               </a>
+              <div class="d-flex flex-row profile-block">
+                <img
+                  src="<?=fileurl('asset/icon-orang-png-6.png')?>"
+                  alt=""
+                  width="px"
+                  height="27px"
+                  class=""
+                />
+                <p class="text-header text-white ms-2 mb-0"><?php echo $auth_data['username'];?></p>
+              </div>
+         </div>
               
               <div class="btn-group">
                   <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
