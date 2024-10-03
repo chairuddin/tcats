@@ -39,16 +39,25 @@
             />
      <div class="container d-flex justify-content-between align-items-center">
           <div class="d-flex flex-row profile-block">
-            <img onclick="window.location.href='<?=fronturl('profil')?>'"
+            <img
               src="<?=fileurl('asset/icon-orang-png-6.png')?>"
               alt=""
               width="px"
               height="27px"
               class=""
             />
-            <p class="text-header text-white ms-2 mb-0" onclick="window.location.href='<?=fronturl('profil')?>'"><?php echo $auth_data['username'];?></p>
+            <p class="text-header text-white ms-2 mb-0"><?php echo $auth_data['username'];?></p>
           </div>
-          <i class="fa-solid fa-bars fs-4 px-2 py-2" style="color: #ffffff"></i>
+          
+          <div class="btn-group">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-solid fa-bars fs-4 px-2 py-2" style="color: #ffffff"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end">
+                <button class="dropdown-item" type="button" onclick="window.location.href='<?=fronturl('profil')?>'">Profile</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='<?=fronturl('logout')?>'">Logout</button>
+              </div>
+            </div>
      </div>
     </header>
   <?php endif;?>
@@ -67,7 +76,16 @@
                 <i class="fa-solid fa-chevron-left"></i>
                 <p class="m-0 fs-5 fw-medium">&nbsp;&nbsp;&nbsp;&nbsp;</p>
               </a>
-              <i class="fa-solid fa-bars fs-4 px-2 py-2" style="color: #ffffff"></i>
+              
+              <div class="btn-group">
+                  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa-solid fa-bars fs-4 px-2 py-2" style="color: #ffffff"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-end">
+                    <button class="dropdown-item" type="button" onclick="window.location.href='<?=fronturl('profil')?>'">Profile</button>
+                    <button class="dropdown-item" type="button" onclick="window.location.href='<?=fronturl('logout')?>'">Logout</button>
+                  </div>
+                </div>
         </div>
     
     </header>
