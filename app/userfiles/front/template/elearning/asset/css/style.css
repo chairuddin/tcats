@@ -11,7 +11,22 @@ body{
 .wrapper {
   margin-bottom: 60px;
 }
-
+header .dropdown-toggle:after {
+    display: none;
+}
+h1.title-header {
+    font-weight: 700;
+    font-size: 23pt;
+    margin-bottom: 5px !important;
+    margin-top: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+}
+header .dropdown-toggle {
+    padding: 0;
+    background: transparent !important;
+    border: 0;
+}
 .bungkusan {
     display: flex;
     justify-content: space-between;
@@ -136,6 +151,9 @@ body {
 }
 .title-kompetensi {
     padding: 18px 20px;
+}
+.title-kompetensi h6 {
+    font-weight: 700;
 }
 .kompetensi:hover {
     cursor:pointer;
