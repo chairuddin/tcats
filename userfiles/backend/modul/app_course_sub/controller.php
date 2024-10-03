@@ -10,7 +10,8 @@ $validation = new YonaValidation();
 $form = new YonaForm();
 
 list($r_course)=$mysql->query_data("SELECT a.title,c.title category,c.id category_id FROM app_course a LEFT JOIN app_category c ON c.id=a.category_id  WHERE a.id=".$_GET['course']);
-
+//var_dump($r_course);
+$course_title.=$r_course['title'];
 /*
 $course_title='<a href="'.backendurl("app_category").'">'."Category".'</a>';
 $course_title.=" > ";

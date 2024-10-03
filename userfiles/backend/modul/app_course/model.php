@@ -37,6 +37,24 @@ if($action=="save" or $action=="update") {
 			$sql_r[]="modified_date='$hari_ini'";
 		}
 		
+		if ($_FILES['thumbnail']['name'] != '') {
+			//upload image
+				 $temp = explode('.', $_FILES['thumbnail']['name']);
+				$extension = strtolower($temp[count($temp) - 1]);	
+				$destdir=filepath("$modul");
+				$filename_only=uniqid();
+				$filename=$filename_only.".".$extension;
+				$upload=upload('thumbnail', $destdir, $filename_only, $maxsize=30000000, $allowedtypes = "gif,jpg,jpeg,png",$quality="70");
+				if(!$upload) {
+					sweetalert2($type="warning",$msg=($action=="update"?"Update":"Tambah")." Gagal upload gambar. $upload ",backendurl("$modul".($action=="update"?"/edit/$id":"/add")));
+					die();
+				} else {
+					//die('aaa'.$upload);
+				}
+			
+				$sql_r[]="thumbnail='$filename'";
+		}
+
 		
 		foreach($r_post as $i => $v) {
 			if($v!='content') {

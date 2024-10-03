@@ -27,12 +27,12 @@ if($token!="")
 	}
 	else
 	{
-	die('a');
+		die('Data token tidak ditemukan');
 	}
 }
 else
 {
-die('b');
+	die('b');
 	//quiz_login();
 }
 
