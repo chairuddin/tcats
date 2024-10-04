@@ -38,7 +38,7 @@
               class="white-logo"
             />
      <div class="container d-flex justify-content-between align-items-center">
-          <div class="d-flex flex-row profile-block">
+          <div class="d-flex flex-row profile-block" onclick="window.location.href='<?=fronturl('profil')?>'">
             <img
               src="<?=fileurl('asset/icon-orang-png-6.png')?>"
               alt=""
@@ -74,11 +74,10 @@
      <div class="container d-flex justify-content-between align-items-center">
          <div class="d-flex align-items-center">
              
-            <a href="<?=fronturl('');?>" class="d-flex align-items-center text-white text-decoration-none gap-2 ms-3">
+            <a href="<?=fronturl('');?>" class="d-flex align-items-center text-white text-decoration-none gap-2 ms-1 me-3">
                 <i class="fa-solid fa-chevron-left"></i>
-                <p class="m-0 fs-5 fw-medium">&nbsp;&nbsp;&nbsp;&nbsp;</p>
               </a>
-              <div class="d-flex flex-row profile-block">
+              <div class="d-flex flex-row profile-block" onclick="window.location.href='<?=fronturl('profil')?>'">
                 <img
                   src="<?=fileurl('asset/icon-orang-png-6.png')?>"
                   alt=""

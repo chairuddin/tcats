@@ -259,6 +259,24 @@ a.btn.btn-success{
     }
 }
 @media(max-width:767px){
+    .text-header{
+        font-size: 0;
+        margin: 0 !important;
+    }
+    h1.title-header {
+        font-weight: 700;
+        font-size: 18pt;
+    }
+    .bungkusan{
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .profile-block {
+        background: #1f684f;
+        padding: 7px;
+        border-radius: 40px;
+        font-size: 0 !important;
+    }
     .footer-detail a{
         width: 100%;
     }
