@@ -22,7 +22,7 @@
                         <p class="text-muted">Kompetensi 1</p>
                     </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-start mx-3 ">
+                <div class="d-flex align-items-center justify-content-start mx-lg-3 mb-3 ">
                     <i class="fa-solid fa-bell me-2 mt-1"></i>
                     <p class="mb-0 fw-bold text-success text-nowrap">Competent</p>
                 </div>
@@ -34,7 +34,7 @@
                         <p class="text-muted">Kompetensi 1</p>
                     </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-start mx-3 ">
+                <div class="d-flex align-items-center justify-content-start mx-lg-3 mb-3 ">
                     <i class="fa-solid fa-bell me-2 mt-1"></i>
                     <p class="mb-0 fw-bold text-danger text-nowrap">Not Competent</p>
                 </div>
