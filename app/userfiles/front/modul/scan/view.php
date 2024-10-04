@@ -15,16 +15,6 @@
 <script src="<?php echo $kUrl;?>/panel/template2/plugins/html5-qrcode/html5-qrcode.min.js" type="text/javascript"></script>    
 <script>
 
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    // Start QR code scanner
-    html5QrCode.start({ facingMode: { exact: "environment" } }, config, onScanSuccess, onScanError)
-    .catch(err => {
-        console.error('Failed to start QR code scanner:', err);
-    });
-} else {
-    alert("Camera access is not supported on this browser.");
-}
-
  const html5QrCode = new Html5Qrcode("reader");
          
             const continueScan = () => {
@@ -48,4 +38,16 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             html5QrCode.start({
                 facingMode: "environment"
             }, config, qrCodeSuccessCallback);
+            
+
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Start QR code scanner
+    html5QrCode.start({ facingMode: { exact: "environment" } }, config, onScanSuccess, onScanError)
+    .catch(err => {
+        console.error('Failed to start QR code scanner:', err);
+    });
+} else {
+    alert("Camera access is not supported on this browser.");
+}
+            
 </script>
