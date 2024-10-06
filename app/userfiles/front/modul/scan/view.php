@@ -26,7 +26,6 @@
 
             };
 
-
             const config = {
                 fps: 10,
                 qrbox: {

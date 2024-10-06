@@ -11,7 +11,7 @@
                   <?php foreach($data_kd as $x =>$kd) : ?>
                   <div class="kompetensi-box">
                     <h5>Competency <?=$x+1?></h5>
-                    <p><?=$kd['nama']?></p>
+                    <p>C<?=$x+1?>&nbsp;-&nbsp;<?=$kd['nama']?></p>
                   </div>
                   <?php endforeach; ?>
                 </section>
