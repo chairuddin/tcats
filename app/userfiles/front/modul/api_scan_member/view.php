@@ -15,9 +15,11 @@
     
         
         if($q and $mysql->num_rows($q)>0) {
+         $d=$mysql->fetch_assoc($q);
          $data=array(
                 'success'=>1,
-                'msg'=>'Ditemukan'
+                'msg'=>'Ditemukan',
+                'member_id'=>md5(md5($d['id']))
                 );
          } else {
             $data=array(

@@ -22,7 +22,27 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
             const qrCodeSuccessCallback = (decodedText, decodedResult) => {
                 //window.location.href='http://localhost/ukomggf/app/profil/ff65889ed601360360342f68c2c8c336'
-                alert(decodedText);
+                fetch('<?=fronturl("api_scan_member")?>', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ code: decodedText })
+                })
+                .then(response => response.json())
+                .then(data => {
+             //       alert(data.success);
+                   // alert(data.member_id);
+                    if (data.success) {
+                        // Redirect to another page if the API returns success
+                        window.location.href = '<?=fronturl("profil/")?>'+data.member_id;
+                    } else {
+                        alert('Invalid QR code');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
             };
 
             function qrCodeErrorCallback(errorMessage) {
