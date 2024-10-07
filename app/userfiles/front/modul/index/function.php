@@ -1,6 +1,6 @@
 <?php
 $auth_data=check_session();
-
+/*
 $url_decoration='https://wifiukai.com/cbt/userfiles/file/quiz/app_decoration';
 $data=array();
 $r_asset=$mysql->sql_get_assoc(" SELECT concat(basename,'.',extension) image,type,caption  FROM app_decoration ");
@@ -16,7 +16,7 @@ foreach($r_asset as $i => $image) {
 		$slide_show['logo']=$url_decoration."/".$image['image'];
 	}
 }
-
+*/
 
 $image_default="default.jpeg";
 /*

@@ -13,25 +13,32 @@
         </div>
         
         
-
+        
         <div class="list-kompetensi">
-            <div class="kompetensi-box d-md-flex justify-content-between align-items-start">
+            <?php foreach($quiz_done as $i => $data): ?>
+            <div class="kompetensi-box d-md-flex justify-content-between align-items-start" onclick="window.location.href='<?=fronturl('result/'.$data['md5_quiz_done_id'])?>'">
                 <div class=" d-flex justify-content-start align-items-center mb-0 w-100">
                     <div class="d-flex flex-column align-items-start">
-                        <h5 class="mb-0 fw-bold">Operator Engine Irrigator</h5>
-                        <p class="text-muted">Kompetensi 1</p>
+                        <h5 class="mb-0 fw-bold"><?=$data['title']?></h5>
+                       
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-start mx-lg-3 mb-3 ">
                     <i class="fa-solid fa-bell me-2 mt-1"></i>
-                    <p class="mb-0 fw-bold text-success text-nowrap">Competent</p>
+                    <?php if( $data['avg_score']>=$data['kkm'] ): ?>
+                        <p class="mb-0 fw-bold text-success text-nowrap">Competent</p>
+                    <?php else: ?>
+                        <p class="mb-0 fw-bold text-danger text-nowrap">Not Competent</p>
+                    <?php endif; ?>
                 </div>
             </div>
+            <?php endforeach;?>
+            <!--
             <div class="kompetensi-box d-md-flex justify-content-between align-items-start">
                 <div class=" d-flex justify-content-start align-items-center mb-0 w-100">
                     <div class="d-flex flex-column align-items-start">
                         <h5 class="mb-0 fw-bold">Operator Engine Irrigator</h5>
-                        <p class="text-muted">Kompetensi 1</p>
+                     
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-start mx-lg-3 mb-3 ">
@@ -39,6 +46,7 @@
                     <p class="mb-0 fw-bold text-danger text-nowrap">Not Competent</p>
                 </div>
             </div>
+            -->
         </div>
 
     </div>

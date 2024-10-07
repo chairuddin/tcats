@@ -2659,17 +2659,20 @@ function sweetalert2($type="success",$msg="",$redirect="") {
 		exit();
 	}
 }
-function generateQRCode($nb){
+function generateQRCode($nb,$name=""){
 	
 	$nb=cleanInput($nb);
+
+	if($name=="") $name=$nb;
+	
 	$content=$nb;
 	
 	if(!file_exists(filepath("qrcode"))) {
 		mkdir(filepath("qrcode"),"775");
 	}
 	
-	$pngAbsoluteFilePath = filepath("qrcode/$nb.png");
-	$urlRelativeFilePath = fileurl("qrcode/$nb.png");
+	$pngAbsoluteFilePath = filepath("qrcode/$name.png");
+	$urlRelativeFilePath = fileurl("qrcode/$name.png");
 	if(!file_exists($pngAbsoluteFilePath)){
 		b_load_lib("Qrcode/qrlib");
 		QRcode::png($content,$pngAbsoluteFilePath,'L', 10, 0);

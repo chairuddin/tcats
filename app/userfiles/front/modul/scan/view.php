@@ -14,39 +14,37 @@
 
 <script src="<?php echo $kUrl;?>/panel/template2/plugins/html5-qrcode/html5-qrcode.min.js" type="text/javascript"></script>    
 <script>
+//window.location.href='http://localhost/ukomggf/app/profil/ff65889ed601360360342f68c2c8c336'
 
- const html5QrCode = new Html5Qrcode("reader");
-         
-            const continueScan = () => {
-              
-              
-            };
+const html5QrCode = new Html5Qrcode("reader");
+
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {    
+
             const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-             
-
+                //window.location.href='http://localhost/ukomggf/app/profil/ff65889ed601360360342f68c2c8c336'
+                alert(decodedText);
             };
 
+            function qrCodeErrorCallback(errorMessage) {
+                // Handle scan failure, no need to alert every error
+                console.warn(`QR Code scan error: ${errorMessage}`);
+              }
+                
             const config = {
-                fps: 10,
+                fps: 15,
                 qrbox: {
-                    width: 250,
-                    height: 250
+                    width: 300,
+                    height: 300
                 }
             };
 
             html5QrCode.start({
                 facingMode: "environment"
-            }, config, qrCodeSuccessCallback);
-            
-
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    // Start QR code scanner
-    html5QrCode.start({ facingMode: { exact: "environment" } }, config, onScanSuccess, onScanError)
-    .catch(err => {
-        console.error('Failed to start QR code scanner:', err);
-    });
+            }, config, qrCodeSuccessCallback, qrCodeErrorCallback);
 } else {
     alert("Camera access is not supported on this browser.");
 }
+
+
             
 </script>

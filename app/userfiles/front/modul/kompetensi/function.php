@@ -23,12 +23,14 @@ $pretest_exist=$mysql->get1value("SELECT id FROM app_quiz_done WHERE course_mate
 if($pretest_exist>0) {
     //sudah mengerjakan
     $pretest_done=1;
+    $md5_pretest_quiz_done_id=md5($pretest_exist);
 }
 
 $posttest_exist=$mysql->get1value("SELECT id FROM app_quiz_done WHERE course_material_id=$posttest_id AND is_void=0 AND is_done=1 AND member_id=$userid");
 if($posttest_exist>0) {
     //sudah mengerjakan
     $posttest_done=1;
+    $md5_posttest_quiz_done_id=md5($posttest_exist);
 }
 
 

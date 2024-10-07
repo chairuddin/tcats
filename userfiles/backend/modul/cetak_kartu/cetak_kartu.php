@@ -73,7 +73,7 @@ while($d=$mysql->fetch_assoc($q)) {
 }
 extract($var_config);
 $data_peserta = [];
-$q = $mysql->query("SELECT username,fullname,jurusan,class, ruang FROM quiz_member WHERE class='$id' ORDER BY username ");
+$q = $mysql->query("SELECT id,username,fullname,jurusan,class, ruang FROM quiz_member WHERE class='$id' ORDER BY username ");
 $urut=1;
 
 if($q and $mysql->num_rows($q)>0) {
@@ -90,7 +90,7 @@ if($q and $mysql->num_rows($q)>0) {
 		'judul_kartu'=>$judul_kartu,
 		'sub_judul_kartu'=>$sub_judul_kartu,
 		'url_logo_sekolah'=>$url_logo_sekolah,
-		'url_qrcode'=>generateQRCode($d['username'])
+		'url_qrcode'=>generateQRCode(md5(md5($d['id'])),$d['id'])
 		);
 		$data_peserta[$urut] = $data;
 		$urut++;

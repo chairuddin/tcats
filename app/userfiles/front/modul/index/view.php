@@ -34,4 +34,4 @@
   </div>
 </main>
 
-    <?php $config_top_bar=1; ?>
+  <?php $config_top_bar=$auth_data['level']==1?2:1; ?>
