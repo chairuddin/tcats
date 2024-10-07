@@ -28,8 +28,13 @@ $category_name_selected=$mysql->get1value("SELECT title FROM app_category WHERE 
 //$courses=$mysql->sql_get_assoc(" SELECT id,title  FROM app_course WHERE md5(md5(category_id))='".md5($category_default_selected)."'");
 
 $course_id_md5=md5($action);
+$keyword = cleanInput($_GET['keyword']);
+$sql_search='';
+if($keyword!="") {
+	$sql_search=" AND title like '%$keyword%' ";
+}
 
-$course_sub=$mysql->sql_get_assoc(" SELECT id,title,course_id,if(LENGTH(image)<=0,'$image_default',concat('$fileurl/app_course_sub/',image)) image,is_free FROM app_course_sub WHERE md5(md5(course_id)) = '$course_id_md5' ");
+$course_sub=$mysql->sql_get_assoc(" SELECT id,title,course_id,if(LENGTH(image)<=0,'$image_default',concat('$fileurl/app_course_sub/',image)) image,is_free FROM app_course_sub WHERE md5(md5(course_id)) = '$course_id_md5' $sql_search");
 
 
 
