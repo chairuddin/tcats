@@ -31,10 +31,11 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 })
                 .then(response => response.json())
                 .then(data => {
-                    //alert(response); //
+             //       alert(data.success);
+                   // alert(data.member_id);
                     if (data.success) {
                         // Redirect to another page if the API returns success
-                    //    window.location.href = '<?=fronturl("profil/")?>'+data.member_id;
+                        window.location.href = '<?=fronturl("profil/")?>'+data.member_id;
                     } else {
                         alert('Invalid QR code');
                     }

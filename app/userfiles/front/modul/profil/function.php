@@ -1,8 +1,5 @@
 <?php
 $auth_data=check_session();
-$email=$auth_data['email'];
-$fullname=$auth_data['fullname'];
-$jurusan=$auth_data['jurusan'];
 
 
 
@@ -38,5 +35,13 @@ foreach($quiz_done as $i => $done) {
     $quiz_done[$i]['avg_score']=$avg_score;
     $quiz_done[$i]['md5_quiz_done_id']=md5($done['id']);
 }
+
+list($user)=$mysql->sql_get_assoc(" SELECT username,email,fullname,jurusan FROM quiz_member WHERE id=$member_id");
+$email=$user['email'];
+$fullname=$user['fullname'];
+$jurusan=$user['jurusan'];
+$username=$user['username'];
+
+
 
 ?>
