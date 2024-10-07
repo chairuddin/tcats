@@ -21,7 +21,7 @@
               <div class="d-flex flex-column justify-content-center">
                   <a href="<?php echo fronturl('scan');?>" class="text-decoration-none text-white d-flex justify-content-center align-items-center">
                     <div class="border bg-primary rounded text-center w-100 p-4 dashboard-item" >
-                      <i class="fa-solid fa-chart-pie" style="font-size: 32px"></i><br/>
+                      <i class="fa-solid fa-qrcode" style="font-size: 32px"></i><br/>
                       <p class="m-0 fw-medium mt-3">Competency Card Scan [QR Scan]</p>
                     </div>
                   </a>
@@ -31,7 +31,7 @@
               <div class="d-flex flex-column justify-content-center">
                   <a href="<?php echo fronturl('index');?>" class="text-decoration-none text-white d-flex justify-content-center align-items-center">
                     <div class="border bg-primary rounded text-center w-100 p-4 dashboard-item" >
-                      <i class="fa-solid fa-chart-pie" style="font-size: 32px"></i><br/>
+                      <i class="fa-solid fa-graduation-cap" style="font-size: 32px"></i><br/>
                       <p class="m-0 fw-medium mt-3">Uji Kompetensi</p>
                     </div>
                   </a>
