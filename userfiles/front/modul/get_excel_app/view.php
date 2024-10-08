@@ -129,7 +129,7 @@ $r=$mysql->query($sql);
 // Add some data
 if($data_ujian['custom_score']==3) {
 $data_kd=array();
-$qkd=$mysql->query("SELECT id,title_id FROM quiz_kd WHERE quiz_id=".$data_ujian['quiz_id']);
+$qkd=$mysql->query("SELECT id,title_id,kkm FROM quiz_kd WHERE quiz_id=".$data_ujian['quiz_id']);
 if($qkd and $mysql->numrows($qkd)) {
 	while($dkd = $mysql->assoc($qkd)) {
 		$data_kd[]=$dkd;
@@ -157,16 +157,22 @@ foreach($kolom as $i => $nama) {
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValue($nama.'1',$data_kd[$i]['title_id']);
 		$kolom_terakhir=$nama;
 }
-
+/*
 $kolom=kolom_excel(2,$kolom_terakhir);
 $kolom_essay=end($kolom);
 $objPHPExcel->setActiveSheetIndex(0)->setCellValue($kolom_essay.'1','Skor Essay');
-
-$kolom=kolom_excel(2,$kolom_essay);
+*/
+$kolom=kolom_excel(2,$kolom_terakhir);
 $kolom_total=end($kolom);
 $objPHPExcel->setActiveSheetIndex(0)->setCellValue($kolom_total.'1','Total Skor');
 
+
 $kolom=kolom_excel(2,$kolom_total);
+$kolom_rata2=end($kolom);
+$objPHPExcel->setActiveSheetIndex(0)->setCellValue($kolom_rata2.'1','Rata rata');
+
+
+$kolom=kolom_excel(2,$kolom_rata2);
 $kolom_kkm=end($kolom);
 $objPHPExcel->setActiveSheetIndex(0)->setCellValue($kolom_kkm.'1','KKM');
 
@@ -244,7 +250,7 @@ $json_answer=join("",$r_answer);
 		$lulus=1;
         $nilai_kd=array();
         $kkm_kd=array();
-        $q_nilai_kd = $mysql->query("SELECT id_quiz_kd,score,kkm FROM app_quiz_done_kd WHERE id_quiz_done=".$d['id']);    
+        $q_nilai_kd = $mysql->query("SELECT qd.id_quiz_kd,qd.score,k.kkm FROM app_quiz_done_kd qd LEFT JOIN quiz_kd k ON qd.id_quiz_kd=k.id WHERE qd.id_quiz_done=".$d['id']);    
         if($q_nilai_kd and $mysql->numrows($q_nilai_kd)>0) {
 			while($d_nilai_kd = $mysql->assoc($q_nilai_kd)) {
 				$nilai_kd[$d_nilai_kd['id_quiz_kd']]=$d_nilai_kd['score'];
@@ -254,22 +260,31 @@ $json_answer=join("",$r_answer);
 		
 		$kolom_terakhir='';
 		foreach($kolom as $i => $nama) {
+		
+			
 				$objPHPExcel->setActiveSheetIndex(0)->setCellValue($nama.$no,$nilai_kd[$data_kd[$i]['id']]);
 				if($nilai_kd[$data_kd[$i]['id']] < $kkm_kd[$data_kd[$i]['id']]) {
-				$lulus=0;
+					$lulus=0;
 				$objPHPExcel->getActiveSheet()->getStyle($nama.$no)->getFont()->getColor()->setRGB('BB0000');
 				}
 				$kolom_terakhir=$nama;
 		}	
 		
-		
+		/*
 		$kolom=kolom_excel(2,$kolom_terakhir);
 		$kolom_skor_essay=end($kolom);
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValue($kolom_skor_essay.$no,$d['score_essay']);
+		*/
 		
-		$kolom=kolom_excel(2,$kolom_skor_essay);
+		$kolom=kolom_excel(2,$kolom_terakhir);
 		$kolom_total=end($kolom);
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValue($kolom_total.$no,$d['score']+$d['score_essay']);
+		
+		$rata2_skor=array_sum($nilai_kd)/count($nilai_kd);
+		$rata2_skor=round($rata2_skor,2);
+		$kolom=kolom_excel(2,$kolom_total);
+		$kolom_rata2=end($kolom);
+		$objPHPExcel->setActiveSheetIndex(0)->setCellValue($kolom_rata2.$no,$rata2_skor);
 		
 		if(($d['score']+$d['score_essay'])<$d['kkm']) {
 			$lulus=0;
@@ -277,11 +292,13 @@ $json_answer=join("",$r_answer);
 		if($lulus==0) {
 			$objPHPExcel->getActiveSheet()->getStyle($kolom_total.$no)->getFont()->getColor()->setRGB('BB0000');
 		}
-		$kolom=kolom_excel(2,$kolom_total);
+
+		$kolom=kolom_excel(2,$kolom_rata2);
 		$kolom_kkm=end($kolom);
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValue($kolom_kkm.$no,$d['kkm']);
 
-		$ket=($lulus==1?_LULUS:_TIDAKLULUS);
+		//$ket=($lulus==1?_LULUS:_TIDAKLULUS);
+		$ket=($lulus==1?'Competent':'Not Competent');
 		$kolom=kolom_excel(2,$kolom_kkm);
 		$kolom_ket=end($kolom);
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValue($kolom_ket.$no,$ket);

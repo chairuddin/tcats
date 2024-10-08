@@ -13,6 +13,7 @@ if($action=='edit') {
 		content,
 		course_id,
 		allow_class,
+		publish,
 		image
 	FROM
 		app_course_sub WHERE id=$id
@@ -59,6 +60,7 @@ $form_quiz_pretest=$form->element_Select("Soal Pre Test",'pretest_quiz',$option_
 $form_quiz_postest=$form->element_Select("Soal Post Test",'posttest_quiz',$option_soal,array('class'=>'select2'));
 
 $form_class=$form->element_Select2Multi("Pilih Kelas",'allow_class[]',$option_class,array('class'=>'select2','multiple'=>"multiple","value"=>$_POST['allow_class']));
+$form_status=$form->element_bootstrapSwitch("Status Aktif","publish",array("value"=>"1",'data-off-color'=>"danger",'data-on-color'=>"success",'data-on-text'=>"Aktif", 'data-off-text'=>"Tidak Aktif"));
 
 echo <<<END
   <div class="card card-navy">
@@ -93,6 +95,9 @@ echo <<<END
                   </div>
 				  <div class="form-group">
                     $form_quiz_postest                    
+                  </div>
+				   <div class="form-group">
+                    $form_status                    
                   </div>
                 <div class="card-footer">
                    <button type="button" class="btn btn-default" onclick="history.back(-1);">Batal</button>&nbsp;&nbsp;&nbsp;<button type="submit" name="submit" value="1" class="btn btn-primary">Submit</button>

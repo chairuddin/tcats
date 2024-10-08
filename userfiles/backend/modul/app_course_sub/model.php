@@ -37,7 +37,8 @@ if($action=="save" or $action=="update") {
 		'title',
 		'content',
 		'course_id',
-		'allow_class'
+		'allow_class',
+		'publish'
 		);
 
 		$pretest_quiz=$_POST['pretest_quiz'];

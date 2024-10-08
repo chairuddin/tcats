@@ -1,6 +1,6 @@
 <?php
 
-$config['default']="dashboard";
+$config['default']="app_dashboard";
 if($modul==""){$modul=$config['default'];}
 $lang="id";
 $list_lang=array("id");
