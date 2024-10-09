@@ -5,8 +5,9 @@
   box-sizing: border-box;
 }
 body{
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Poppins", sans-serif;
     background: #f7f7f7;
+    color: #2f3634;
 }
 .wrapper {
   margin-bottom: 60px;
@@ -25,12 +26,15 @@ main#dashboar-page {
     display: flex;
     align-items: center;
 }
+.fw-bold {
+    font-weight: 600 !important;
+}
 h1.title-header {
-    font-weight: 700;
-    font-size: 23pt;
+    font-weight: 600;
+    font-size: 21pt;
     margin-bottom: 5px !important;
     margin-top: 20px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #fff;
     padding-bottom: 15px;
 }
 header .dropdown-toggle {
@@ -45,7 +49,7 @@ header .dropdown-toggle {
     width: 100%;
     height: 60px;
     z-index: 9999;
-    background: #2b765d !important;
+    background:#648500 !important;
 }
 
 .text-header {
@@ -114,18 +118,17 @@ header .dropdown-toggle {
     font-weight: bold;
 }
 .text-header {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.9;
 }
-
 .profile-block img {
     background: #fff;
     border-radius: 50px;
 }
 
 .profile-block {
-    background: #1f684f;
+    background: #536c08;
     padding: 7px 15px 7px 10px;
     border-radius: 40px;
 }
@@ -152,7 +155,7 @@ img.white-logo {
 }
 body {
     padding-top: 80px;
-    background: #f7f7f7;
+    background: linear-gradient(105.88deg, #dce1c9 -1.58%, #b4dac3 125.51%);
 }
 .kompetensi {
     background: #fff;
@@ -164,7 +167,7 @@ body {
     padding: 18px 20px;
 }
 .title-kompetensi h6 {
-    font-weight: 700;
+    font-weight: 600;
 }
 .kompetensi:hover {
     cursor:pointer;
@@ -194,7 +197,7 @@ form.search-kompetensi input.form-control::-ms-input-placeholder { /* Edge 12 -1
 form.search-kompetensi button {
     border-radius: 10px !important;
     border: 0;
-    background: linear-gradient(290.32deg, #a6cc39 0%, #00873f 100.66%);
+    background: #e6ac02;
     color: #fff;
     padding: 8px 25px;
 }
@@ -233,15 +236,15 @@ a.btn.btn-success{
     border-radius: 10px !important;
     padding: 10px 20px;
     border: 0;
-    background: linear-gradient(290.32deg, #a6cc39 0%, #00873f 100.66%);
+    background: #e6ac02;
 }
 .footer-detail {
-    border-top: 1px solid #eee;
+    border-top:1px solid #b5b5b5;
     padding-top: 30px;
     margin-top: 40px !important;
 }
 .kompetensi-box {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #b5b5b5;
     padding-top: 15px;
     padding-bottom: 5px;
     padding-left: 40px;
