@@ -1,1 +1,9 @@
-<?phpif($action=="") {    include "view_index.php";}?>
+
+<?php
+
+if($action=="") {
+    include "view_top.php";
+    include "view_index.php";
+}
+
+?>

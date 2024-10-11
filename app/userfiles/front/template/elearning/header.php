@@ -46,7 +46,7 @@
               height="27px"
               class=""
             />
-            <p class="text-header text-white ms-2 mb-0"><?php echo $auth_data['username'];?></p>
+            <p class="text-header text-white ms-2 mb-0"><?php echo $auth_data['username'];?> / <?php echo $auth_data['organization_unit'];?></p>
           </div>
           
           <div class="btn-group">

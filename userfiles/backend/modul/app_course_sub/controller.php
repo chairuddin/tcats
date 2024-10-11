@@ -9,16 +9,27 @@ b_load_lib("PHPExcel/Classes/PHPExcel");
 $validation = new YonaValidation();
 $form = new YonaForm();
 
-list($r_course)=$mysql->query_data("SELECT a.title,c.title category,c.id category_id FROM app_course a LEFT JOIN app_category c ON c.id=a.category_id  WHERE a.id=".$_GET['course']);
-//var_dump($r_course);
-$course_title.=$r_course['title'];
-/*
-$course_title='<a href="'.backendurl("app_category").'">'."Category".'</a>';
-$course_title.=" > ";
-$course_title.='<a href="'.backendurl("app_course?category_id=".$r_course['category_id']).'">'.$r_course['category'].'</a>';
-$course_title.=" > ";
-$course_title.=$r_course['title'];
-*/
+    if($action=="") {
+        $course_id = $_GET['course'];
+    }
+    if($action=="add" or $action=="edit") {
+        $course_id = $mysql->get1value("SELECT course_id FROM app_course_sub WHERE id=$id ");
+    }
+    
+    list($r_course)=$mysql->query_data("SELECT a.title,c.title category,c.id category_id FROM app_course a LEFT JOIN app_category c ON c.id=a.category_id  WHERE a.id=".$course_id);
+
+    //$course_title.="Kategori > ".$r_course['title'];
+    
+    $course_title='<a href="'.backendurl("app_course").'">'."Kategori".'</a>';
+    $course_title.=" > ";
+    //$course_title.='<a href="'.backendurl("app_course?category_id=".$r_course['category_id']).'">'.$r_course['category'].'</a>';
+    //$course_title.=" > ";
+    $course_title.=$r_course['title'];
+    if($action=="add" or $action=="edit") {
+        $course_title.=" > ".$mysql->get1value(" SELECT title FROM app_course_sub WHERE id=$id");    
+    }
+
+
 
 include "function.php";
 include "model.php";

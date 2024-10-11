@@ -27,7 +27,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     		 
 			 <div class="login-box">
 			  <div class="login-logo">
-				Login Admin / Pengawas
+				Login Admin
 			  </div>
 			  <!-- /.login-logo -->
 			  <div class="card">

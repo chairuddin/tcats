@@ -61,9 +61,6 @@ cfg_tiny_url="<?php echo $config['tinyurl'];?>";
         <a href="<?php echo backendurl();?>" class="nav-link">Dashboard</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?php echo backendurl("quiz_calendar");?>" class="nav-link">Kalender</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
         <a target="_BLANK" href="<?php echo fronturl("app");?>" class="nav-link">Halaman Ujian</a>
       </li>  
 
@@ -134,8 +131,8 @@ cfg_tiny_url="<?php echo $config['tinyurl'];?>";
           <?php
 				//DROP DOWN MENU
 				$menu=new MenuLeft2("app_dashboard","Dashboard",0,"");
-				$menu=new MenuLeft2("app_course","Kompetensi",0,"");
-				$menu=new MenuLeft2("app_scan","Scan",0,"");
+				$menu=new MenuLeft2("app_course","Uji Kompetensi",0,"");
+			//	$menu=new MenuLeft2("app_scan","Scan",0,"");
 
 			//	if($level_user==2 ) 
 				{

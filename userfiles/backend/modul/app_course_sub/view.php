@@ -59,7 +59,7 @@ $form_content=$form->element_Textarea("Isi","content",array('class'=>'usetiny'))
 $form_quiz_pretest=$form->element_Select("Soal Pre Test",'pretest_quiz',$option_soal,array('class'=>'select2'));
 $form_quiz_postest=$form->element_Select("Soal Post Test",'posttest_quiz',$option_soal,array('class'=>'select2'));
 
-$form_class=$form->element_Select2Multi("Pilih Kelas",'allow_class[]',$option_class,array('class'=>'select2','multiple'=>"multiple","value"=>$_POST['allow_class']));
+//$form_class=$form->element_Select2Multi("Pilih Kelas",'allow_class[]',$option_class,array('class'=>'select2','multiple'=>"multiple","value"=>$_POST['allow_class']));
 $form_status=$form->element_bootstrapSwitch("Status Aktif","publish",array("value"=>"1",'data-off-color'=>"danger",'data-on-color'=>"success",'data-on-text'=>"Aktif", 'data-off-text'=>"Tidak Aktif"));
 
 echo <<<END
@@ -87,9 +87,11 @@ echo <<<END
                   <div class="form-group">
                     $form_content                    
                   </div>
+				  <!--
 				   <div class="form-group">
                     $form_class                    
                   </div>
+				  -->
 				  <div class="form-group">
                     $form_quiz_pretest                    
                   </div>
