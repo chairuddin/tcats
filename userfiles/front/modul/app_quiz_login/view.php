@@ -562,8 +562,8 @@ if(($ismember and $issoal) OR $ada_ujian_aktif)
 <?php echo $foto?>
 <!--<form id="quiz_form_login" name="quiz_form_login"  method="get" role="form" class="quiz_form_login form-konfirmasi">-->
 <form id="quiz_form_login" name="quiz_form_login"  method="get" role="form">
-<div class='row'>
-<div class='col-sm-8'>
+<div class='row justify-content-center'>
+<div class='col-sm-6'>
 <div id="konfirmasi-tes" class='div-form-login'>
 <div class="block-title cek-biodata">
   <h1>Biodata Anda</h1>
@@ -668,8 +668,6 @@ else
 }
 ?>
 </div>
-</div>
-<div class='col-sm-4'>
 	<input type="hidden" name="token" value="<?php echo $token;?>" />
 	<?php
 	$tunggu=false;
@@ -727,6 +725,7 @@ else
 	
 				echo "<div id='quiz_action_wrap'>";
 				echo "<p><h3>Apakah data sudah benar?</h3></p>";
+				echo '<div class="d-flex justify-content-evenly">';
 				if($tunggu){
 				/*
 				echo '
@@ -742,6 +741,7 @@ else
 				
 				echo "<input type=\"button\"  class=\"quiz_button\" id=\"quiz_back_button\"  name=\"back\" onclick=\"window.parent.backToCompetency();\" value=\"Kembali\"/>";
 				
+				echo "</div>";
 				echo "</div>";
 			}
 		
@@ -952,20 +952,43 @@ background-color:red;
   background-color: #856404 !important;
 }
 
-
-
 #quiz_action_wrap {
-  background-color: #333;
-  border-radius: 18px;
-  margin-top: 11px;
-  padding: 2px 10px 26px 10px;
-  color:white;
-}	
+    background-color: #fff;
+    border-radius: 20px;
+    margin-top: 11px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
 
 
 .quiz_button {
   height: 48px;
-  font-weight: bold;
+  font-weight: 500;
+}
+h2#swal2-title {
+    color: #333;
+    margin-bottom: 15px;
+}
+.swal2-actions {
+    margin-top: 30px !important;
+}
+.swal2-styled.swal2-confirm {
+    width: 46%;
+    margin: 0 2%;
+    background: #e6ac02 !important;
+}
+.swal2-styled.swal2-cancel {
+    background: #aaa !important;
+    width: 46%;
+    margin: 0 2%;
+}
+.swal2-content {
+    font-size: 15px !important;
+    color: #777 !important;
+}
+.swal2-popup {
+    border-radius: 20px !important;
+    padding: 30px !important;
 }
 .quiz_form_login {
   margin: 0 auto;
@@ -985,11 +1008,11 @@ background-color:red;
   position: relative;
   text-align: center;
 }
-
 #quiz_action_wrap h3 {
-  font-size: 14pt;
-  margin: 0 0 4px 0px;
-  text-align: center;
+    font-size: 14pt;
+    margin: 0 0 24px 0px;
+    text-align: center;
+    font-weight: 600;
 }
 @media (min-width: 500px) {
 .login-div {
@@ -999,17 +1022,24 @@ background-color:red;
 }
 }
 @media (min-width: 401px) {
-#quiz_login_button,#quiz_wait_button {
-  background-color: lightseagreen;
-  margin-bottom: 8px;
-  width: 175px;
-  border:none;
+#quiz_login_button, #quiz_wait_button {
+    background-color: #e6ac02;
+    margin-bottom: 8px;
+    width: 200px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: #fff;
 }
 #quiz_back_button {
-	float: right;
-	width: 112px;
+	width: 200px;
 	border: medium none;
 	color: black;
+	border-radius:10px;
+}
+.d-flex.justify-content-evenly {
+    display: flex;
+    justify-content: space-evenly;
 }
 }
 @media (max-width: 400px) {
@@ -1029,7 +1059,7 @@ background-color:red;
 }
 
 #quiz_back_button:hover,#quiz_login_button:hover,#quiz_wait_button:hover{
-border:2px solid;
+
 }
 </style>
 END;

@@ -809,7 +809,8 @@ else
 				echo "<input type=\"hidden\" id=\"wait_n_start\" name=\"wait_n_start\" value=\"0\"/>";
 	
 				echo "<div id='quiz_action_wrap'>";
-				echo "<p><h3>Apakah data sudah benar?</h3></p>";
+				echo "<p><h3>Apakah data sudah benar? a</h3></p>";
+				echo '<div class="d-flex justify-content-evenly">';
 				if($tunggu){
 				/*
 				echo '
@@ -823,6 +824,7 @@ else
 				<input type="hidden" name="mulai_ujian"  value="Iya data sudah benar"/>';
 				}
 				echo "<input type=\"button\"  class=\"quiz_button\" id=\"quiz_back_button\"  name=\"back\" onclick=\"window.location.href='".$url_back."'\" value=\"Kembali\"/>";
+				echo "</div>";
 				echo "</div>";
 			}
 		
@@ -1096,19 +1098,42 @@ background-color:red;
 }
 
 
-
 #quiz_action_wrap {
-  background-color: #333;
-  border-radius: 18px;
-  margin-top: 11px;
-  padding: 2px 10px 26px 10px;
-  color:white;
-}	
-
+    background-color: #fff;
+    border-radius: 20px;
+    margin-top: 11px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
 
 .quiz_button {
   height: 48px;
-  font-weight: bold;
+  font-weight: 500;
+}
+h2#swal2-title {
+    color: #333;
+    margin-bottom: 15px;
+}
+.swal2-actions {
+    margin-top: 30px !important;
+}
+.swal2-styled.swal2-confirm {
+    width: 46%;
+    margin: 0 2%;
+    background: #e6ac02 !important;
+}
+.swal2-styled.swal2-cancel {
+    background: #aaa !important;
+    width: 46%;
+    margin: 0 2%;
+}
+.swal2-content {
+    font-size: 15px !important;
+    color: #777 !important;
+}
+.swal2-popup {
+    border-radius: 20px !important;
+    padding: 30px !important;
 }
 .quiz_form_login {
   margin: 0 auto;
@@ -1130,9 +1155,10 @@ background-color:red;
 }
 
 #quiz_action_wrap h3 {
-  font-size: 14pt;
-  margin: 0 0 4px 0px;
-  text-align: center;
+    font-size: 14pt;
+    margin: 0 0 24px 0px;
+    text-align: center;
+    font-weight: 600;
 }
 @media (min-width: 500px) {
 .login-div {
@@ -1142,17 +1168,24 @@ background-color:red;
 }
 }
 @media (min-width: 401px) {
-#quiz_login_button,#quiz_wait_button {
-  background-color: lightseagreen;
-  margin-bottom: 8px;
-  width: 175px;
-  border:none;
+#quiz_login_button, #quiz_wait_button,#quiz_login_button:hover, #quiz_wait_button:hover {
+    background-color: #e6ac02;
+    margin-bottom: 8px;
+    width: 200px;
+    border: none !important;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: #fff;
 }
-#quiz_back_button {
-	float: right;
-	width: 112px;
-	border: medium none;
+#quiz_back_button,#quiz_back_button:hover {
+	width: 200px;
+	border: medium none !important;
 	color: black;
+	border-radius:10px;
+}
+.d-flex.justify-content-evenly {
+    display: flex;
+    justify-content: space-evenly;
 }
 }
 @media (max-width: 400px) {
@@ -1172,7 +1205,7 @@ background-color:red;
 }
 
 #quiz_back_button:hover,#quiz_login_button:hover,#quiz_wait_button:hover{
-border:2px solid;
+
 }
 </style>
 END;
