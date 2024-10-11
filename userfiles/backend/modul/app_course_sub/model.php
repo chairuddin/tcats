@@ -22,6 +22,7 @@ if($action=="save" or $action=="update") {
 	
 	if($validation->valid()){
 
+		/*
 
 		$r_allow_class=$_POST["allow_class"];
 		if(count($r_allow_class)>0){
@@ -30,6 +31,7 @@ if($action=="save" or $action=="update") {
 			sweetalert2($type="warning"," Kelas harus dipilih. ",backendurl("$modul".($action=="update"?"/edit/$id":"/add")));
 			die();
 		}
+		*/
 		
 		$_POST['allow_class']=$allow_class;
 
@@ -154,13 +156,13 @@ if($action=="save" or $action=="update") {
 		}
 			
 	} else {
-		sweetalert2($type="warning",$msg=($action=="update"?"Update":"Tambah")." Sub Course gagal, data tidak valid",backendurl("$modul".($action=="update"?"/edit/$id":"/add"))."?course=$course");
+		sweetalert2($type="warning",$msg=($action=="update"?"Update":"Tambah")." Kompetensi gagal, data tidak valid",backendurl("$modul".($action=="update"?"/edit/$id":"/add"))."?course=$course");
 	}
 	
 	if($q){
-		sweetalert2($type="success",$msg=($action=="update"?"Update":"Tambah")." Sub Course berhasil",backendurl("$modul")."?course=$course");
+		sweetalert2($type="success",$msg=($action=="update"?"Update":"Tambah")." Kompetensi berhasil",backendurl("$modul")."?course=$course");
 	} else {
-		sweetalert2($type="warning",$msg=($action=="update"?"Update":"Tambah")." Sub Course gagal. ",backendurl("$modul".($action=="update"?"/edit/$id":"/add"))."?course=$course");
+		sweetalert2($type="warning",$msg=($action=="update"?"Update":"Tambah")." Kompetensi gagal. ",backendurl("$modul".($action=="update"?"/edit/$id":"/add"))."?course=$course");
 	}
 	
 }

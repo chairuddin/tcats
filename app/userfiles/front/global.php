@@ -5,7 +5,7 @@ function check_session() {
    if($_COOKIE['qr_token']!='') {
         $qr_token=$_COOKIE['qr_token'];
         $qr_token=cleanInput($qr_token);
-        $q=$mysql->query(" SELECT id,username,email,fullname,level  from quiz_member WHERE md5(token)=md5('$qr_token')");
+        $q=$mysql->query(" SELECT id,username,email,fullname,level,organization_unit  from quiz_member WHERE md5(token)=md5('$qr_token')");
         if($q and $mysql->num_rows($q)>0) {
             $data=$mysql->fetch_assoc($q);
         } else {
@@ -24,7 +24,7 @@ function check_is_login() {
    if($_COOKIE['qr_token']!='') {
         $qr_token=$_COOKIE['qr_token'];
         $qr_token=cleanInput($qr_token);
-        $q=$mysql->query(" SELECT id,username,email,fullname,level from quiz_member WHERE md5(token)=md5('$qr_token')");
+        $q=$mysql->query(" SELECT id,username,email,fullname,level,organization_unit from quiz_member WHERE md5(token)=md5('$qr_token')");
         if($q and $mysql->num_rows($q)>0) {
 			$d=$mysql->fetch_assoc($q);
 			if($d['level']==1) {

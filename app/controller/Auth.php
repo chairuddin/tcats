@@ -14,6 +14,7 @@ Class AuthController {
             'id' => $_SESSION['s_id'],
             'username' => $_SESSION['s_username'],
             's_fullname' => $_SESSION['s_fullname'],
+            'organization_unit' => $_SESSION['organization_unit'],
             's_level' => $_SESSION['s_level'],
             's_status' => $_SESSION['s_status']
         );
