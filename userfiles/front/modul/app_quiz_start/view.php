@@ -1112,15 +1112,19 @@ float:left;
   right: calc(100% /30);
   top:75px;
 }
+
 #tombol_selesai {
-  background-color: lightseagreen;
-  display: block;
-  font-weight: bold;
-  margin: 0	 auto;
-  padding: 19px 24px;
-  right: calc(100% /30);
-  width:150px;
-  z-index:9999;
+    background-color: #e6ac02;
+    display: block;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 19px 10px;
+    right: calc(100% / 30);
+    width: 150px;
+    z-index: 9999;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 }

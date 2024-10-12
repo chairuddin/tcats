@@ -6,8 +6,9 @@
 
 body {
     padding-top: 0px;
-	background:#F6F6F6 !important;
+	background:linear-gradient(105.88deg, #dce1c9 -1.58%, #b4dac3 125.51%);
 	margin:0;
+	font-family: "Poppins", sans-serif;
 }
 .navbar {
     background: #387CC5;

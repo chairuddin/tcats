@@ -9,15 +9,13 @@ div#middle-block .container .row {
 #clockdiv{margin:0 !important;vertical-align:middle;padding:0 !important;}
 div#ujian-block {
     background: #fff;
+    border-radius: 10px;
 }
 
 input#tombol_selesai {
 	z-index:9999999;
-  
- 
 	margin:0 !important;
     width: 100% !important;
-    
 }
 div#ukuran-soal label {
     margin: 0;
@@ -47,14 +45,14 @@ div#ukuran-soal label {
     margin-right: 4px;
 }
 .jawaban-ragu {
-    background: #ff8f00;
+    background: #777;
     text-transform: uppercase;
     font-weight: normal;
     color: #fff;
     padding-left: 15px;
 }
 .ragu {
-    background: #ff8f00 !important;
+    background: #aaa  !important;
 }
 .list-answer label {
     font-weight: normal;
@@ -84,25 +82,20 @@ div#block-list-jawaban.active {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);}
 div#block-list-jawaban {
     position: fixed;
-	cursor:pointer;
     background: #fff;
     top: 12px;
     right: 0px;
     transform: translateX(100%);
-	min-width:249px;
+    min-width: 249px;
     z-index: 9;
-    border: 4px solid #ccc;
-    -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0);
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0);
-    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0);
-    -ms-box-shadow: 0 0 5px rgba(0, 0, 0, 0);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
-	transition: all 0.2s ease;
-	-o-transition: all 0.2s ease;
-	-webkit-transition: all 0.2s ease;
-	-moz-transition: all 0.2s ease;
-	-ms-transition: all 0.2s ease;
+    border: 1px solid #ccc;
+    transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
     border-right: 0;
+    border-radius: 0 0 0 10px;
 }
 div#block-list-jawaban ul {
     list-style: none;
@@ -189,9 +182,9 @@ div#block-list-jawaban ul:after {
 }
 div#ukuran-soal {
     width: 100%;
-    background-color: rgb(56, 124, 197);
+    background: #648500 !important;
     color: rgb(255, 255, 255);
-    margin-top: 10px;
+    margin-top: 0px;
     position: sticky !important;
     padding: 13px 30px;
 }
@@ -312,7 +305,15 @@ div#footer-instansi img {
     text-align: center;
     width: auto;
 }
-.wrap_soal{padding-top:0px !important;min-height:auto !important;padding-bottom:20px !important;    flex-wrap: wrap;}
+.wrap_soal {
+    padding-top: 0px !important;
+    min-height: auto !important;
+    padding-bottom: 20px !important;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
 .kolom_input > input {
     left: 11px;
     position: absolute;
@@ -333,14 +334,14 @@ div#footer-instansi img {
 }
 div#show-hide-jawaban {
     position: absolute;
-    top: 50%;
-	height:46px;
-	margin-right:4px;
-    background: #ff5e5e;
+    top: 0%;
+    height: 46px;
+    margin-right: 0px;
+    background: #5DCDB4;
     right: 100%;
     padding: 10px 10px;
-    margin-top: -20px;
     color: #fff;
+    border-radius: 10px 0 0 10px;
 }
 div#block-list-jawaban.active .show-jawaban {
 	display:none
@@ -393,8 +394,9 @@ div#left-panel {
     margin-bottom: 15px;
     display: block !important;
     width: 100% !important;
-    background: rgb(56, 124, 197) !important;
+    background: #648500 !important;
     padding: 15px 0px !important;
+    border-radius: 10px;
 }
 #clockdiv {
     margin: 0 !important;
@@ -420,6 +422,9 @@ div#clockdiv > div {
     border-style: solid;
     border-color: rgb(221, 221, 221);
     border-image: initial;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    overflow: hidden;
 }
 .title-panel {
     font-weight: bold;
@@ -445,6 +450,10 @@ div#clockdiv > div {
     }
 }
 @media(max-width:767px){
+.wrap_soal{
+    border-radius: 0;
+    margin-top: 0;
+}
 span#divwaktu_ujian {
     position: sticky;
     right: 25px;
@@ -539,15 +548,16 @@ div.footer-ujian > * {
     div#show-right-panel {
         position: absolute;
         left: 100%;
-        background: #ff5e5e;
+        background: #5DCDB4;
         width: 48px;
         height: 46px;
         color: #fff;
         display: flex;
         align-items: center;
         margin-top: 0;
-        top: 64px;
+        top: 4px;
         justify-content: center;
+        border-radius: 0 10px 10px 0;
     }
     #divwaktu_ujian {
         position: relative !important;
@@ -557,7 +567,10 @@ div.footer-ujian > * {
     }
     div#show-hide-jawaban{
         margin-top: 0;
-        top: 60px;
+        top: 3.5px;
+    }
+    div#ukuran-soal .navigation_button{
+        justify-content: center;
     }
 }
 .navbar {

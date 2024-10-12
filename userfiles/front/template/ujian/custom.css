@@ -20,7 +20,6 @@ header {
 body{
 background-color:<?php echo $color_1;?>;
  color: #333;
-  font-family:"Template","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   line-height: 24px;
   letter-spacing:0;
@@ -35,14 +34,11 @@ img{max-width:100%;height: auto;}
 .block-title{text-align:center;}
 footer .block-title{text-align:left;}
 .block-title > h1{
-font-family:"Template","Helvetica Neue",Helvetica,Arial,sans-serif;
 font-size:29px;
 font-weight:600;
 
 }
 .block-title > h2 {
-
-  font-family: "Template","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 17pt;
   padding: 3px;
   line-height:1.3em;
@@ -234,9 +230,10 @@ margin-bottom:0;
 }
 .label-isi {
   display: inline-block;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 5px;
   max-width: 100%;
+  width: 125px !important;
 }
 .form-isi {
   background-image: none;
