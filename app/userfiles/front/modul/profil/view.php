@@ -6,7 +6,7 @@
 
         <div class="text-center mb-4">
             <div class="name-profile"><?=$fullname ?></div>
-            <div class="email-profile"><?php echo $username;?></div>
+            <div class="email-profile"><?php echo $username;?> / <?=$auth_data['organization_unit']?></div>
             <div class="d-flex align-items-center justify-content-center">
                 <p class="mb-0 fs-5"><?=$jurusan ?></p>
             </div>
