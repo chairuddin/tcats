@@ -189,9 +189,75 @@ if($action=="upload_xls")
 		if(cleanInput($val[2])!="") {
 			$class[cleanInput($val[2])]=1;
 		}
+		/*
+
+		     ->setCellValue('A1',"Kode Login")0
+            ->setCellValue('B1',"Nama Lengkap")1
+			->setCellValue('C1',"Sandi")2
+            ->setCellValue('D1',"Email")3
+			->setCellValue('E1',"Organization Unit Code")4
+			->setCellValue('F1',"Organization Unit")5
+			->setCellValue('G1',"Position Code")6
+			->setCellValue('H1',"Position")7
+			->setCellValue('I1',"Direct Supervisor Indeks")8
+			->setCellValue('J1',"Direct Supervisor Name")9
+			->setCellValue('K1',"2nd Supervisor Indeks")10
+			->setCellValue('L1',"2nd Supervisor Name")11
+			->setCellValue('M1',"Manager Indeks")12
+			->setCellValue('N1',"Manager Name");13
+
+
+		organization_unit_code,
+		organization_unit,
+		position_code,
+		position,
+		direct_supervisor_indeks,
+		direct_supervisor_name,
+		2nd_supervisor_indeks,
+		2nd_supervisor_name,
+		manager_indeks,
+		manager_name
+
+		jurusan='".cleanInput($val[3])."',
+		ruang='".cleanInput($val[4])."',
+
+		jurusan='".cleanInput($val[3])."',
+		ruang='".cleanInput($val[4])."',
+
+		*/
 		$q=$mysql->query("
-		INSERT INTO quiz_member set username='".cleanInput($val[0])."',fullname='".cleanInput($val[1])."',class='".cleanInput($val[2])."',jurusan='".cleanInput($val[3])."',ruang='".cleanInput($val[4])."',email='".cleanInput($val[6])."',status=1,lastmodify='".$hari_ini."' $sandi
-		ON DUPLICATE KEY UPDATE fullname='".cleanInput($val[1])."',class='".cleanInput($val[2])."',jurusan='".cleanInput($val[3])."',ruang='".cleanInput($val[4])."',email='".cleanInput($val[6])."',lastmodify='".$hari_ini."' $sandi
+		INSERT INTO quiz_member set 
+		username='".cleanInput($val[0])."',
+		fullname='".cleanInput($val[1])."',
+		class='".cleanInput($val[4])."',
+		email='".cleanInput($val[3])."',
+		organization_unit_code='".cleanInput($val[4])."',
+		organization_unit='".cleanInput($val[5])."',
+		position_code='".cleanInput($val[6])."',
+		position='".cleanInput($val[7])."',
+		direct_supervisor_indeks='".cleanInput($val[8])."',
+		direct_supervisor_name='".cleanInput($val[9])."',
+		2nd_supervisor_indeks='".cleanInput($val[10])."',
+		2nd_supervisor_name='".cleanInput($val[11])."',
+		manager_indeks='".cleanInput($val[12])."',
+		manager_name='".cleanInput($val[13])."',
+		status=1,lastmodify='".$hari_ini."' 
+		$sandi
+		ON DUPLICATE KEY UPDATE 
+		fullname='".cleanInput($val[1])."',
+		class='".cleanInput($val[4])."',
+		email='".cleanInput($val[6])."',
+		organization_unit_code='".cleanInput($val[4])."',
+		organization_unit='".cleanInput($val[5])."',
+		position_code='".cleanInput($val[6])."',
+		position='".cleanInput($val[7])."',
+		direct_supervisor_indeks='".cleanInput($val[8])."',
+		direct_supervisor_name='".cleanInput($val[9])."',
+		2nd_supervisor_indeks='".cleanInput($val[10])."',
+		2nd_supervisor_name='".cleanInput($val[11])."',
+		manager_indeks='".cleanInput($val[12])."',
+		manager_name='".cleanInput($val[13])."',
+		lastmodify='".$hari_ini."' $sandi
 		");
 		if($q){
 			$success_input[]=cleanInput($val[1]);

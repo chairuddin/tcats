@@ -15,10 +15,11 @@ if($action=="") {
     $sql_periode_data_ujian="
     SELECT 
     q.*,
-    (sum(kd.score)/count(kd.id_quiz_done)) avg_score
+    (sum(kd.score)/count(kd.id_quiz_done)) avg_score,s.title kompetensi
     FROM 
     app_quiz_done q
     LEFT JOIN app_course_material m ON q.course_material_id=m.id
+    LEFT JOIN app_course_sub s ON s.id=m.course_sub_id
     LEFT JOIN app_quiz_done_kd kd on kd.id_quiz_done=q.id
     WHERE 
     date_format(q.start_time,'%Y-%m-%d') 

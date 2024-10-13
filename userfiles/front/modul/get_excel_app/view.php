@@ -9,6 +9,7 @@ if($_SESSION['f_id']==""){
 }
 */ 
 
+
 define('_NAMA',"Judul Ujian");
 define('_KELAS',"Kelas");
 define('_NAMALENGKAP',"Nama Lengkap");
@@ -56,10 +57,11 @@ define('_CLASS',"Kelas");
 
 $hariini=date("Y-m-d");
 $hariini_long=date("Y-m-d H:i:s");
-$quiz_id=$_GET['quiz_id'];
+$material_id=cleanInput($_GET['material_id']);
+$quiz_id=$_GET['quiz_id']=$mysql->get1value(" SELECT quiz_id FROM app_course_material WHERE id=$material_id AND quiz_type='posttest'");
 $date1=$_GET['date1'];
 $date2=$_GET['date2'];
-
+//die(" SELECT quiz_id FROM app_course_material WHERE id=$material_id AND quiz_type='posttest'");
 
 b_load_lib("PHPExcel/Classes/PHPExcel");
 if($_GET['quiz_id']!="")
@@ -114,7 +116,7 @@ if($qkey and $mysql->numrows($qkey)>0){
 
 
 
-$sql="SELECT d.*,c.answer answer_complex FROM app_quiz_done d LEFT JOIN app_quiz_done_complex c ON d.id=c.id_quiz_done WHERE d.is_done=1 AND d.quiz_id='".$_GET['quiz_id']."'";
+$sql="SELECT d.*,c.answer answer_complex FROM app_quiz_done d LEFT JOIN app_quiz_done_complex c ON d.id=c.id_quiz_done WHERE d.is_done=1 AND d.quiz_id='".$_GET['quiz_id']."' AND d.course_material_id=$material_id";
 
 
 
@@ -331,8 +333,8 @@ $json_answer=join("",$r_answer);
 }
 
 
-
-$filename="{$date1}_{$date2}_{$quiz_title}";
+$kompetensi=$mysql->get1value("SELECT title FROM app_course_sub WHERE id IN (SELECT course_sub_id FROM app_course_material WHERE id=$material_id) ");
+$filename="{$date1}_{$date2}_{$kompetensi}";
 
 $filename=cleanInput($filename,"field_name");
 $sheet_title="Nilai";

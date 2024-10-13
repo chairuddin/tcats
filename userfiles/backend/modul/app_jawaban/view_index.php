@@ -1,11 +1,11 @@
 
 <?php 
-$tombol_download='<a href="'.fronturl("get_excel_app/?quiz_id=".$quiz_id."&date1=$date1&date2=$date2").'"><span class="progress-download-xls"><i class="fas fa-download"></i>&nbsp;Download Excel</span></a>&nbsp;&nbsp;&nbsp;';
+$tombol_download='<a href="'.fronturl("get_excel_app/?material_id=".$_GET['material_id']."&date1=$date1&date2=$date2").'"><span class="progress-download-xls"><i class="fas fa-download"></i>&nbsp;Download Excel</span></a>&nbsp;&nbsp;&nbsp;';
 ?>
 <div class="box-content" id="ujian_realtime">
 	<div class="card  card-navy">
 		  <div class="card-header border-0">
-			<h3 class="card-title"><?=$periode_data_ujian[0]['quiz_title_id'];?> - <?=$_REQUEST['date1']?> s/d <?=$_REQUEST['date2']?></h3>
+			<h3 class="card-title"><?=$periode_data_ujian[0]['kompetensi'];?> - <?=$_REQUEST['date1']?> s/d <?=$_REQUEST['date2']?></h3>
 			  <div class="float-right"><?=$tombol_download?></div>
 		  </div>
 		  <div class="card-body">

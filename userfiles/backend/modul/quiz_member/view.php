@@ -11,35 +11,45 @@ ini_set('display_startup_errors', FALSE);
 $objPHPExcel = new PHPExcel();
 
 // Set document properties
-$objPHPExcel->getProperties()->setCreator("quizroom.id")
- ->setLastModifiedBy("quizroom.id")
+$objPHPExcel->getProperties()->setCreator("rajaqr.com")
+ ->setLastModifiedBy("rajaqr.com")
  ->setTitle("Ujian Online Berbasis Komputer")
  ->setSubject("Ujian Online Berbasis Komputer")
  ->setDescription("Ujian Online Berbasis Komputer")
  ->setKeywords("Ujian Online Berbasis Komputer")
  ->setCategory("Ujian Online Berbasis KOmputer");
 
-$objPHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('A1',"Kode Login")
+ /*
+ 
+     ->setCellValue('A1',"Kode Login")
             ->setCellValue('B1',"Nama Peserta")
             ->setCellValue('C1',"Kelas")
             ->setCellValue('D1',"Jurusan")
             ->setCellValue('E1',"Ruang")
             ->setCellValue('F1',"Sandi")
             ->setCellValue('G1',"Email");
+			
+			
+			*/
+$objPHPExcel->setActiveSheetIndex(0)
+            ->setCellValue('A1',"Kode Login")
+            ->setCellValue('B1',"Nama Lengkap")
+			->setCellValue('C1',"Sandi")
+            ->setCellValue('D1',"Email")
+			->setCellValue('E1',"Organization Unit Code")
+			->setCellValue('F1',"Organization Unit")
+			->setCellValue('G1',"Position Code")
+			->setCellValue('H1',"Position")
+			->setCellValue('I1',"Direct Supervisor Indeks")
+			->setCellValue('J1',"Direct Supervisor Name")
+			->setCellValue('K1',"2nd Supervisor Indeks")
+			->setCellValue('L1',"2nd Supervisor Name")
+			->setCellValue('M1',"Manager Indeks")
+			->setCellValue('N1',"Manager Name");
 
-/*
-organization_unit_code',
-		'organization_unit',
-		'position_code',
-		'position',
-		'direct_supervisor_indeks',
-		'direct_supervisor_name',
-		'2nd_supervisor_indeks',
-		'2nd_supervisor_name',
-		'manager_indeks',
-		'manager_name'
-*/			
+
+			
+
 	/*
 	$q=$mysql->query("SELECT * FROM user WHERE level<=1 ");
 	$no=2;
@@ -54,15 +64,59 @@ organization_unit_code',
 	*/      
 	
 	$no=2;
-	
-	$objPHPExcel->setActiveSheetIndex(0)
-			->setCellValue('A'.$no,"TKJ1001")
-			->setCellValue('B'.$no,"Romli")
-			->setCellValue('C'.$no,"TKJ-A")
+	/*
+	->setCellValue('C'.$no,"TKJ-A")
 			->setCellValue('D'.$no,"TEKNIK KOMPUTER DAN JARINGAN")
 			->setCellValue('E'.$no," 01")
-			->setCellValue('F'.$no,"123456")
-			->setCellValue('G'.$no,"youremail@example.com");
+
+	*/
+
+	/*
+Organization Unit Code 
+Organization Unit 
+Position Code 
+Position 
+Direct Supervisor Indeks 
+Direct Supervisor Name 
+2nd Supervisor Indeks 
+2nd Supervisor Name 
+Manager Indeks 
+Manager Name
+
+->setCellValue('A1',"Kode Login")
+            ->setCellValue('B1',"Nama Lengkap")
+			->setCellValue('C1',"Sandi")
+            ->setCellValue('D1',"Email")
+			->setCellValue('E1',"Organization Unit Code")
+			->setCellValue('F1',"Organization Unit")
+			->setCellValue('G1',"Position Code")
+			->setCellValue('H1',"Position")
+			->setCellValue('I1',"Direct Supervisor Indeks")
+			->setCellValue('J1',"Direct Supervisor Name")
+			->setCellValue('K1',"2nd Supervisor Indeks")
+			->setCellValue('L1',"2nd Supervisor Name")
+			->setCellValue('M1',"Manager Indeks")
+			->setCellValue('N1',"Manager Name");
+	
+*/			
+
+	$objPHPExcel->setActiveSheetIndex(0)
+			->setCellValue('A'.$no,"91223039480")
+			->setCellValue('B'.$no,"Kyu Agito")
+			->setCellValue('C'.$no,"123456")
+			->setCellValue('D'.$no,"kyu.agito@gmail.com")
+			->setCellValue('E'.$no,"Estate 1")
+			->setCellValue('F'.$no,"5090903930")
+			->setCellValue('G'.$no,"Pelaksana Irigasi")
+			->setCellValue('H'.$no,"2093091293")
+			->setCellValue('I'.$no,"Ryuji")
+			->setCellValue('J'.$no,"8398990098")
+			->setCellValue('K'.$no,"Suparman")
+			->setCellValue('L'.$no,"93847593823")
+			->setCellValue('M'.$no,"5000099909")
+			->setCellValue('N'.$no,"Dodi Alexander");
+
+
 			
 	$objPHPExcel->getActiveSheet()
 	->getStyle("E$no")
