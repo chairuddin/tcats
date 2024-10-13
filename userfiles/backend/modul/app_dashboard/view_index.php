@@ -9,7 +9,7 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 <div class="box-content" id="ujian_realtime">
 	<div class="card  card-navy">
 		  <div class="card-header border-0">
-			<h3 class="card-title"></h3>
+			<h3 class="card-title">Uji Kompetensi berdasarkan periode</h3>
 		  </div>
 		  <div class="card-body">
     		   <form role="form" method="GET" id="form-member"  class="form-member yona-validation" action=""  novalidate enctype="multipart/form-data">     
@@ -49,7 +49,7 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 <div class="box-content" id="ujian_realtime">
 	<div class="card  card-navy">
 		  <div class="card-header border-0">
-			<h3 class="card-title">10 Ujian terakhir dari apps</h3>
+			<h3 class="card-title">Ujian Terbaru</h3>
 		  </div>
 		  <div class="card-body table-responsive">
 				<p class=" p-1"> </p>
@@ -65,8 +65,8 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 					<tr>
 				    <td><?=$d['end_time']?></td>
 				    <td><?=$d['member_fullname']?></td>
-				    <td><?=$d['quiz_title_id']?></td>
-				    <td><?=$d['score']?></td>
+				    <td><?=$d['title']?></td>
+				    <td><?=round($d['avg_score'],2)?></td>
 				</tr>
 				<?php endforeach;?>
 				<?php endif;?>

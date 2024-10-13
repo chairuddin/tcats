@@ -1,7 +1,7 @@
 <div class="box-content" id="ujian_realtime">
 	<div class="card  card-navy">
 		  <div class="card-header border-0">
-			<h3 class="card-title"></h3>
+			<h3 class="card-title">Menunggu Persetujuan</h3>
 		  </div>
 		  <div class="card-body">
 

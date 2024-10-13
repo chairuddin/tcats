@@ -15,17 +15,23 @@ if($action=="") {
 	
 
 	$sql="
-	SELECT s.title,count(q.id) jumlah,q.course_material_id material_id
-	FROM app_quiz_done q
-    LEFT JOIN app_course_material m ON q.course_material_id=m.id
-	LEFT JOIN app_course_sub s ON m.course_sub_id=s.id
+
+	SELECT 
+		s.title,count(q.id) jumlah,q.course_material_id material_id
+	FROM
+		app_quiz_done q
+    LEFT JOIN 
+		app_course_material m ON q.course_material_id=m.id
+	LEFT JOIN 
+		app_course_sub s ON m.course_sub_id=s.id
     WHERE 
-    date_format(q.start_time,'%Y-%m-%d') 
+    	date_format(q.start_time,'%Y-%m-%d') 
     BETWEEN '$date1' 
     AND '$date2' 
     AND m.quiz_type='posttest'
 	AND q.is_void=0
 	GROUP BY q.course_material_id
+	
 	";
 	
 	/*
@@ -38,7 +44,43 @@ if($action=="") {
 	
     
     //10 ujian terakhir
-    $data_ujian=$mysql->sql_get_assoc("SELECT * FROM app_quiz_done ORDER BY id DESC limit 10  ");
+	/*
+	$sql2="
+	SELECT s.title,q.member_code,q.member_fullname,q.end_time
+	FROM 
+		app_quiz_done q
+    LEFT JOIN 
+		app_course_material m ON q.course_material_id=m.id
+	LEFT JOIN 
+		app_course_sub s ON m.course_sub_id=s.id
+    WHERE 
+    	date_format(q.start_time,'%Y-%m-%d') 
+    BETWEEN '$date1' 
+    AND '$date2' 
+    AND m.quiz_type='posttest'
+	ORDER BY q.id DESC
+	LIMIT 10
+	";
+	*/
+	$sql2="
+	SELECT 
+    q.*,
+    (sum(kd.score)/count(kd.id_quiz_done)) avg_score,sub.title
+    FROM 
+    app_quiz_done q
+    LEFT JOIN app_course_material m ON q.course_material_id=m.id
+	LEFT JOIN app_course_sub sub ON sub.id=m.course_sub_id
+    LEFT JOIN app_quiz_done_kd kd on kd.id_quiz_done=q.id
+    WHERE 
+    date_format(q.start_time,'%Y-%m-%d') 
+    BETWEEN '$date1' 
+    AND '$date2' 
+    AND m.quiz_type='posttest'
+    AND q.is_void=0
+    GROUP BY q.id
+	LIMIT 10
+	";
+    $data_ujian=$mysql->sql_get_assoc($sql2);
 }
 
 if($action=="data") {
