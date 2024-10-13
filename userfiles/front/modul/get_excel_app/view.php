@@ -58,6 +58,7 @@ define('_CLASS',"Kelas");
 $hariini=date("Y-m-d");
 $hariini_long=date("Y-m-d H:i:s");
 $material_id=cleanInput($_GET['material_id']);
+$kompetensi=$mysql->get1value("SELECT title FROM app_course_sub WHERE id IN (SELECT course_sub_id FROM app_course_material WHERE id=$material_id) ");
 $quiz_id=$_GET['quiz_id']=$mysql->get1value(" SELECT quiz_id FROM app_course_material WHERE id=$material_id AND quiz_type='posttest'");
 $date1=$_GET['date1'];
 $date2=$_GET['date2'];
@@ -147,7 +148,7 @@ $objPHPExcel->setActiveSheetIndex(0)
             ->setCellValue('C1',_NAMALENGKAP)
             ->setCellValue('D1',_KELAS)
             ->setCellValue('E1',_KODESOAL)
-            ->setCellValue('F1',_NAMASOAL)
+            ->setCellValue('F1','Kompetensi')
             ->setCellValue('G1',_B)
             ->setCellValue('H1',_S)
             ->setCellValue('I1',_TIDAK_JAWAB);
@@ -243,7 +244,7 @@ $json_answer=join("",$r_answer);
             ->setCellValue('C'.$no,$d['member_fullname'])
             ->setCellValue('D'.$no,$d['member_class'])
             ->setCellValue('E'.$no,$d['quiz_code'])
-            ->setCellValue('F'.$no,$d['quiz_title_id'])
+            ->setCellValue('F'.$no,$kompetensi)
             ->setCellValue('G'.$no,$d['benar'])
             ->setCellValue('H'.$no,$d['salah'])
             ->setCellValue('I'.$no,$d['tidak_jawab']);
@@ -333,7 +334,6 @@ $json_answer=join("",$r_answer);
 }
 
 
-$kompetensi=$mysql->get1value("SELECT title FROM app_course_sub WHERE id IN (SELECT course_sub_id FROM app_course_material WHERE id=$material_id) ");
 $filename="{$date1}_{$date2}_{$kompetensi}";
 
 $filename=cleanInput($filename,"field_name");
