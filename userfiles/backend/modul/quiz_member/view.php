@@ -421,7 +421,7 @@ if($action=="data") {
 		position_code,
 		position,
 		direct_supervisor_indeks,
-		direct_supervisor_name
+		direct_supervisor_name,
 		manager_indeks,
 		manager_name
 	FROM 
@@ -437,12 +437,8 @@ if($action=="data") {
 	$result_total = $mysql->query($sql);
 	$total=$mysql->num_rows($result_total);
 	$sql .= " $order_by $where_limit";
-	
 	$result = $mysql->query($sql);
-	
 	$data = array();
-	
-
 	$gotopage = $_POST['start']/$_POST['length'];
 	$no = $_POST['start'];
 	while($d = $mysql->fetch_assoc($result)) {
@@ -454,7 +450,7 @@ if($action=="data") {
 		$row[]=$d['fullname'];
 		$row[]=$d['organization_unit'];
 		$row[]=$d['direct_supervisor_name'];
-		
+
 		$action_edit=btn_edit(backendurl("$modul/edit/".$d['id']));
 		$action_delete=btn_delete(backendurl("$modul/del/".$d['id']));
 		/*
