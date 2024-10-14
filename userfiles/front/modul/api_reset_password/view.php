@@ -9,8 +9,7 @@
         $msg = 'Format email salah';
     }
 
-
-    $aktif=$mysql->get1value("SELECT id FROM quiz_member WHERE username='$email'");
+    $aktif=$mysql->get1value("SELECT id FROM quiz_member WHERE email='$email'");
 
     if($valid && $aktif>0) {
 
