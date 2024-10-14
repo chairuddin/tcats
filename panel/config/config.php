@@ -91,7 +91,7 @@ $pilihan_komplek = array ("A_K","B_K","C_K","D_K","E_K");
 $mode_algoritma=2;
 
 /*mengaktifkan mode pembahasan soal*/
-$mode_pembahasan=1;
+$mode_pembahasan=0;
 
 
 ?>
