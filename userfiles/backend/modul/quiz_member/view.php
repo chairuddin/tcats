@@ -362,8 +362,8 @@ echo <<<END
 				<th style="width:40px;">No</th>
 				<th>Kode Peserta</th>
 				<th>Nama</th>
-				<th>Kelas</th>
-				<th>Ruang</th>
+				<th>Organization Unit</th>
+				<th>Supervisor</th>
 				<th style="width:80px;">Action</th>
 				</tr>
 				</thead>
@@ -378,7 +378,7 @@ END;
 }
 if($action=="data") {
 	
-	$column_order = array('id','username','fullname','class','jurusan','ruang');
+	$column_order = array('id','username','fullname','organization_unit','direct_supervisor');
 	$column_search = array('username','grade','class','jurusan','ruang','fullname');
 	$order = array('username' => 'ASC');
 	
@@ -452,8 +452,8 @@ if($action=="data") {
 		$row[]=$no."&nbsp;<input type='checkbox' name='mark_delete[]'  value='".$d['id']."'/>";
 		$row[]=$d['username'];
 		$row[]=$d['fullname'];
-		$row[]=$d['class'];
-		$row[]=$d['ruang'];
+		$row[]=$d['organization_unit'];
+		$row[]=$d['direct_supervisor_name'];
 		
 		$action_edit=btn_edit(backendurl("$modul/edit/".$d['id']));
 		$action_delete=btn_delete(backendurl("$modul/del/".$d['id']));
