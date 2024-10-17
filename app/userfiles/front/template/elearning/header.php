@@ -36,7 +36,6 @@
               alt=""
               width="px"
               height="40px"
-              class="white-logo"
             />
       </a>
      <div class="container d-flex justify-content-between align-items-center">
