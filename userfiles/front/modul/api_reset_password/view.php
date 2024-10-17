@@ -22,7 +22,6 @@
             		$msg = 'Email tidak valid';
             	} else {
             		$request=$login->request_reset($email,'apps');
-            	//	var_dump($request);
             		if($request) {
                         
             		} else {

@@ -3,17 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="shortcut icon" href="favicon.png"/>
     <title>Login Form</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?=fronturl();?>/userfiles/front/template/elearning/asset/css/font-awesome.min.css" />
     <link rel="stylesheet" href="<?=fronturl();?>/userfiles/front/template/elearning/asset/css/bootstrap.min.css" />
     <link rel="stylesheet" href="<?=fronturl();?>/userfiles/front/template/elearning/login/css/style.css?v=<?php echo rand(); ?>" />
   </head>
   <body id="login-page">
     <div class="login-wrapper">
         <img src="<?=$kUrl.'/logo.png'?>" class="logo-login"/>
+        <h2>T-CATS : Training Center Competency Assessment and Training System</h2>
         <div class="form-wrapper">
             <div id="response"></div>
             <form class="" method="post">
@@ -28,11 +30,14 @@
               </div>
               <div class="mb-3">
                 <label for="password" class="form-label fw-bold">Password</label><br>
-                <input
-                  type="password" name="password"
-                  class="form-input bg-success-subtle bg-opacity-25 border border-0"
-                  id="password"
-                />
+                <div class="position-relative">
+                    <input
+                      type="password" name="password"
+                      class="form-input bg-success-subtle bg-opacity-25 border border-0"
+                      id="password"
+                    />
+                    <span id="togglePassword" class="eye-icon"><i class="fa fa-eye"></i></span>
+                </div>
               </div>
               <button type="button"  onclick="submitLogin()" class="btn-submit rounded p-2 w-100 text-white">Login</button>
             </form>
@@ -51,6 +56,25 @@
       crossorigin="anonymous"
     ></script>
     <script>
+    // Ambil elemen input dan ikon mata
+    const passwordInput = document.getElementById("password");
+    const togglePassword = document.getElementById("togglePassword");
+    
+    // Fungsi untuk toggle show/hide password
+    togglePassword.addEventListener("click", function () {
+        // Cek tipe input saat ini
+        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+        
+        // Ganti tipe input
+        passwordInput.setAttribute("type", type);
+        
+        // Ubah ikon mata (opsional, tergantung simbol atau font yang digunakan)
+        if (type === "password") {
+            togglePassword.innerHTML = "<i class='fa fa-eye'></i>"; // Ikon mata
+        } else {
+            togglePassword.innerHTML = "<i class='fa fa-eye-slash'></i>"; // Ikon mata dengan garis (misal)
+        }
+    });
     function setCookie(name, value, days) {
     let expires = "";
     if (days) {

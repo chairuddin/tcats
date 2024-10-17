@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png"/>
     <title>Reset Password</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +16,7 @@
   <body id="login-page">
     <div class="login-wrapper">
         <img src="<?=$kUrl.'/logo.png'?>" class="logo-login"/>
+        <h2>T-CATS : Training Center Competency Assessment and Training System</h2>
         <div class="form-wrapper">
             <header class="">
               <a

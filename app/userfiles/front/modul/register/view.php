@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png"/>
     <title>Registrasi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +16,7 @@
   <body id="login-page" class="register-form">
     <div class="login-wrapper">
         <img src="<?=$kUrl.'/logo.png'?>" class="logo-login"/>
+        <h2>T-CATS : Training Center Competency Assessment and Training System</h2>
     <div class="form-wrapper">
         <header class="">
           <a href="<?=fronturl('login');?>" class="d-flex align-items-center text-dark text-decoration-none mb-4 mt-0">
@@ -54,24 +56,26 @@
             />
             <span id="emailError" class="text-danger"></span>
           </div>
-          <div class="mb-3">
+          <div class="mb-3 position-relative">
             <input
               name="password"
               type="password"
               class="form-input bg-success-subtle bg-opacity-25 border border-danger border-start-0 border-end-0 border-top-0"
-              id="Password1"
+              id="password1"
               placeholder="Password"
             />
+            <span id="togglePassword1" class="eye-icon"><i class="fa fa-eye"></i></span>
             <span id="passwordError" class="text-danger"></span>
           </div>
-          <div class="mb-3">
+          <div class="mb-3 position-relative">
             <input
               name="repassword"
               type="password"
               class="form-input bg-success-subtle bg-opacity-25 border border-danger border-start-0 border-end-0 border-top-0"
-              id="Password2"
+              id="password2"
               placeholder="Ketik ulang password"
             />
+            <span id="togglePassword2" class="eye-icon"><i class="fa fa-eye"></i></span>
             <span id="repasswordError" class="text-danger"></span>
           </div>
           <button type="submit" class="btn-submit rounded p-2 w-100 text-white">Registrasi</button>
@@ -100,6 +104,46 @@
       crossorigin="anonymous"
     ></script>
     <script>
+    
+    // Ambil elemen input dan ikon mata
+    const passwordInput = document.getElementById("password1");
+    const togglePassword = document.getElementById("togglePassword1");
+    
+    // Fungsi untuk toggle show/hide password
+    togglePassword.addEventListener("click", function () {
+        // Cek tipe input saat ini
+        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+        
+        // Ganti tipe input
+        passwordInput.setAttribute("type", type);
+        
+        // Ubah ikon mata (opsional, tergantung simbol atau font yang digunakan)
+        if (type === "password") {
+            togglePassword.innerHTML = "<i class='fa fa-eye'></i>"; // Ikon mata
+        } else {
+            togglePassword.innerHTML = "<i class='fa fa-eye-slash'></i>"; // Ikon mata dengan garis (misal)
+        }
+    });
+    
+    // Ambil elemen input dan ikon mata
+    const passwordInput2 = document.getElementById("password2");
+    const togglePassword2 = document.getElementById("togglePassword2");
+    
+    // Fungsi untuk toggle show/hide password
+    togglePassword2.addEventListener("click", function () {
+        // Cek tipe input saat ini
+        const type = passwordInput2.getAttribute("type") === "password" ? "text" : "password";
+        
+        // Ganti tipe input
+        passwordInput2.setAttribute("type", type);
+        
+        // Ubah ikon mata (opsional, tergantung simbol atau font yang digunakan)
+        if (type === "password") {
+            togglePassword2.innerHTML = "<i class='fa fa-eye'></i>"; // Ikon mata
+        } else {
+            togglePassword2.innerHTML = "<i class='fa fa-eye-slash'></i>"; // Ikon mata dengan garis (misal)
+        }
+    });
       $(document).ready(function() {
         $('#registrationForm').on('submit', function(event) {
           event.preventDefault();
