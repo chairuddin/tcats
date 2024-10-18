@@ -132,7 +132,7 @@ header .dropdown-toggle {
     padding: 7px 15px 7px 10px;
     border-radius: 40px;
 }
-img.white-logo {
+.white-logo {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
@@ -267,12 +267,33 @@ a.btn.btn-success{
 .kompetensi-box h5 {
     position: relative;
 }
+ul.pagination .page-link {
+    border-radius: 90px !important;
+    width: 30px;
+    padding: 0;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    margin: 0 5px;
+    color: #4b6305;
+}
+ul.pagination .active .page-link {
+    background: #648500;
+    border-color: #648500;
+    color: #fff;
+}
 @media(min-width:1200px){
     .container{
         width: 1140px;
     }
 }
 @media(max-width:767px){
+        
+    body {
+        min-height: calc(100vh - 60px);
+    }
     .text-header{
         font-size: 0;
         margin: 0 !important;
@@ -286,7 +307,6 @@ a.btn.btn-success{
         padding-left: 0;
     }
     .profile-block {
-        background: #1f684f;
         padding: 7px;
         border-radius: 40px;
         font-size: 0 !important;
