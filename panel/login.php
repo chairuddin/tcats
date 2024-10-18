@@ -8,9 +8,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
+<link rel="shortcut icon" href="<?php echo $config['backendurl'];?>/images/favicon.png"/>
 
 <title>Halaman administrasi</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <!-- Font Awesome Icons -->
 <link rel="stylesheet" href="<?php echo $config['backendurl'];?>/template2/plugins/fontawesome-free/css/all.min.css">
 <link rel="stylesheet" href="<?php echo $config['backendurl'];?>/template2/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
@@ -20,49 +24,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <link rel="stylesheet" href="<?php echo $config['backendurl'];?>/template2/plugins/select2/css/select2.min.css">
 <link rel="stylesheet" href="<?php echo $config['backendurl'];?>/template2/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 <link rel="stylesheet" href="<?php echo $config['backendurl'];?>/template2/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+<!-- Custom style -->
+<link rel="stylesheet" href="<?php echo $config['backendurl'];?>/template2/dist/css/login.css?v=1">
 <!-- Google Font: Source Sans Pro -->
 <link href="<?php echo $config['backendurl'];?>/template2/dist/Source_Sans_Pro/font.css" rel="stylesheet">
 </head>
-<body  class="hold-transition login-page">
+<body  class="hold-transition login-page" id="login-page">
     		 
-			 <div class="login-box">
-			  <div class="login-logo">
-				Login Admin
-			  </div>
+			 <div class="login-wrapper">
+			  <img src="<?php echo $config['backendurl'];?>/images/logo.png" class="logo-login">
+			  <h2>T-CATS : Training Center Competency Assessment and Training System</h2>
 			  <!-- /.login-logo -->
-			  <div class="card">
-				<div class="card-body login-card-body">
-				  <p class="login-box-msg">Sign in to start your session</p>
+			  <div class="form-wrapper">
+				<div class="">
 
 				  <form action="<?php echo backendurl("login/check")?>" method="post">
-					<div class="input-group mb-3">
-					  <input type="text" class="form-control" name="username" placeholder="Username">
-					  <div class="input-group-append">
-						<div class="input-group-text">
-						  <span class="fas fa-user"></span>
-						</div>
-					  </div>
+					<div class="mb-3">
+				        <label for="username" class="form-label fw-bold">Username</label>
+					    <input type="text" class="form-input" name="username" placeholder="">
 					</div>
-					<div class="input-group mb-3">
-					  <input type="password" class="form-control" name="password" placeholder="Password">
-					  <div class="input-group-append">
-						<div class="input-group-text">
-						  <span class="fas fa-lock"></span>
-						</div>
-					  </div>
+					<div class="mb-3">
+			            <label for="username" class="form-label fw-bold">Password</label>
+			            <div class="position-relative">
+        					<input type="password" class="form-input" id="password" name="password" placeholder="">
+        					<span id="togglePassword" class="eye-icon"><i class="fa fa-eye"></i></span>
+			            </div>
 					</div>
-					<div class="row">
-					  <div class="col-8">
-						<div class="icheck-primary">
-						  
-						</div>
-					  </div>
-					  <!-- /.col -->
-					  <div class="col-4">
-						<button type="submit" class="btn btn-primary btn-block">Sign In</button>
-					  </div>
-					  <!-- /.col -->
-					</div>
+					
+					<button type="submit" class="btn btn-primary btn-submit w-100">Login</button>
 				  </form>
 
 		
@@ -90,6 +79,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="<?php echo $config['backendurl'];?>/template2/dist/js/adminlte.min.js"></script>
 <script>
+// Ambil elemen input dan ikon mata
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+
+// Fungsi untuk toggle show/hide password
+togglePassword.addEventListener("click", function () {
+    // Cek tipe input saat ini
+    const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    
+    // Ganti tipe input
+    passwordInput.setAttribute("type", type);
+    
+    // Ubah ikon mata (opsional, tergantung simbol atau font yang digunakan)
+    if (type === "password") {
+        togglePassword.innerHTML = "<i class='fa fa-eye'></i>"; // Ikon mata
+    } else {
+        togglePassword.innerHTML = "<i class='fa fa-eye-slash'></i>"; // Ikon mata dengan garis (misal)
+    }
+});
 $('#modal-default').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var title = button.data('title') // Extract info from data-* attributes

@@ -1,53 +1,79 @@
 <html>
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <title><?php  echo $id ?></title>
 
 </head>
 <body>
 <style>@media print {
     footer {page-break-after: always;}
+    *{
+    font-family: "Poppins", sans-serif;
 }
+    .kartu-wrapper{
+        background: url(<?php echo $config['backendurl'];?>/images/bg-card.png)no-repeat;
+        border: 0 !important;
+        background-size: cover;
+        height: 7.2cm;
+        padding: 6px 10px 0 40px !important;
+    }
+}
+*{
+    font-family: "Poppins", sans-serif;
+}
+    .kartu-wrapper{
+        background: url(<?php echo $config['backendurl'];?>/images/bg-card.png)no-repeat;
+        border: 0 !important;
+        background-size: cover;
+        height: 7.2cm;
+        padding: 6px 10px 0 40px !important;
+    }
 </style>
 <?php
 
 function kartu($data) {
 extract($data);
 ?>
-<table style="width:10.2cm;border:1px solid black; padding-top:6px; font-family:Arial, Helvetica, sans-serif; font-size:12px" class="kartu" border="0">
+<table style="width:10.2cm;border:1px solid black; padding-top:6px; font-family:Arial, Helvetica, sans-serif; font-size:12px" class="kartu kartu-wrapper" border="0">
 					<tbody>
-                    <tr>
-						<td colspan="3" style="padding:1px" align="center">
-							<table width="98%" class="kartu" cellpadding="0px">
-							<tbody><tr>
-								<td><img src="<?php echo $url_logo_sekolah; ?>" height="48"></td>
-								<td align="center" style="font-weight:bold">
-									<?php echo $judul_kartu; ?> <br><?php echo $sub_judul_kartu; ?> <BR /> 
-							  </td>
-							</tr>
-							</tbody></table>
-						</td>
+     <!--               <tr>-->
+					<!--	<td colspan="3" style="padding:1px" align="center">-->
+					<!--		<table width="98%" class="kartu" cellpadding="0px">-->
+					<!--		<tbody><tr>-->
+					<!--			<td><img src="<?php echo $url_logo_sekolah; ?>" height="48"></td>-->
+					<!--			<td align="center" style="font-weight:bold">-->
+					<!--				<?php echo $judul_kartu; ?> <br><?php echo $sub_judul_kartu; ?> <BR /> -->
+					<!--		  </td>-->
+					<!--		</tr>-->
+					<!--		</tbody></table>-->
+					<!--	</td>-->
+					<!--</tr>-->
+					<tr>
+					    <td colspan="3" style="height:1.85cm"></td>
 					</tr>
-			<tr height="10px"><td >&nbsp;Username</td><td>:</td><td style="font-size:12px;font-weight:bold;"><?php echo $nomor_ujian; ?></td></tr>
-			<tr height="10px"><td width="90">&nbsp;Nama Peserta</td><td width="8">:</td><td width="226" style="font-size:12px;font-weight:bold;"><?php echo $nama_siswa ?></td></tr>
-			<tr height="10px"><td width="90">&nbsp;Kelas</td><td width="8">:</td><td width="226" style="font-size:12px;font-weight:bold;"><?php echo $kelas ?></td></tr>
+			<tr height="10px"><td style="width:38%" >&nbsp;Username</td><td style="width:1%">:</td><td style="font-size:12px;font-weight:normal;"><?php echo $nomor_ujian; ?></td></tr>
+			<tr height="10px"><td width="90">&nbsp;Nama Peserta</td><td width="8">:</td><td width="226" style="font-size:12px;font-weight:normal;"><?php echo $nama_siswa ?></td></tr>
+			<tr height="10px"><td width="90">&nbsp;Kelas</td><td width="8">:</td><td width="226" style="font-size:12px;font-weight:normal;"><?php echo $kelas ?></td></tr>
 			<?php if($jurusan!='') { ?>
-			<tr height="10px"><td>&nbsp;Jurusan</td><td>:</td><td style="font-size:12px;font-weight:bold;"><?php echo $jurusan; ?></td></tr>    
+			<tr height="10px"><td>&nbsp;Jurusan</td><td>:</td><td style="font-size:12px;font-weight:normal;"><?php echo $jurusan; ?></td></tr>    
 			<?php }?>
-			<tr height="10px"><td>&nbsp;Ruang</td><td>:</td><td style="font-size:12px;font-weight:bold;">
+			<tr height="10px"><td>&nbsp;Ruang</td><td>:</td><td style="font-size:12px;font-weight:normal;">
 			<?php echo $ruang; ?></td></tr>                      
 			<?php if($jurusan=='') { ?>
-			<tr height="10px"><td>&nbsp;</td><td></td><td style="font-size:12px;font-weight:bold;"></td></tr>    
+			<!--<tr height="10px"><td>&nbsp;</td><td></td><td style="font-size:12px;font-weight:normal;"></td></tr>    -->
 			<?php }?>
 			<tr>
 			<td colspan="3">
-			<table border="0" width="100%">
+			<table border="0" width="100%" style="margin-top:-27px">
 			<tr height="10px">
 			<td  valign="top" align="center" style="font-size:12px;font-weight:bold;width:50%;">
-			<?php echo $nama_sekolah; ?><br/>
-			Ttd ,<br/><br/>
-			<?php echo $nama_kepsek; ?>
+			<!--<?php echo $nama_sekolah; ?><br/>-->
+			<!--Ttd ,<br/><br/>-->
+			<!--<?php echo $nama_kepsek; ?>-->
 			</td>
-			<td " align="right" ><img src="<?php echo $url_qrcode; ?>" height="70px" border="thin solid red"></td>            </tr>                 
+			<td " align="right" style="padding-right:14px" ><img src="<?php echo $url_qrcode; ?>" height="64px" border="thin solid red"></td>            </tr>                 
 			
 			</table>
 			</td>

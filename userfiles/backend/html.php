@@ -5,8 +5,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="shortcut icon" href="<?php echo $config['backendurl'];?>/images/favicon.png"/>
 
 	<title>GGF Kompetensi</title>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 	<link rel="shortcut icon" href="<?php echo backendurl("template2/dist/img/favicon.png")?>" />
 	<!-- Font Awesome Icons -->
@@ -30,9 +35,12 @@
 	<link rel="stylesheet" href="<?php echo $config['backendurl'];?>/template2/plugins/fullcalendar-daygrid/main.min.css">
 	<link rel="stylesheet" href="<?php echo $config['backendurl'];?>/template2/plugins/fullcalendar-timegrid/main.min.css">
 	<link rel="stylesheet" href="<?php echo $config['backendurl'];?>/template2/plugins/fullcalendar-bootstrap/main.min.css">
+	
+	
+	<!-- Custom style -->
+	<link rel="stylesheet" href="<?php echo $config['backendurl'];?>/template2/dist/css/style.css?v=<?php echo rand();?>">
   
   <!-- Google Font: Source Sans Pro -->
-  <link href="<?php echo $config['backendurl'];?>/template2/dist/Source_Sans_Pro/font.css" rel="stylesheet">
   <?php echo $style_css;?>
   <style>
 	  .card-body {
@@ -162,8 +170,8 @@ cfg_tiny_url="<?php echo $config['tinyurl'];?>";
 				//$menu->child("master_sylabus"," Data Silabus");
 				//$menu->show();
 			
-				$menu=new MenuLeft2("quiz_member","Peserta",0,"fa-user-plus");
-				$menu=new MenuLeft2("cetak_kartu","Cetak Kartu",0,"fa-address-card");
+				$menu=new MenuLeft2("quiz_member","Employee",0,"fa-user-plus");
+				$menu=new MenuLeft2("cetak_kartu","Competency Card",0,"fa-address-card");
 			
 				if($_SESSION['s_level']>0){
 				$menu=new MenuLeft2("user","User",0,"fa-graduation-cap");

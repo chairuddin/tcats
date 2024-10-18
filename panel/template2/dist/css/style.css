@@ -1,0 +1,79 @@
+body{
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    background: linear-gradient(105.88deg, #dce1c9 -1.58%, #b4dac3 125.51%);
+}
+[class*=sidebar-light-] {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+.content-wrapper {
+    background: transparent;
+}
+.card-title {
+    font-weight: 600;
+}
+.brand-link .brand-image {
+    float: none;
+    margin-top: -3px;
+    max-height: 43px;
+    width: auto;
+}
+a.brand-link.navbar-navy {
+    background: transparent;
+    text-align: center;
+}
+[class*=sidebar-light-] .nav-sidebar>.nav-item>.nav-link.active{
+    box-shadow: none;
+}
+.card-body {
+    overflow-x: auto !important;
+}
+.card-header:after {
+    display: none;
+}
+.card-header {
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card {
+    border-radius: 15px !important;
+    box-shadow: none !important;
+}
+.filter-dashboard label {
+    margin: 0;
+    display: block;
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    vertical-align: middle;
+}
+table.table {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: 0 0px 1px #000;
+    margin-top: 1px;
+}
+.btn-group.btn-group-sm .btn,.btn-group.btn-group-sm .btn:hover,.btn-group.btn-group-sm .btn:focus,.btn-group.btn-group-sm .btn:active {
+    background: transparent;
+    border: 0;
+    font-size: 17px;
+    color: #eb8b29;
+    padding-right: 2px;
+}
+table.table.dataTable {
+    box-shadow: none;
+    border-top: 0;
+}
+.btn-primary:hover,.btn-primary:focus,.btn-primary:active {
+    color: #fff;
+    background-color: #e5ad00;
+    border-color: #e5ad00;
+    box-shadow: none;
+}

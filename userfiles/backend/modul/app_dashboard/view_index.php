@@ -13,10 +13,10 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 		  </div>
 		  <div class="card-body">
     		   <form role="form" method="GET" id="form-member"  class="form-member yona-validation" action=""  novalidate enctype="multipart/form-data">     
-    		   <div class="row">
+    		   <div class="row filter-dashboard mb-4">
     		        <div class="col-md-2"><?=$form_date1?></div>	
     		        <div class="col-md-2"><?=$form_date2?></div>
-    		        <div class="col-md-2"><button type="submit" name="submit" value="1" class="btn btn-primary mt-4">Submit</button></div>	
+    		        <div class="col-md-2"><button type="submit" name="submit" value="1" class="btn btn-primary">Submit</button></div>	
     		   </div>
     		  </form>
 		  
@@ -52,7 +52,6 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 			<h3 class="card-title">Ujian Terbaru</h3>
 		  </div>
 		  <div class="card-body table-responsive">
-				<p class=" p-1"> </p>
 				<table class="table">
 				<tr>
 				    <th>Waktu</th>

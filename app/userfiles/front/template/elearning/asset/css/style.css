@@ -242,6 +242,7 @@ a.btn.btn-success{
     border-top:1px solid #b5b5b5;
     padding-top: 30px;
     margin-top: 40px !important;
+    clear: both;
 }
 .kompetensi-box {
     border-bottom: 1px solid #b5b5b5;

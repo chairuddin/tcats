@@ -1,0 +1,122 @@
+body#login-page {
+    font-family: "Noto Sans", sans-serif;
+    background: url(login-bg.webp) no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+body#login-page:before {
+    content: "";
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #000;
+    opacity: 0.75;
+}
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    cursor: pointer;
+    font-size: 20px;
+}
+body .btn-submit {
+    background: linear-gradient(290.32deg, #a6cc39 0%, #00873f 100.66%);
+    border: none;
+    color: white;
+    padding: 13px 20px !important;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 0px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+}
+body .btn-submit:hover {
+    background: linear-gradient(290.32deg, #00873f 0%, #00873f 100.66%);
+}
+#login-page > * {
+    position: relative;
+}
+.login-wrapper {
+    width: 450px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0px;
+}
+.form-wrapper:before {
+    content: "";
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: -1px;
+}
+img.logo-login {
+    margin: 0 auto;
+    display: block;
+    max-height: 130px;
+}
+.login-wrapper h2 {
+    color: #fff;
+    text-align: center;
+    font-size: 15pt;
+    margin-top: 15px;
+}
+.form-wrapper {
+    background: #fff;
+    border-radius: 40px 40px 0 0;
+    padding: 50px 50px;
+    margin-top: 20px;
+    position: relative;
+}
+label.form-label {
+    margin: 0;
+}
+.form-input, .form-input:focus, .form-input:active {
+    box-shadow: none;
+    outline: none;
+    width: 100%;
+    padding: 12px;
+    background: transparent !important;
+    border: 0;
+    border-bottom: 2px solid #aaa !important;
+    margin-bottom: 20px;
+    padding-left: 0;
+    padding-bottom: 10px;
+}
+@media (max-width: 767px) {
+    img.logo-login {
+        margin: 0px auto 0;
+        display: block;
+        max-height: 100px;
+        margin-top: 50px;
+    }
+    .login-wrapper {
+        justify-content: space-evenly;
+    }
+    body#login-page:before {
+        opacity: 0.4;
+    }
+    .form-wrapper {
+        padding-bottom: 50px;
+        padding-left: 40px;
+        padding-right: 40px;
+        min-height: 70vh;
+    }
+}
