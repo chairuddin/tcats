@@ -1,3 +1,266 @@
-<?php$kondisi="";if(($_SESSION['s_level']==0 and $id_soal!="") or ($_SESSION['s_level']==0 and $id!="")){	$kondisi=" AND (created_by='".$_SESSION['s_id']."') OR grade IN ($config_join_grade) ";	$r=$mysql->query("SELECT * from quiz_master where id=".($id_soal==""?$id:$id_soal)." $kondisi");	if($r and $mysql->numrows($r)==0){	msg_warning("Anda tidak berhak mengakses soal tersebut","error");	header("location:".backendurl("quiz_master/view/"));	exit();		}}	if($action=="save"){	if(Form::isValid("{$modul}add",false) and $_POST['form']=="{$modul}add") 	{	if($_GET['essay']==1){		foreach($pilihan_kunci_essay as $pil_kunci_essay) {			${"$pil_kunci_essay"}=addslashes(trim(strip_tags($_POST["$pil_kunci_essay"])));		}	} else {		foreach($pilihan_ganda as $pil_gan) {			${"$pil_gan"}=addslashes($_POST["$pil_gan"]);		}	}				/*	${"B"}=addslashes($_POST["B"]);	${"C"}=addslashes($_POST["C"]);	${"D"}=addslashes($_POST["D"]);	${"E"}=addslashes($_POST["E"]);	*/			${"answer"}=addslashes($_POST["answer"]);	if($_GET['complex']==1){		${"answer"}=join("",$_POST['r_answer']);	}	${"pembahasan"}=addslashes($_POST["pembahasan"]);	${"question"}=addslashes($_POST["question"]);	${"model"}=addslashes($_POST["model"]);	${"id_soal"}=cleanInput($_GET["id_soal"]);	${"type"}=cleanInput($_SESSION['paket']);		if($_GET['essay']==1){
+<?php
+$kondisi="";
+if(($_SESSION['s_level']==0 and $id_soal!="") or ($_SESSION['s_level']==0 and $id!="")){
+	$kondisi=" AND (created_by='".$_SESSION['s_id']."') OR grade IN ($config_join_grade) ";
+	$r=$mysql->query("SELECT * from quiz_master where id=".($id_soal==""?$id:$id_soal)." $kondisi");
+	if($r and $mysql->numrows($r)==0){
+	msg_warning("Anda tidak berhak mengakses soal tersebut","error");
+	header("location:".backendurl("quiz_master/view/"));
+	exit();	
+	}
+}	
+if($action=="save")
+{
+	if(Form::isValid("{$modul}add",false) and $_POST['form']=="{$modul}add") 
+	{
+	if($_GET['essay']==1){
+		foreach($pilihan_kunci_essay as $pil_kunci_essay) {
+			${"$pil_kunci_essay"}=addslashes(trim(strip_tags($_POST["$pil_kunci_essay"])));
+		}
+	} else {
+		foreach($pilihan_ganda as $pil_gan) {
+			${"$pil_gan"}=addslashes($_POST["$pil_gan"]);
+		}
+	}	
+	
+	
+	/*
+	${"B"}=addslashes($_POST["B"]);
+	${"C"}=addslashes($_POST["C"]);
+	${"D"}=addslashes($_POST["D"]);
+	${"E"}=addslashes($_POST["E"]);
+	*/
+		
+	${"answer"}=addslashes($_POST["answer"]);
+	if($_GET['complex']==1){
+		${"answer"}=join("",$_POST['r_answer']);
+	}
+	${"pembahasan"}=addslashes($_POST["pembahasan"]);
+	${"question"}=addslashes($_POST["question"]);
+	${"model"}=addslashes($_POST["model"]);
+	${"id_soal"}=cleanInput($_GET["id_soal"]);
+	${"type"}=cleanInput($_SESSION['paket']);
+	
+	if($_GET['essay']==1){
 		$tabel="quiz_essay";
-	}		$sql_r=array();	$sql="	INSERT INTO $tabel SET ";		$sql_r[]="question='".${"question"}."'";				if($_GET['essay']==1){		foreach($pilihan_kunci_essay as $pil_kunci_essay) {			$field=str_replace("KUNCI","answer",$pil_kunci_essay);			$sql_r[]="$field='".${"$pil_kunci_essay"}."'";			}	} else {		foreach($pilihan_ganda as $pil_gan) {			$sql_r[]="$pil_gan='".${"$pil_gan"}."'";			}	}	/*	$sql_r[]="A='".${"A"}."'";		$sql_r[]="B='".${"B"}."'";		$sql_r[]="C='".${"C"}."'";		$sql_r[]="D='".${"D"}."'";		$sql_r[]="E='".${"E"}."'";		*/ 	$sql_r[]="answer='".${"answer"}."'";		$sql_r[]="model='".${"model"}."'";		$sql_r[]="quiz_id='".${"id_soal"}."'";		$sql_r[]="urutan='".${"urutan"}."'";		$sql_r[]="type='".${"type"}."'";		$sql.=join(",",$sql_r);		$r=$mysql->query($sql);	if($r)	{			$id_master=$id_soal;	generate_soal_json($id_master);		$quiz_detail_id=$mysql->insert_id();	$sql_pembahasan="REPLACE INTO quiz_pembahasan_pg SET pembahasan='$pembahasan',quiz_detail_id=$quiz_detail_id ";	$mysql->query($sql_pembahasan);		msg_warning(_BERHASILTAMBAH,"success");		Form::clearValues("{$modul}add"); 	header("location:".backendurl("$modul/view?id_soal=$id_soal#list_$quiz_detail_id"));	exit();	}	else	{	msg_warning(_GAGALADD,"error");	header("location:".backendurl("$modul/add?id_soal=$id_soal"));	exit();	}}	}if($action=="update"){	$id=cleanInput($_POST['id'],'numeric');	/*	${"A"}=addslashes($_POST["A"]);	${"B"}=addslashes($_POST["B"]);	${"C"}=addslashes($_POST["C"]);	${"D"}=addslashes($_POST["D"]);	${"E"}=addslashes($_POST["E"]);	*/	if($_GET['essay']==1){		foreach($pilihan_kunci_essay as $pil_kunci_essay) {			${"$pil_kunci_essay"}=addslashes(trim(strip_tags($_POST["$pil_kunci_essay"])));		}		} else {		//complex pakai hal yang sama dengan pilhan ganda				foreach($pilihan_ganda as $pil_gan) {			${"$pil_gan"}=addslashes($_POST["$pil_gan"]);		}	}		${"pembahasan"}=addslashes($_POST["pembahasan"]);	${"answer"}=addslashes($_POST["answer"]);	if($_GET['complex']==1){		${"answer"}=join("",$_POST['r_answer']);	}		${"model"}=addslashes($_POST["model"]);	${"question"}=addslashes($_POST["question"]);	${"type"}=addslashes($_SESSION['paket']);			if(!Form::isValid("update{$modul}",false) or $_POST['form']!="update{$modul}") 	{		redirecto(_GAGALUPDATE,"error","edit/$id");	}	$sql_r=array();	$sql="	UPDATE $tabel SET ";		$sql_r[]="question='".${"question"}."'";		/*	$sql_r[]="A='".${"A"}."'";		$sql_r[]="B='".${"B"}."'";		$sql_r[]="C='".${"C"}."'";		$sql_r[]="D='".${"D"}."'";		$sql_r[]="E='".${"E"}."'";		*/	if($_GET['essay']==1){		foreach($pilihan_kunci_essay as $pil_kunci_essay) {		$field=str_replace("KUNCI","answer",$pil_kunci_essay);		$sql_r[]="$field='".${"$pil_kunci_essay"}."'";			}		} else {		foreach($pilihan_ganda as $pil_gan) {			$sql_r[]="$pil_gan='".${"$pil_gan"}."'";			}	}	$sql_r[]="answer='".${"answer"}."'";		$sql_r[]="model='".${"model"}."'";		$sql_r[]="type='".${"type"}."'";		$sql.=join(",",$sql_r);	$sql.="	WHERE id=$id";		$r=$mysql->query($sql);	if($r)	{	$sql_pembahasan="REPLACE INTO quiz_pembahasan_pg SET pembahasan='$pembahasan',quiz_detail_id=$id ";		$mysql->query($sql_pembahasan);	$id_master=$mysql->get1value("SELECT quiz_id FROM $tabel WHERE id='$id' ");	generate_soal_json($id_master);	Form::clearValues("update{$modul}"); 	msg_warning(_BERHASILUPDATE,"success");	header("location:".backendurl("$modul/view?id_soal=$id_soal#list_$id"));	exit();	}	else	{	msg_warning(_GAGALUPDATE,"error");	header("location:".backendurl("$modul/edit/$id?id_soal=$id_soal"));	exit();	}	}if($action=="del"){	if($_GET['essay']==1){	$tabel="quiz_essay";}$id=cleanInput($id,'numeric');$id_master=$mysql->get1value("SELECT quiz_id FROM $tabel WHERE id='$id' ");$sql="DELETE FROM $tabel WHERE id='$id'";$r=$mysql->query($sql);if($r){	generate_soal_json($id_master);	Form::clearValues("update{$modul}");	msg_warning(_BERHASILHAPUS,"success");	header("location:".backendurl("$modul/view?id_soal=".$_GET['id_soal']));	exit();}else{	msg_warning(_GAGALHAPUS,"error");	header("location:".backendurl("$modul/view?id_soal=".$_GET['id_soal']));	exit();}}if($action=="sortitem"){$list=$_POST['list'];for($i=1;$i<=count($list);$i++){$idlist=cleanInput($list[$i-1],'numeric');$q=$mysql->query("UPDATE $tabel set urutan=$i WHERE id='$idlist'");}exit();}?>	
+	}
+	
+	$sql_r=array();
+	$sql="
+	INSERT INTO $tabel SET ";
+	
+	$sql_r[]="question='".${"question"}."'";	
+	
+	
+	if($_GET['essay']==1){
+		foreach($pilihan_kunci_essay as $pil_kunci_essay) {
+			$field=str_replace("KUNCI","answer",$pil_kunci_essay);
+			$sql_r[]="$field='".${"$pil_kunci_essay"}."'";	
+		}
+	} else {
+		foreach($pilihan_ganda as $pil_gan) {
+			$sql_r[]="$pil_gan='".${"$pil_gan"}."'";	
+		}
+	}
+
+	/*
+	$sql_r[]="A='".${"A"}."'";	
+	$sql_r[]="B='".${"B"}."'";	
+	$sql_r[]="C='".${"C"}."'";	
+	$sql_r[]="D='".${"D"}."'";	
+	$sql_r[]="E='".${"E"}."'";	
+	*/ 
+	
+	$sql_r[]="answer='".${"answer"}."'";	
+	$sql_r[]="model='".${"model"}."'";	
+	$sql_r[]="quiz_id='".${"id_soal"}."'";	
+	$sql_r[]="urutan='".${"urutan"}."'";	
+	$sql_r[]="type='".${"type"}."'";	
+	$sql.=join(",",$sql_r);
+	
+	$r=$mysql->query($sql);
+	if($r)
+	{
+	$quiz_detail_id=$mysql->insert_id();	
+	$id_master=$id_soal;
+	generate_soal_json($id_master);
+	
+
+	//tentukan urutan soal
+	$urutan_temp=1;
+	$ada_soal_terhapus=0;
+	$query_urutan=$mysql->query("SELECT id,urutan FROM quiz_detail WHERE quiz_id=".${"id_soal"}." AND urutan<>'' ORDER BY urutan,id ");
+	$jumlah_soal=$mysql->num_rows($query_urutan);
+	//cek apakah ada soal yang lompat nomornya
+	if($query_urutan and $jumlah_soal>0) {
+		while($d_urutan = $mysql->fetch_assoc($query_urutan)) {
+
+			echo $d_urutan['urutan']."!=".$urutan_temp."<br/>";
+			if($d_urutan['urutan']!=$urutan_temp and !$ada_soal_terhapus){
+				//artinya ada yang lompat
+				//maka simpan urutan_temp sebagai nomor
+				$ada_soal_terhapus=$urutan_temp;
+				
+			}
+			$urutan_temp++;
+		}
+	}
+
+	if($ada_soal_terhapus) {
+		$update=$mysql->query(" UPDATE quiz_detail SET urutan=$ada_soal_terhapus WHERE id=$quiz_detail_id");
+		
+	} else {
+		//update jika baik baik saja
+	
+		$jumlah_soal++;
+		$update=$mysql->query(" UPDATE quiz_detail SET urutan=$jumlah_soal WHERE id=$quiz_detail_id");
+
+	}
+	
+
+
+	$sql_pembahasan="REPLACE INTO quiz_pembahasan_pg SET pembahasan='$pembahasan',quiz_detail_id=$quiz_detail_id ";
+	$mysql->query($sql_pembahasan);	
+	msg_warning(_BERHASILTAMBAH,"success");
+	
+	Form::clearValues("{$modul}add"); 
+	header("location:".backendurl("$modul/view?id_soal=$id_soal#list_$quiz_detail_id"));
+	exit();
+	}
+	else
+	{
+	msg_warning(_GAGALADD,"error");
+	header("location:".backendurl("$modul/add?id_soal=$id_soal"));
+	exit();
+	}
+}	
+}
+
+if($action=="update")
+{
+	$id=cleanInput($_POST['id'],'numeric');
+	/*
+	${"A"}=addslashes($_POST["A"]);
+	${"B"}=addslashes($_POST["B"]);
+	${"C"}=addslashes($_POST["C"]);
+	${"D"}=addslashes($_POST["D"]);
+	${"E"}=addslashes($_POST["E"]);
+	*/
+	if($_GET['essay']==1){
+		foreach($pilihan_kunci_essay as $pil_kunci_essay) {
+			${"$pil_kunci_essay"}=addslashes(trim(strip_tags($_POST["$pil_kunci_essay"])));
+		}
+	
+	} else {
+		//complex pakai hal yang sama dengan pilhan ganda
+		
+		foreach($pilihan_ganda as $pil_gan) {
+			${"$pil_gan"}=addslashes($_POST["$pil_gan"]);
+		}
+	}	
+	${"pembahasan"}=addslashes($_POST["pembahasan"]);
+	${"answer"}=addslashes($_POST["answer"]);
+	if($_GET['complex']==1){
+		${"answer"}=join("",$_POST['r_answer']);
+	}
+	
+	${"model"}=addslashes($_POST["model"]);
+	${"question"}=addslashes($_POST["question"]);
+	${"type"}=addslashes($_SESSION['paket']);
+	
+	
+	if(!Form::isValid("update{$modul}",false) or $_POST['form']!="update{$modul}") 
+	{
+		redirecto(_GAGALUPDATE,"error","edit/$id");
+	}
+	$sql_r=array();
+	$sql="
+	UPDATE $tabel SET ";
+	
+	$sql_r[]="question='".${"question"}."'";	
+	/*
+	$sql_r[]="A='".${"A"}."'";	
+	$sql_r[]="B='".${"B"}."'";	
+	$sql_r[]="C='".${"C"}."'";	
+	$sql_r[]="D='".${"D"}."'";	
+	$sql_r[]="E='".${"E"}."'";	
+	*/
+	if($_GET['essay']==1){
+		foreach($pilihan_kunci_essay as $pil_kunci_essay) {
+		$field=str_replace("KUNCI","answer",$pil_kunci_essay);
+		$sql_r[]="$field='".${"$pil_kunci_essay"}."'";	
+		}	
+	} else {
+		foreach($pilihan_ganda as $pil_gan) {
+			$sql_r[]="$pil_gan='".${"$pil_gan"}."'";	
+		}
+	}
+	$sql_r[]="answer='".${"answer"}."'";	
+	$sql_r[]="model='".${"model"}."'";	
+	$sql_r[]="type='".${"type"}."'";	
+	$sql.=join(",",$sql_r);
+	$sql.="	WHERE id=$id";
+	
+	$r=$mysql->query($sql);
+	if($r)
+	{
+	$sql_pembahasan="REPLACE INTO quiz_pembahasan_pg SET pembahasan='$pembahasan',quiz_detail_id=$id ";	
+	$mysql->query($sql_pembahasan);
+	$id_master=$mysql->get1value("SELECT quiz_id FROM $tabel WHERE id='$id' ");
+	generate_soal_json($id_master);
+	Form::clearValues("update{$modul}"); 
+	msg_warning(_BERHASILUPDATE,"success");
+	header("location:".backendurl("$modul/view?id_soal=$id_soal#list_$id"));
+	exit();
+	}
+	else
+	{
+	msg_warning(_GAGALUPDATE,"error");
+	header("location:".backendurl("$modul/edit/$id?id_soal=$id_soal"));
+	exit();
+	}
+	
+}
+if($action=="del")
+{
+	
+if($_GET['essay']==1){
+	$tabel="quiz_essay";
+}
+
+$id=cleanInput($id,'numeric');
+
+
+$id_master=$mysql->get1value("SELECT quiz_id FROM $tabel WHERE id='$id' ");
+
+$sql="DELETE FROM $tabel WHERE id='$id'";
+$r=$mysql->query($sql);
+if($r)
+{
+	generate_soal_json($id_master);
+	Form::clearValues("update{$modul}");
+	msg_warning(_BERHASILHAPUS,"success");
+	header("location:".backendurl("$modul/view?id_soal=".$_GET['id_soal']));
+	exit();
+}
+else
+{
+	msg_warning(_GAGALHAPUS,"error");
+	header("location:".backendurl("$modul/view?id_soal=".$_GET['id_soal']));
+	exit();
+}
+}
+if($action=="sortitem")
+{
+$list=$_POST['list'];
+for($i=1;$i<=count($list);$i++)
+{
+$idlist=cleanInput($list[$i-1],'numeric');
+
+$q=$mysql->query("UPDATE $tabel set urutan=$i WHERE id='$idlist'");
+
+}
+exit();
+}
+?>
+	

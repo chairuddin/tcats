@@ -15,7 +15,7 @@ $form = new YonaForm();
 
         //$course_title.="Kategori > ".$r_course['title'];
         
-        $course_title='<a href="'.backendurl("app_course").'">'."Kategori".'</a>';
+        $course_title='<a href="'.backendurl("app_course").'">'."Function".'</a>';
         $course_title.=" > ";
         //$course_title.='<a href="'.backendurl("app_course?category_id=".$r_course['category_id']).'">'.$r_course['category'].'</a>';
         //$course_title.=" > ";

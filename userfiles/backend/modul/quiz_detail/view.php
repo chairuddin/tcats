@@ -304,7 +304,7 @@ foreach($pilihan_ganda as $pil_gan) {
 $sql.="OR ".join(" OR  ",$sql_r);
 $sql.=" ) ";
 }
-
+$sql.="ORDER BY urutan,id ";
 $r=$mysql->query($sql);
 echo "<table class=\"table\">";
 echo "
@@ -427,6 +427,7 @@ END;
 ////////////////////END PILIHAN GANDA
 
 /////////////////////////////////////////////////PILIHAN KOMPLEK
+/*
 ob_start();
 $sql="SELECT * FROM quiz_complex  ";
 $sql.=" WHERE quiz_id='$id_soal' ";
@@ -470,13 +471,7 @@ echo "
 <tr>
 <td valign=\"top\">$no</td>
 ";
-/*
-$thumbnail_url="$small_url/".$d['thumbnail'];
-$thumbnail_path="$small_pic/".$d['thumbnail'];
 
-if(file_exists("$thumbnail_path")){echo "<th class='brand_thumbnail'><img src='".$thumbnail_url."'/></th>";}
-else{echo "<th>&nbsp;</th>";}
-*/
 echo "<td>".$d["question"]."<br/>";
 $option_pilihan="";
 foreach($pilihan_komplek as $pil_komplek) {
@@ -486,24 +481,7 @@ foreach($pilihan_komplek as $pil_komplek) {
 		$option_pilihan.= "<li><span class='point_jawaban ".(in_array($pil,$kunci)?"jawaban":"")."'>$pil</span><span class='hasil_jawaban'>".$d["$pil"]."</span></li>";
 	}
 }
-/*
-$option_pilihan="";
-if(strip_tags($d["A"])!="-"){
-$option_pilihan.= "<li><span class='point_jawaban ".($d["answer"]=="A"?"jawaban":"")."'>A</span><span class='hasil_jawaban'>".$d["A"]."</span></li>";
-}
-if(strip_tags($d["B"])!="-"){
-$option_pilihan.= "<li><span class='point_jawaban ".($d["answer"]=="B"?"jawaban":"")."'>B</span><span class='hasil_jawaban'>".$d["B"]."</span></li>";
-}
-if(strip_tags($d["C"])!="-"){
-$option_pilihan.= "<li><span class='point_jawaban ".($d["answer"]=="C"?"jawaban":"")."'>C</span><span class='hasil_jawaban'>".$d["C"]."</span></li>";
-}
-if(strip_tags($d["D"])!="-"){
-$option_pilihan.= "<li><span class='point_jawaban ".($d["answer"]=="D"?"jawaban":"")."'>D</span><span class='hasil_jawaban'>".$d["D"]."</span></li>";
-}
-if(strip_tags($d["E"])!="-"){
-$option_pilihan.= "<li><span class='point_jawaban ".($d["answer"]=="E"?"jawaban":"")."'>E</span><span class='hasil_jawaban'>".$d["E"]."</span></li>";
-}
-*/
+
 if($option_pilihan!=""){
 echo "
 Pilihan Jawaban
@@ -524,16 +502,7 @@ echo "<br/>";
 echo "<br/>";
 echo "<br/>";
 echo "</td>";
-/*
-echo "<th>".$d["A"]."</th>";
-echo "<th>".$d["B"]."</th>";
-echo "<th>".$d["C"]."</th>";
-echo "<th>".$d["D"]."</th>";
-echo "<th>".$d["E"]."</th>";
-echo "<th>".$d["answer"]."</th>";
-* */
 
-	
 echo "
 </tr>
 ";
@@ -564,7 +533,9 @@ echo <<<END
 </div>
 END;
 ////////////////////END PILIHAN KOMPLEK
+*/
 
+/*
 ob_start();
 ////////SOAL ESSAY
 $sql="SELECT * FROM quiz_essay  ";
@@ -572,13 +543,7 @@ $sql.=" WHERE quiz_id='$id_soal' ";
 if($action=="search")
 {
 $sql.=" AND (question LIKE '%$keyword%'  ";
-/*
-OR A LIKE '%$keyword%' 
-OR B LIKE '%$keyword%' 
-OR C LIKE '%$keyword%' 
-OR D LIKE '%$keyword%' 
-OR E LIKE '%$keyword%' 
-*/
+
 $sql_r=array();
 foreach($pilihan_kunci_essay as $pil_kunci_essay) {
 	$field=str_replace("KUNCI","answer",$pil_kunci_essay);
@@ -619,13 +584,7 @@ echo "
 <tr id='list_{$d['id']}' class='rowmove'>
 <td>$no</td>
 ";
-/*
-$thumbnail_url="$small_url/".$d['thumbnail'];
-$thumbnail_path="$small_pic/".$d['thumbnail'];
 
-if(file_exists("$thumbnail_path")){echo "<th class='brand_thumbnail'><img src='".$thumbnail_url."'/></th>";}
-else{echo "<th>&nbsp;</th>";}
-*/
 echo "<td>".$d["question"];
 foreach($pilihan_kunci_essay as $pil_kunci_essay) {
 	$field=str_replace("KUNCI","answer",$pil_kunci_essay);
@@ -651,6 +610,7 @@ echo "</tbody>";
 echo "</table>";
 
 $essay_content=ob_get_clean();;
+*/
 /////////////////////////////////////////////////
 echo <<<END
 <div class="card">
