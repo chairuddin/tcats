@@ -157,7 +157,7 @@ $do_action=backendurl("$modul/upload_xls");
 echo <<<END
   <div class="card card-navy">
               <div class="card-header">
-                <h3 class="card-title">Import data peserta</h3>
+                <h3 class="card-title">Import data employee</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -177,7 +177,7 @@ echo <<<END
      
                 <div class="card-footer">
                    <button type="button" class="btn btn-default" onclick="history.back(-1);">Batal</button>&nbsp;&nbsp;&nbsp;
-                   <button type="submit" name="submit" value="1" class="btn btn-primary">Upload Peserta</button>
+                   <button type="submit" name="submit" value="1" class="btn btn-primary">Upload</button>
                 </div>
               </form>
             </div>
@@ -266,7 +266,7 @@ $form_manager_name=$form->element_Textbox("Manager Name","manager_name");
 echo <<<END
   <div class="card card-navy">
               <div class="card-header">
-                <h3 class="card-title">$label_action Peserta</h3>
+                <h3 class="card-title">$label_action Employee</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -350,7 +350,7 @@ $btn_excel=button_excel("$modul/import_excel");
 echo <<<END
 <div class="card card-navy">
 		<div class="card-header">
-		  <h3 class="card-title">Peserta Ujian</h3>
+		  <h3 class="card-title">Employee</h3>
 		  <div class="float-right">$btn_excel&nbsp;&nbsp;$btn_tambah</div>
 		</div>
 		<!-- /.card-header -->

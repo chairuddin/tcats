@@ -94,7 +94,7 @@ if($action=="view" or $action=="")
 echo <<<END
 <div class="card card-navy">
 		<div class="card-header">
-		  <h3 class="card-title">Cetak Kartu</h3>
+		  <h3 class="card-title">Competency Card</h3>
 		</div>
 		<!-- /.card-header -->
 		<div class="card-body">

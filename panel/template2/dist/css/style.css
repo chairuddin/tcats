@@ -6,9 +6,13 @@ body{
 [class*=sidebar-light-] {
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
+    min-height: 100vh !important;
+    position: fixed !important;
+    top: 0 !important;
 }
 .content-wrapper {
     background: transparent;
+    min-height: auto !important;
 }
 .card-title {
     font-weight: 600;
