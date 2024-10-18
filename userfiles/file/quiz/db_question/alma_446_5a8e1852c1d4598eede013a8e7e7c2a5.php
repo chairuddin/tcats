@@ -1,6 +1,0 @@
-<?php 
-$soal_json=
-'{"master_soal":[{"id":"446","grade":"","id_sylabus":"0","cat_id":"0","tanggal":"","status":"","code":"SYM","title_id":"MOHAMMAD","content_id":"","keterangan":"","duration":"90","kkm":"70","score":"100","score_essay":"0","is_random":"1","is_random_option":"1","is_listening":"","urutan":"","uniqid":"","point_global":"","created_by":"1","created_date":"2024-10-17 09:28:46","modified_by":"","modified_date":"","custom_score":"3","pg_total":"0","pg_total_komplek":"","essay_total":"0","poin_benar":"","poin_salah":"","poin_kosong":"","poin_A":"0.00","poin_B":"0.00","poin_C":"0.00","poin_D":"0.00","poin_E":"0.00","poin_F":"","poin_G":"","poin_H":"","poin_I":"","poin_J":""}],"soal_ganda":{"42706":{"id":"42706","question":"\u003Cp\u003EASDFASDFAS\u003C\/p\u003E","quiz_id":"446","type":"","A":"\u003Cp\u003EFASDFASDF\u003C\/p\u003E","B":"\u003Cp\u003EADSFASDFASDF\u003C\/p\u003E","C":"\u003Cp\u003EADSFASDFASF\u003C\/p\u003E","D":"\u003Cp\u003EAFESASDFASDF\u003C\/p\u003E","E":"\u003Cp\u003EASDFASDFASDF\u003C\/p\u003E","F":"","G":"","H":"","I":"","J":"","answer":"C","model":"1","urutan":"0","bobot":"1"}},"soal_complex":[],"soal_essay":[]}'
-;
-
-?> 

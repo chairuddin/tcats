@@ -80,13 +80,13 @@ if($action=="save" or $action=="update") {
 		$category_id=$mysql->get1value("SELECT category_id FROM app_course WHERE id=$id ");
 			
 	} else {
-		sweetalert2($type="warning",$msg=($action=="update"?"Update":"Tambah")." Kategori gagal, data tidak valid",backendurl("$modul".($action=="update"?"/edit/$id":"/add"))."?category_id=$category_id");
+		sweetalert2($type="warning",$msg=($action=="update"?"Update":"Tambah")." Function gagal, data tidak valid",backendurl("$modul".($action=="update"?"/edit/$id":"/add"))."?category_id=$category_id");
 	}
 	
 	if($q){
-		sweetalert2($type="success",$msg=($action=="update"?"Update":"Tambah")." Kategori berhasil",backendurl("$modul")."?category_id=$category_id");
+		sweetalert2($type="success",$msg=($action=="update"?"Update":"Tambah")." Function berhasil",backendurl("$modul")."?category_id=$category_id");
 	} else {
-		sweetalert2($type="warning",$msg=($action=="update"?"Update":"Tambah")." Kategori gagal. ",backendurl("$modul".($action=="update"?"/edit/$id":"/add"))."?category_id=$category_id");
+		sweetalert2($type="warning",$msg=($action=="update"?"Update":"Tambah")." Function gagal. ",backendurl("$modul".($action=="update"?"/edit/$id":"/add"))."?category_id=$category_id");
 	}
 	
 }
@@ -106,10 +106,10 @@ if($action=="del")
 	if($r and $valid){
 		$mysql->commit();
 		$mysql->autocommit(true);
-		sweetalert2($type="success",$msg="Hapus Kategori berhasil",backendurl("$modul")."?category_id=$category_id");
+		sweetalert2($type="success",$msg="Hapus Function berhasil",backendurl("$modul")."?category_id=$category_id");
 	} else {
 		$mysql->rollback();	
-		sweetalert2($type="warning",$msg="Hapus Kategori gagal, terdapat data kompetensi didalamnya!",backendurl("$modul")."?category_id=$category_id");
+		sweetalert2($type="warning",$msg="Hapus Function gagal, terdapat data kompetensi didalamnya!",backendurl("$modul")."?category_id=$category_id");
 	}
 	
 }

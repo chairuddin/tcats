@@ -9,7 +9,7 @@ $form = new YonaForm();
 
 $category_id=$_REQUEST['category_id'];
 
-$course_title='<a href="'.backendurl("app_course").'">'."Kategori".'</a>';
+$course_title='<a href="'.backendurl("app_course").'">'."Function".'</a>';
 
 include "function.php";
 include "model.php";

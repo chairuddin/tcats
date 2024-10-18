@@ -11,8 +11,6 @@ $admin_id=$_SESSION['s_id'];
 
 if($action=="update_kd")
 {
-	
-	
 	$id=cleanInput($_POST['id']);
 	$title_id=cleanInput($_POST['title_id']);
 	$nomor_soal=cleanInput($_POST['nomor_soal']);
