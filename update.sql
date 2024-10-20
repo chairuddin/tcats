@@ -15,3 +15,8 @@ ADD `manager_name` varchar(100) NOT NULL AFTER `manager_indeks`;
 ALTER TABLE `quiz_member`
 ADD `2nd_supervisor_indeks` varchar(100) COLLATE 'latin1_swedish_ci' NOT NULL AFTER `direct_supervisor_name`,
 ADD `2nd_supervisor_name` varchar(100) COLLATE 'latin1_swedish_ci' NOT NULL AFTER `2nd_supervisor_indeks`;
+
+2024/10/20
+
+ALTER TABLE `app_register`
+ADD `username` varchar(100) NOT NULL AFTER `id`;

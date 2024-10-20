@@ -26,6 +26,17 @@
         </header>
     
         <form id="registrationForm" class=" mt-3">
+        <div class="mb-3">
+            <input
+              name="username"
+              type="text"
+              class="form-input bg-success-subtle bg-opacity-25 border border-danger border-start-0 border-end-0 border-top-0"
+              id="username"
+              aria-describedby="username"
+              placeholder="Indeks/KIT"
+            />
+            <span id="usernameError" class="text-danger"></span>
+          </div>
           <div class="mb-3">
             <input
               name="nama"
@@ -149,16 +160,18 @@
           event.preventDefault();
 
           var formData = {
+            username: $('#username').val().trim(),
             nama: $('#nama').val().trim(),
             wa: $('#whatsapp').val().trim(),
             email: $('#email').val().trim(),
-            password: $('#Password1').val().trim(),
-            repassword: $('#Password2').val().trim()
+            password: $('#password1').val().trim(),
+            repassword: $('#password2').val().trim()
           };
 
           var isValid = true;
 
           // Clear previous error messages
+          $('#usernameError').text('');
           $('#namaError').text('');
           $('#waError').text('');
           $('#emailError').text('');
@@ -166,6 +179,11 @@
           $('#repasswordError').text('');
 
           // Validation
+          if (formData.username === "") {
+            $('#usernameError').text('Indeks/KIT harus diisi.');
+            isValid = false;
+          }
+           // Validation
           if (formData.nama === "") {
             $('#namaError').text('Nama harus diisi.');
             isValid = false;

@@ -3,6 +3,7 @@
     $kirim_link=false;
     $json_data= file_get_contents('php://input');
     $post=json_decode($json_data,true);
+    $username = cleanInput($post['username']);
     $nama = cleanInput($post['nama']);
     $wa = cleanInput($post['wa']);
     $email= cleanInput($post['email']);
@@ -23,7 +24,7 @@
             $password=md5("quizroom_".$password);
             $register_to_quiz_member=$mysql->query("
                 INSERT INTO quiz_member SET
-                username='$email',
+                username='$username',
                 password='$password',
                 class='APPS',
                 fullname='$nama',
@@ -65,15 +66,24 @@
                 );
         }
     } else {
-        //cek jika email sudah terdaftar tidak boleh register melainkan coba klik lupa password
-        $aktif=$mysql->get1value("SELECT id FROM quiz_member WHERE username='$email'");
+        //cek jika username sudah terdaftar tidak boleh register melainkan coba klik lupa password
+        $aktif=$mysql->get1value("SELECT id FROM quiz_member WHERE username='$username'");
         if($aktif) {
             $valid=false;
-            $msg='User anda telah terdaftar silakan klik lupa password';
+            $msg='Indeks/KIT anda telah terdaftar silakan klik lupa password';
+        }
+
+         //cek jika email sudah terdaftar tidak boleh register melainkan coba klik lupa password
+         if($aktif) {
+            $aktif=$mysql->get1value("SELECT id FROM quiz_member WHERE email='$email'");
+            if($aktif) {
+                $valid=false;
+                $msg='Email anda telah terdaftar silakan klik lupa password';
+            }
         }
     
         //cek jika email sudah terdaftar namun belum melakukan aktivasi
-        $id_register=$mysql->get1value("SELECT id FROM app_register WHERE email='$email'");
+        $id_register=$mysql->get1value("SELECT id FROM app_register WHERE email='$email' OR username='$username'");
         if($id_register and !$aktif) {
             $kirim_link=true;
             $valid=false;
@@ -85,7 +95,7 @@
             $kirim_link=true;
             $waktu=date("Y-m-d H:i:s");
             $password=md5("quizroom_".$password);
-            $q=$mysql->query("INSERT INTO app_register SET nama='$nama', wa='$wa', email='$email',password='$password',created_date='$waktu' ");
+            $q=$mysql->query("INSERT INTO app_register SET username='$username',  nama='$nama', wa='$wa', email='$email',password='$password',created_date='$waktu' ");
             $id_register = $mysql->insert_id();
         }
     

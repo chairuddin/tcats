@@ -1,5 +1,6 @@
 
 <?php 
+
 $tombol_download='<a href="'.fronturl("get_excel_app/?material_id=".$_GET['material_id']."&date1=$date1&date2=$date2").'"><span class="progress-download-xls"><i class="fas fa-download"></i>&nbsp;Download Excel</span></a>&nbsp;&nbsp;&nbsp;';
 ?>
 <div class="box-content" id="ujian_realtime">
@@ -24,10 +25,10 @@ $tombol_download='<a href="'.fronturl("get_excel_app/?material_id=".$_GET['mater
         				<?php if(count($periode_data_ujian)>0): ?>
         				<?php foreach($periode_data_ujian as $i =>$d):?>
         					<tr>
-                                <td><?=$d['member_code']?></td>
-                                <td><a href="<?=backendurl("app_jawaban/detail/".$d['id'])?>"><?=$d['member_fullname']?></a></td>
-                                <td><?=round($d['avg_score'],2)?></td>
-								<td><?=($d['avg_score']>=$d['kkm']?'Competent':'Not Competent')?></td>
+                                <td><a href="<?=backendurl("app_profile/view/".md5(md5($d['member_id'])))?>"><?=$d['member_code']?></a></td>
+                                <td><a href="<?=backendurl("app_profile/view/".md5(md5($d['member_id'])))?>"><?=$d['member_fullname']?></a></td>
+                                <td><a href="<?=backendurl("app_result/view/".md5($d['id']))?>"><?=round($d['avg_score'],2)?></a></td>
+								<td><a href="<?=backendurl("app_result/view/".md5($d['id']))?>"><?=($d['avg_score']>=$d['kkm']?'Competent':'Not Competent')?></a></td>
         				    </tr>
         				<?php endforeach;?>
         				<?php endif;?>

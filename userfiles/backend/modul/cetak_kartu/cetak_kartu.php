@@ -53,14 +53,18 @@ extract($data);
 					<tr>
 					    <td colspan="3" style="height:1.85cm"></td>
 					</tr>
-			<tr height="10px"><td style="width:38%" >&nbsp;Username</td><td style="width:1%">:</td><td style="font-size:12px;font-weight:normal;"><?php echo $nomor_ujian; ?></td></tr>
-			<tr height="10px"><td width="90">&nbsp;Nama Peserta</td><td width="8">:</td><td width="226" style="font-size:12px;font-weight:normal;"><?php echo $nama_siswa ?></td></tr>
-			<tr height="10px"><td width="90">&nbsp;Kelas</td><td width="8">:</td><td width="226" style="font-size:12px;font-weight:normal;"><?php echo $kelas ?></td></tr>
+			<tr height="10px"><td style="width:38%" >&nbsp;No. Indeks</td><td style="width:1%">:</td><td style="font-size:12px;font-weight:normal;"><?php echo $nomor_ujian; ?></td></tr>
+			<tr height="10px"><td width="90">&nbsp;Full Name</td><td width="8">:</td><td width="226" style="font-size:12px;font-weight:normal;"><?php echo $nama_siswa ?></td></tr>
+			<tr height="10px"><td width="90">&nbsp;Organization Unit</td><td width="8">:</td><td width="226" style="font-size:12px;font-weight:normal;"><?php echo $organization_unit ?></td></tr>
+			<tr height="10px"><td width="90">&nbsp;Position</td><td width="8">:</td><td width="226" style="font-size:12px;font-weight:normal;"><?php echo $position ?></td></tr>
 			<?php if($jurusan!='') { ?>
 			<tr height="10px"><td>&nbsp;Jurusan</td><td>:</td><td style="font-size:12px;font-weight:normal;"><?php echo $jurusan; ?></td></tr>    
 			<?php }?>
-			<tr height="10px"><td>&nbsp;Ruang</td><td>:</td><td style="font-size:12px;font-weight:normal;">
-			<?php echo $ruang; ?></td></tr>                      
+			<?php if($ruang!=""){?>
+				<tr height="10px"><td>&nbsp;Ruang</td><td>:</td><td style="font-size:12px;font-weight:normal;">
+			<?php echo $ruang; ?></td></tr>  
+			<?php }?>
+			                    
 			<?php if($jurusan=='') { ?>
 			<!--<tr height="10px"><td>&nbsp;</td><td></td><td style="font-size:12px;font-weight:normal;"></td></tr>    -->
 			<?php }?>

@@ -1,4 +1,3 @@
-
 <?php
 
 if($action=="view") {
@@ -7,5 +6,6 @@ if($action=="view") {
 if($action=="detail") {
     include "view_detail.php";
 }
+
 
 ?>

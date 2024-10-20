@@ -1,42 +1,63 @@
 
-<?php 
-$tombol_download='<a href="'.fronturl("get_excel_app/?quiz_id=".$quiz_id."&date1=$date1&date2=$date2").'"><span class="progress-download-xls"><i class="fas fa-download"></i>&nbsp;Download Excel</span></a>&nbsp;&nbsp;&nbsp;';
-?>
-<div class="box-content" id="ujian_realtime">
-	<div class="card  card-navy">
-		  <div class="card-header border-0">
-			<h3 class="card-title"><?=$periode_data_ujian[0]['quiz_title_id'];?> - <?=$_REQUEST['date1']?> s/d <?=$_REQUEST['date2']?></h3>
-			  <div class="float-right"><?=$tombol_download?></div>
-		  </div>
-		  <div class="card-body">
-    		  
-		  
-    		  <div class="row">
-    		      <div class="col-md-12 table-responsive">
-    		          	<table class="table">
-        				<tr>
-        				 
-              			    <th>Kode</th>
-              			    <th>Nama</th>
-        				    <th>Score</th>
-							<th>Status</th>
-        				</tr>
-        				<?php if(count($periode_data_ujian)>0): ?>
-        				<?php foreach($periode_data_ujian as $i =>$d):?>
-        					<tr>
-                                <td><?=$d['member_code']?></td>
-                                <td><a href="<?=backendurl("app_jawaban/detail/".$d['id'])?>"><?=$d['member_fullname']?></a></td>
-                                <td><?=round($d['avg_score'],2)?></td>
-								<td><?=($d['avg_score']>=$d['kkm']?'Competent':'Not Competent')?></td>
-        				    </tr>
-        				<?php endforeach;?>
-        				<?php endif;?>
-        				</table>
-    		        
-    		      </div>
-    		  </div>    
-		  </div>
-	</div>
-</div>
+<div class="container d-flex flex-column align-items-center">
+        <div class="text-center rounded mt-4" style="padding: 10px;">
+            <img src="<?=fronturl();?>/../app/userfiles/file/data/asset/icon-orang-png-6.png" alt="Placeholder Image" class="img-fluid rounded-circle" style="width: 200px; height: 200px;">
+        </div>
 
+        <div class="text-center mb-4">
+            <div class="name-profile"><?=$fullname ?></div>
+            <div class="email-profile"><?php echo $username;?> / <?=$auth_data['organization_unit']?></div>
+            <div class="d-flex align-items-center justify-content-center">
+                <p class="mb-0 fs-5"><?=$jurusan ?></p>
+            </div>
+        </div>
+        
+        
+        
+        <div class="list-kompetensi">
+            <?php foreach($quiz_done as $i => $data): ?>
+            <div class="kompetensi-box d-md-flex justify-content-between align-items-start" onclick="window.location.href='<?=backendurl('app_result/view/'.$data['id'])?>'">
+                <div class=" d-flex justify-content-start align-items-center mb-0 w-100">
+                    <div class="d-flex flex-column align-items-start">
+                        <h5 class="mb-0 fw-bold"><?=$data['title']?></h5>
+                       
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-start mx-lg-3 mb-3 ">
+                    <i class="fa-solid fa-bell me-2 mt-1"></i>
+                    <?php if( $data['avg_score']>=$data['kkm'] ): ?>
+                        <p class="mb-0 fw-bold text-success text-nowrap">Competent</p>
+                    <?php else: ?>
+                        <p class="mb-0 fw-bold text-danger text-nowrap">Not Competent</p>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <?php endforeach;?>
+            <!--
+            <div class="kompetensi-box d-md-flex justify-content-between align-items-start">
+                <div class=" d-flex justify-content-start align-items-center mb-0 w-100">
+                    <div class="d-flex flex-column align-items-start">
+                        <h5 class="mb-0 fw-bold">Operator Engine Irrigator</h5>
+                     
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-start mx-lg-3 mb-3 ">
+                    <i class="fa-solid fa-bell me-2 mt-1"></i>
+                    <p class="mb-0 fw-bold text-danger text-nowrap">Not Competent</p>
+                </div>
+            </div>
+            -->
+        </div>
+        <nav aria-label="Page navigation" class="mt-4">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-chevron-left"></i></a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-chevron-right"></i></a></li>
+          </ul>
+        </nav>
 
+    </div>
+
+<?php $config_top_bar=2; ?>
