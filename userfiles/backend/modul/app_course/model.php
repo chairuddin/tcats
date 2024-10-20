@@ -77,16 +77,17 @@ if($action=="save" or $action=="update") {
 			$q=$mysql->query($sql);
 		}
 		
-		$category_id=$mysql->get1value("SELECT category_id FROM app_course WHERE id=$id ");
+	//	$category_id=$mysql->get1value("SELECT category_id FROM app_course WHERE id=$id ");
 			
 	} else {
-		sweetalert2($type="warning",$msg=($action=="update"?"Update":"Tambah")." Function gagal, data tidak valid",backendurl("$modul".($action=="update"?"/edit/$id":"/add"))."?category_id=$category_id");
+		sweetalert2($type="warning",$msg=($action=="update"?"Update":"Tambah")." Function gagal, data tidak valid",backendurl("$modul".($action=="update"?"/edit/$id":"/add")));
 	}
 	
 	if($q){
-		sweetalert2($type="success",$msg=($action=="update"?"Update":"Tambah")." Function berhasil",backendurl("$modul")."?category_id=$category_id");
+		sweetalert2($type="success",$msg=($action=="update"?"Update":"Tambah")." Function berhasil",backendurl("$modul"));
 	} else {
-		sweetalert2($type="warning",$msg=($action=="update"?"Update":"Tambah")." Function gagal. ",backendurl("$modul".($action=="update"?"/edit/$id":"/add"))."?category_id=$category_id");
+		die($sql);
+		sweetalert2($type="warning",$msg=($action=="update"?"Update":"Tambah")." Function gagal. ",backendurl("$modul".($action=="update"?"/edit/$id":"/add")));
 	}
 	
 }

@@ -395,7 +395,7 @@ cfg_tiny_url="<?php echo $config['tinyurl'];?>";
 <script src="<?php echo $config['backendurl'];?>/template2/plugins/chart.js/Chart.min.js" type="text/javascript"></script>
 <script src="<?php echo $config['backendurl'];?>/template2/plugins/html5-qrcode/html5-qrcode.min.js" type="text/javascript"></script>
 
-
+<script src="<?php echo $config['backendurl'];?>/template2/plugins/fontawesome24/fontawesome.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo $config['backendurl'];?>/template2/dist/js/adminlte.min.js"></script>
 <script>
