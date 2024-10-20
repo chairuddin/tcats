@@ -1,7 +1,7 @@
 <?php
 if($action=="view") {
 $member_id=cleanInput($id);
-$quiz_done=$mysql->sql_get_assoc("
+$sql="
 SELECT
     d.id,d.score_master,d.kkm,d.quiz_id,d.end_time,s.title,m.id material_id 
 FROM
@@ -16,7 +16,19 @@ WHERE md5(md5(md5(d.member_id)))='".md5($member_id)."'
     AND is_done=1
 ORDER BY d.end_time DESC
 
-");
+";
+
+b_load_lib('Paginator');
+$limit = 3;
+$paginator = new Paginator($mysql, $sql, $limit);
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$paginator->setPage($page);
+$data = $paginator->getData();
+$quiz_done=array();
+while($row = $data->fetch_assoc()) {
+    $quiz_done[]=$row;
+}
+//$quiz_done=$mysql->sql_get_assoc($sql);
 
 
 
@@ -31,6 +43,8 @@ $email=$user['email'];
 $fullname=$user['fullname'];
 $jurusan=$user['jurusan'];
 $username=$user['username'];
+
+
 
 }
 ?>

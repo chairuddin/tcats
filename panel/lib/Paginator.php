@@ -33,18 +33,29 @@ class Paginator {
         $paged_query = $this->query . " LIMIT {$this->limit} OFFSET $offset";
         return $this->conn->query($paged_query);
     }
-
+/*
+ <nav aria-label="Page navigation" class="mt-4">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-chevron-left"></i></a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-chevron-right"></i></a></li>
+          </ul>
+        </nav>
+*/
     // Generate pagination links
     public function createLinks() {
         $total_pages = ceil($this->total_records / $this->limit);
-        $html = '<div class="pagination">';
+        $html = '<nav aria-label="Page navigation" class="mt-4">
+          <ul class="pagination">';
 
         // "Prev" button
         if ($this->page > 1) {
             $prev_page = $this->page - 1;
-            $html .= "<a href='?page=$prev_page'>Prev</a> ";
+            $html .= '<li class="page-item"><a class="page-link" href="?page='.$prev_page.'"><i class="fa fa-chevron-left"></i></a></li>';
         } else {
-            $html .= "<span>Prev</span> ";
+            $html .= '<li class="page-item"><a class="page-link" href="#"><i class="fa fa-chevron-left"></i></a></li>';
         }
 
         // Page numbers (1 to 3)
@@ -52,21 +63,24 @@ class Paginator {
         $end_page = 3;
         for ($i = $start_page; $i <= min($end_page, $total_pages); $i++) {
             if ($i == $this->page) {
-                $html .= "<strong>$i</strong> ";
+                //$html .= "<strong>$i</strong> ";
+                $html .= '<li class="page-item active"><a class="page-link" href="#">'.$i.'</a></li>';
             } else {
-                $html .= "<a href='?page=$i'>$i</a> ";
+                //$html .= "<a href='?page=$i'>$i</a> ";
+                $html .= '<li class="page-item"><a class="page-link" href="?page='.$i.'">'.$i.'</a></li> ';
             }
         }
 
         // "Next" button
         if ($this->page < $total_pages) {
             $next_page = $this->page + 1;
-            $html .= "<a href='?page=$next_page'>Next</a> ";
+            $html .= '<li class="page-item"><a class="page-link" href="?page='.$next_page.'"><i class="fa fa-chevron-right"></i></a></li>';
         } else {
-            $html .= "<span>Next</span>";
+            $html .= '<li class="page-item"><a class="page-link" href="#"><i class="fa fa-chevron-right"></i></a></li>';
         }
 
-        $html .= '</div>';
+        $html .= '</ul>
+        </nav>';
         return $html;
     }
 }

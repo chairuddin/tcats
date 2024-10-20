@@ -10,7 +10,7 @@ $hari_ini=date("Y-m-d H:i:s");
 $admin_id=$_SESSION['s_id'];
 		
 
-$validation->set_validation(array('var'=>'username','label'=>'Kode Login'))->minlength(1)->required();
+$validation->set_validation(array('var'=>'username','label'=>'Indeks/TIK'))->minlength(1)->required();
 $validation->set_validation(array('var'=>'fullname','label'=>'Nama Lengkap'))->minlength(1)->required();
 //$validation->set_validation(array('var'=>'class','label'=>'Kelas'))->minlength(1)->required();
 $validation->generate_js_validation();
@@ -26,7 +26,7 @@ if($action=="save" or $action=="update") {
 	}
 	
 	if($is_duplicate) {
-		$validation->set_validation(array('var'=>'username','label'=>'Kode Login'))->custom_msg($is_duplicate,"Kode Login harus unik");
+		$validation->set_validation(array('var'=>'username','label'=>'Indeks/TIK'))->custom_msg($is_duplicate,"Indeks/TIK harus unik");
 	}
 	
 	//inject kelas ambil dari organization unit

@@ -11,7 +11,7 @@ if($action!="") {
     $action=md5(cleanInput($action));
     $member_id=$mysql->get1value("SELECT id FROM quiz_member WHERE md5(md5(md5(id)))='$action'");
 }
-$quiz_done=$mysql->sql_get_assoc("
+$sql="
 SELECT
     d.id,d.score_master,d.kkm,d.quiz_id,d.end_time,s.title,m.id material_id 
 FROM
@@ -26,9 +26,19 @@ WHERE d.member_id='".$member_id."'
     AND is_done=1
 ORDER BY d.end_time DESC
 
-");
+";
+//$quiz_done=$mysql->sql_get_assoc();
 
-
+b_load_lib('Paginator');
+$limit = 3;
+$paginator = new Paginator($mysql, $sql, $limit);
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$paginator->setPage($page);
+$data = $paginator->getData();
+$quiz_done=array();
+while($row = $data->fetch_assoc()) {
+    $quiz_done[]=$row;
+}
 
 foreach($quiz_done as $i => $done) { 
     $avg_score=$mysql->get1value(" SELECT avg(score) FROM app_quiz_done_kd WHERE id_quiz_done ='".$done['id']."' ");

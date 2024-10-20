@@ -33,30 +33,11 @@
                 </div>
             </div>
             <?php endforeach;?>
-            <!--
-            <div class="kompetensi-box d-md-flex justify-content-between align-items-start">
-                <div class=" d-flex justify-content-start align-items-center mb-0 w-100">
-                    <div class="d-flex flex-column align-items-start">
-                        <h5 class="mb-0 fw-bold">Operator Engine Irrigator</h5>
-                     
-                    </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-start mx-lg-3 mb-3 ">
-                    <i class="fa-solid fa-bell me-2 mt-1"></i>
-                    <p class="mb-0 fw-bold text-danger text-nowrap">Not Competent</p>
-                </div>
-            </div>
-            -->
+
         </div>
-        <nav aria-label="Page navigation" class="mt-4">
-          <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-chevron-left"></i></a></li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-chevron-right"></i></a></li>
-          </ul>
-        </nav>
+
+        <?php echo $paginator->createLinks(); ?>
+       
 
     </div>
 

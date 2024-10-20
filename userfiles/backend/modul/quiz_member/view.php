@@ -32,7 +32,7 @@ $objPHPExcel->getProperties()->setCreator("rajaqr.com")
 			
 			*/
 $objPHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('A1',"Kode Login")
+            ->setCellValue('A1',"Indeks/TIK")
             ->setCellValue('B1',"Nama Lengkap")
 			->setCellValue('C1',"Sandi")
             ->setCellValue('D1',"Email")
@@ -239,7 +239,7 @@ if($action=='edit') {
 $do_action=backendurl("$modul/".($action=="add"?"save":"update"));
 $label_action=$action=="add"?"Tambah":"Edit";
 
-$form_username=$form->element_Textbox("Kode Login","username");
+$form_username=$form->element_Textbox("Indeks/TIK","username");
 $form_fullname=$form->element_Textbox("Nama Lengkap","fullname");
 $form_class=$form->element_Textbox("Kelas","class");
 //$form_grade=$form->element_Textbox("Grade","grade");
@@ -248,10 +248,7 @@ $form_ruang=$form->element_Textbox("Ruang","ruang");
 $form_email=$form->element_Textbox("Email","email");
 $form_password=$form->element_Password("Password","password",array("placeholder"=>"**********","autocomplete"=>"off"));
 $form_status=$form->element_bootstrapSwitch("Status Aktif","status",array("value"=>"1",'data-off-color'=>"danger",'data-on-color'=>"success",'data-on-text'=>"Aktif", 'data-off-text'=>"Tidak Aktif"));
-
 $form_pengawas=$form->element_bootstrapSwitch("Status Member","level",array("value"=>"1",'data-off-color'=>"danger",'data-on-color'=>"success",'data-on-text'=>"Pengawas", 'data-off-text'=>"Staff"));
-
-
 $form_organization_unit_code=$form->element_Textbox("Organization Unit Code","organization_unit_code");
 $form_organization_unit=$form->element_Textbox("Organization Unit","organization_unit");
 $form_position_code=$form->element_Textbox("Position Code","position_code");
@@ -360,7 +357,7 @@ echo <<<END
 				<thead>
 				<tr>
 				<th style="width:40px;">No</th>
-				<th>Kode Peserta</th>
+				<th>Indeks/TIK</th>
 				<th>Nama</th>
 				<th>Organization Unit</th>
 				<th>Supervisor</th>
@@ -444,9 +441,8 @@ if($action=="data") {
 	while($d = $mysql->fetch_assoc($result)) {
 		$no++;
 		$row = array();
-		
 		$row[]=$no."&nbsp;<input type='checkbox' name='mark_delete[]'  value='".$d['id']."'/>";
-		$row[]=$d['username'];
+		$row[]='<a href="'.backendurl("app_profile/view/".md5(md5($d['id']))).'">'.$d['username'].'</a>';
 		$row[]=$d['fullname'];
 		$row[]=$d['organization_unit'];
 		$row[]=$d['direct_supervisor_name'];
