@@ -2743,4 +2743,65 @@ function base64_to_jpeg($base64_string, $output_file) {
     return $output_file; 
 }
 
+function fiestophpmailer($to, $subject, $txtmsg, $from, $namafrom = '', $replyto = '', $htmlmsg = '', $attachments = '') {
+    global  $mail_host,$mail_port,$mail_smtp_auth,$mail_username,$mail_password,$mail_smtp_secure,$mail_smptp_debug;
+        
+		b_load_lib("class.phpmailer");
+		b_load_lib("class.smtp");
+	
+        $mail = new PHPMailer();
+        $mail->Host = $mail_host;
+        $mail->Port = $mail_port;
+        $mail->Username = $mail_username;
+        $mail->Password = $mail_password;
+        $mail->WordWrap = 50;
+        $mail->IsSMTP();
+        $mail->SMTPAuth = true;
+        $mail->Subject = $subject;
+        $mail->From = $mail_username;
+        $mail->SMTPDebug = 2;
+        $mail->Debugoutput = 'html'; 
+        
+       
+        if ($htmlmsg == '') {
+            $mail->IsHTML(false);
+            $mail->Body = $txtmsg;
+        } else {
+            $mail->IsHTML(true);
+            $mail->Body = $htmlmsg;
+            $mail->AltBody = $txtmsg;
+        }
+
+        $mail->FromName = $mail_username;
+        $mail->AddReplyTo($mail_username);
+        $mail->SMTPSecure = $mail_smtp_secure;
+        
+        
+        if ($attachments != '') {
+            $r_attachments = explode(',', $attachments);
+            foreach ($r_attachments as $attachment) {
+                $attachment = trim($attachment);
+                $mail->AddAttachment($attachment);
+            }
+        }
+        $r_kepada = explode(',', $to);
+        foreach ($r_kepada as $kepada) {
+			$kepada = trim($kepada);
+			$mail->ClearAddresses();
+		
+			$mail->AddAddress($kepada);
+				if ($mail->Send())
+        		{
+        		
+        			return true;
+        		}
+        		else
+        		{
+        			return false;
+        		}
+		}
+      
+        return true;
+
+}
 ?>

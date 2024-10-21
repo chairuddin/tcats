@@ -3,8 +3,9 @@ $stamp=cleanInput($action);
 $id_register=$mysql->get1value("SELECT id FROM app_register WHERE md5(concat('aktivasi_',id))='$stamp' AND status=0 ");
 if($id_register>0) {
 
-    list($data)=$mysql->query_data(" SELECT email,nama,wa,password FROM app_register WHERE md5(concat('aktivasi_',id))='$stamp' AND status=0 ");
+    list($data)=$mysql->query_data(" SELECT username,email,nama,wa,password FROM app_register WHERE md5(concat('aktivasi_',id))='$stamp' AND status=0 ");
     $now=date("Y-m-d H:i:s");
+    $username = $data['username'];
     $email = $data['email'];
     $nama = $data['nama'];
     $wa= $data['wa'];
@@ -12,7 +13,7 @@ if($id_register>0) {
     
     $register_to_quiz_member=$mysql->query("
     INSERT INTO quiz_member SET
-    username='$email',
+    username='$username',
     password='$password',
     class='APPS',
     fullname='$nama',
