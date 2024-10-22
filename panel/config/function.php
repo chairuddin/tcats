@@ -2634,10 +2634,10 @@ return $jawab_prope;
 //////////redis
 function sweetalert2($type="success",$msg="",$redirect="") {
 	
-	$timer=1300;
+	$timer=1000000;
 	$confirm='false';
 	if($type=="warning") {
-		$timer=5000;
+		$timer=50000000;
 		$confirm='true';
 	}
 	$temp="
