@@ -1,1 +1,0 @@
-<?phpdefine(_FORM_EDIT,"Edit istilah menu ");define(_BERHASILUPDATE,"Berhasil ubah");define(_GAGALUPDATE,"Gagal ubah");define(_BERHASILHAPUS,"Berhasil hapus");define(_GAGALHAPUS,"Gagal hapus");define(_THUMBNAIL,"Thumbnail");	?>

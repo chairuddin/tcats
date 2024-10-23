@@ -53,7 +53,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					
 					<button type="submit" class="btn btn-primary btn-submit w-100">Login</button>
 				  </form>
-
+					<div class="d-flex justify-content-between">
+					<a href="#?>" class="text-dark text-decoration-none fw-medium">&nbsp;</a>
+					<a href="<?=backendurl('reset-password')?>" class="text-dark text-decoration-none fw-medium">Lupa password?</a>
+					</div>
 		
 				
 				</div>

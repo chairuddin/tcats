@@ -20,3 +20,7 @@ ADD `2nd_supervisor_name` varchar(100) COLLATE 'latin1_swedish_ci' NOT NULL AFTE
 
 ALTER TABLE `app_register`
 ADD `username` varchar(100) NOT NULL AFTER `id`;
+
+2024/10/22
+ALTER TABLE `user`
+ADD `token` varchar(255) NULL;
