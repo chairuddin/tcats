@@ -8,14 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?=fronturl();?>/userfiles/front/template/elearning/asset/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?=fronturl();?>/userfiles/front/template/elearning/login/css/style.css?v=<?php echo rand(); ?>" />
-    <link rel="stylesheet" href="<?=fronturl();?>/userfiles/front/template/elearning/asset/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="<?=fronturl();?>/../app/userfiles/front/template/elearning/asset/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<?=fronturl();?>/../app//userfiles/front/template/elearning/login/css/style.css?v=<?php echo rand(); ?>" />
+    <link rel="stylesheet" href="<?=fronturl();?>/../app//userfiles/front/template/elearning/asset/css/font-awesome.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body id="login-page">
     <div class="login-wrapper">
-        <img src="<?=$kUrl.'/logo.png'?>" class="logo-login"/>
+        <img src="<?=fronturl().'/logo.png'?>" class="logo-login"/>
         <h2>T-CATS : Training Center Competency Assessment and Training System</h2>
         <div class="form-wrapper">
             <header class="">
@@ -86,7 +86,7 @@
           }
 
           $.ajax({
-            url: '<?=$kUrl?>/api_reset_password', // Replace with your actual API URL
+            url: '<?=backendurl('api_reset_password')?>', // Replace with your actual API URL
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ email: email }),
