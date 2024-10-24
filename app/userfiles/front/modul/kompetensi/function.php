@@ -26,11 +26,44 @@ if($pretest_exist>0) {
     $md5_pretest_quiz_done_id=md5($pretest_exist);
 }
 
+$is_competent=0;
 $posttest_exist=$mysql->get1value("SELECT id FROM app_quiz_done WHERE course_material_id=$posttest_id AND is_void=0 AND is_done=1 AND member_id=$userid");
 if($posttest_exist>0) {
     //sudah mengerjakan
+    //cek hasilnya lulus atau tidak
+    
+	$sql2="
+	SELECT 
+    q.*,
+    (sum(kd.score)/count(kd.id_quiz_done)) avg_score,sub.title
+    FROM 
+    app_quiz_done q
+    LEFT JOIN app_course_material m ON q.course_material_id=m.id
+	LEFT JOIN app_course_sub sub ON sub.id=m.course_sub_id
+    LEFT JOIN app_quiz_done_kd kd on kd.id_quiz_done=q.id
+    WHERE 
+    m.quiz_type='posttest'
+    AND q.is_void=0
+    AND q. course_material_id=$posttest_id
+    AND q.member_id=$userid
+    GROUP BY q.id
+	";
+    
+    list($hasil_posttest)=$mysql->sql_get_assoc($sql2);
+
+    if($hasil_posttest['avg_score']>=$hasil_posttest['kkm']) {
+        $is_competent=1;
+    }
+
     $posttest_done=1;
     $md5_posttest_quiz_done_id=md5($posttest_exist);
+
+    $pengajuan_aktif=0;
+    $course_material_id=$hasil_posttest['course_material_id'];
+    $q_cek_pengajuan=$mysql->query(" SELECT id,member_id,course_material_id,quiz_done_id FROM app_quiz_request WHERE (approved_by=0 AND disapprove_by=0) AND quiz_done_id=".$posttest_exist." AND course_material_id=$course_material_id AND member_id=$userid");
+    if($q_cek_pengajuan and $mysql->num_rows($q_cek_pengajuan)>0) {
+        $pengajuan_aktif=1;
+    }
 }
 
 

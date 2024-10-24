@@ -44,7 +44,35 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 	</div>
 </div>
 
-
+<div class="box-content" id="ujian_realtime">
+	<div class="card  card-navy">
+		  <div class="card-header border-0">
+			<h3 class="card-title">Permintaan Ujian Ulang</h3>
+		  </div>
+		  <div class="card-body table-responsive">
+				<table class="table">
+				<tr>
+				    <th>Waktu</th>
+				    <th>Nama</th>
+				    <th>Ujian</th>
+					<th>Score</th>
+				    <th>Action</th>
+				</tr>
+				<?php if(count($data_ujian_ulang)>0): ?>
+				<?php foreach($data_ujian_ulang as $i =>$d):?>
+					<tr>
+				    <td><?=$d['created_at']?></td>
+				    <td><?=$d['fullname']?></td>
+				    <td><?=$d['title']?></td>
+					<td><?=round($score_ujian_ulang[$d['quiz_done_id']],2)?></td>
+				    <td><a href="#" onclick="accept('<?=$d['id']?>')" class="btn btn-success mr-2">Terima</a><a  href="#" onclick="deny('<?=$d['id']?>')" class="btn btn-danger">Tolak</a></td>
+				</tr>
+				<?php endforeach;?>
+				<?php endif;?>
+				</table>
+		  </div>
+	</div>
+</div>
 
 <div class="box-content" id="ujian_realtime">
 	<div class="card  card-navy">
@@ -76,10 +104,49 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 
 <?php
 $url_data=backendurl("$modul/data?category_id=$category_id&is_paid=$action");
-
+$url_api_request_test=backendurl('api_request_test');
 $script_js.=<<<END
 
 <script>
+
+function accept(request_id) {
+ 				$.ajax({
+                    url: '$url_api_request_test', // Replace with your server URL
+                    type: 'POST',
+                    data: {
+                        request_id: request_id,
+						mode:'accept',
+            
+                    },
+                    dataType: 'json', // Expect JSON response
+                    success: function (response) {
+                       alert(response.success);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        $('#response').html('<p>Error: ' + textStatus + '</p>');
+                    }
+                });
+}
+function deny(request_id) {
+				$.ajax({
+                    url: '$url_api_request_test', // Replace with your server URL
+                    type: 'POST',
+                    data: {
+                        request_id: request_id,
+						mode:'deny',
+            
+                    },
+                    dataType: 'json', // Expect JSON response
+                    success: function (response) {
+                       alert(response.success);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        $('#response').html('<p>Error: ' + textStatus + '</p>');
+                    }
+				 });
+}
+
+
 $(document).ready(function(){
 	  
 	// datatables

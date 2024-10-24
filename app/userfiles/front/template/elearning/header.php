@@ -76,7 +76,7 @@
      <div class="container d-flex justify-content-between align-items-center">
          <div class="d-flex align-items-center">
              
-            <a href="#" onclick="history.back()" class="d-flex align-items-center text-white text-decoration-none gap-2 ms-1 me-3">
+            <a <?=$custom_back_url!=""?'href="'.$custom_back_url.'"':'onclick="history.back()"';?> class="d-flex align-items-center text-white text-decoration-none gap-2 ms-1 me-3">
                 <i class="fa-solid fa-chevron-left"></i>
               </a>
               <div class="d-flex flex-row profile-block" onclick="window.location.href='<?=fronturl('profil')?>'">

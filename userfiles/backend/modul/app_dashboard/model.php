@@ -81,6 +81,55 @@ if($action=="") {
 	LIMIT 10
 	";
     $data_ujian=$mysql->sql_get_assoc($sql2);
+
+
+	//antrian ujian ulang
+	$data_ujian_ulang=$mysql->sql_get_assoc(" 
+	SELECT r.id,m.fullname,cs.title,r.created_at,quiz_done_id
+	FROM app_quiz_request r 
+	LEFT JOIN quiz_member m ON m.id=r.member_id
+	LEFT JOIN app_course_material cm ON cm.id=r.course_material_id
+	LEFT JOIN app_course_sub cs ON cs.id=cm.course_sub_id
+	WHERE r.approved_by=0 AND r.disapprove_by=0
+	");
+
+	$r_quiz_done=array();
+	foreach($data_ujian_ulang as $i =>$data) {
+		$r_quiz_done[]=$data['quiz_done_id'];
+	}
+
+
+	$score_ujian_ulang=array();
+	$status_ujian_ulang=array();
+	if(count($r_quiz_done)>0 ) {
+
+	
+		$join_quiz_done="'".join("','",$r_quiz_done)."'";
+		$sql_ujian_ulang="
+		SELECT 
+		q.*,
+		(sum(kd.score)/count(kd.id_quiz_done)) avg_score,sub.title
+		FROM 
+		app_quiz_done q
+		LEFT JOIN app_course_material m ON q.course_material_id=m.id
+		LEFT JOIN app_course_sub sub ON sub.id=m.course_sub_id
+		LEFT JOIN app_quiz_done_kd kd on kd.id_quiz_done=q.id
+		WHERE 
+		q.id IN ($join_quiz_done)
+		AND m.quiz_type='posttest'
+		AND q.is_void=0
+		GROUP BY q.id
+		LIMIT 10
+		";
+		$data_ujian=$mysql->sql_get_assoc($sql2);
+		foreach($data_ujian as $i => $d) {
+			$score_ujian_ulang[$d['id']]=$d['avg_score'];
+			$status_ujian_ulang[$d['id']]=($d['avg_score']<$d['kkm'])?'Tidak Kompeten':'Kompeten';
+		}
+	}
+
+	
+
 }
 
 if($action=="data") {

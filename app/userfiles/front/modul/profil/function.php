@@ -30,7 +30,8 @@ ORDER BY d.end_time DESC
 //$quiz_done=$mysql->sql_get_assoc();
 
 b_load_lib('Paginator');
-$limit = 3;
+$limit =$mysql->get1value("SELECT title_id FROM web_config WHERE name='profile_pagination' ");
+$limit = ($limit=="" or $limit<=0)?1:$limit;
 $paginator = new Paginator($mysql, $sql, $limit);
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $paginator->setPage($page);

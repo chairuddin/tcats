@@ -14,9 +14,10 @@
                     <p>C<?=$x+1?>&nbsp;-&nbsp;<?=$kd['nama']?></p>
                   </div>
                   <?php endforeach; ?>
-                </section>
+                </div>
                 <div class="m-3" style="display:none;">
                   <button class="btn btn-primary w-100" onclick="history.back();">Back</button>
+                </div>
             </div>
         </div>
     </div>
