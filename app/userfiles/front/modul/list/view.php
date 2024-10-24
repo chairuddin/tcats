@@ -41,5 +41,5 @@
       <?php endif?>
   </div>
 </main>
-
-    <?php $config_top_bar=2; ?>
+<?php $custom_back_url=fronturl();?>   
+<?php $config_top_bar=2; ?>

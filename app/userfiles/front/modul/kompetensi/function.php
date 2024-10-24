@@ -4,6 +4,7 @@ $course_sub_id_md5=md5(cleanInput($action));
 
 $userid=$auth_data['id'];
 $course_sub_id=$mysql->get1value("SELECT id FROM app_course_sub WHERE md5(md5(id))='$course_sub_id_md5'");
+$course_id=$mysql->get1value("SELECT course_id FROM app_course_sub WHERE md5(md5(id))='$course_sub_id_md5'");
 
 //$data=$mysql->sql_get_assoc(" SELECT id,title,content, quiz_id,video_name,video_url,type,is_free,$is_subscribe is_subscribe,$category_id category_id FROM app_course_material "); //WHERE course_sub_id='$course_sub_id'
 list($course_sub_data)=$mysql->sql_get_assoc(" SELECT id,title,content,course_id,if(LENGTH(image)<=0,'$image_default',concat('$fileurl/app_course_sub/',image)) image,is_free FROM app_course_sub WHERE id=$course_sub_id");

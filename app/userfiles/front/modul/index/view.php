@@ -33,5 +33,5 @@
       </div>
   </div>
 </main>
-
-  <?php $config_top_bar=$auth_data['level']==1?2:1; ?>
+<?php $custom_back_url=fronturl("pengawas");?>   
+<?php $config_top_bar=$auth_data['level']==1?2:1; ?>
