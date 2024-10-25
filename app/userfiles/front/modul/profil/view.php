@@ -48,7 +48,9 @@
             </div>
             -->
         </div>
+        <?php if(count($quiz_done)>0):?>
 		<?php echo $paginator->createLinks(); ?>
+        <?php endif;?>
         
 
     </div>
