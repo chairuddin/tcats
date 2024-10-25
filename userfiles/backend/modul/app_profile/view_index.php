@@ -11,6 +11,13 @@
                 <p class="mb-0 fs-5"><?=$jurusan ?></p>
             </div>
         </div>
+        <table>
+            <tr><td>Email</td><td>:</td><td><?=$email?></td></tr>
+            <tr><td>Position</td><td>:</td><td><?=$position_code?> - <?=$position?></td></tr>
+            <tr><td>Supervisor 1</td><td>:</td><td><?=$direct_supervisor_indeks?> - <?=$direct_supervisor_name?></td></tr>
+            <tr><td>Supervisor 2</td><td>:</td><td><?=$second_supervisor_indeks?> - <?=$second_supervisor_name?></td></tr>
+            <tr><td>Manager</td><td>:</td><td><?=$manager_indeks?> - <?=$manager_name?></td></tr>
+        </table>
         
         
         

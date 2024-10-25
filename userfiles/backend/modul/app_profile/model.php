@@ -20,6 +20,7 @@ ORDER BY d.end_time DESC
 
 b_load_lib('Paginator');
 $limit =$mysql->get1value("SELECT title_id FROM web_config WHERE name='profile_pagination' ");
+
 $limit = ($limit=="" or $limit<=0)?1:$limit;
 $paginator = new Paginator($mysql, $sql, $limit);
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -39,7 +40,7 @@ foreach($quiz_done as $i => $done) {
     $quiz_done[$i]['md5_quiz_done_id']=md5($done['id']);
 }
 
-list($user)=$mysql->sql_get_assoc(" SELECT username,email,fullname,organization_unit_code,organization_unit,position_code,position,direct_supervisor_indeks,direct_supervisor_name,2nd_supervisor_indeks,2nd_supervisor_name,manager_indeks,manager_name FROM quiz_member WHERE id=$member_id");
+list($user)=$mysql->sql_get_assoc(" SELECT username,email,fullname,organization_unit_code,organization_unit,position_code,position,direct_supervisor_indeks,direct_supervisor_name,2nd_supervisor_indeks,2nd_supervisor_name,manager_indeks,manager_name FROM quiz_member WHERE  md5(md5(md5(id)))='".md5($member_id)."'");
 $email=$user['email'];
 $fullname=$user['fullname'];
 $jurusan=$user['jurusan'];
