@@ -29,6 +29,24 @@ list($detail)=$mysql->sql_get_assoc(" SELECT id,title,content, quiz_id,video_nam
 
 
 
+if($_GET['submit']==1) {
+    $now=date("Y-m-d H:i:s");
+    if($course_material_id!="" and $userid!="" and $quiz_done['id']!="") {
+        $sql="
+        INSERT INTO app_quiz_request
+        SET 
+        member_id=$userid,
+        course_material_id=$course_material_id,
+        quiz_done_id=".$quiz_done['id'].",
+        created_at='$now'
+         ";
+        $q=$mysql->query($sql);
+    } else {
+        header("location:".fronturl());
+        die();
+    }
+   
+}
 
 //cek apakah sudah ada pengajuan yang sedang berjalan
 $pengajuan_aktif=0;
@@ -63,18 +81,6 @@ $retake_message=$mysql->get1value("SELECT title_id FROM web_config WHERE name='r
 
 $retake_message_waiting=$mysql->get1value("SELECT title_id FROM web_config WHERE name='retake_message_waiting' ");
 
-if($_GET['submit']==1) {
-        $now=date("Y-m-d H:i:s");
-        $sql="
-            INSERT INTO app_quiz_request
-            SET 
-            member_id=$userid,
-            course_material_id=$course_material_id,
-            quiz_done_id=".$quiz_done['id'].",
-            created_at='$now'
-        ";
-        $q=$mysql->query($sql);
-}
 
 
 ?>

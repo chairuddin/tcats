@@ -6,6 +6,40 @@ $form_date1=$form->element_Textbox("","date1",array('autocomplete'=>'off','place
 $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','placeholder'=>'Periode Akhir','value'=>$_REQUEST['date2']));
 
 ?>
+
+<?php if(count($data_ujian_ulang)>0): ?>
+<div class="box-content" id="ujian_realtime">
+	<div class="card  card-navy">
+		  <div class="card-header border-0">
+			<h3 class="card-title">Permintaan Ujian Ulang</h3>
+		  </div>
+		  <div class="card-body table-responsive">
+				<table class="table">
+				<tr>
+				    <th>Waktu</th>
+				    <th>Nama</th>
+				    <th>Ujian</th>
+					<th>Score</th>
+				    <th>Action</th>
+				</tr>
+				
+				<?php foreach($data_ujian_ulang as $i =>$d):?>
+					<tr id="uji_ulang_<?=$d['id']?>">
+				    <td><?=$d['created_at']?></td>
+				    <td><?=$d['fullname']?></td>
+				    <td><?=$d['title']?></td>
+					<td><?=round($score_ujian_ulang[$d['quiz_done_id']],2)?></td>
+				    <td><a href="#" onclick="accept('<?=$d['id']?>')" class="btn btn-success mr-2">Terima</a><a  href="#" onclick="deny('<?=$d['id']?>')" class="btn btn-danger">Tolak</a></td>
+				</tr>
+				<?php endforeach;?>
+				
+				</table>
+		  </div>
+	</div>
+</div>
+<?php endif;?>
+
+
 <div class="box-content" id="ujian_realtime">
 	<div class="card  card-navy">
 		  <div class="card-header border-0">
@@ -40,36 +74,6 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
     		        
     		      </div>
     		  </div>    
-		  </div>
-	</div>
-</div>
-
-<div class="box-content" id="ujian_realtime">
-	<div class="card  card-navy">
-		  <div class="card-header border-0">
-			<h3 class="card-title">Permintaan Ujian Ulang</h3>
-		  </div>
-		  <div class="card-body table-responsive">
-				<table class="table">
-				<tr>
-				    <th>Waktu</th>
-				    <th>Nama</th>
-				    <th>Ujian</th>
-					<th>Score</th>
-				    <th>Action</th>
-				</tr>
-				<?php if(count($data_ujian_ulang)>0): ?>
-				<?php foreach($data_ujian_ulang as $i =>$d):?>
-					<tr>
-				    <td><?=$d['created_at']?></td>
-				    <td><?=$d['fullname']?></td>
-				    <td><?=$d['title']?></td>
-					<td><?=round($score_ujian_ulang[$d['quiz_done_id']],2)?></td>
-				    <td><a href="#" onclick="accept('<?=$d['id']?>')" class="btn btn-success mr-2">Terima</a><a  href="#" onclick="deny('<?=$d['id']?>')" class="btn btn-danger">Tolak</a></td>
-				</tr>
-				<?php endforeach;?>
-				<?php endif;?>
-				</table>
 		  </div>
 	</div>
 </div>
@@ -120,7 +124,11 @@ function accept(request_id) {
                     },
                     dataType: 'json', // Expect JSON response
                     success: function (response) {
-                       alert(response.success);
+                       if(response.success==1) {
+					  		$('#uji_ulang_'+request_id).remove();
+						} else {
+						 	alert(response.msg);
+						}
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         $('#response').html('<p>Error: ' + textStatus + '</p>');
@@ -138,7 +146,11 @@ function deny(request_id) {
                     },
                     dataType: 'json', // Expect JSON response
                     success: function (response) {
-                       alert(response.success);
+                       if(response.success==1) {
+					  		$('#uji_ulang_'+request_id).remove();
+						} else {
+						 	alert(response.msg);
+						}
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         $('#response').html('<p>Error: ' + textStatus + '</p>');

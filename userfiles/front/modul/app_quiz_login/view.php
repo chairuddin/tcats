@@ -573,7 +573,7 @@ if(($ismember and $issoal) OR $ada_ujian_aktif)
 <input type="hidden" name="quiz_id_md5" value="<?php echo md5(md5(md5($quiz_id)))?>" />
 <input type="hidden" name="course_material_id" value="<?php echo $course_material_id;?>" />
 <div class="form-baris form-group">
-	<label for="username" class="label-isi">Kode Peserta</label>
+	<label for="username" class="label-isi">Indeks/KIT</label>
 	<span class="form-isi"><?php echo $data_member['username'];?></span>
 </div>		
 <div class="form-baris form-group">
@@ -581,16 +581,12 @@ if(($ismember and $issoal) OR $ada_ujian_aktif)
 	<span class="form-isi"><?php echo $data_member['fullname'];?></span>
 </div>		
 <div class="form-baris form-group">
-	<label for="username" class="label-isi">Kelas</label>
-	<span class="form-isi"><?php echo $data_member['class'];?></span>
+	<label for="username" class="label-isi">Organization Unit</label>
+	<span class="form-isi"><?php echo $data_member['organization_unit'];?></span>
 </div>
 <div class="form-baris form-group">
-	<label for="username" class="label-isi">Kode Soal</label>
-	<span class="form-isi"><?php echo $data_quiz['code'];?></span>
-</div>		
-<div class="form-baris form-group">
-	<label for="username" class="label-isi">Ujian</label>
-	<span class="form-isi"><?php echo $data_quiz['title_id'];?></span>
+	<label for="username" class="label-isi">Kompetensi</label>
+	<span class="form-isi"><?php echo $data_quiz['kompetensi'];?></span>
 </div>
 <div class="form-baris form-group">
 	<label for="username" class="label-isi">Durasi</label>
