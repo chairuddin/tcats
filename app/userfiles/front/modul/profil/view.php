@@ -10,7 +10,7 @@
             <div class="d-flex align-items-center justify-content-center">
             </div>
         </div>
-        <div>
+        <div class="profile-data">
         <table>
             <tr><td>Email</td><td>:</td><td><?=$email?></td></tr>
             <tr><td>Position</td><td>:</td><td><?=$position_code?> - <?=$position?></td></tr>
