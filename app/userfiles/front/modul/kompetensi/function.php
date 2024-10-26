@@ -32,7 +32,6 @@ $posttest_exist=$mysql->get1value("SELECT id FROM app_quiz_done WHERE course_mat
 if($posttest_exist>0) {
     //sudah mengerjakan
     //cek hasilnya lulus atau tidak
-    
 	$sql2="
 	SELECT 
     q.*,
@@ -64,6 +63,17 @@ if($posttest_exist>0) {
     $q_cek_pengajuan=$mysql->query(" SELECT id,member_id,course_material_id,quiz_done_id FROM app_quiz_request WHERE (approved_by=0 AND disapprove_by=0) AND quiz_done_id=".$posttest_exist." AND course_material_id=$course_material_id AND member_id=$userid");
     if($q_cek_pengajuan and $mysql->num_rows($q_cek_pengajuan)>0) {
         $pengajuan_aktif=1;
+    }
+} 
+
+//apakah pengajuan diterima
+$pengajuan_ujian_ulang="";
+$q_pengajuan_status=$mysql->query("SELECT id,member_id,course_material_id,quiz_done_id,approved_by,disapprove_by FROM app_quiz_request WHERE (approved_by=1 OR disapprove_by=1) AND course_material_id=$posttest_id AND member_id=$userid ORDER BY id DESC limit 1 ");
+if($q_pengajuan_status and $mysql->num_rows($q_pengajuan_status)>0) {
+    $hasil_pengajuan=$mysql->fetch_assoc($q_pengajuan_status);
+    $pengajuan_ujian_ulang=$hasil_pengajuan['approved_by']>0?'accept':'deny';
+    if($posttest_exist) {
+        $pengajuan_ujian_ulang='';
     }
 }
 

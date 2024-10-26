@@ -31,7 +31,7 @@ list($detail)=$mysql->sql_get_assoc(" SELECT id,title,content, quiz_id,video_nam
 
 if($_GET['submit']==1) {
     $now=date("Y-m-d H:i:s");
-    if($course_material_id!="" and $userid!="" and $quiz_done['id']!="") {
+    if($course_material_id>0 and $userid!="" and $quiz_done['id']!="") {
         $sql="
         INSERT INTO app_quiz_request
         SET 
@@ -42,7 +42,7 @@ if($_GET['submit']==1) {
          ";
         $q=$mysql->query($sql);
     } else {
-        header("location:".fronturl());
+        header("location:".fronturl(""));
         die();
     }
    
