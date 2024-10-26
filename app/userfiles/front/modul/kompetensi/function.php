@@ -72,7 +72,7 @@ $q_pengajuan_status=$mysql->query("SELECT id,member_id,course_material_id,quiz_d
 if($q_pengajuan_status and $mysql->num_rows($q_pengajuan_status)>0) {
     $hasil_pengajuan=$mysql->fetch_assoc($q_pengajuan_status);
     $pengajuan_ujian_ulang=$hasil_pengajuan['approved_by']>0?'accept':'deny';
-    if($posttest_exist) {
+    if($posttest_exist and $pengajuan_ujian_ulang!='deny') {
         $pengajuan_ujian_ulang='';
     }
 }

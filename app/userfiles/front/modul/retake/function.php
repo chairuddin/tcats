@@ -27,6 +27,8 @@ list($quiz_done)=$mysql->sql_get_assoc(" SELECT * FROM app_quiz_done WHERE md5(m
 $course_material_id=$quiz_done['course_material_id'];
 list($detail)=$mysql->sql_get_assoc(" SELECT id,title,content, quiz_id,video_name,quiz_type,video_url,video_embed_url,type,is_free,$is_subscribe is_subscribe FROM app_course_material WHERE id='$course_material_id'");
 
+$id_kompetensi=$mysql->get1value("SELECT id FROM app_course_sub WHERE id IN (SELECT course_sub_id FROM app_course_material WHERE id=$course_material_id) ");
+$judul_kompetensi=$mysql->get1value("SELECT title FROM app_course_sub WHERE id IN (SELECT course_sub_id FROM app_course_material WHERE id=$course_material_id) ");
 
 
 if($_GET['submit']==1) {
@@ -55,8 +57,6 @@ if($q_cek_pengajuan and $mysql->num_rows($q_cek_pengajuan)>0) {
     $pengajuan_aktif=1;
 }
 
-$id_kompetensi=$mysql->get1value("SELECT id FROM app_course_sub WHERE id IN (SELECT course_sub_id FROM app_course_material WHERE id=$course_material_id) ");
-$judul_kompetensi=$mysql->get1value("SELECT title FROM app_course_sub WHERE id IN (SELECT course_sub_id FROM app_course_material WHERE id=$course_material_id) ");
 
 $quiz_done_kd = $mysql->sql_get_assoc("SELECT qd.nama_kd,qd.score,kd.score_max,kd.kkm FROM app_quiz_done_kd qd LEFT JOIN quiz_kd kd ON kd.id=qd.id_quiz_kd WHERE qd.id_quiz_done=".$quiz_done['id']." ORDER BY qd.id_quiz_kd");
 
