@@ -8,17 +8,20 @@
             <div class="name-profile"><?=$fullname ?></div>
             <div class="email-profile"><?php echo $username;?> / <?=$organization_unit?></div>
             <div class="d-flex align-items-center justify-content-center">
+            <div class="toggle-button" onclick="toggleDetails()" style="padding:0 15px 5px 15px;">
+                <i class="fas fa-chevron-down"></i>
+            </div>
             </div>
         </div>
-        <div class="profile-data">
-        <table>
-            <tr><td>Email</td><td>:</td><td><?=$email?></td></tr>
-            <tr><td>Position</td><td>:</td><td><?=$position_code?> - <?=$position?></td></tr>
-            <tr><td>Supervisor 1</td><td>:</td><td><?=$direct_supervisor_indeks?> - <?=$direct_supervisor_name?></td></tr>
-            <tr><td>Supervisor 2</td><td>:</td><td><?=$second_supervisor_indeks?> - <?=$second_supervisor_name?></td></tr>
-            <tr><td>Manager</td><td>:</td><td><?=$manager_indeks?> - <?=$manager_name?></td></tr>
-        </table>
 
+        <div class="details" style="padding:0 0 30px 0;display:none;">
+            <table class="table">
+                <tr><td>Email</td><td>:&nbsp;</td><td><?=$email?></td></tr>
+                <tr><td>Position</td><td>:&nbsp;</td><td><?=$position_code?> - <?=$position?></td></tr>
+                <tr><td>Supervisor 1</td><td>:&nbsp;</td><td><?=$direct_supervisor_indeks?> - <?=$direct_supervisor_name?></td></tr>
+                <tr><td>Supervisor 2</td><td>:&nbsp;</td><td><?=$second_supervisor_indeks?> - <?=$second_supervisor_name?></td></tr>
+                <tr><td>Manager</td><td>:&nbsp;</td><td><?=$manager_indeks?> - <?=$manager_name?></td></tr>
+            </table>
         </div>
         
         
@@ -63,5 +66,19 @@
         
 
     </div>
+    <script>
+           function toggleDetails() {
+            const details = document.querySelector('.details');
+            const arrow = document.querySelector('.toggle-button i');
 
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+                arrow.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            } else {
+                details.style.display = 'none';
+                arrow.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            }
+            }
+        </script>
 <?php $config_top_bar=2; ?>
+        
