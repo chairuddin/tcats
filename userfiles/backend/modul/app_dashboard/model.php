@@ -85,7 +85,7 @@ if($action=="") {
 
 	//antrian ujian ulang
 	$data_ujian_ulang=$mysql->sql_get_assoc(" 
-	SELECT r.id,m.fullname,cs.title,r.created_at,quiz_done_id
+	SELECT r.id,m.fullname,cs.title,r.created_at,quiz_done_id,(select count(id) FROM app_quiz_request WHERE member_id=r.member_id AND course_material_id=r.course_material_id AND approved_by>0)  retake
 	FROM app_quiz_request r 
 	LEFT JOIN quiz_member m ON m.id=r.member_id
 	LEFT JOIN app_course_material cm ON cm.id=r.course_material_id

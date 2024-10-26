@@ -19,6 +19,7 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 				    <th>Waktu</th>
 				    <th>Nama</th>
 				    <th>Ujian</th>
+					<th>Retake</th>
 					<th>Score</th>
 				    <th>Action</th>
 				</tr>
@@ -28,6 +29,7 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 				    <td><?=$d['created_at']?></td>
 				    <td><?=$d['fullname']?></td>
 				    <td><?=$d['title']?></td>
+					<td><?=$d['retake']?></td>
 					<td><?=round($score_ujian_ulang[$d['quiz_done_id']],2)?></td>
 				    <td><a href="#" onclick="accept('<?=$d['id']?>')" class="btn btn-success mr-2">Terima</a><a  href="#" onclick="deny('<?=$d['id']?>')" class="btn btn-danger">Tolak</a></td>
 				</tr>
