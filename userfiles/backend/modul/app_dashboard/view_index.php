@@ -17,6 +17,7 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 				<table class="table">
 				<tr>
 				    <th>Waktu</th>
+				    <th>Indeks/TIK</th>
 				    <th>Nama</th>
 				    <th>Ujian</th>
 					<th>Retake</th>
@@ -27,8 +28,9 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 				<?php foreach($data_ujian_ulang as $i =>$d):?>
 					<tr id="uji_ulang_<?=$d['id']?>">
 				    <td><?=$d['created_at']?></td>
-				    <td><?=$d['fullname']?></td>
-				    <td><?=$d['title']?></td>
+				     <td><?=link_to_profile($d['member_id'],$d['username'],$attr="");?></td>
+				    <td><?=link_to_profile($d['member_id'],$d['fullname'],$attr="");?></td>
+				    <td><?=link_to_result($d['quiz_done_id'],$d['title'])?></td>
 					<td><?=$d['retake']?></td>
 					<td><?=round($score_ujian_ulang[$d['quiz_done_id']],2)?></td>
 				    <td><a href="#" onclick="accept('<?=$d['id']?>')" class="btn btn-success mr-2">Terima</a><a  href="#" onclick="deny('<?=$d['id']?>')" class="btn btn-danger">Tolak</a></td>
@@ -89,6 +91,7 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 				<table class="table">
 				<tr>
 				    <th>Waktu</th>
+				    <th>Indeks/TIK</th>
 				    <th>Nama</th>
 				    <th>Ujian</th>
 				    <th>Score</th>
@@ -97,9 +100,10 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 				<?php foreach($data_ujian as $i =>$d):?>
 					<tr>
 				    <td><?=$d['end_time']?></td>
-				    <td><?=$d['member_fullname']?></td>
-				    <td><?=$d['title']?></td>
-				    <td><?=round($d['avg_score'],2)?></td>
+				    <td><?=link_to_profile($d['member_id'],$d['member_code'],$attr="");?></td>
+				    <td><?=link_to_profile($d['member_id'],$d['member_fullname'],$attr="");?></td>
+				    <td><?=link_to_result($d['id'],$d['title'])?></td>
+				    <td class="text-right"><?=round($d['avg_score'],2)?></td>
 				</tr>
 				<?php endforeach;?>
 				<?php endif;?>

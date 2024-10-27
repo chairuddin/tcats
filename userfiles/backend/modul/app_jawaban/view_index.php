@@ -17,7 +17,7 @@ $tombol_download='<a href="'.fronturl("get_excel_app/?material_id=".$_GET['mater
     		          	<table class="table">
         				<tr>
         				 
-              			    <th>Kode</th>
+              			    <th>Indeks/TIK</th>
               			    <th>Nama</th>
         				    <th>Score</th>
 							<th>Status</th>
