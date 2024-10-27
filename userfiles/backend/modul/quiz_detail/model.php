@@ -83,7 +83,7 @@ if($action=="save")
 	{
 	$quiz_detail_id=$mysql->insert_id();	
 	$id_master=$id_soal;
-	generate_soal_json($id_master);
+	//generate_soal_json($id_master);
 	
 
 	//tentukan urutan soal
@@ -207,7 +207,7 @@ if($action=="update")
 	$sql_pembahasan="REPLACE INTO quiz_pembahasan_pg SET pembahasan='$pembahasan',quiz_detail_id=$id ";	
 	$mysql->query($sql_pembahasan);
 	$id_master=$mysql->get1value("SELECT quiz_id FROM $tabel WHERE id='$id' ");
-	generate_soal_json($id_master);
+	//generate_soal_json($id_master);
 	Form::clearValues("update{$modul}"); 
 	msg_warning(_BERHASILUPDATE,"success");
 	header("location:".backendurl("$modul/view?id_soal=$id_soal#list_$id"));
@@ -237,7 +237,7 @@ $sql="DELETE FROM $tabel WHERE id='$id'";
 $r=$mysql->query($sql);
 if($r)
 {
-	generate_soal_json($id_master);
+//	generate_soal_json($id_master);
 	Form::clearValues("update{$modul}");
 	msg_warning(_BERHASILHAPUS,"success");
 	header("location:".backendurl("$modul/view?id_soal=".$_GET['id_soal']));
