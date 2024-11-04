@@ -304,7 +304,7 @@ foreach($pilihan_ganda as $pil_gan) {
 $sql.="OR ".join(" OR  ",$sql_r);
 $sql.=" ) ";
 }
-$sql.="ORDER BY urutan,id ";
+$sql.="ORDER BY urutan ASC,id ASC ";
 $r=$mysql->query($sql);
 echo "<table class=\"table\">";
 echo "

@@ -78,6 +78,7 @@ if($action=="") {
     AND m.quiz_type='posttest'
     AND q.is_void=0
     GROUP BY q.id
+    ORDER BY q.end_time DESC
 	LIMIT 10
 	";
     $data_ujian=$mysql->sql_get_assoc($sql2);
@@ -85,7 +86,7 @@ if($action=="") {
 
 	//antrian ujian ulang
 	$data_ujian_ulang=$mysql->sql_get_assoc(" 
-	SELECT r.id,m.fullname,cs.title,r.created_at,quiz_done_id,(select count(id) FROM app_quiz_request WHERE member_id=r.member_id AND course_material_id=r.course_material_id AND approved_by>0)  retake
+	SELECT r.id,r.member_id,m.fullname,m.username,cs.title,r.created_at,quiz_done_id,(select count(id) FROM app_quiz_request WHERE member_id=r.member_id AND course_material_id=r.course_material_id AND approved_by>0)  retake
 	FROM app_quiz_request r 
 	LEFT JOIN quiz_member m ON m.id=r.member_id
 	LEFT JOIN app_course_material cm ON cm.id=r.course_material_id

@@ -2804,4 +2804,10 @@ function fiestophpmailer($to, $subject, $txtmsg, $from, $namafrom = '', $replyto
         return true;
 
 }
+function link_to_profile($id,$text="",$attr="") {
+    return '<a href="'.backendurl("app_profile/view/".md5(md5($id))).'" '.$attr.'>'.$text.'</a>';
+}
+function link_to_result($id,$text="",$attr="") {
+    return '<a href="'.backendurl("app_result/view/".md5($id)).'" '.$attr.'>'.$text.'</a>';
+}
 ?>
