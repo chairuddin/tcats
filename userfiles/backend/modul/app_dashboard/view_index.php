@@ -7,6 +7,8 @@ $form_date2=$form->element_Textbox("","date2",array('autocomplete'=>'off','place
 
 ?>
 
+
+
 <?php if(count($data_ujian_ulang)>0): ?>
 <div class="box-content" id="ujian_realtime">
 	<div class="card  card-navy">
