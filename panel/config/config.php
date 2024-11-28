@@ -1,15 +1,19 @@
 <?php
 include "dbdir.php";
-error_reporting(1);
+//error_reporting(1);
 error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED & ~E_WARNING);
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL);
+
 ini_set('display_errors', 1);
+
 /* PATH */
 /*extract url from slash into array $_GET[seg1]-$_GET[segn]*/
 $parameter_coba=0;
-$xparam=$_GET['xparam'];
-$r_xparam=explode("/",$_GET['xparam']);
+$xparam=$_GET['xparam']!=""?$_GET['xparam']:"";
+$r_xparam = explode("/", $_GET['xparam'] ?? '');
 if(count($r_xparam)>0)
-{
+{	
 	foreach($r_xparam as $xx =>$vv)
 	{
 		$_GET["seg".($xx+1)]=$vv;

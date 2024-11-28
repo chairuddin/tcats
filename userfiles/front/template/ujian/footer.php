@@ -43,9 +43,9 @@ echo "imgloader='$loader_gif';"
 </script>
 
 <?php
-if(count($script_js)>0)
+if(is_array($script_js) and count($script_js)>0)
 {
-echo join("\r\n",$script_js);
+echo implode("\r\n",$script_js);
 }
 $_SESSION['msg-session']="";
 ?>

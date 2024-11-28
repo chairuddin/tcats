@@ -1,7 +1,7 @@
 <?php
 function do_my_simple_crypt( $string, $action = 'e',$secret_key="my_simple_secret_key",$secret_iv="my_simple_secret_iv" ) {
     // you may change these values to your own
-     
+    $string=$string!=""?$string:'';
     $output = false;
     $encrypt_method = "AES-256-CBC";
     $key = hash( 'sha256', $secret_key );
@@ -37,6 +37,7 @@ function get_login_session() {
 function cek_login_siswa() {
 	global $mysql;
 	$data_member=get_login_session();
+	if(!$data_member) return false;
 	
 	$ada=$mysql->get1value(" SELECT count(id) FROM quiz_member WHERE id=".$data_member['id']." AND username='".$data_member['username']."' AND md5(password)='".$data_member['password']."' AND status=1 ");
 	if($ada>=1) {

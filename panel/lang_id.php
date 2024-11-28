@@ -8,6 +8,7 @@ define("_TAMBAH","Tambah");
 define("_SAVE","Simpan");
 define("_SIMPAN","Simpan");
 define("_SUKSES","Sukses");
+define("_SUCCESS","Success");
 define("_GAGAL","Gagal");
 define("_BATAL","Batal");
 define("_UPDATE","Update");

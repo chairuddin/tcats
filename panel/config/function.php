@@ -452,225 +452,228 @@ END;
 $_SESSION['msg_warning'].=$temp;
 }
 
-function upload($fieldname, $destdir, $destfile, $maxsize, $allowedtypes = "gif,jpg,jpeg,png",$quality="70") {
+	function upload($fieldname, $destdir, $destfile, $maxsize, $allowedtypes = "gif,jpg,jpeg,png",$quality="70") {
 
-    /*
-      $fieldname : field name di form
-      $destdir : direktori tujuan
-      $destfile : nama file (minus extension, which is always the same as uploaded)
-      $maxsize : ukuran maksimum dalam byte (harus konsisten dengan MAX_FILE_SIZE di html)
-      $lang : (optional) bahasa. default="id".
-      $allowedtypes : (optional) jenis extension yang diizinkan, dipisahkan tanda koma. default = "gif,jpg,jpeg,png".
-     */
-    if ($_FILES[$fieldname]['name'] != '') {
-        $maxsizeinkb = intval($maxsize / 1000);
+		/*
+		  $fieldname : field name di form
+		  $destdir : direktori tujuan
+		  $destfile : nama file (minus extension, which is always the same as uploaded)
+		  $maxsize : ukuran maksimum dalam byte (harus konsisten dengan MAX_FILE_SIZE di html)
+		  $lang : (optional) bahasa. default="id".
+		  $allowedtypes : (optional) jenis extension yang diizinkan, dipisahkan tanda koma. default = "gif,jpg,jpeg,png".
+		 */
+		if ($_FILES[$fieldname]['name'] != '') {
+			$maxsizeinkb = intval($maxsize / 1000);
 
 
 
-        //Filter 1: cek apakah file terupload dengan benar
-        switch ($_FILES[$fieldname]['error']) {
-            case UPLOAD_ERR_INI_SIZE:
-            case UPLOAD_ERR_FORM_SIZE:
-                return _FILETOOBIG . " $maxsizeinkb kbytes.";
-                break;
-            case UPLOAD_ERR_PARTIAL:
-                return _FILEPARTIAL;
-                break;
-            case UPLOAD_ERR_NO_FILE:
-                return _FILEERROR1;
-                break;
-        }
+			//Filter 1: cek apakah file terupload dengan benar
+			switch ($_FILES[$fieldname]['error']) {
+				case UPLOAD_ERR_INI_SIZE:
+				case UPLOAD_ERR_FORM_SIZE:
+					return _FILETOOBIG . " $maxsizeinkb kbytes.";
+					break;
+				case UPLOAD_ERR_PARTIAL:
+					return _FILEPARTIAL;
+					break;
+				case UPLOAD_ERR_NO_FILE:
+					return _FILEERROR1;
+					break;
+			}
 
-        //Filter 2: cek apakah ukuran sesuai yang diizinkan. Beda dengan filter 1 yang membandingkan terhadap setting php.ini, sekarang dibandingkan dengan aturan yang dibuat sendiri di config
-        if ($_FILES[$fieldname]['size'] > $maxsize) {
-            return _FILETOOBIG . " $maxsizeinkb kbytes.";
-        }
+			//Filter 2: cek apakah ukuran sesuai yang diizinkan. Beda dengan filter 1 yang membandingkan terhadap setting php.ini, sekarang dibandingkan dengan aturan yang dibuat sendiri di config
+			if ($_FILES[$fieldname]['size'] > $maxsize) {
+				return _FILETOOBIG . " $maxsizeinkb kbytes.";
+			}
 
-        //Filter 3: cek apakah extension sesuai yang diizinkan
+			//Filter 3: cek apakah extension sesuai yang diizinkan
 
-        $rallowedtypes = explode(',', $allowedtypes);
-        $temp = explode('.', $_FILES[$fieldname]['name']);
-        $extension = strtolower($temp[count($temp) - 1]);
+			$rallowedtypes = explode(',', $allowedtypes);
+			$temp = explode('.', $_FILES[$fieldname]['name']);
+			$extension = strtolower($temp[count($temp) - 1]);
 
-        $isallowed = false;
-        foreach ($rallowedtypes as $allowedtype) {
-            if ($extension == $allowedtype)
-                $isallowed = true;
-        }
+			$isallowed = false;
+			foreach ($rallowedtypes as $allowedtype) {
+				if ($extension == $allowedtype)
+					$isallowed = true;
+			}
 
-        if (!$isallowed) {
-            return _ALLOWEDTYPE . " $allowedtypes.";
-        }
+			if (!$isallowed) {
+				return _ALLOWEDTYPE . " $allowedtypes.";
+			}
 
-        //Filter 4: cek apakah benar-benar file gambar (hanya jika $allowedtypes="gif,jpg,jpeg,png")
-        //Tidak cek MIME-type karena barubah-ubah terus
-        //Tidak cek extension karena nanti dipaksa berubah
-        //Cek dilakukan sebelum dipindah ke destination dir (masih di temp)
+			//Filter 4: cek apakah benar-benar file gambar (hanya jika $allowedtypes="gif,jpg,jpeg,png")
+			//Tidak cek MIME-type karena barubah-ubah terus
+			//Tidak cek extension karena nanti dipaksa berubah
+			//Cek dilakukan sebelum dipindah ke destination dir (masih di temp)
 
-        if ($extension == "gif" || $extension == "jpg" || $extension == "jpeg" || $extension == "png") {
-            $size = getimagesize($_FILES[$fieldname]['tmp_name']);
-            if ($size == FALSE) {
-                return _ALLOWEDTYPE . " $allowedtypes.";
-            }
-        }
-
-        //Filter 5: Jalankan
-        $thelastdestination = ($destfile == '') ? "$destdir/" . $_FILES[$fieldname]['name'] : "$destdir/$destfile.$extension";		
-        if (!move_uploaded_file($_FILES[$fieldname]['tmp_name'], $thelastdestination)) {
-            return _MAYBEPERMISSION;
-        }
-        else
-        {
 			if ($extension == "gif" || $extension == "jpg" || $extension == "jpeg" || $extension == "png") {
-			//compress image
-			$info = getimagesize($thelastdestination);
-
-			if ($info['mime'] == 'image/jpeg') 
-			{
-				$image = imagecreatefromjpeg($thelastdestination);
-				imagejpeg($image, $thelastdestination, $quality);
-			}
-			elseif ($info['mime'] == 'image/gif') 
-			{
-				$image = imagecreatefromgif($thelastdestination);
-				imagegif($image, $thelastdestination);
-			}elseif ($info['mime'] == 'image/png') 
-			{
-				$image = imagecreatefrompng($thelastdestination);
-				imagepng($image, $thelastdestination, 9); // 0 = no compression, 9 = maximum compression
+				$size = getimagesize($_FILES[$fieldname]['tmp_name']);
+				if ($size == FALSE) {
+					return _ALLOWEDTYPE . " $allowedtypes.";
+				}
 			}
 
+			//Filter 5: Jalankan
+			$thelastdestination = ($destfile == '') ? "$destdir/" . $_FILES[$fieldname]['name'] : "$destdir/$destfile.$extension";		
+			if (!move_uploaded_file($_FILES[$fieldname]['tmp_name'], $thelastdestination)) {
+				return _MAYBEPERMISSION;
+			}
+			else
+			{
+				if ($extension == "gif" || $extension == "jpg" || $extension == "jpeg" || $extension == "png") {
+				//compress image
+				$info = getimagesize($thelastdestination);
+
+				if ($info['mime'] == 'image/jpeg') 
+				{
+					$image = imagecreatefromjpeg($thelastdestination);
+					imagejpeg($image, $thelastdestination, $quality);
+				}
+				elseif ($info['mime'] == 'image/gif') 
+				{
+					$image = imagecreatefromgif($thelastdestination);
+					imagegif($image, $thelastdestination);
+				}elseif ($info['mime'] == 'image/png') 
+				{
+					$image = imagecreatefrompng($thelastdestination);
+					imagealphablending($image, false);
+					imagesavealpha($image, true);
+					imagepng($image, $thelastdestination, 9); // 0 = no compression, 9 = maximum compression
+				}
+
+				
+				}
+				return _SUCCESS;
+
+			}
 			
-			}
-			return _SUCCESS;
-
+		} else {
+			return _FILEPARTIAL;
 		}
-        
-    } else {
-        return _FILEPARTIAL;
-    }
-}
-function resize($srcimgfile, $dstimgfile, $thumbcalcbase, $thumbcalcpx, $thumbcalcpxheight = 100) {
-	
-    /*
-      Resize gambar (misalnya bikin thumbnail)
+	}
+	function resize($srcimgfile, $dstimgfile, $thumbcalcbase, $thumbcalcpx, $thumbcalcpxheight = 100) {
+		
+		/*
+		  Resize gambar (misalnya bikin thumbnail)
 
-      string $scrimgfile : nama file asal
-      string $dstimgfile : nama file tujuan
-      string enum('s'|'l'|'w'|'h') $thumbcalcbase : dasar perhitungan resize menjadi thumbnail (shorter side, longer side, width, height).
-      int $thumbcalcpx : thumbnail image width/height in pixel
+		  string $scrimgfile : nama file asal
+		  string $dstimgfile : nama file tujuan
+		  string enum('s'|'l'|'w'|'h') $thumbcalcbase : dasar perhitungan resize menjadi thumbnail (shorter side, longer side, width, height).
+		  int $thumbcalcpx : thumbnail image width/height in pixel
 
-      16:14 14/02/2010 tambahan:
-      string enum('b'|'f') $thumbcalcbase : dasar perhitungan resize menjadi thumbnail
-      b = both = maxwidth dan maxweight dua2nya ditentukan, ukuran hasil dimaksimalkan namun dipertahankan proporsional
-      f = fixed = maxwidth dan maxweight dua2nya ditentukan, ukuran hasil dipaksa mengikuti ketentuan meskipun terpaksa tidak proporsional
-      int $thumbcalcpxheight : thumbnail image height in pixel, hanya jika tambahan dipakai. default = 100 pixel.
-     */
+		  16:14 14/02/2010 tambahan:
+		  string enum('b'|'f') $thumbcalcbase : dasar perhitungan resize menjadi thumbnail
+		  b = both = maxwidth dan maxweight dua2nya ditentukan, ukuran hasil dimaksimalkan namun dipertahankan proporsional
+		  f = fixed = maxwidth dan maxweight dua2nya ditentukan, ukuran hasil dipaksa mengikuti ketentuan meskipun terpaksa tidak proporsional
+		  int $thumbcalcpxheight : thumbnail image height in pixel, hanya jika tambahan dipakai. default = 100 pixel.
+		 */
 
-    $temp = explode('.', $srcimgfile);
-    
-	$extension = strtolower($temp[count($temp) - 1]);
-    //$mime = mime_content_type($srcimgfile);
-    
-    switch ($extension) {
-        case 'jpg':
-        case 'jpeg':
-            $srcimg = imagecreatefromjpeg($srcimgfile);
-            list($dstw, $dsth) = resizecalc($srcimg, $thumbcalcbase, $thumbcalcpx, $thumbcalcpxheight);
-            $dstimg = imagecreatetruecolor($dstw, $dsth);
-            if (!imagecopyresampled($dstimg, $srcimg, 0, 0, 0, 0, $dstw, $dsth, imagesx($srcimg), imagesy($srcimg)))
-                return _CANTRESAMPLE;
-            if (!imagejpeg($dstimg, $dstimgfile, 90))
-                return _MAYBEPERMISSION;
-            break;
-        case 'gif':
-            $srcimg = imagecreatefromgif($srcimgfile);
-            list($dstw, $dsth) = resizecalc($srcimg, $thumbcalcbase, $thumbcalcpx, $thumbcalcpxheight);
-            // $dstimg = imagecreate($dstw,$dsth); 
+		$temp = explode('.', $srcimgfile);
+		
+		$extension = strtolower($temp[count($temp) - 1]);
+		//$mime = mime_content_type($srcimgfile);
+		
+		switch ($extension) {
+			case 'jpg':
+			case 'jpeg':
+				$srcimg = imagecreatefromjpeg($srcimgfile);
+				list($dstw, $dsth) = resizecalc($srcimg, $thumbcalcbase, $thumbcalcpx, $thumbcalcpxheight);
+				$dstimg = imagecreatetruecolor($dstw, $dsth);
+				if (!imagecopyresampled($dstimg, $srcimg, 0, 0, 0, 0, $dstw, $dsth, imagesx($srcimg), imagesy($srcimg)))
+					return _CANTRESAMPLE;
+				if (!imagejpeg($dstimg, $dstimgfile, 90))
+					return _MAYBEPERMISSION;
+				break;
+			case 'gif':
+				$srcimg = imagecreatefromgif($srcimgfile);
+				list($dstw, $dsth) = resizecalc($srcimg, $thumbcalcbase, $thumbcalcpx, $thumbcalcpxheight);
+				// $dstimg = imagecreate($dstw,$dsth); 
 
-            // return value sumber gambar harus dari function imagecreatetruecolor()
-            // - http://php.net/manual/en/function.imagecolortransparent.php
-            $dstimg = imagecreatetruecolor($dstw, $dsth);
-            $imgallocate = imagecolorallocate($dstimg, 0, 0, 0);
+				// return value sumber gambar harus dari function imagecreatetruecolor()
+				// - http://php.net/manual/en/function.imagecolortransparent.php
+				$dstimg = imagecreatetruecolor($dstw, $dsth);
+				$imgallocate = imagecolorallocate($dstimg, 0, 0, 0);
 
-            // set backgroud menjadi transparan
-            imagecolortransparent($dstimg, $imgallocate);
-            $transparent = imagecolorallocatealpha($dstimg, 255, 255, 255, 127);
-            imagefilledrectangle($dstimg, 0, 0, $dstw, $dsth, $transparent);
-            //==========================			
-            if (!imagecopyresampled($dstimg, $srcimg, 0, 0, 0, 0, $dstw, $dsth, imagesx($srcimg), imagesy($srcimg)))
-                return _CANTRESAMPLE;
-            if (!imagegif($dstimg, $dstimgfile))
-                return _MAYBEPERMISSION;
-            break;
-        case 'png':
-        /**/
-			$image = imagecreatefrompng ($srcimgfile);
-			
-			list($dst_width, $dst_height) = resizecalc($image, $thumbcalcbase, $thumbcalcpx, $thumbcalcpxheight);
-			//die("$dst_width, $dst_height");
-			$new_image = imagecreatetruecolor ($dst_width, $dst_height ); // new wigth and height
-			imagealphablending($new_image , false);
-			imagesavealpha($new_image , true);
-			imagecopyresampled ( $new_image, $image, 0, 0, 0, 0, $dst_width, $dst_height, imagesx ( $image ), imagesy ( $image ) );
-			$image = $new_image;
-
-			// saving
-			imagealphablending($image , false);
-			imagesavealpha($image , true);
-			if (!imagepng ($image, $dstimgfile))
-			return _MAYBEPERMISSION;
+				// set backgroud menjadi transparan
+				imagecolortransparent($dstimg, $imgallocate);
+				$transparent = imagecolorallocatealpha($dstimg, 255, 255, 255, 127);
+				imagefilledrectangle($dstimg, 0, 0, $dstw, $dsth, $transparent);
+				//==========================			
+				if (!imagecopyresampled($dstimg, $srcimg, 0, 0, 0, 0, $dstw, $dsth, imagesx($srcimg), imagesy($srcimg)))
+					return _CANTRESAMPLE;
+				if (!imagegif($dstimg, $dstimgfile))
+					return _MAYBEPERMISSION;
+				break;
+			case 'png':
 			/**/
-			break;
-    }
-    
-}
-function resizecalc($srcimg, $thumbcalcbase, $thumbcalcpx, $thumbcalcpxheight) {
-    switch ($thumbcalcbase) {
-        case 'h':
-            $dsth = $thumbcalcpx;
-            $dstw = round(imagesx($srcimg) / imagesy($srcimg) * $dsth);
-            break;
-        case 'w':
-            $dstw = $thumbcalcpx;
-            $dsth = round(imagesy($srcimg) / imagesx($srcimg) * $dstw);
-            break;
-        case 'l':
-        
-            if (imagesx($srcimg) <= imagesy($srcimg)) { //portrait
-                $dsth = $thumbcalcpx;
-                $dstw = round(imagesx($srcimg) / imagesy($srcimg) * $dsth);
-            } else { //landscape
-                $dstw = $thumbcalcpx;
-                $dsth = round(imagesy($srcimg) / imagesx($srcimg) * $dstw);
-            }
-          //  die($dsth." vv ".imagesx($srcimg));
-            break;
-        case 's':
-            if (imagesx($srcimg) <= imagesy($srcimg)) { //portrait
-                $dstw = $thumbcalcpx;
-                $dsth = round(imagesy($srcimg) / imagesx($srcimg) * $dstw);
-            } else { //landscape
-                $dsth = $thumbcalcpx;
-                $dstw = round(imagesx($srcimg) / imagesy($srcimg) * $dsth);
-            }
-            break;
-        case 'b':
-            if ($thumbcalcpx / imagesx($srcimg) <= $thumbcalcpxheight / imagesy($srcimg)) { //ikuti x
-                $dstw = $thumbcalcpx;
-                $dsth = round(imagesy($srcimg) / imagesx($srcimg) * $dstw);
-            } else { //ikuti y
-                $dsth = $thumbcalcpxheight;
-                $dstw = round(imagesx($srcimg) / imagesy($srcimg) * $dsth);
-            }
-            break;
-        case 'f':
-            $dstw = $thumbcalcpx;
-            $dsth = $thumbcalcpxheight;
-            break;
-    }
-    return array($dstw, $dsth);
-}
+			
+				$image = imagecreatefrompng ($srcimgfile);
+				
+				list($dst_width, $dst_height) = resizecalc($image, $thumbcalcbase, $thumbcalcpx, $thumbcalcpxheight);
+				//die("$dst_width, $dst_height");
+				$new_image = imagecreatetruecolor ($dst_width, $dst_height ); // new wigth and height
+				imagealphablending($new_image , false);
+				imagesavealpha($new_image , true);
+				imagecopyresampled ( $new_image, $image, 0, 0, 0, 0, $dst_width, $dst_height, imagesx ( $image ), imagesy ( $image ) );
+				$image = $new_image;
+
+				// saving
+				imagealphablending($image , false);
+				imagesavealpha($image , true);
+				if (!imagepng ($image, $dstimgfile))
+				return _MAYBEPERMISSION;
+				/**/
+				break;
+		}
+		
+	}
+	function resizecalc($srcimg, $thumbcalcbase, $thumbcalcpx, $thumbcalcpxheight) {
+		switch ($thumbcalcbase) {
+			case 'h':
+				$dsth = $thumbcalcpx;
+				$dstw = round(imagesx($srcimg) / imagesy($srcimg) * $dsth);
+				break;
+			case 'w':
+				$dstw = $thumbcalcpx;
+				$dsth = round(imagesy($srcimg) / imagesx($srcimg) * $dstw);
+				break;
+			case 'l':
+			
+				if (imagesx($srcimg) <= imagesy($srcimg)) { //portrait
+					$dsth = $thumbcalcpx;
+					$dstw = round(imagesx($srcimg) / imagesy($srcimg) * $dsth);
+				} else { //landscape
+					$dstw = $thumbcalcpx;
+					$dsth = round(imagesy($srcimg) / imagesx($srcimg) * $dstw);
+				}
+			  //  die($dsth." vv ".imagesx($srcimg));
+				break;
+			case 's':
+				if (imagesx($srcimg) <= imagesy($srcimg)) { //portrait
+					$dstw = $thumbcalcpx;
+					$dsth = round(imagesy($srcimg) / imagesx($srcimg) * $dstw);
+				} else { //landscape
+					$dsth = $thumbcalcpx;
+					$dstw = round(imagesx($srcimg) / imagesy($srcimg) * $dsth);
+				}
+				break;
+			case 'b':
+				if ($thumbcalcpx / imagesx($srcimg) <= $thumbcalcpxheight / imagesy($srcimg)) { //ikuti x
+					$dstw = $thumbcalcpx;
+					$dsth = round(imagesy($srcimg) / imagesx($srcimg) * $dstw);
+				} else { //ikuti y
+					$dsth = $thumbcalcpxheight;
+					$dstw = round(imagesx($srcimg) / imagesy($srcimg) * $dsth);
+				}
+				break;
+			case 'f':
+				$dstw = $thumbcalcpx;
+				$dsth = $thumbcalcpxheight;
+				break;
+		}
+		return array($dstw, $dsth);
+	}
 function redirecto($message,$type="error",$action="")
 {
 global $modul;
@@ -2810,4 +2813,21 @@ function link_to_profile($id,$text="",$attr="") {
 function link_to_result($id,$text="",$attr="") {
     return '<a href="'.backendurl("app_result/view/".md5($id)).'" '.$attr.'>'.$text.'</a>';
 }
+function each(&$array) {
+    if (!is_array($array)) {
+        trigger_error("each() expects parameter 1 to be an array", E_USER_WARNING);
+        return false;
+    }
+
+    $key = key($array); // Get the current key
+    if ($key === null) {
+        return false; // No more elements in the array
+    }
+
+    $value = current($array); // Get the current value
+    next($array); // Advance the internal pointer
+
+    return ['key' => $key, 'value' => $value, 0 => $key, 1 => $value];
+}
+
 ?>

@@ -42,7 +42,7 @@
               <button type="button"  onclick="submitLogin()" class="btn-submit rounded p-2 w-100 text-white">Login</button>
             </form>
             <div class="d-flex justify-content-between">
-                <a href="<?=fronturl('register')?>" class="text-dark text-decoration-none fw-medium">Daftar Sekarang</a>
+               <!-- <a href="<?=fronturl('register')?>" class="text-dark text-decoration-none fw-medium">Daftar Sekarang</a> -->
                 <a href="<?=fronturl('reset-password')?>" class="text-dark text-decoration-none fw-medium">Lupa password?</a>
             </div>
         </div>

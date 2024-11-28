@@ -171,6 +171,9 @@ if($_POST['mulai_ujian'])
 		shuffle($r_acak_complex);
 		}
 		$acak=join($r_acak,",");
+		//var_dump($r_acak);
+		//die();
+		
 		$acak_pilihan=json_encode($r_acak_pilihan);
 		/*END ACAK SOAL*/
 		$start_time_real=date("Y-m-d H:i:s");	
@@ -225,9 +228,11 @@ if($_POST['mulai_ujian'])
 			poin_J='".$data_quiz['poin_J']."'		
 		");
 		$quiz_done_id=$mysql->insert_id();
-		$join_pg=join(",",$r_acak);
-		$join_essay=join(",",$r_acak_essay);
-		$join_complex=join(",",$r_acak_complex);
+		//var_dump($r_acak);
+		//die();
+		$join_pg=join($r_acak,",");
+		$join_essay=join($r_acak_essay,",");
+		$join_complex=join($r_acak_complex,",");
 		$insert_paket=$mysql->query("INSERT INTO quiz_done_paket SET quiz_done_id=$quiz_done_id, pg='$join_pg',essay='$join_essay',complex='$join_complex'");
 		/*end modif disini 3 mei 2020*/
 
@@ -504,7 +509,7 @@ if($_POST['submit'])
 			echo "<div class='point-error'>".join("</div></div class='point-error'>",$r_msg_warning)."</div>";
 			echo '</div>';			
 			*/
-			$error_msg=join("<br/>",$r_msg_warning);
+			$error_msg=join($r_msg_warning,"<br/>");
 			if($web_config_mode_login){	
 				sweetalert2("warning",$error_msg,$url_back);
 			} else {

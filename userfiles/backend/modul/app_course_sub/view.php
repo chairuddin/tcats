@@ -185,6 +185,8 @@ if($action=="data") {
 	$sql_r[]=" ".join(" OR ",$sql_search)." ";
 	}
 	
+	$course=$_GET['course']!=""?$_GET['course']:'';
+	
 	$sql=" 
 	SELECT 
 		a.id,
@@ -197,8 +199,10 @@ if($action=="data") {
 	LEFT JOIN app_course c ON c.id=course_id
 		";
 	
-	$sql.=" WHERE course_id=".$_GET['course']." ";
+	$sql.=" WHERE course_id=".$course." ";
 
+	$sql_r=array();
+	
 	if(count($sql_r)>0){
 		$sql.=" AND  (".join(" OR ",$sql_r).") ";
 	}

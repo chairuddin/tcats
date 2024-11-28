@@ -229,7 +229,9 @@ if($action=="login") {
     b_load_lib("Login");
     $login = new Login();
     $json_data= file_get_contents('php://input');
+	$post=array();
     $post=json_decode($json_data,true);
+	
    // $post['username']='08179388230';
     //$post['password']='08179388230';
     $user_id=$login->dologin($post['username'],$post['password']);
