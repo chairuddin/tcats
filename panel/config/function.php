@@ -2813,21 +2813,26 @@ function link_to_profile($id,$text="",$attr="") {
 function link_to_result($id,$text="",$attr="") {
     return '<a href="'.backendurl("app_result/view/".md5($id)).'" '.$attr.'>'.$text.'</a>';
 }
-function each(&$array) {
-    if (!is_array($array)) {
-        trigger_error("each() expects parameter 1 to be an array", E_USER_WARNING);
-        return false;
-    }
 
-    $key = key($array); // Get the current key
-    if ($key === null) {
-        return false; // No more elements in the array
-    }
 
-    $value = current($array); // Get the current value
-    next($array); // Advance the internal pointer
+$php_version=phpversion();
+if($php_version[0]>=8) {
+	function each(&$array) {
+		if (!is_array($array)) {
+			trigger_error("each() expects parameter 1 to be an array", E_USER_WARNING);
+			return false;
+		}
 
-    return ['key' => $key, 'value' => $value, 0 => $key, 1 => $value];
+		$key = key($array); // Get the current key
+		if ($key === null) {
+			return false; // No more elements in the array
+		}
+
+		$value = current($array); // Get the current value
+		next($array); // Advance the internal pointer
+
+		return ['key' => $key, 'value' => $value, 0 => $key, 1 => $value];
+	}
 }
 
 ?>
