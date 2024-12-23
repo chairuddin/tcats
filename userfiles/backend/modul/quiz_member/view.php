@@ -2,10 +2,10 @@
 
 if($_GET['download_template']==2)
 {
-//ob_start();
-//error_reporting(0);
-//ini_set('display_errors', FALSE);
-//ini_set('display_startup_errors', FALSE);
+ob_start();
+error_reporting(0);
+ini_set('display_errors', FALSE);
+ini_set('display_startup_errors', FALSE);
 // Create new PHPExcel object
 
 $objPHPExcel = new PHPExcel();
@@ -449,6 +449,7 @@ if($action=="data") {
 
 		$action_edit=btn_edit(backendurl("$modul/edit/".$d['id']));
 		$action_delete=btn_delete(backendurl("$modul/del/".$d['id']));
+		$action_print=btn_print(backendurl("cetak_kartu/single/".$d['id']));
 		/*
 		$action_edit='<a href="'.backendurl("$modul/edit/".$d['id']).'"><i class="fas fa-edit" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;';
 		$action_delete='<a class=""  title="Hapus buku"
@@ -465,7 +466,7 @@ if($action=="data") {
 		</a>';
 		*/
 		if($_SESSION['s_level']>0){
-			$row[]='<div class="btn-group btn-group-sm">'.$action_view.$action_edit.$action_delete.'</div>';
+			$row[]='<div class="btn-group btn-group-sm">'.$action_print.$action_view.$action_edit.$action_delete.'</div>';
 		} else {
 			$row[]='<div class="btn-group btn-group-sm">'.$action_edit.'</div>';
 		}

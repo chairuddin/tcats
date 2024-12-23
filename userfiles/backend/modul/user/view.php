@@ -204,6 +204,7 @@ if($_SESSION['s_level']>0)
 {
 $action_edit=btn_edit(backendurl("$modul/edit/".$d['id']));
 $action_delete=btn_delete(backendurl("$modul/del/".$d['id']));
+
 echo "<td>".'<div class="btn-group btn-group-sm">'.$action_add.$action_view.$action_edit.$action_delete.'</div>'."</td>";
 $no++;
 }

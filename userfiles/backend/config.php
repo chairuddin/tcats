@@ -15,7 +15,7 @@ guru hanya bisa input soal
 * note : belum fix
 /*END GURU*/
 
-$id_user=$_SESSION['s_id'];
+$id_user=$_SESSION['s_id']+0;
 $level_user=$_SESSION['s_level'];
 $config_wali_kelas=array();
 $config_grade=array();

@@ -36,6 +36,7 @@ if($_POST['mulai_ujian'])
 	$quiz_id_md5=cleanInput($_POST['quiz_id_md5']);
 	$token_asli=cleanInput($_POST['token']);
 	$course_material_id=cleanInput($_POST['course_material_id']);
+
 	$token=base64_decode($_POST['token']);
 	$r_token=json_decode($token,true);
 
@@ -174,7 +175,7 @@ if($_POST['mulai_ujian'])
 		shuffle($r_acak_essay);
 		shuffle($r_acak_complex);
 		}
-		$acak=join($r_acak,",");
+		$acak=join(",",$r_acak);
 		//var_dump($r_acak);
 		//die();
 		
@@ -236,9 +237,9 @@ if($_POST['mulai_ujian'])
 		$quiz_done_id=$mysql->insert_id();
 		//var_dump($r_acak);
 		//die();
-		$join_pg=join($r_acak,",");
-		$join_essay=join($r_acak_essay,",");
-		$join_complex=join($r_acak_complex,",");
+		$join_pg=join(",",$r_acak);
+		$join_essay=join(",",$r_acak_essay);
+		$join_complex=join(",",$r_acak_complex);
 		$insert_paket=$mysql->query("INSERT INTO quiz_done_paket SET quiz_done_id=$quiz_done_id, pg='$join_pg',essay='$join_essay',complex='$join_complex'");
 		/*end modif disini 3 mei 2020*/
 
@@ -348,7 +349,7 @@ if($_POST['submit'])
 
     $course_material_id=$_POST['course_material_id'];
     $quiz_id=$mysql->get1value("SELECT quiz_id FROM app_course_material WHERE id=$course_material_id");
- 
+	$kompetensi=$mysql->get1value("SELECT title FROM app_course_sub WHERE id=(SELECT course_sub_id FROM app_course_material WHERE id=$course_material_id)");
 	$valid=true;
 	$username=cleanInput($_POST['username']);
 	//$kode_soal=cleanInput($_POST['kode_soal']);
@@ -597,7 +598,11 @@ if(($ismember and $issoal) OR $ada_ujian_aktif)
 </div>
 <div class="form-baris form-group">
 	<label for="username" class="label-isi">Kompetensi</label>
+<<<<<<< HEAD
 	<span class="form-isi"><?php echo $kompetensi_judul;?></span>
+=======
+	<span class="form-isi"><?php echo $kompetensi;?></span>
+>>>>>>> 3cc1d1dbae39ec6f2a23a1c6179be6cb814d9929
 </div>
 <div class="form-baris form-group">
 	<label for="username" class="label-isi">Durasi</label>
