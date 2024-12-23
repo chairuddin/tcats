@@ -336,7 +336,7 @@ if($action=="data") {
 
 		$no++;
 		$row = array();
-		$jumlah_soal="(PG:".$d['multiple']." | Essay:".$d['essay']." | ".$d['duration']." Menit"." | KKM:".$d['kkm'].")";
+		$jumlah_soal="(PG:".$d['multiple']." | ".$d['duration']." Menit"." | KKM:".$d['kkm'].")";
 		$row[]=$no;
 		$row[]='<b>'.$d['code'].'</b><br/>'.$d['title_id'].($d['keterangan']!=""?'<br/><i>'.$d['keterangan'].'</i>':'').'<br/>'.$jumlah_soal.'<br/><b>'.$d['fullname'].'</b>';
 		//$row[]=$d['kkm'];

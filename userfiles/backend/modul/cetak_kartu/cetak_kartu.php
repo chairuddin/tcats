@@ -103,7 +103,7 @@ while($d=$mysql->fetch_assoc($q)) {
 }
 extract($var_config);
 $data_peserta = [];
-$q = $mysql->query("SELECT id,username,fullname,jurusan,class, ruang FROM quiz_member WHERE class='$id' ORDER BY username ");
+$q = $mysql->query("SELECT id,username,fullname,jurusan,class, ruang,organization_unit,position FROM quiz_member WHERE class='$id' ORDER BY username ");
 $urut=1;
 
 if($q and $mysql->num_rows($q)>0) {
@@ -115,6 +115,8 @@ if($q and $mysql->num_rows($q)>0) {
 		'nomor_ujian' => $d['username'], 
 		'ruang' => $d['ruang'],
 		'jurusan' => $d['jurusan'],
+		'organization_unit'=>$d['organization_unit'],
+		'position'=>$d['position'],
 		'nama_sekolah' => $nama_sekolah,
 		'nama_kepsek'=>$nama_kepsek,
 		'judul_kartu'=>$judul_kartu,

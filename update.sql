@@ -98,3 +98,8 @@ ADD `course_material_id_void` int(11) NOT NULL AFTER `course_material_id`;
 
 INSERT INTO `web_config` (`name`, `title_id`, `title_en`, `urutan`, `type`, `label`) VALUES
 ('retake_message_waiting',	'<p style=\"text-align: center;\"><em>Anda berhasil mengajukan ujian ulang. Admin akan melakukan pengecekan terlebih dahulu untuk menyetujui permintaan anda</em></p>',	'<p style=\"text-align: center;\"><em>Anda berhasil mengajukan ujian ulang. Admin akan melakukan pengecekan terlebih dahulu untuk menyetujui permintaan anda</em></p>',	6,	'tiny',	'Pesan Retake Menunggu Persetujuan');
+
+
+/*-------------*/
+/* 01/11/2023 */
+ALTER TABLE `app_quiz_done` ADD `member_organization_unit` VARCHAR(200) NOT NULL AFTER `member_fullname`, ADD `member_position` VARCHAR(200) NOT NULL AFTER `member_organization_unit`;

@@ -24,6 +24,9 @@ $_POST['username']=$mysql->get1value("SELECT username FROM quiz_member WHERE tok
 
 $r_msg_warning=array();
 $this_url=$_SERVER['REQUEST_URI'];
+$course_material_id=$_REQUEST['course_material_id'];
+$kompetensi_judul=$mysql->get1value("SELECT title FROM app_course_sub WHERE id=( SELECT course_sub_id FROM app_course_material WHERE id=$course_material_id ) ");
+
 
 $message_timer='';
  
@@ -70,6 +73,7 @@ if($_POST['mulai_ujian'])
 
 	//belum selesai
 	$quiz_master=$mysql->assoc($q);
+
 	$is_expired=false;
 	
 		$r_json_soal=get_soal_json($quiz_master['id']);
@@ -195,6 +199,8 @@ if($_POST['mulai_ujian'])
 			member_code='".$data_member['username']."',
 			member_class='".$data_member['class']."',
 			member_fullname='".addslashes($data_member['fullname'])."',
+			member_organization_unit='".$data_member['organization_unit']."',
+			member_position='".$data_member['position']."',
 			quiz_id='".$data_quiz['id']."',
 			course_material_id='".$course_material_id."',
 			quiz_duration='".$data_quiz['duration']."',
@@ -586,7 +592,7 @@ if(($ismember and $issoal) OR $ada_ujian_aktif)
 </div>
 <div class="form-baris form-group">
 	<label for="username" class="label-isi">Kompetensi</label>
-	<span class="form-isi"><?php echo $data_quiz['kompetensi'];?></span>
+	<span class="form-isi"><?php echo $kompetensi_judul;?></span>
 </div>
 <div class="form-baris form-group">
 	<label for="username" class="label-isi">Durasi</label>

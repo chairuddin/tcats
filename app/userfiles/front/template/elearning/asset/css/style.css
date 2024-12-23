@@ -9,6 +9,12 @@ body{
     background: #f7f7f7;
     color: #2f3634;
 }
+.details {
+    padding: 20px 20px 10px !important;
+    margin-bottom: 40px;
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+}
 .wrapper {
   margin-bottom: 60px;
 }
