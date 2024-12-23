@@ -29,7 +29,10 @@ require_from_group – Ensures a given number of fields in a group are complete.
  */
  
   
-  
+ <?php
+ $url=backendurl("$modul/data?course=".($_GET['course']!=""?$_GET['course']:''));
+ 
+ ?>
  
 $(document).ready(function(){
 	  
@@ -45,7 +48,7 @@ $(document).ready(function(){
 			'processing'  : true,
 			'serverSide'  : true,
 			"ajax": {
-				"url": '<?php echo backendurl("$modul/data?course=".$_GET[course])?>',
+				"url": '<?=$url?>',
 				"type": "POST"
 			
 			 },

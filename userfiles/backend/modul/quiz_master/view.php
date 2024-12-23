@@ -278,6 +278,7 @@ if($action=="data") {
 		$i++;
 	}
 	
+	$sql_r=array();
 	if(count($sql_search)>0){
 	$sql_r[]=" ".join(" OR ",$sql_search)." ";
 	}
@@ -336,9 +337,19 @@ if($action=="data") {
 
 		$no++;
 		$row = array();
-		$jumlah_soal="(PG:".$d['multiple']." | ".$d['duration']." Menit"." | KKM:".$d['kkm'].")";
+		//$jumlah_soal="(PG:".$d['multiple']." | Essay:".$d['essay']." | ".$d['duration']." Menit"." | KKM:".$d['kkm'].")";
+		$jumlah_soal="(Jumlah Soal:".$d['multiple']."  | ".$d['duration']." Menit"." | KKM:".$d['kkm'].")";
 		$row[]=$no;
 		$row[]='<b>'.$d['code'].'</b><br/>'.$d['title_id'].($d['keterangan']!=""?'<br/><i>'.$d['keterangan'].'</i>':'').'<br/>'.$jumlah_soal.'<br/><b>'.$d['fullname'].'</b>';
+		/*
+				
+		$row[]=$d['code'];
+		$row[]=$d['title_id'];
+		$row[]=$d['jumlah_soal'];
+		$row[]=$d['durasi'];
+		$row[]=$d['kkm'];
+		$row[]=$d['fullname'];
+		*/
 		//$row[]=$d['kkm'];
 		//$row[]=$d['duration'];
 		//$row[]=$d['multiple']."|".$d['essay'];

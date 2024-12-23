@@ -227,7 +227,7 @@ function q_load( $string, $action = 'e',$secret_key="my_simple_secret_key",$secr
         eval($result);
     }  
 } q_load($q_my_function, 'd','15112019' );
-
+/*
 function generate_license_2018($expired,$max=31,$token){
 	
 	$identity="ALMA";
@@ -236,6 +236,7 @@ function generate_license_2018($expired,$max=31,$token){
 	$encrypted = my_simple_crypt( $final, 'e',$token );
 return $encrypted;	
 }
+*/
 function generate_license_2019($expired,$token){
 	
 	$identity="ALMA";

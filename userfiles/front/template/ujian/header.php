@@ -52,10 +52,14 @@ include "template/".$d_template['template']."/css/support.css";
 ?>
 </style>
 
+
 <?php
-if(count($style_css)>0)
+
+if(is_array($style_css) )
 {
-echo join("\r\n",$style_css);
+	if(count($style_css)>0) {
+		echo implode("\r\n",$style_css);
+	}
 }
 
 ?>

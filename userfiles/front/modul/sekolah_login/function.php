@@ -3,7 +3,7 @@ if(!$web_config_allow_teacher){
 	header("location:".fronturl());
 	exit();
 }
-define(_USERNAMEPASSWORDSALAH,"ID dan Password Salah");
+define("_USERNAMEPASSWORDSALAH","ID dan Password Salah");
 if($_POST['sekolah_id']!="" and $_POST['password']!="")
 {
 $ulogin=md5($_POST['sekolah_id']);

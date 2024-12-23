@@ -114,8 +114,8 @@ Class Login
 		return $update_password;
 	}
     function set_token($token,$id) {
-      
-        $update_token=$this->db->query("UPDATE quiz_member SET token='$token',WHERE id='$id'");
+		$token=$token!=""?$token:'';
+        $update_token=$this->db->query("UPDATE quiz_member SET token='$token' WHERE id='$id'");
         return $update_token;
     }
 

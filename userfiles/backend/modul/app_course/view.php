@@ -142,7 +142,7 @@ if($action=="data") {
 		}
 		$i++;
 	}
-	
+	$sql_r=array();
 	if(count($sql_search)>0){
 	$sql_r[]=" ".join(" OR ",$sql_search)." ";
 	}

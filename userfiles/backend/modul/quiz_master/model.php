@@ -58,7 +58,7 @@ if($action=="save_kd")
 	$score_max=cleanInput($_POST['score_max']);
 	$kkm=cleanInput($_POST['kkm']);
 	$r_nomor_soal=explode(",",$nomor_soal);
-	$r_nomor_soal=array_map(hanyaAngka,$r_nomor_soal);
+	$r_nomor_soal=array_map("hanyaAngka",$r_nomor_soal);
 	$nomor_soal=join(",",$r_nomor_soal);
 	$quiz_id=cleanInput($_POST['quiz_id']);
 	if($quiz_id=="")
