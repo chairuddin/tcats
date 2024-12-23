@@ -274,7 +274,7 @@ if($action=="upload_xls")
 	}else{
 		$join_msg="<ul><li>".join("</li><li>",$already_exist)."</li></ul>";	
 	}
-	
+	unlink($destination);
 	if($sukses) {
 		$mysql->commit();
 		$mysql->autocommit(true);

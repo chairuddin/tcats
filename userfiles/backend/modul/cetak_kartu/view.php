@@ -3,6 +3,10 @@ if($action=="qrcode") {
 	echo generateQRCode(md5($id));
 	die();
 }
+if($action=="single" and $id!='') {
+	include "cetak_kartu_single.php";
+	die();
+}
 if($action=="print_detail" and $id!='') {
 	include "cetak_kartu.php";
 	die();

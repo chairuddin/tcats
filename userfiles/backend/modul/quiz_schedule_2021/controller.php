@@ -1,2 +1,0 @@
-<?php
-b_load_lib("YonaForm");b_load_lib("PHPExcel/Classes/PHPExcel");$validation = new YonaValidation();$form = new YonaForm();b_auto_load_css();b_auto_load_js();include "function.php";include "model.php";include "view.php";$form->release_data();?>
