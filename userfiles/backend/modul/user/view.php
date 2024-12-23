@@ -31,7 +31,11 @@ $form->addElement(new Element_Button(_BATAL, "button", array(
 	"onclick" => "history.go(-1);"
 )));
 echo '
-
+<style>
+.control-group {
+    margin-bottom: 14px;
+}
+</style>
 <div class="row">
 <div class="col-md-6">
 <div class="card card-navy">
@@ -73,7 +77,11 @@ $form->addElement(new Element_Button(_BATAL, "button", array(
 )));
 
 echo '
-
+<style>
+.control-group {
+    margin-bottom: 14px;
+}
+</style>
 <div class="row">
 <div class="col-md-6">
 <div class="card card-navy">
