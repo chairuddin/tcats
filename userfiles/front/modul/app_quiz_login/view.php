@@ -24,9 +24,6 @@ $_POST['username']=$mysql->get1value("SELECT username FROM quiz_member WHERE tok
 
 $r_msg_warning=array();
 $this_url=$_SERVER['REQUEST_URI'];
-$course_material_id=$_REQUEST['course_material_id'];
-$kompetensi_judul=$mysql->get1value("SELECT title FROM app_course_sub WHERE id=( SELECT course_sub_id FROM app_course_material WHERE id=$course_material_id ) ");
-
 
 $message_timer='';
  
@@ -74,7 +71,6 @@ if($_POST['mulai_ujian'])
 
 	//belum selesai
 	$quiz_master=$mysql->assoc($q);
-
 	$is_expired=false;
 	
 		$r_json_soal=get_soal_json($quiz_master['id']);
@@ -171,9 +167,10 @@ if($_POST['mulai_ujian'])
 
 		if($data_quiz['is_random'])
 		{
-		shuffle($r_acak);
-		shuffle($r_acak_essay);
-		shuffle($r_acak_complex);
+	
+		is_array($r_acak)?shuffle($r_acak):'';
+		is_array($r_acak_essay)?shuffle($r_acak_essay):'';
+		is_array($r_acak_complex)?shuffle($r_acak_complex):'';
 		}
 		$acak=join(",",$r_acak);
 		//var_dump($r_acak);
@@ -203,8 +200,6 @@ if($_POST['mulai_ujian'])
 			member_code='".$data_member['username']."',
 			member_class='".$data_member['class']."',
 			member_fullname='".addslashes($data_member['fullname'])."',
-			member_organization_unit='".$data_member['organization_unit']."',
-			member_position='".$data_member['position']."',
 			quiz_id='".$data_quiz['id']."',
 			course_material_id='".$course_material_id."',
 			quiz_duration='".$data_quiz['duration']."',
@@ -237,10 +232,26 @@ if($_POST['mulai_ujian'])
 		$quiz_done_id=$mysql->insert_id();
 		//var_dump($r_acak);
 		//die();
-		$join_pg=join(",",$r_acak);
-		$join_essay=join(",",$r_acak_essay);
-		$join_complex=join(",",$r_acak_complex);
-		$insert_paket=$mysql->query("INSERT INTO quiz_done_paket SET quiz_done_id=$quiz_done_id, pg='$join_pg',essay='$join_essay',complex='$join_complex'");
+		$join_pg="";
+		$join_essay="";
+		$join_complex="";
+		if(is_array($r_acak)) {
+			$join_pg=join(",",$r_acak);
+		}
+		if(is_array($r_acak_essay)) {
+			$join_essay=join(",",$r_acak_essay);
+		}
+		if(is_array($r_acak_complex)) {
+			$join_complex=join(",",$r_acak_complex);
+		}
+		//$join_essay=join($r_acak_essay,",");
+		//$join_complex=join($r_acak_complex,",");
+		if($quiz_done_id) {
+		$insert_paket=$mysql->query("INSERT INTO app_quiz_done_paket SET quiz_done_id=$quiz_done_id, pg='$join_pg',essay='$join_essay',complex='$join_complex'");
+		/*
+		$insert_paket=$mysql->query("INSERT INTO quiz_done_paket SET quiz_done_id=$quiz_done_id, pg='$join_pg',essay='$join_essay',complex='$join_complex'",1,1,1);
+		*/
+		}
 		/*end modif disini 3 mei 2020*/
 
 		
@@ -440,10 +451,11 @@ if($_POST['submit'])
 	//$data_quiz=get_master_soal_json($kode_soal);
 	$r_json_soal=get_soal_json($quiz_id);
 	list($data_quiz)=$r_json_soal['master_soal'];
+	
+	
 
 
-
-	if($valid AND count($data_quiz)>0)
+	if($valid AND is_array($data_quiz) AND count($data_quiz)>0)
 	{
 
 		$issoal=true;
@@ -598,11 +610,7 @@ if(($ismember and $issoal) OR $ada_ujian_aktif)
 </div>
 <div class="form-baris form-group">
 	<label for="username" class="label-isi">Kompetensi</label>
-<<<<<<< HEAD
-	<span class="form-isi"><?php echo $kompetensi_judul;?></span>
-=======
 	<span class="form-isi"><?php echo $kompetensi;?></span>
->>>>>>> 3cc1d1dbae39ec6f2a23a1c6179be6cb814d9929
 </div>
 <div class="form-baris form-group">
 	<label for="username" class="label-isi">Durasi</label>

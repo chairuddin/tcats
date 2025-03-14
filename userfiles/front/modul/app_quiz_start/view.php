@@ -64,7 +64,7 @@ if($member_data['foto']) {
 }
 
 ?>
-<link href="<<<TEMPLATE_URL>>>/css/ujian.css?1=3" rel="stylesheet">
+<link href="<<<TEMPLATE_URL>>>/css/ujian.css?1=5" rel="stylesheet">
 <div class="koneksi_bermasalah" style="display:none;">Tidak terhubung dengan server</div>
 <div class="koneksi_putus" style="display:none;">Koneksi bermasalah</div>
 <div class="koneksi_lambat" style="display:none;">Koneksi internet anda terlalu lambat. Silahkan gunakan internet yang stabil dan refresh halaman ini</div>
@@ -774,6 +774,12 @@ END;
 $style_css['quiz_start']=<<<END
 <style>
 
+div#middle-block {
+    width: 100% !important;
+}
+.boxed .container {
+	width: 70% !important;
+}
 .modal-body > table, th, td {
   border: 1px solid black;
   padding:3px;

@@ -103,3 +103,28 @@ INSERT INTO `web_config` (`name`, `title_id`, `title_en`, `urutan`, `type`, `lab
 /*-------------*/
 /* 01/11/2023 */
 ALTER TABLE `app_quiz_done` ADD `member_organization_unit` VARCHAR(200) NOT NULL AFTER `member_fullname`, ADD `member_position` VARCHAR(200) NOT NULL AFTER `member_organization_unit`;
+
+
+
+11:30 10/01/2025
+ALTER TABLE `app_quiz_request`
+CHANGE `id` `id` int(11) NULL AUTO_INCREMENT FIRST,
+CHANGE `member_id` `member_id` int(11) NULL AFTER `id`,
+CHANGE `course_material_id` `course_material_id` int(11) NULL AFTER `member_id`,
+CHANGE `quiz_done_id` `quiz_done_id` bigint(11) NULL COMMENT 'quiz_done_id failed' AFTER `course_material_id`,
+CHANGE `created_at` `created_at` datetime NULL AFTER `quiz_done_id`,
+CHANGE `approved_by` `approved_by` int(11) NULL AFTER `created_at`,
+CHANGE `approved_at` `approved_at` datetime NULL AFTER `approved_by`,
+CHANGE `disapprove_by` `disapprove_by` int(11) NULL AFTER `approved_at`,
+CHANGE `disapprove_at` `disapprove_at` datetime NULL AFTER `disapprove_by`;
+
+
+ALTER TABLE `app_quiz_request`
+CHANGE `member_id` `member_id` int(11) NULL DEFAULT '0' AFTER `id`,
+CHANGE `course_material_id` `course_material_id` int(11) NULL DEFAULT '0' AFTER `member_id`,
+CHANGE `quiz_done_id` `quiz_done_id` bigint(11) NULL DEFAULT '0' COMMENT 'quiz_done_id failed' AFTER `course_material_id`,
+CHANGE `created_at` `created_at` datetime NULL DEFAULT '0000-00-00 00:00:00' AFTER `quiz_done_id`,
+CHANGE `approved_by` `approved_by` int(11) NULL DEFAULT '0' AFTER `created_at`,
+CHANGE `approved_at` `approved_at` datetime NULL DEFAULT '0000-00-00 00:00:00' AFTER `approved_by`,
+CHANGE `disapprove_by` `disapprove_by` int(11) NULL DEFAULT '0' AFTER `approved_at`,
+CHANGE `disapprove_at` `disapprove_at` datetime NULL DEFAULT '0000-00-00 00:00:00' AFTER `disapprove_by`;

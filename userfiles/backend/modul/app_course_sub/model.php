@@ -45,7 +45,7 @@ if($action=="save" or $action=="update") {
 
 		$pretest_quiz=$_POST['pretest_quiz'];
 		$posttest_quiz=$_POST['posttest_quiz'];
-
+	
 		$sql_r = array();
 
 		if ($_FILES['image']['name'] != '') {
@@ -102,6 +102,7 @@ if($action=="save" or $action=="update") {
 		
 		//create prestest
 		$pretest_id=$mysql->get1value("SELECT id FROM app_course_material WHERE quiz_type='pretest' AND course_sub_id=$course_sub_id");
+		
 		$now=date("Y-m-d H:i:s");
 		if($pretest_id=='') {
 			
@@ -187,3 +188,4 @@ $id=cleanInput($id,'numeric');
 	}
 	
 }
+
