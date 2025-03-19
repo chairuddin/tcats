@@ -40,7 +40,7 @@ foreach($_SESSION['data_excel']['data_ujian'] as $i =>$data) {
 		$sukses=false;
 		$message[]="Data $nama terdapat masalah";
 	}
-	echo $sql1."<br/>";
+	//echo $sql1."<br/>";
 	$competency_excel_id=$mysql->insert_id();
 	
 	//$biodata=
@@ -57,7 +57,7 @@ foreach($_SESSION['data_excel']['data_ujian'] as $i =>$data) {
 			$message[]="Nilai Kompetensi $nama bermasalah";
 			$sukses=false;
 		}
-		echo $sql2."<br/>";
+		//echo $sql2."<br/>";
 	}
 	
 	
