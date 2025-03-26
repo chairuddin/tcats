@@ -1,4 +1,7 @@
-configuration.php
-/userfiles/file/quiz/media/source
-/userfiles/file/quiz/media/thumbs
-
+/nbproject/
+/.idea/*
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
