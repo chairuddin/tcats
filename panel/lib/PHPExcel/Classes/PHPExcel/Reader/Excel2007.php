@@ -76,9 +76,9 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
         $zipClass = PHPExcel_Settings::getZipClass();
 
         // Check if zip class exists
-//        if (!class_exists($zipClass, false)) {
-//            throw new PHPExcel_Reader_Exception($zipClass . " library is not enabled");
-//        }
+        //        if (!class_exists($zipClass, false)) {
+        //            throw new PHPExcel_Reader_Exception($zipClass . " library is not enabled");
+        //        }
 
         $xl = false;
         // Load file
@@ -94,7 +94,6 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                 $xl = true;
                             }
                             break;
-
                     }
                 }
             }
@@ -200,7 +199,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                         $fileWorksheet = $worksheets[(string) self::getArrayItem($eleSheet->attributes("http://schemas.openxmlformats.org/officeDocument/2006/relationships"), "id")];
 
                         $xml = new XMLReader();
-                        $res = $xml->xml($this->securityScanFile('zip://'.PHPExcel_Shared_File::realpath($pFilename).'#'."$dir/$fileWorksheet"), null, PHPExcel_Settings::getLibXmlLoaderOptions());
+                        $res = $xml->xml($this->securityScanFile('zip://' . PHPExcel_Shared_File::realpath($pFilename) . '#' . "$dir/$fileWorksheet"), null, PHPExcel_Settings::getLibXmlLoaderOptions());
                         $xml->setParserProperty(2, true);
 
                         $currCells = 0;
@@ -233,7 +232,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
 
     private static function castToBoolean($c)
     {
-//        echo 'Initial Cast to Boolean', PHP_EOL;
+        //        echo 'Initial Cast to Boolean', PHP_EOL;
         $value = isset($c->v) ? (string) $c->v : null;
         if ($value == '0') {
             return false;
@@ -247,44 +246,44 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
 
     private static function castToError($c)
     {
-//        echo 'Initial Cast to Error', PHP_EOL;
+        //        echo 'Initial Cast to Error', PHP_EOL;
         return isset($c->v) ? (string) $c->v : null;
     }
 
     private static function castToString($c)
     {
-//        echo 'Initial Cast to String, PHP_EOL;
+        //        echo 'Initial Cast to String, PHP_EOL;
         return isset($c->v) ? (string) $c->v : null;
     }
 
     private function castToFormula($c, $r, &$cellDataType, &$value, &$calculatedValue, &$sharedFormulas, $castBaseType)
     {
-//        echo 'Formula', PHP_EOL;
-//        echo '$c->f is ', $c->f, PHP_EOL;
+        //        echo 'Formula', PHP_EOL;
+        //        echo '$c->f is ', $c->f, PHP_EOL;
         $cellDataType       = 'f';
         $value              = "={$c->f}";
         $calculatedValue    = self::$castBaseType($c);
 
         // Shared formula?
         if (isset($c->f['t']) && strtolower((string)$c->f['t']) == 'shared') {
-//            echo 'SHARED FORMULA', PHP_EOL;
+            //            echo 'SHARED FORMULA', PHP_EOL;
             $instance = (string)$c->f['si'];
 
-//            echo 'Instance ID = ', $instance, PHP_EOL;
-//
-//            echo 'Shared Formula Array:', PHP_EOL;
-//            print_r($sharedFormulas);
+            //            echo 'Instance ID = ', $instance, PHP_EOL;
+            //
+            //            echo 'Shared Formula Array:', PHP_EOL;
+            //            print_r($sharedFormulas);
             if (!isset($sharedFormulas[(string)$c->f['si']])) {
-//                echo 'SETTING NEW SHARED FORMULA', PHP_EOL;
-//                echo 'Master is ', $r, PHP_EOL;
-//                echo 'Formula is ', $value, PHP_EOL;
+                //                echo 'SETTING NEW SHARED FORMULA', PHP_EOL;
+                //                echo 'Master is ', $r, PHP_EOL;
+                //                echo 'Formula is ', $value, PHP_EOL;
                 $sharedFormulas[$instance] = array('master' => $r, 'formula' => $value);
-//                echo 'New Shared Formula Array:', PHP_EOL;
-//                print_r($sharedFormulas);
+                //                echo 'New Shared Formula Array:', PHP_EOL;
+                //                print_r($sharedFormulas);
             } else {
-//                echo 'GETTING SHARED FORMULA', PHP_EOL;
-//                echo 'Master is ', $sharedFormulas[$instance]['master'], PHP_EOL;
-//                echo 'Formula is ', $sharedFormulas[$instance]['formula'], PHP_EOL;
+                //                echo 'GETTING SHARED FORMULA', PHP_EOL;
+                //                echo 'Master is ', $sharedFormulas[$instance]['master'], PHP_EOL;
+                //                echo 'Formula is ', $sharedFormulas[$instance]['formula'], PHP_EOL;
                 $master = PHPExcel_Cell::coordinateFromString($sharedFormulas[$instance]['master']);
                 $current = PHPExcel_Cell::coordinateFromString($r);
 
@@ -293,7 +292,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                 $difference[1] = $current[1] - $master[1];
 
                 $value = $this->referenceHelper->updateFormulaReferences($sharedFormulas[$instance]['formula'], 'A1', $difference[0], $difference[1]);
-//                echo 'Adjusted Formula is ', $value, PHP_EOL;
+                //                echo 'Adjusted Formula is ', $value, PHP_EOL;
             }
         }
     }
@@ -309,7 +308,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
 
         // Sadly, some 3rd party xlsx generators don't use consistent case for filenaming
         //    so we need to load case-insensitively from the zip file
-        
+
         // Apache POI fixes
         $contents = $archive->getFromIndex(
             $archive->locateName($fileName, ZIPARCHIVE::FL_NOCASE)
@@ -480,7 +479,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                     }
 
                     if (!is_null($macros)) {
-                        $macrosCode = $this->getFromZipArchive($zip, 'xl/vbaProject.bin');//vbaProject.bin always in 'xl' dir and always named vbaProject.bin
+                        $macrosCode = $this->getFromZipArchive($zip, 'xl/vbaProject.bin'); //vbaProject.bin always in 'xl' dir and always named vbaProject.bin
                         if ($macrosCode !== false) {
                             $excel->setMacrosCode($macrosCode);
                             $excel->setHasMacros(true);
@@ -525,7 +524,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                             }
                             $quotePrefix = false;
                             if (isset($xf["quotePrefix"])) {
-                                $quotePrefix = (boolean) $xf["quotePrefix"];
+                                $quotePrefix = (bool) $xf["quotePrefix"];
                             }
 
                             $style = (object) array(
@@ -707,15 +706,19 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                 $docSheet->setCodeName((string) $xmlSheet->sheetPr['codeName']);
                             }
                             if (isset($xmlSheet->sheetPr) && isset($xmlSheet->sheetPr->outlinePr)) {
-                                if (isset($xmlSheet->sheetPr->outlinePr['summaryRight']) &&
-                                    !self::boolean((string) $xmlSheet->sheetPr->outlinePr['summaryRight'])) {
+                                if (
+                                    isset($xmlSheet->sheetPr->outlinePr['summaryRight']) &&
+                                    !self::boolean((string) $xmlSheet->sheetPr->outlinePr['summaryRight'])
+                                ) {
                                     $docSheet->setShowSummaryRight(false);
                                 } else {
                                     $docSheet->setShowSummaryRight(true);
                                 }
 
-                                if (isset($xmlSheet->sheetPr->outlinePr['summaryBelow']) &&
-                                    !self::boolean((string) $xmlSheet->sheetPr->outlinePr['summaryBelow'])) {
+                                if (
+                                    isset($xmlSheet->sheetPr->outlinePr['summaryBelow']) &&
+                                    !self::boolean((string) $xmlSheet->sheetPr->outlinePr['summaryBelow'])
+                                ) {
                                     $docSheet->setShowSummaryBelow(false);
                                 } else {
                                     $docSheet->setShowSummaryBelow(true);
@@ -723,8 +726,10 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                             }
 
                             if (isset($xmlSheet->sheetPr) && isset($xmlSheet->sheetPr->pageSetUpPr)) {
-                                if (isset($xmlSheet->sheetPr->pageSetUpPr['fitToPage']) &&
-                                    !self::boolean((string) $xmlSheet->sheetPr->pageSetUpPr['fitToPage'])) {
+                                if (
+                                    isset($xmlSheet->sheetPr->pageSetUpPr['fitToPage']) &&
+                                    !self::boolean((string) $xmlSheet->sheetPr->pageSetUpPr['fitToPage'])
+                                ) {
                                     $docSheet->getPageSetup()->setFitToPage(false);
                                 } else {
                                     $docSheet->getPageSetup()->setFitToPage(true);
@@ -732,16 +737,20 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                             }
 
                             if (isset($xmlSheet->sheetFormatPr)) {
-                                if (isset($xmlSheet->sheetFormatPr['customHeight']) &&
+                                if (
+                                    isset($xmlSheet->sheetFormatPr['customHeight']) &&
                                     self::boolean((string) $xmlSheet->sheetFormatPr['customHeight']) &&
-                                    isset($xmlSheet->sheetFormatPr['defaultRowHeight'])) {
+                                    isset($xmlSheet->sheetFormatPr['defaultRowHeight'])
+                                ) {
                                     $docSheet->getDefaultRowDimension()->setRowHeight((float)$xmlSheet->sheetFormatPr['defaultRowHeight']);
                                 }
                                 if (isset($xmlSheet->sheetFormatPr['defaultColWidth'])) {
                                     $docSheet->getDefaultColumnDimension()->setWidth((float)$xmlSheet->sheetFormatPr['defaultColWidth']);
                                 }
-                                if (isset($xmlSheet->sheetFormatPr['zeroHeight']) &&
-                                    ((string)$xmlSheet->sheetFormatPr['zeroHeight'] == '1')) {
+                                if (
+                                    isset($xmlSheet->sheetFormatPr['zeroHeight']) &&
+                                    ((string)$xmlSheet->sheetFormatPr['zeroHeight'] == '1')
+                                ) {
                                     $docSheet->getDefaultRowDimension()->setZeroHeight(true);
                                 }
                             }
@@ -756,7 +765,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                             //$docSheet->getColumnDimension(PHPExcel_Cell::stringFromColumnIndex($i))->setAutoSize(true);
                                         }
                                         if (self::boolean($col["hidden"])) {
-                                        // echo PHPExcel_Cell::stringFromColumnIndex($i), ': HIDDEN COLUMN',PHP_EOL;
+                                            // echo PHPExcel_Cell::stringFromColumnIndex($i), ': HIDDEN COLUMN',PHP_EOL;
                                             $docSheet->getColumnDimension(PHPExcel_Cell::stringFromColumnIndex($i))->setVisible(false);
                                         }
                                         if (self::boolean($col["collapsed"])) {
@@ -822,15 +831,15 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                             }
                                         }
 
-    //                                    echo 'Reading cell ', $coordinates[0], $coordinates[1], PHP_EOL;
-    //                                    print_r($c);
-    //                                    echo PHP_EOL;
-    //                                    echo 'Cell Data Type is ', $cellDataType, ': ';
-    //
+                                        //                                    echo 'Reading cell ', $coordinates[0], $coordinates[1], PHP_EOL;
+                                        //                                    print_r($c);
+                                        //                                    echo PHP_EOL;
+                                        //                                    echo 'Cell Data Type is ', $cellDataType, ': ';
+                                        //
                                         // Read cell!
                                         switch ($cellDataType) {
                                             case "s":
-    //                                            echo 'String', PHP_EOL;
+                                                //                                            echo 'String', PHP_EOL;
                                                 if ((string)$c->v != '') {
                                                     $value = $sharedStrings[intval($c->v)];
 
@@ -842,7 +851,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                                 }
                                                 break;
                                             case "b":
-    //                                            echo 'Boolean', PHP_EOL;
+                                                //                                            echo 'Boolean', PHP_EOL;
                                                 if (!isset($c->f)) {
                                                     $value = self::castToBoolean($c);
                                                 } else {
@@ -853,11 +862,11 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                                         $att = $c->f;
                                                         $docSheet->getCell($r)->setFormulaAttributes($att);
                                                     }
-    //                                                echo '$calculatedValue = ', $calculatedValue, PHP_EOL;
+                                                    //                                                echo '$calculatedValue = ', $calculatedValue, PHP_EOL;
                                                 }
                                                 break;
                                             case "inlineStr":
-//                                                echo 'Inline String', PHP_EOL;
+                                                //                                                echo 'Inline String', PHP_EOL;
                                                 if (isset($c->f)) {
                                                     $this->castToFormula($c, $r, $cellDataType, $value, $calculatedValue, $sharedFormulas, 'castToError');
                                                 } else {
@@ -865,29 +874,29 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                                 }
                                                 break;
                                             case "e":
-    //                                            echo 'Error', PHP_EOL;
+                                                //                                            echo 'Error', PHP_EOL;
                                                 if (!isset($c->f)) {
                                                     $value = self::castToError($c);
                                                 } else {
                                                     // Formula
                                                     $this->castToFormula($c, $r, $cellDataType, $value, $calculatedValue, $sharedFormulas, 'castToError');
-    //                                                echo '$calculatedValue = ', $calculatedValue, PHP_EOL;
+                                                    //                                                echo '$calculatedValue = ', $calculatedValue, PHP_EOL;
                                                 }
                                                 break;
                                             default:
-//                                                echo 'Default', PHP_EOL;
+                                                //                                                echo 'Default', PHP_EOL;
                                                 if (!isset($c->f)) {
-    //                                                echo 'Not a Formula', PHP_EOL;
+                                                    //                                                echo 'Not a Formula', PHP_EOL;
                                                     $value = self::castToString($c);
                                                 } else {
-    //                                                echo 'Treat as Formula', PHP_EOL;
+                                                    //                                                echo 'Treat as Formula', PHP_EOL;
                                                     // Formula
                                                     $this->castToFormula($c, $r, $cellDataType, $value, $calculatedValue, $sharedFormulas, 'castToString');
-    //                                                echo '$calculatedValue = ', $calculatedValue, PHP_EOL;
+                                                    //                                                echo '$calculatedValue = ', $calculatedValue, PHP_EOL;
                                                 }
                                                 break;
                                         }
-    //                                    echo 'Value is ', $value, PHP_EOL;
+                                        //                                    echo 'Value is ', $value, PHP_EOL;
 
                                         // Check for numeric values
                                         if (is_numeric($value) && $cellDataType != 's') {
@@ -895,8 +904,8 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                                 $value = (int)$value;
                                             } elseif ($value == (float)$value) {
                                                 $value = (float)$value;
-                                            } elseif ($value == (double)$value) {
-                                                $value = (double)$value;
+                                            } elseif ($value == (float)$value) {
+                                                $value = (float)$value;
                                             }
                                         }
 
@@ -991,7 +1000,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                     $autoFilter->setRange($autoFilterRange);
 
                                     foreach ($xmlSheet->autoFilter->filterColumn as $filterColumn) {
-                                        $column = $autoFilter->getColumnByOffset((integer) $filterColumn["colId"]);
+                                        $column = $autoFilter->getColumnByOffset((int) $filterColumn["colId"]);
                                         //    Check for standard filters
                                         if ($filterColumn->filters) {
                                             $column->setFilterType(PHPExcel_Worksheet_AutoFilter_Column::AUTOFILTER_FILTERTYPE_FILTER);
@@ -1021,7 +1030,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                                     ),
                                                     (string) $dateGroupItem["dateTimeGrouping"]
                                                 )
-                                                ->setRuleType(PHPExcel_Worksheet_AutoFilter_Column_Rule::AUTOFILTER_RULETYPE_DATEGROUP);
+                                                    ->setRuleType(PHPExcel_Worksheet_AutoFilter_Column_Rule::AUTOFILTER_RULETYPE_DATEGROUP);
                                             }
                                         }
                                         //    Check for custom filters
@@ -1038,7 +1047,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                                     (string) $filterRule["operator"],
                                                     (string) $filterRule["val"]
                                                 )
-                                                ->setRuleType(PHPExcel_Worksheet_AutoFilter_Column_Rule::AUTOFILTER_RULETYPE_CUSTOMFILTER);
+                                                    ->setRuleType(PHPExcel_Worksheet_AutoFilter_Column_Rule::AUTOFILTER_RULETYPE_CUSTOMFILTER);
                                             }
                                         }
                                         //    Check for dynamic filters
@@ -1052,7 +1061,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                                     (string) $filterRule["val"],
                                                     (string) $filterRule["type"]
                                                 )
-                                                ->setRuleType(PHPExcel_Worksheet_AutoFilter_Column_Rule::AUTOFILTER_RULETYPE_DYNAMICFILTER);
+                                                    ->setRuleType(PHPExcel_Worksheet_AutoFilter_Column_Rule::AUTOFILTER_RULETYPE_DYNAMICFILTER);
                                                 if (isset($filterRule["val"])) {
                                                     $column->setAttribute('val', (string) $filterRule["val"]);
                                                 }
@@ -1077,7 +1086,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                                         : PHPExcel_Worksheet_AutoFilter_Column_Rule::AUTOFILTER_COLUMN_RULE_TOPTEN_BOTTOM
                                                     )
                                                 )
-                                                ->setRuleType(PHPExcel_Worksheet_AutoFilter_Column_Rule::AUTOFILTER_RULETYPE_TOPTENFILTER);
+                                                    ->setRuleType(PHPExcel_Worksheet_AutoFilter_Column_Rule::AUTOFILTER_RULETYPE_TOPTENFILTER);
                                             }
                                         }
                                     }
@@ -1121,8 +1130,10 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                 if (isset($xmlSheet->pageSetup["fitToWidth"]) && intval($xmlSheet->pageSetup["fitToWidth"]) >= 0) {
                                     $docPageSetup->setFitToWidth(intval($xmlSheet->pageSetup["fitToWidth"]), false);
                                 }
-                                if (isset($xmlSheet->pageSetup["firstPageNumber"]) && isset($xmlSheet->pageSetup["useFirstPageNumber"]) &&
-                                    self::boolean((string) $xmlSheet->pageSetup["useFirstPageNumber"])) {
+                                if (
+                                    isset($xmlSheet->pageSetup["firstPageNumber"]) && isset($xmlSheet->pageSetup["useFirstPageNumber"]) &&
+                                    self::boolean((string) $xmlSheet->pageSetup["useFirstPageNumber"])
+                                ) {
                                     $docPageSetup->setFirstPageNumber(intval($xmlSheet->pageSetup["firstPageNumber"]));
                                 }
                             }
@@ -1130,26 +1141,34 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                             if ($xmlSheet && $xmlSheet->headerFooter && !$this->readDataOnly) {
                                 $docHeaderFooter = $docSheet->getHeaderFooter();
 
-                                if (isset($xmlSheet->headerFooter["differentOddEven"]) &&
-                                    self::boolean((string)$xmlSheet->headerFooter["differentOddEven"])) {
+                                if (
+                                    isset($xmlSheet->headerFooter["differentOddEven"]) &&
+                                    self::boolean((string)$xmlSheet->headerFooter["differentOddEven"])
+                                ) {
                                     $docHeaderFooter->setDifferentOddEven(true);
                                 } else {
                                     $docHeaderFooter->setDifferentOddEven(false);
                                 }
-                                if (isset($xmlSheet->headerFooter["differentFirst"]) &&
-                                    self::boolean((string)$xmlSheet->headerFooter["differentFirst"])) {
+                                if (
+                                    isset($xmlSheet->headerFooter["differentFirst"]) &&
+                                    self::boolean((string)$xmlSheet->headerFooter["differentFirst"])
+                                ) {
                                     $docHeaderFooter->setDifferentFirst(true);
                                 } else {
                                     $docHeaderFooter->setDifferentFirst(false);
                                 }
-                                if (isset($xmlSheet->headerFooter["scaleWithDoc"]) &&
-                                    !self::boolean((string)$xmlSheet->headerFooter["scaleWithDoc"])) {
+                                if (
+                                    isset($xmlSheet->headerFooter["scaleWithDoc"]) &&
+                                    !self::boolean((string)$xmlSheet->headerFooter["scaleWithDoc"])
+                                ) {
                                     $docHeaderFooter->setScaleWithDocument(false);
                                 } else {
                                     $docHeaderFooter->setScaleWithDocument(true);
                                 }
-                                if (isset($xmlSheet->headerFooter["alignWithMargins"]) &&
-                                    !self::boolean((string)$xmlSheet->headerFooter["alignWithMargins"])) {
+                                if (
+                                    isset($xmlSheet->headerFooter["alignWithMargins"]) &&
+                                    !self::boolean((string)$xmlSheet->headerFooter["alignWithMargins"])
+                                ) {
                                     $docHeaderFooter->setAlignWithMargins(false);
                                 } else {
                                     $docHeaderFooter->setAlignWithMargins(true);
@@ -1230,7 +1249,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                         foreach (PHPExcel_Cell::extractAllCellReferencesInRange($hyperlink['ref']) as $cellReference) {
                                             $cell = $docSheet->getCell($cellReference);
                                             if (isset($linkRel['id'])) {
-                                                $hyperlinkUrl = $hyperlinks[ (string)$linkRel['id'] ];
+                                                $hyperlinkUrl = $hyperlinks[(string)$linkRel['id']];
                                                 if (isset($hyperlink['location'])) {
                                                     $hyperlinkUrl .= '#' . (string) $hyperlink['location'];
                                                 }
@@ -1390,27 +1409,26 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                                 $imageData = $imageData->attributes('urn:schemas-microsoft-com:office:office');
                                                 $style = self::toCSSArray((string)$shape['style']);
 
-                                                $hfImages[ (string)$shape['id'] ] = new PHPExcel_Worksheet_HeaderFooterDrawing();
+                                                $hfImages[(string)$shape['id']] = new PHPExcel_Worksheet_HeaderFooterDrawing();
                                                 if (isset($imageData['title'])) {
-                                                    $hfImages[ (string)$shape['id'] ]->setName((string)$imageData['title']);
+                                                    $hfImages[(string)$shape['id']]->setName((string)$imageData['title']);
                                                 }
 
-                                                $hfImages[ (string)$shape['id'] ]->setPath("zip://".PHPExcel_Shared_File::realpath($pFilename)."#" . $drawings[(string)$imageData['relid']], false);
-                                                $hfImages[ (string)$shape['id'] ]->setResizeProportional(false);
-                                                $hfImages[ (string)$shape['id'] ]->setWidth($style['width']);
-                                                $hfImages[ (string)$shape['id'] ]->setHeight($style['height']);
+                                                $hfImages[(string)$shape['id']]->setPath("zip://" . PHPExcel_Shared_File::realpath($pFilename) . "#" . $drawings[(string)$imageData['relid']], false);
+                                                $hfImages[(string)$shape['id']]->setResizeProportional(false);
+                                                $hfImages[(string)$shape['id']]->setWidth($style['width']);
+                                                $hfImages[(string)$shape['id']]->setHeight($style['height']);
                                                 if (isset($style['margin-left'])) {
-                                                    $hfImages[ (string)$shape['id'] ]->setOffsetX($style['margin-left']);
+                                                    $hfImages[(string)$shape['id']]->setOffsetX($style['margin-left']);
                                                 }
-                                                $hfImages[ (string)$shape['id'] ]->setOffsetY($style['margin-top']);
-                                                $hfImages[ (string)$shape['id'] ]->setResizeProportional(true);
+                                                $hfImages[(string)$shape['id']]->setOffsetY($style['margin-top']);
+                                                $hfImages[(string)$shape['id']]->setResizeProportional(true);
                                             }
 
                                             $docSheet->getHeaderFooter()->setImages($hfImages);
                                         }
                                     }
                                 }
-
                             }
 
                             // TODO: Autoshapes from twoCellAnchors!
@@ -1453,7 +1471,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                                     $objDrawing = new PHPExcel_Worksheet_Drawing;
                                                     $objDrawing->setName((string) self::getArrayItem($oneCellAnchor->pic->nvPicPr->cNvPr->attributes(), "name"));
                                                     $objDrawing->setDescription((string) self::getArrayItem($oneCellAnchor->pic->nvPicPr->cNvPr->attributes(), "descr"));
-                                                    $objDrawing->setPath("zip://".PHPExcel_Shared_File::realpath($pFilename)."#" . $images[(string) self::getArrayItem($blip->attributes("http://schemas.openxmlformats.org/officeDocument/2006/relationships"), "embed")], false);
+                                                    $objDrawing->setPath("zip://" . PHPExcel_Shared_File::realpath($pFilename) . "#" . $images[(string) self::getArrayItem($blip->attributes("http://schemas.openxmlformats.org/officeDocument/2006/relationships"), "embed")], false);
                                                     $objDrawing->setCoordinates(PHPExcel_Cell::stringFromColumnIndex((string) $oneCellAnchor->from->col) . ($oneCellAnchor->from->row + 1));
                                                     $objDrawing->setOffsetX(PHPExcel_Shared_Drawing::EMUToPixels($oneCellAnchor->from->colOff));
                                                     $objDrawing->setOffsetY(PHPExcel_Shared_Drawing::EMUToPixels($oneCellAnchor->from->rowOff));
@@ -1493,7 +1511,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                                     $objDrawing = new PHPExcel_Worksheet_Drawing;
                                                     $objDrawing->setName((string) self::getArrayItem($twoCellAnchor->pic->nvPicPr->cNvPr->attributes(), "name"));
                                                     $objDrawing->setDescription((string) self::getArrayItem($twoCellAnchor->pic->nvPicPr->cNvPr->attributes(), "descr"));
-                                                    $objDrawing->setPath("zip://".PHPExcel_Shared_File::realpath($pFilename)."#" . $images[(string) self::getArrayItem($blip->attributes("http://schemas.openxmlformats.org/officeDocument/2006/relationships"), "embed")], false);
+                                                    $objDrawing->setPath("zip://" . PHPExcel_Shared_File::realpath($pFilename) . "#" . $images[(string) self::getArrayItem($blip->attributes("http://schemas.openxmlformats.org/officeDocument/2006/relationships"), "embed")], false);
                                                     $objDrawing->setCoordinates(PHPExcel_Cell::stringFromColumnIndex((string) $twoCellAnchor->from->col) . ($twoCellAnchor->from->row + 1));
                                                     $objDrawing->setOffsetX(PHPExcel_Shared_Drawing::EMUToPixels($twoCellAnchor->from->colOff));
                                                     $objDrawing->setOffsetY(PHPExcel_Shared_Drawing::EMUToPixels($twoCellAnchor->from->rowOff));
@@ -1526,7 +1544,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                                     $chartRef       = $graphic->graphicData->children("http://schemas.openxmlformats.org/drawingml/2006/chart")->chart;
                                                     $thisChart      = (string) $chartRef->attributes("http://schemas.openxmlformats.org/officeDocument/2006/relationships");
 
-                                                    $chartDetails[$docSheet->getTitle().'!'.$thisChart] = array(
+                                                    $chartDetails[$docSheet->getTitle() . '!' . $thisChart] = array(
                                                         'fromCoordinate'    => $fromCoordinate,
                                                         'fromOffsetX'       => $fromOffsetX,
                                                         'fromOffsetY'       => $fromOffsetY,
@@ -1549,7 +1567,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                     $extractedRange = (string)$definedName;
                                     $extractedRange = preg_replace('/\'(\w+)\'\!/', '', $extractedRange);
                                     if (($spos = strpos($extractedRange, '!')) !== false) {
-                                        $extractedRange = substr($extractedRange, 0, $spos).str_replace('$', '', substr($extractedRange, $spos));
+                                        $extractedRange = substr($extractedRange, 0, $spos) . str_replace('$', '', substr($extractedRange, $spos));
                                     } else {
                                         $extractedRange = str_replace('$', '', $extractedRange);
                                     }
@@ -1624,7 +1642,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                 $extractedRange = (string)$definedName;
                                 $extractedRange = preg_replace('/\'(\w+)\'\!/', '', $extractedRange);
                                 if (($spos = strpos($extractedRange, '!')) !== false) {
-                                    $extractedRange = substr($extractedRange, 0, $spos).str_replace('$', '', substr($extractedRange, $spos));
+                                    $extractedRange = substr($extractedRange, 0, $spos) . str_replace('$', '', substr($extractedRange, $spos));
                                 } else {
                                     $extractedRange = str_replace('$', '', $extractedRange);
                                 }
@@ -1644,14 +1662,14 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                         case '_xlnm.Print_Area':
                                             break;
                                         default:
-                                            if ($mapSheetId[(integer) $definedName['localSheetId']] !== null) {
+                                            if ($mapSheetId[(int) $definedName['localSheetId']] !== null) {
                                                 $range = explode('!', (string)$definedName);
                                                 if (count($range) == 2) {
                                                     $range[0] = str_replace("''", "'", $range[0]);
                                                     $range[0] = str_replace("'", "", $range[0]);
                                                     if ($worksheet = $docSheet->getParent()->getSheetByName($range[0])) {
                                                         $extractedRange = str_replace('$', '', $range[1]);
-                                                        $scope = $docSheet->getParent()->getSheet($mapSheetId[(integer) $definedName['localSheetId']]);
+                                                        $scope = $docSheet->getParent()->getSheet($mapSheetId[(int) $definedName['localSheetId']]);
                                                         $excel->addNamedRange(new PHPExcel_NamedRange((string)$definedName['name'], $worksheet, $extractedRange, true, $scope));
                                                     }
                                                 }
@@ -1711,14 +1729,14 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                             $chartElements = simplexml_load_string($this->securityScan($this->getFromZipArchive($zip, $chartEntryRef)), 'SimpleXMLElement', PHPExcel_Settings::getLibXmlLoaderOptions());
                             $objChart = PHPExcel_Reader_Excel2007_Chart::readChart($chartElements, basename($chartEntryRef, '.xml'));
 
-//                            echo 'Chart ', $chartEntryRef, '<br />';
-//                            var_dump($charts[$chartEntryRef]);
-//
+                            //                            echo 'Chart ', $chartEntryRef, '<br />';
+                            //                            var_dump($charts[$chartEntryRef]);
+                            //
                             if (isset($charts[$chartEntryRef])) {
-                                $chartPositionRef = $charts[$chartEntryRef]['sheet'].'!'.$charts[$chartEntryRef]['id'];
-//                                echo 'Position Ref ', $chartPositionRef, '<br />';
+                                $chartPositionRef = $charts[$chartEntryRef]['sheet'] . '!' . $charts[$chartEntryRef]['id'];
+                                //                                echo 'Position Ref ', $chartPositionRef, '<br />';
                                 if (isset($chartDetails[$chartPositionRef])) {
-//                                    var_dump($chartDetails[$chartPositionRef]);
+                                    //                                    var_dump($chartDetails[$chartPositionRef]);
 
                                     $excel->getSheetByName($charts[$chartEntryRef]['sheet'])->addChart($objChart);
                                     $objChart->setWorksheet($excel->getSheetByName($charts[$chartEntryRef]['sheet']));
@@ -1741,7 +1759,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
         if (isset($color["rgb"])) {
             return (string)$color["rgb"];
         } elseif (isset($color["indexed"])) {
-            return PHPExcel_Style_Color::indexedColor($color["indexed"]-7, $background)->getARGB();
+            return PHPExcel_Style_Color::indexedColor($color["indexed"] - 7, $background)->getARGB();
         } elseif (isset($color["theme"])) {
             if (self::$theme !== null) {
                 $returnColour = self::$theme->getColourByIndex((int)$color["theme"]);
@@ -1749,7 +1767,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                     $tintAdjust = (float) $color["tint"];
                     $returnColour = PHPExcel_Style_Color::changeBrightness($returnColour, $tintAdjust);
                 }
-                return 'FF'.$returnColour;
+                return 'FF' . $returnColour;
             }
         }
 
@@ -1762,13 +1780,13 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
     private static function readStyle($docStyle, $style)
     {
         // format code
-//        if (isset($style->numFmt)) {
-//            if (isset($style->numFmt['formatCode'])) {
-//                $docStyle->getNumberFormat()->setFormatCode((string) $style->numFmt['formatCode']);
-//            } else {
-                $docStyle->getNumberFormat()->setFormatCode($style->numFmt);
-//            }
-//        }
+        //        if (isset($style->numFmt)) {
+        //            if (isset($style->numFmt['formatCode'])) {
+        //                $docStyle->getNumberFormat()->setFormatCode((string) $style->numFmt['formatCode']);
+        //            } else {
+        $docStyle->getNumberFormat()->setFormatCode($style->numFmt);
+        //            }
+        //        }
 
         // font
         if (isset($style->font)) {
@@ -1912,7 +1930,6 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                 foreach ($is->r as $run) {
                     if (!isset($run->rPr)) {
                         $objText = $value->createText(PHPExcel_Shared_String::ControlCharacterOOXML2PHP((string) $run->t));
-
                     } else {
                         $objText = $value->createTextRun(PHPExcel_Shared_String::ControlCharacterOOXML2PHP((string) $run->t));
 
@@ -1926,11 +1943,13 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                             $objText->getFont()->setColor(new PHPExcel_Style_Color(self::readColor($run->rPr->color)));
                         }
                         if ((isset($run->rPr->b["val"]) && self::boolean((string) $run->rPr->b["val"])) ||
-                            (isset($run->rPr->b) && !isset($run->rPr->b["val"]))) {
+                            (isset($run->rPr->b) && !isset($run->rPr->b["val"]))
+                        ) {
                             $objText->getFont()->setBold(true);
                         }
                         if ((isset($run->rPr->i["val"]) && self::boolean((string) $run->rPr->i["val"])) ||
-                            (isset($run->rPr->i) && !isset($run->rPr->i["val"]))) {
+                            (isset($run->rPr->i) && !isset($run->rPr->i["val"]))
+                        ) {
                             $objText->getFont()->setItalic(true);
                         }
                         if (isset($run->rPr->vertAlign) && isset($run->rPr->vertAlign["val"])) {
@@ -1948,7 +1967,8 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                             $objText->getFont()->setUnderline((string)$run->rPr->u["val"]);
                         }
                         if ((isset($run->rPr->strike["val"]) && self::boolean((string) $run->rPr->strike["val"])) ||
-                            (isset($run->rPr->strike) && !isset($run->rPr->strike["val"]))) {
+                            (isset($run->rPr->strike) && !isset($run->rPr->strike["val"]))
+                        ) {
                             $objText->getFont()->setStrikethrough(true);
                         }
                     }
@@ -2009,7 +2029,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
 
     private static function toCSSArray($style)
     {
-        $style = str_replace(array("\r","\n"), "", $style);
+        $style = str_replace(array("\r", "\n"), "", $style);
 
         $temp = explode(';', $style);
         $style = array();

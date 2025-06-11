@@ -1,29 +1,24 @@
 <?php
 //session_start();
 include "global.php";
-$xparam=$_GET['xparam'];
-
-$ishtml=0;
-if(strpos($xparam,".html"))
-{
-	$ishtml=1;
-	$_GET['xparam']=str_replace(".html","",$_GET['xparam']);
-	
+$xparam = $_GET['xparam'];
+echo $xparam;
+$ishtml = 0;
+if (strpos($xparam, ".html")) {
+	$ishtml = 1;
+	$_GET['xparam'] = str_replace(".html", "", $_GET['xparam']);
 }
-$r_xparam=explode("/",$_GET['xparam']);
-if(count($r_xparam)>0)
-{
+$r_xparam = explode("/", $_GET['xparam']);
+if (count($r_xparam) > 0) {
 
-	foreach($r_xparam as $xx =>$vv)
-	{
-		$_GET["seg".($xx+1)]=$vv;
+	foreach ($r_xparam as $xx => $vv) {
+		$_GET["seg" . ($xx + 1)] = $vv;
 	}
 }
 
 //AMBIL MENU URUTAN PERTAMA JIKA TIDAK ADA PARAMETER
-if($xparam=="")
-{
-	$ishtml=1;
+if ($xparam == "") {
+	$ishtml = 1;
 	/*
 	$q_menu_awal=$mysql->query("SELECT url_id FROM menu WHERE  id in (SELECT id_menu FROM menu_layout ) ORDER BY urutan limit 1 ");
 	if($q_menu_awal and $mysql->numrows($q_menu_awal)>0)
@@ -32,7 +27,7 @@ if($xparam=="")
 		$_GET['seg1']=$menu_awal;
 		
 	}
-	*/ 
+	*/
 }
 //END AMBIL MENU URUTAN PERTAMA JIKA TIDAK ADA PARAMETER
 
@@ -41,55 +36,51 @@ if($ishtml and $modul!="ajax")
 {
 	$_GET['seg1'].=$_GET['seg1']!=""?".html":"";
 }
-*/ 
-if(!$ishtml and $modul!="ajax")
-{
-	if(!file_exists("modul/$modul/") or $modul=="")
-	{
-	
-	// $_GET['seg1']=menu_utama().".html";
-	} 
-	
+*/
+if (!$ishtml and $modul != "ajax") {
+	if (!file_exists("modul/$modul/") or $modul == "") {
+
+		// $_GET['seg1']=menu_utama().".html";
+	}
 }
 
-$p=$_GET['seg1'];
-$modul=$_GET['seg1'];
-$action=$_GET['seg2'];
-$id=$_GET['seg3'];
+$p = $_GET['seg1'];
+$modul = $_GET['seg1'];
+$action = $_GET['seg2'];
+$id = $_GET['seg3'];
 
-list($menu_name,$extension)=explode(".",$modul);
-
-
+list($menu_name, $extension) = explode(".", $modul);
 
 
-if($modul=="")$modul=$menu_name;
-if($modul=="" or ($modul!="" and $modul!="ajax"  and !file_exists("modul/$modul/"))  or  in_array($modul,$list_lang) )$modul=$menu_name;
 
 
-if($modul=="")$modul="index";
+if ($modul == "") $modul = $menu_name;
+if ($modul == "" or ($modul != "" and $modul != "ajax"  and !file_exists("modul/$modul/"))  or  in_array($modul, $list_lang)) $modul = $menu_name;
+
+
+if ($modul == "") $modul = "index";
 
 
 ob_start();
 
 /*seo variable*/
 
-$r_web_config=web_config();
+$r_web_config = web_config();
 
-foreach($r_web_config as $var =>$value)
-{
-	$$var=$value;
+foreach ($r_web_config as $var => $value) {
+	$$var = $value;
 }
 
-if($modul=="index" AND $web_config_mode_login==0){	
-	header("location:".fronturl("quiz_login"));
+if ($modul == "index" and $web_config_mode_login == 0) {
+	header("location:" . fronturl("quiz_login"));
 	die();
-} elseif($modul=="index" AND $web_config_mode_login==1){	
-	header("location:".fronturl("siswa"));
+} elseif ($modul == "index" and $web_config_mode_login == 1) {
+	header("location:" . fronturl("app"));
 	die();
-} elseif($modul=="siswa" AND $web_config_mode_login==0){	
-	header("location:".fronturl("quiz_login"));
+} elseif ($modul == "siswa" and $web_config_mode_login == 0) {
+	header("location:" . fronturl("quiz_login"));
 	die();
-} elseif($modul=="quiz_login" AND $web_config_mode_login==1 AND ($_GET['username']=='' AND $_GET['jadwal_token']=='' AND $_POST['mulai_ujian']=='' AND $_POST['submit']=='') ){	
+} elseif ($modul == "quiz_login" and $web_config_mode_login == 1 and ($_GET['username'] == '' and $_GET['jadwal_token'] == '' and $_POST['mulai_ujian'] == '' and $_POST['submit'] == '')) {
 	//header("location:".fronturl("siswa"));
 	//die();
 }
@@ -142,93 +133,82 @@ $action();
 }
 */
 
-if($web_config_exam_browser_only==1 and $modul!="session_invalid"){
+if ($web_config_exam_browser_only == 1 and $modul != "session_invalid") {
 	$headers = apache_request_headers();
-	$browser_key=$headers['X-SafeExamBrowser-RequestHash'];
-	$safe_exam_browser=$browser_key!=""?true:false;
+	$browser_key = $headers['X-SafeExamBrowser-RequestHash'];
+	$safe_exam_browser = $browser_key != "" ? true : false;
 	//$valid=$mysql->get1value("SELECT id FROM quiz_exam_browser WHERE browser_key='$browser_key' and status=1");
-	if(!$safe_exam_browser){
-		header("location:".fronturl("session_invalid"));
+	if (!$safe_exam_browser) {
+		header("location:" . fronturl("session_invalid"));
 		exit();
 	}
-} elseif($web_config_exam_browser_only==2 and $modul!="session_invalid"){	
+} elseif ($web_config_exam_browser_only == 2 and $modul != "session_invalid") {
 	$headers = apache_request_headers();
-	$browser_key=$headers['X-SafeExamBrowser-RequestHash'];
-	$safe_exam_browser=$browser_key!=""?true:false;
-		
+	$browser_key = $headers['X-SafeExamBrowser-RequestHash'];
+	$safe_exam_browser = $browser_key != "" ? true : false;
+
 	$isWebView = false;
-	if((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari/') == false)) :
-	$isWebView = true;
-	elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH'])) :
-	$isWebView = true;
+	if ((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari/') == false)) :
+		$isWebView = true;
+	elseif (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) :
+		$isWebView = true;
 	endif;
 
-	if(!$isWebView AND !$safe_exam_browser) {
-		header("location:".fronturl("session_invalid"));
+	if (!$isWebView and !$safe_exam_browser) {
+		header("location:" . fronturl("session_invalid"));
 		exit();
 	}
-} elseif($web_config_exam_browser_only==3 and $modul!="session_invalid"){	
+} elseif ($web_config_exam_browser_only == 3 and $modul != "session_invalid") {
 	$isWebView = false;
-	if((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari/') == false)) :
-	$isWebView = true;
-	elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH'])) :
-	$isWebView = true;
+	if ((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari/') == false)) :
+		$isWebView = true;
+	elseif (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) :
+		$isWebView = true;
 	endif;
 
-	if(!$isWebView) {
-		header("location:".fronturl("session_invalid"));
+	if (!$isWebView) {
+		header("location:" . fronturl("session_invalid"));
 		exit();
 	}
-	
-} 
+}
 
-if($modul!="ajax")
-{
-	
-	if($extension!="html")
-	{
-		
-		
-		if(file_exists("modul/$modul/function.php")){
-		include "modul/$modul/function.php";
+if ($modul != "ajax") {
+
+	if ($extension != "html") {
+
+
+		if (file_exists("modul/$modul/function.php")) {
+			include "modul/$modul/function.php";
 		}
-		
-		if($action=="ajax")
-		{
-			if(file_exists("modul/$modul/ajax.php"))
-			{
-			include "modul/$modul/ajax.php";
+
+		if ($action == "ajax") {
+			if (file_exists("modul/$modul/ajax.php")) {
+				include "modul/$modul/ajax.php";
 			}
-		}
-		else
-		{
-			
-		
+		} else {
+
+
 			ob_start();
-			if(file_exists("config_color.php"))
-			{
+			if (file_exists("config_color.php")) {
 				include "config_color.php";
 			}
-			if($modul=="" or $modul=="index"){
+			if ($modul == "" or $modul == "index") {
 				//model allow teacher & siswa login
 				//header("location:".fronturl("quiz_login"));
 			}
-			if(file_exists("modul/$modul/view.php"))
-			{
+			if (file_exists("modul/$modul/view.php")) {
 				include "modul/$modul/view.php";
 			}
-			if(file_exists("config_template.php"))
-			{
-				if($modul=="")
-				{
-					
-				//header("location:".fronturl("index"));
-				//exit();	
+			if (file_exists("config_template.php")) {
+				if ($modul == "") {
+
+					//header("location:".fronturl("index"));
+					//exit();	
 				}
 
 				include "config_template.php";
 			}
-			
+
 
 			/*
 			include "router_footer.php";
@@ -237,38 +217,24 @@ if($modul!="ajax")
 			echo $content;
 			include "footer.php";
 			*/
-			
+		}
+	} else {
+		ob_start();
+		if (file_exists("config_template.php")) {
+			include "config_template.php";
+		} else {
+			die("config_template.php tidak ditemukan");
 		}
 	}
-	else
-	{
-	ob_start();
-	if(file_exists("config_template.php"))
-	{
-		include "config_template.php";
-	}
-	else
-	{
-		die("config_template.php tidak ditemukan");
-	}
-
-	}
 }
 
-if($modul=="ajax")
-{
-		include "ajax.php";
-} 
-elseif($modul=="app_ajax")
-{       
-		include "app_ajax.php";
-}
-else
-{
-$template=ob_get_clean();
+if ($modul == "ajax") {
+	include "ajax.php";
+} elseif ($modul == "app_ajax") {
+	include "app_ajax.php";
+} else {
+	$template = ob_get_clean();
 
-$template=str_replace("<<<TEMPLATE_URL>>>",$template_url,$template);
-echo $template;
+	$template = str_replace("<<<TEMPLATE_URL>>>", $template_url, $template);
+	echo $template;
 }
-
-?>

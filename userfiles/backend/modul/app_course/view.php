@@ -1,10 +1,9 @@
 <?php
-$url_image="#";
-if($action=="add" OR $action=="edit")
-{
+$url_image = "#";
+if ($action == "add" or $action == "edit") {
 
-if($action=='edit') {
-	$q=$mysql->query("
+	if ($action == 'edit') {
+		$q = $mysql->query("
 	SELECT 
 		id,
 		title,
@@ -14,27 +13,26 @@ if($action=='edit') {
 	FROM
 		app_course WHERE id=$id
 	");
-	$d=$mysql->assoc($q);
-	if($d['thumbnail']!='') {
-		$url_image=fileurl("$modul/".$d['thumbnail']);
+		$d = $mysql->assoc($q);
+		if ($d['thumbnail'] != '') {
+			$url_image = fileurl("$modul/" . $d['thumbnail']);
+		}
+		foreach ($d as $field => $value) {
+			$_POST[$field] = $_POST[$field] == '' ? $value : $_POST[$field];
+		}
 	}
-	foreach($d as $field => $value) {
-		$_POST[$field]=$_POST[$field]==''?$value:$_POST[$field];
-	}
-	
-}
 
-$do_action=backendurl("$modul/".($action=="add"?"save":"update"));
-$label_action=$action=="add"?"Tambah":"Edit";
+	$do_action = backendurl("$modul/" . ($action == "add" ? "save" : "update"));
+	$label_action = $action == "add" ? "Tambah" : "Edit";
 
-$option_category=$mysql->get_assoc('id','title','app_category',"title"); 
+	$option_category = $mysql->get_assoc('id', 'title', 'app_category', "title");
 
-$form_title=$form->element_Textbox("Judul","title");
-//$form_content=$form->element_Textarea("Isi","content",array('class'=>'usetiny'));
-//$form_category=$form->element_Select("Category","category_id",$option_category);
-$form_category=$form->element_Hidden("category_id","$category_id");
+	$form_title = $form->element_Textbox("Judul", "title");
+	//$form_content=$form->element_Textarea("Isi","content",array('class'=>'usetiny'));
+	//$form_category=$form->element_Select("Category","category_id",$option_category);
+	$form_category = $form->element_Hidden("category_id", "$category_id");
 
-echo <<<END
+	echo <<<END
   <div class="card card-navy">
               <div class="card-header">
                 <h3 class="card-title">$label_action $course_title</h3>
@@ -46,7 +44,7 @@ echo <<<END
                 <div class="card-body">
              		<div class="form-group">
 						<label for="imageUpload">Choose an image</label>
-						<input type="file" class="form-control-file" id="imageUpload" name="thumbnail" accept="image/*">
+						<input type="file" class="form-control-file" id="imageUpload" name="thumbnail" accept="image/*" >
 					</div>
 					 <div class="form-group">
                 		<img id="imagePreview" src="$url_image" alt="Image Preview" class="img-thumbnail" style="max-width: 300px;">
@@ -68,7 +66,7 @@ echo <<<END
             <!-- /.card -->
 
 END;
-$script_js=<<<END
+	$script_js = <<<END
 <script>
 $(document).ready(function(){
 
@@ -86,13 +84,11 @@ $(document).ready(function(){
 });
 </script>
 END;
-
 }
-if($action=="view" or $action=="")
-{
-$btn_tambah=button_add("$modul/add?category_id=$category_id");
+if ($action == "view" or $action == "") {
+	$btn_tambah = button_add("$modul/add?category_id=$category_id");
 
-echo <<<END
+	echo <<<END
 <div class="card card-navy">
 		<div class="card-header">
 		  <h3 class="card-title">$course_title</h3>
@@ -115,39 +111,39 @@ echo <<<END
 </div>
 END;
 }
-if($action=="data") {
-	
-	$category_id=$_GET['category_id'];	
-	$column_order = array('a.id','a.title');
+if ($action == "data") {
+
+	$category_id = $_GET['category_id'];
+	$column_order = array('a.id', 'a.title');
 	$column_search = array('a.title');
 	$order = array('id' => 'DESC');
-	
-	if(isset($_POST['order'])) { // here order processing
+
+	if (isset($_POST['order'])) { // here order processing
 		$order_by = " ORDER BY {$column_order[$_POST['order']['0']['column']]} {$_POST['order']['0']['dir']}";
 	} else {
 		$order = $order;
-		
+
 		$order_by = " ORDER BY id DESC ";
 	}
-	if ($_POST['length'] != -1 AND $_POST['length']!="") {
+	if ($_POST['length'] != -1 and $_POST['length'] != "") {
 		$where_limit = "LIMIT {$_POST['start']}, {$_POST['length']}";
 	}
 	$i = 0;
-	$sql_search=array();
+	$sql_search = array();
 	foreach ($column_search as $item) { // loop column 
-		
-		if($_POST['search']['value']) { // if datatable send POST for search
-			
-			$sql_search[]= " $item LIKE '%{$_POST['search']['value']}%' ";
+
+		if ($_POST['search']['value']) { // if datatable send POST for search
+
+			$sql_search[] = " $item LIKE '%{$_POST['search']['value']}%' ";
 		}
 		$i++;
 	}
-	$sql_r=array();
-	if(count($sql_search)>0){
-	$sql_r[]=" ".join(" OR ",$sql_search)." ";
+	$sql_r = array();
+	if (count($sql_search) > 0) {
+		$sql_r[] = " " . join(" OR ", $sql_search) . " ";
 	}
-	
-	$sql=" 
+
+	$sql = " 
 	SELECT 
 		a.id,
 		a.title,
@@ -156,33 +152,33 @@ if($action=="data") {
 		app_course a
 
 		";
-	
-	$sql.=" WHERE 1=1 "; //a.category_id=$category_id 
 
-	if(count($sql_r)>0){
-		$sql.=" AND  (".join(" OR ",$sql_r).") ";
+	$sql .= " WHERE 1=1 "; //a.category_id=$category_id 
+
+	if (count($sql_r) > 0) {
+		$sql .= " AND  (" . join(" OR ", $sql_r) . ") ";
 	}
-	
-	$result_total = $mysql->query($sql);
-	$total=$mysql->num_rows($result_total);
-	$sql .= " $order_by $where_limit";
-	
-	$result = $mysql->query($sql);
-	
-	$data = array();
-	
 
-	$gotopage = $_POST['start']/$_POST['length'];
+	$result_total = $mysql->query($sql);
+	$total = $mysql->num_rows($result_total);
+	$sql .= " $order_by $where_limit";
+
+	$result = $mysql->query($sql);
+
+	$data = array();
+
+
+	$gotopage = $_POST['start'] / $_POST['length'];
 	$no = $_POST['start'];
-	while($d = $mysql->fetch_assoc($result)) {
+	while ($d = $mysql->fetch_assoc($result)) {
 		$no++;
 		$row = array();
-		
-		$row[]=$no;
-		$row[]=$d['title'];
-		$action_info=btn_folder(backendurl("app_course_sub/?course=".$d['id']));
-		$action_edit=btn_edit(backendurl("$modul/edit/".$d['id']."?category_id=$category_id"));
-		$action_delete=btn_delete(backendurl("$modul/del/".$d['id']));
+
+		$row[] = $no;
+		$row[] = $d['title'];
+		$action_info = btn_folder(backendurl("app_course_sub/?course=" . $d['id']));
+		$action_edit = btn_edit(backendurl("$modul/edit/" . $d['id'] . "?category_id=$category_id"));
+		$action_delete = btn_delete(backendurl("$modul/del/" . $d['id']));
 		/*
 		$action_edit='<a href="'.backendurl("$modul/edit/".$d['id']).'"><i class="fas fa-edit" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;';
 		$action_delete='<a class=""  title="Hapus buku"
@@ -198,12 +194,12 @@ if($action=="data") {
 				<i class="fas fa-trash"></i>
 		</a>';
 		*/
-		$row[]='<div class="btn-group btn-group-sm">'.$action_info.$action_edit.$action_delete.'</div>';
-		
+		$row[] = '<div class="btn-group btn-group-sm">' . $action_info . $action_edit . $action_delete . '</div>';
+
 		$data[] = $row;
 	}
-	
-	
+
+
 	$output = array(
 		"draw" => $_POST['draw'],
 		"recordsTotal" => $total,
@@ -212,4 +208,3 @@ if($action=="data") {
 	);
 	die(json_encode($output));
 }
-?>

@@ -1,25 +1,24 @@
 <?php
 
-if($_GET['download_template']==2)
-{
-ob_start();
-error_reporting(0);
-ini_set('display_errors', FALSE);
-ini_set('display_startup_errors', FALSE);
-// Create new PHPExcel object
+if ($_GET['download_template'] == 2) {
+	ob_start();
+	error_reporting(0);
+	ini_set('display_errors', FALSE);
+	ini_set('display_startup_errors', FALSE);
+	// Create new PHPExcel object
 
-$objPHPExcel = new PHPExcel();
+	$objPHPExcel = new PHPExcel();
 
-// Set document properties
-$objPHPExcel->getProperties()->setCreator("rajaqr.com")
- ->setLastModifiedBy("rajaqr.com")
- ->setTitle("Ujian Online Berbasis Komputer")
- ->setSubject("Ujian Online Berbasis Komputer")
- ->setDescription("Ujian Online Berbasis Komputer")
- ->setKeywords("Ujian Online Berbasis Komputer")
- ->setCategory("Ujian Online Berbasis KOmputer");
+	// Set document properties
+	$objPHPExcel->getProperties()->setCreator("rajaqr.com")
+		->setLastModifiedBy("rajaqr.com")
+		->setTitle("Ujian Online Berbasis Komputer")
+		->setSubject("Ujian Online Berbasis Komputer")
+		->setDescription("Ujian Online Berbasis Komputer")
+		->setKeywords("Ujian Online Berbasis Komputer")
+		->setCategory("Ujian Online Berbasis KOmputer");
 
- /*
+	/*
  
      ->setCellValue('A1',"Kode Login")
             ->setCellValue('B1',"Nama Peserta")
@@ -31,24 +30,24 @@ $objPHPExcel->getProperties()->setCreator("rajaqr.com")
 			
 			
 			*/
-$objPHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('A1',"Indeks/TIK")
-            ->setCellValue('B1',"Nama Lengkap")
-			->setCellValue('C1',"Sandi")
-            ->setCellValue('D1',"Email")
-			->setCellValue('E1',"Organization Unit Code")
-			->setCellValue('F1',"Organization Unit")
-			->setCellValue('G1',"Position Code")
-			->setCellValue('H1',"Position")
-			->setCellValue('I1',"Direct Supervisor Indeks")
-			->setCellValue('J1',"Direct Supervisor Name")
-			->setCellValue('K1',"2nd Supervisor Indeks")
-			->setCellValue('L1',"2nd Supervisor Name")
-			->setCellValue('M1',"Manager Indeks")
-			->setCellValue('N1',"Manager Name");
+	$objPHPExcel->setActiveSheetIndex(0)
+		->setCellValue('A1', "NIK")
+		->setCellValue('B1', "Nama Lengkap")
+		->setCellValue('C1', "Sandi")
+		->setCellValue('D1', "Email")
+		->setCellValue('E1', "Organization Unit Code")
+		->setCellValue('F1', "Organization Unit")
+		->setCellValue('G1', "Position Code")
+		->setCellValue('H1', "Position")
+		->setCellValue('I1', "Direct Supervisor Indeks")
+		->setCellValue('J1', "Direct Supervisor Name")
+		->setCellValue('K1', "2nd Supervisor Indeks")
+		->setCellValue('L1', "2nd Supervisor Name")
+		->setCellValue('M1', "Manager Indeks")
+		->setCellValue('N1', "Manager Name");
 
 
-			
+
 
 	/*
 	$q=$mysql->query("SELECT * FROM user WHERE level<=1 ");
@@ -61,9 +60,9 @@ $objPHPExcel->setActiveSheetIndex(0)
 			->setCellValue('C'.$no,$d['fullname']);
 	$no++;		
 	}      
-	*/      
-	
-	$no=2;
+	*/
+
+	$no = 2;
 	/*
 	->setCellValue('C'.$no,"TKJ-A")
 			->setCellValue('D'.$no,"TEKNIK KOMPUTER DAN JARINGAN")
@@ -98,63 +97,63 @@ Manager Name
 			->setCellValue('M1',"Manager Indeks")
 			->setCellValue('N1',"Manager Name");
 	
-*/			
+*/
 
 	$objPHPExcel->setActiveSheetIndex(0)
-			->setCellValue('A'.$no,"91223039480")
-			->setCellValue('B'.$no,"Kyu Agito")
-			->setCellValue('C'.$no,"123456")
-			->setCellValue('D'.$no,"kyu.agito@gmail.com")
-			->setCellValue('E'.$no,"Estate 1")
-			->setCellValue('F'.$no,"5090903930")
-			->setCellValue('G'.$no,"Pelaksana Irigasi")
-			->setCellValue('H'.$no,"2093091293")
-			->setCellValue('I'.$no,"Ryuji")
-			->setCellValue('J'.$no,"8398990098")
-			->setCellValue('K'.$no,"Suparman")
-			->setCellValue('L'.$no,"93847593823")
-			->setCellValue('M'.$no,"5000099909")
-			->setCellValue('N'.$no,"Dodi Alexander");
+		->setCellValue('A' . $no, "91223039480")
+		->setCellValue('B' . $no, "Kyu Agito")
+		->setCellValue('C' . $no, "123456")
+		->setCellValue('D' . $no, "kyu.agito@gmail.com")
+		->setCellValue('E' . $no, "Estate 1")
+		->setCellValue('F' . $no, "5090903930")
+		->setCellValue('G' . $no, "Pelaksana Irigasi")
+		->setCellValue('H' . $no, "2093091293")
+		->setCellValue('I' . $no, "Ryuji")
+		->setCellValue('J' . $no, "8398990098")
+		->setCellValue('K' . $no, "Suparman")
+		->setCellValue('L' . $no, "93847593823")
+		->setCellValue('M' . $no, "5000099909")
+		->setCellValue('N' . $no, "Dodi Alexander");
 
 
-			
+
 	$objPHPExcel->getActiveSheet()
-	->getStyle("E$no")
-	->getNumberFormat()
-	->setFormatCode(
-		PHPExcel_Style_NumberFormat::FORMAT_GENERAL
-	);   	
-		
-$filename="Template Import Peserta";
-$sheet_title="Daftar Peserta";
+		->getStyle("E$no")
+		->getNumberFormat()
+		->setFormatCode(
+			PHPExcel_Style_NumberFormat::FORMAT_GENERAL
+		);
 
-// Rename worksheet
-$objPHPExcel->getActiveSheet()->setTitle($sheet_title);
-// Set active sheet index to the first sheet, so Excel opens this as the first sheet
-$objPHPExcel->setActiveSheetIndex(0);
+	$filename = "Template Import Peserta";
+	$sheet_title = "Daftar Peserta";
 
-// Redirect output to a client’s web browser (Excel5)
-header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename="'.$filename.'.xls"');
-header('Cache-Control: max-age=0');
-// If you're serving to IE 9, then the following may be needed
-header('Cache-Control: max-age=1');
+	// Rename worksheet
+	$objPHPExcel->getActiveSheet()->setTitle($sheet_title);
+	// Set active sheet index to the first sheet, so Excel opens this as the first sheet
+	$objPHPExcel->setActiveSheetIndex(0);
 
-// If you're serving to IE over SSL, then the following may be needed
-header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
-header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
-header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
-header ('Pragma: public'); // HTTP/1.0
+	// Redirect output to a client’s web browser (Excel5)
+	header('Content-Type: application/vnd.ms-excel');
+	header('Content-Disposition: attachment;filename="' . $filename . '.xls"');
+	header('Cache-Control: max-age=0');
+	// If you're serving to IE 9, then the following may be needed
+	header('Cache-Control: max-age=1');
 
-$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-$objWriter->save('php://output');
+	// If you're serving to IE over SSL, then the following may be needed
+	header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+	header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT'); // always modified
+	header('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+	header('Pragma: public'); // HTTP/1.0
 
-die();
+	$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+	$objWriter->save('php://output');
+
+	die();
 }
-if($action=="import_excel") {
-$url_download =backendurl("$modul/import_excel?download_template=2");
-$do_action=backendurl("$modul/upload_xls");
-echo <<<END
+if ($action == "import_excel") {
+	$url_download = backendurl("$modul/import_excel?download_template=2");
+	$do_action = backendurl("$modul/upload_xls");
+	echo <<<END
   <div class="card card-navy">
               <div class="card-header">
                 <h3 class="card-title">Import data employee</h3>
@@ -185,8 +184,7 @@ echo <<<END
 
 END;
 }
-if($action=="add" OR $action=="edit")
-{
+if ($action == "add" or $action == "edit") {
 
 	/*
 	ALTER TABLE `quiz_member`
@@ -200,16 +198,12 @@ ADD `manager_indeks` varchar(50) NOT NULL AFTER `direct_supervisor_name`,
 ADD `manager_name` varchar(100) NOT NULL AFTER `manager_indeks`;
 
 	*/
-if($action=='edit') {
-	$q=$mysql->query("
+	if ($action == 'edit') {
+		$q = $mysql->query("
 	SELECT 
 		id,
 		username,
 		fullname,
-		class,
-		grade,
-		jurusan,
-		ruang,
 		email,
 		status,
 		level,
@@ -227,40 +221,40 @@ if($action=='edit') {
 	FROM
 		quiz_member WHERE id=$id
 	");
-	$d=$mysql->assoc($q);
-	foreach($d as $field => $value) {
-		if($field=="password" or $_POST['password']!='') {
-			continue;
+		$d = $mysql->assoc($q);
+		foreach ($d as $field => $value) {
+			if ($field == "password" or $_POST['password'] != '') {
+				continue;
+			}
+			$_POST[$field] = $_POST[$field] == '' ? $value : $_POST[$field];
 		}
-		$_POST[$field]=$_POST[$field]==''?$value:$_POST[$field];
 	}
-}
 
-$do_action=backendurl("$modul/".($action=="add"?"save":"update"));
-$label_action=$action=="add"?"Tambah":"Edit";
+	$do_action = backendurl("$modul/" . ($action == "add" ? "save" : "update"));
+	$label_action = $action == "add" ? "Tambah" : "Edit";
 
-$form_username=$form->element_Textbox("Indeks/TIK","username");
-$form_fullname=$form->element_Textbox("Nama Lengkap","fullname");
-$form_class=$form->element_Textbox("Kelas","class");
-//$form_grade=$form->element_Textbox("Grade","grade");
-$form_jurusan=$form->element_Textbox("Jurusan","jurusan");
-$form_ruang=$form->element_Textbox("Ruang","ruang");
-$form_email=$form->element_Textbox("Email","email");
-$form_password=$form->element_Password("Password","password",array("placeholder"=>"**********","autocomplete"=>"off"));
-$form_status=$form->element_bootstrapSwitch("Status Aktif","status",array("value"=>"1",'data-off-color'=>"danger",'data-on-color'=>"success",'data-on-text'=>"Aktif", 'data-off-text'=>"Tidak Aktif"));
-$form_pengawas=$form->element_bootstrapSwitch("Status Member","level",array("value"=>"1",'data-off-color'=>"danger",'data-on-color'=>"success",'data-on-text'=>"Pengawas", 'data-off-text'=>"Staff"));
-$form_organization_unit_code=$form->element_Textbox("Organization Unit Code","organization_unit_code");
-$form_organization_unit=$form->element_Textbox("Organization Unit","organization_unit");
-$form_position_code=$form->element_Textbox("Position Code","position_code");
-$form_position=$form->element_Textbox("Position","position");
-$form_direct_supervisor_indeks=$form->element_Textbox("Direct Supervisor Indeks","direct_supervisor_indeks");
-$form_direct_supervisor_name=$form->element_Textbox("Direct Supervisor Name","direct_supervisor_name");
-$form_2nd_supervisor_indeks=$form->element_Textbox("2nd Supervisor Indeks","2nd_supervisor_indeks");
-$form_2nd_supervisor_name=$form->element_Textbox("2nd Supervisor Name","2nd_supervisor_name");
-$form_manager_indeks=$form->element_Textbox("Manager Indeks,","manager_indeks");
-$form_manager_name=$form->element_Textbox("Manager Name","manager_name");
+	$form_username = $form->element_Textbox("NIK", "username");
+	$form_fullname = $form->element_Textbox("Nama Lengkap", "fullname");
+	$form_class = $form->element_Textbox("Kelas", "class");
+	//$form_grade=$form->element_Textbox("Grade","grade");
+	//$form_jurusan = $form->element_Textbox("Jurusan", "jurusan");
+	//$form_ruang = $form->element_Textbox("Ruang", "ruang");
+	$form_email = $form->element_Textbox("Email", "email");
+	$form_password = $form->element_Password("Password", "password", array("placeholder" => "**********", "autocomplete" => "off"));
+	$form_status = $form->element_bootstrapSwitch("Status Aktif", "status", array("value" => "1", 'data-off-color' => "danger", 'data-on-color' => "success", 'data-on-text' => "Aktif", 'data-off-text' => "Tidak Aktif"));
+	$form_pengawas = $form->element_bootstrapSwitch("Status Member", "level", array("value" => "1", 'data-off-color' => "danger", 'data-on-color' => "success", 'data-on-text' => "Pengawas", 'data-off-text' => "Staff"));
+	$form_organization_unit_code = $form->element_Textbox("Organization Unit Code", "organization_unit_code");
+	$form_organization_unit = $form->element_Textbox("Organization Unit", "organization_unit");
+	$form_position_code = $form->element_Textbox("Position Code", "position_code");
+	$form_position = $form->element_Textbox("Position", "position");
+	$form_direct_supervisor_indeks = $form->element_Textbox("Direct Supervisor Indeks", "direct_supervisor_indeks");
+	$form_direct_supervisor_name = $form->element_Textbox("Direct Supervisor Name", "direct_supervisor_name");
+	$form_2nd_supervisor_indeks = $form->element_Textbox("2nd Supervisor Indeks", "2nd_supervisor_indeks");
+	$form_2nd_supervisor_name = $form->element_Textbox("2nd Supervisor Name", "2nd_supervisor_name");
+	$form_manager_indeks = $form->element_Textbox("Manager Indeks,", "manager_indeks");
+	$form_manager_name = $form->element_Textbox("Manager Name", "manager_name");
 
-echo <<<END
+	echo <<<END
   <div class="card card-navy">
               <div class="card-header">
                 <h3 class="card-title">$label_action Employee</h3>
@@ -338,13 +332,12 @@ echo <<<END
 END;
 }
 
-if($action=="view" or $action=="")
-{
-if($_SESSION['s_level']>0){	
-$btn_tambah=button_add("$modul/add");
-$btn_excel=button_excel("$modul/import_excel");
-}
-echo <<<END
+if ($action == "view" or $action == "") {
+	if ($_SESSION['s_level'] > 0) {
+		$btn_tambah = button_add("$modul/add");
+		$btn_excel = button_excel("$modul/import_excel");
+	}
+	echo <<<END
 <div class="card card-navy">
 		<div class="card-header">
 		  <h3 class="card-title">Employee</h3>
@@ -357,7 +350,7 @@ echo <<<END
 				<thead>
 				<tr>
 				<th style="width:40px;">No</th>
-				<th>Indeks/TIK</th>
+				<th>NIK</th>
 				<th>Nama</th>
 				<th>Organization Unit</th>
 				<th>Supervisor</th>
@@ -373,38 +366,38 @@ echo <<<END
 </div>
 END;
 }
-if($action=="data") {
-	
-	$column_order = array('id','username','fullname','organization_unit','direct_supervisor');
-	$column_search = array('username','grade','class','jurusan','ruang','fullname');
+if ($action == "data") {
+
+	$column_order = array('id', 'username', 'fullname', 'organization_unit', 'direct_supervisor');
+	$column_search = array('username', 'grade', 'class', 'jurusan', 'ruang', 'fullname');
 	$order = array('username' => 'ASC');
-	
-	if(isset($_POST['order'])) { // here order processing
+
+	if (isset($_POST['order'])) { // here order processing
 		$order_by = " ORDER BY {$column_order[$_POST['order']['0']['column']]} {$_POST['order']['0']['dir']}";
 	} else {
 		$order = $order;
-		
+
 		$order_by = " ORDER BY username ASC ";
 	}
-	if ($_POST['length'] != -1 AND $_POST['length']!="") {
+	if ($_POST['length'] != -1 and $_POST['length'] != "") {
 		$where_limit = "LIMIT {$_POST['start']}, {$_POST['length']}";
 	}
 	$i = 0;
-	$sql_search=array();
+	$sql_search = array();
 	foreach ($column_search as $item) { // loop column 
-		
-		if($_POST['search']['value']) { // if datatable send POST for search
-			
-			$sql_search[]= " $item LIKE '%{$_POST['search']['value']}%' ";
+
+		if ($_POST['search']['value']) { // if datatable send POST for search
+
+			$sql_search[] = " $item LIKE '%{$_POST['search']['value']}%' ";
 		}
 		$i++;
 	}
-	$sql_r=array();
-	if(count($sql_search)>0){
-	$sql_r[]=" ".join(" OR ",$sql_search)." ";
+	$sql_r = array();
+	if (count($sql_search) > 0) {
+		$sql_r[] = " " . join(" OR ", $sql_search) . " ";
 	}
-	
-	$sql=" 
+
+	$sql = " 
 	SELECT 
 		id,
 		username,
@@ -424,32 +417,32 @@ if($action=="data") {
 	FROM 
 		quiz_member
 		";
-	
-	$sql.=" WHERE 1=1 ";
 
-	if(count($sql_r)>0){
-		$sql.=" AND  (".join(" OR ",$sql_r).") ";
+	$sql .= " WHERE 1=1 ";
+
+	if (count($sql_r) > 0) {
+		$sql .= " AND  (" . join(" OR ", $sql_r) . ") ";
 	}
-	
+
 	$result_total = $mysql->query($sql);
-	$total=$mysql->num_rows($result_total);
+	$total = $mysql->num_rows($result_total);
 	$sql .= " $order_by $where_limit";
 	$result = $mysql->query($sql);
 	$data = array();
-	$gotopage = $_POST['start']/$_POST['length'];
+	$gotopage = $_POST['start'] / $_POST['length'];
 	$no = $_POST['start'];
-	while($d = $mysql->fetch_assoc($result)) {
+	while ($d = $mysql->fetch_assoc($result)) {
 		$no++;
 		$row = array();
-		$row[]=$no."&nbsp;<input type='checkbox' name='mark_delete[]'  value='".$d['id']."'/>";
-		$row[]='<a href="'.backendurl("app_profile/view/".md5(md5($d['id']))).'">'.$d['username'].'</a>';
-		$row[]=$d['fullname'];
-		$row[]=$d['organization_unit'];
-		$row[]=$d['direct_supervisor_name'];
+		$row[] = $no . "&nbsp;<input type='checkbox' name='mark_delete[]'  value='" . $d['id'] . "'/>";
+		$row[] = '<a href="' . backendurl("app_profile/view/" . md5(md5($d['id']))) . '">' . $d['username'] . '</a>';
+		$row[] = $d['fullname'];
+		$row[] = $d['organization_unit'];
+		$row[] = $d['direct_supervisor_name'];
 
-		$action_edit=btn_edit(backendurl("$modul/edit/".$d['id']));
-		$action_delete=btn_delete(backendurl("$modul/del/".$d['id']));
-		$action_print=btn_print(backendurl("cetak_kartu/single/".$d['id']));
+		$action_edit = btn_edit(backendurl("$modul/edit/" . $d['id']));
+		$action_delete = btn_delete(backendurl("$modul/del/" . $d['id']));
+		$action_print = btn_print(backendurl("cetak_kartu/single/" . $d['id']));
 		/*
 		$action_edit='<a href="'.backendurl("$modul/edit/".$d['id']).'"><i class="fas fa-edit" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;';
 		$action_delete='<a class=""  title="Hapus buku"
@@ -465,16 +458,16 @@ if($action=="data") {
 				<i class="fas fa-trash"></i>
 		</a>';
 		*/
-		if($_SESSION['s_level']>0){
-			$row[]='<div class="btn-group btn-group-sm">'.$action_print.$action_view.$action_edit.$action_delete.'</div>';
+		if ($_SESSION['s_level'] > 0) {
+			$row[] = '<div class="btn-group btn-group-sm">' . $action_print . $action_view . $action_edit . $action_delete . '</div>';
 		} else {
-			$row[]='<div class="btn-group btn-group-sm">'.$action_edit.'</div>';
+			$row[] = '<div class="btn-group btn-group-sm">' . $action_edit . '</div>';
 		}
-		
+
 		$data[] = $row;
 	}
-	
-	
+
+
 	$output = array(
 		"draw" => $_POST['draw'],
 		"recordsTotal" => $total,
@@ -483,4 +476,3 @@ if($action=="data") {
 	);
 	die(json_encode($output));
 }
-?>
