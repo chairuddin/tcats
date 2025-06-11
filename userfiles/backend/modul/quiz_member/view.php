@@ -369,7 +369,7 @@ END;
 if ($action == "data") {
 
 	$column_order = array('id', 'username', 'fullname', 'organization_unit', 'direct_supervisor');
-	$column_search = array('username', 'grade', 'class', 'jurusan', 'ruang', 'fullname');
+	$column_search = array('username', 'grade', 'class', 'fullname');
 	$order = array('username' => 'ASC');
 
 	if (isset($_POST['order'])) { // here order processing
@@ -404,8 +404,6 @@ if ($action == "data") {
 		fullname,
 		class,
 		grade,
-		jurusan,
-		ruang,
 		organization_unit_code,
 		organization_unit,
 		position_code,
